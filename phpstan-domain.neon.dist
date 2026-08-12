@@ -1,0 +1,6 @@
+parameters:
+    level: 8
+    paths:
+        - plugins/edulume-core/src/Domain
+        - plugins/edulume-core/src/Application
+    treatPhpDocTypesAsCertain: false

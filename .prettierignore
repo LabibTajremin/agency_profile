@@ -1,0 +1,10 @@
+vendor/
+node_modules/
+build/
+plugins/edulume-core/assets/admin/
+themes/edulume-theme/assets/fonts/
+composer.lock
+package-lock.json
+EDULUME_BUILD_INSTRUCTIONS.md
+composer.json
+package.json

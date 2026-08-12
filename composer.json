@@ -1,0 +1,52 @@
+{
+    "name": "edulume/edulume",
+    "description": "Edulume — a premium WordPress theme and companion plugin for study-abroad consultancies.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "phpstan/phpstan": "^1.11",
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Edulume\\Core\\": "plugins/edulume-core/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Edulume\\Core\\Tests\\Unit\\": "plugins/edulume-core/tests/Unit/",
+            "Edulume\\Core\\Tests\\Integration\\": "plugins/edulume-core/tests/Integration/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "analyse": [
+            "phpstan analyse --configuration=phpstan.neon.dist",
+            "phpstan analyse --configuration=phpstan-domain.neon.dist"
+        ],
+        "test:unit": "phpunit --testsuite unit",
+        "test:integration": "phpunit --testsuite integration",
+        "test:coverage": "XDEBUG_MODE=coverage phpunit --testsuite unit --path-coverage --coverage-clover build/coverage.xml",
+        "coverage:gate": "php bin/coverage-gate.php build/coverage.xml 100 90",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@test:unit",
+            "@test:integration"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Runs lint, static analysis, unit tests and integration tests. The single command a human runs before pushing."
+    }
+}
