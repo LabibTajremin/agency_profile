@@ -65,3 +65,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Safety nets: settings export and import with a full before/after diff shown first, granular
   and full resets behind a typed confirmation, a bounded snapshot history, session undo/redo,
   and a safe mode that renders defaults without touching what is stored.
+- Eligibility checker and cost calculator: profile clamping, course matching that reports near
+  misses instead of hiding them, deterministic ranking, and a cost estimate converted once at
+  the end through admin-editable static rates with no paid API.
