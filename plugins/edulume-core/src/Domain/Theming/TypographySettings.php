@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Domain\Theming;
 
+use Edulume\Core\Domain\Support\Guard;
+
 /**
  * A pairing, sparse per-role overrides, the type scale, and the subsets to ship.
  *
@@ -55,6 +57,44 @@ final class TypographySettings
             self::coerceSubsets($subsets),
             $usesGoogleFontsCdn,
         );
+    }
+
+    /**
+     * @param array<array-key, mixed> $stored
+     */
+    public static function fromArray(array $stored): self
+    {
+        $defaults = self::defaults();
+        $scale = Guard::toArray($stored['scale'] ?? null);
+        $subsets = Guard::toEnumList(FontSubset::class, $stored['subsets'] ?? null);
+
+        return self::of(
+            Guard::toString($stored['pairingSlug'] ?? null, $defaults->pairingSlug),
+            Guard::toStringMap($stored['roleOverrides'] ?? null),
+            TypeScale::of(
+                Guard::toFloat($scale['ratio'] ?? null, TypeScale::DEFAULT_RATIO),
+                Guard::toFloat($scale['baseSizeRem'] ?? null, TypeScale::DEFAULT_BASE_REM),
+            ),
+            $subsets === [] ? $defaults->subsets() : $subsets,
+            Guard::toBool($stored['usesGoogleFontsCdn'] ?? null, $defaults->usesGoogleFontsCdn),
+        );
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function toArray(): array
+    {
+        return [
+            'pairingSlug' => $this->pairingSlug,
+            'roleOverrides' => $this->roleOverrides,
+            'scale' => [
+                'ratio' => $this->scale->ratio,
+                'baseSizeRem' => $this->scale->baseSizeRem,
+            ],
+            'subsets' => array_map(static fn (FontSubset $subset): string => $subset->value, $this->subsets),
+            'usesGoogleFontsCdn' => $this->usesGoogleFontsCdn,
+        ];
     }
 
     public function pairing(): FontPairing

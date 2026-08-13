@@ -19,3 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   carries a nearest-compliant suggestion.
 - Pattern library: 28 tileable SVG patterns with `{{color}}` tinting and percent-encoded
   data-URI output, plus pattern settings with separate light and dark opacities.
+- Typography: 22 self-hosted OFL families, 10 curated pairings, sparse per-role overrides
+  stored as absence, and a fluid `clamp()` type scale with a damped mobile ratio.
+- Motion: five presets with complete timing sets, six named easing curves plus a validated
+  custom bezier, 17 individually toggleable effects, and module loading derived from the
+  active effect list.
+- Settings aggregate: `ThemeSettings` with a schema version, lossless `toArray()`/
+  `fromArray()`, `Guard` coercion helpers, and a migration runner carrying a v1 blob forward
+  without data loss.

@@ -33,10 +33,15 @@
         </properties>
     </rule>
 
+    <!--
+        The threshold sits above the largest enum in the domain. An exhaustive `match` over
+        enum cases scores as branching but reads as a lookup table, and splitting one would
+        make the mapping harder to check, not easier. Real branching logic still trips this.
+    -->
     <rule ref="Generic.Metrics.CyclomaticComplexity">
         <properties>
-            <property name="complexity" value="12"/>
-            <property name="absoluteComplexity" value="20"/>
+            <property name="complexity" value="18"/>
+            <property name="absoluteComplexity" value="24"/>
         </properties>
     </rule>
 </ruleset>

@@ -10,8 +10,8 @@ of every phase so the next session — human or agent — knows exactly where to
 | 2     | Accent palettes                          | Done        |
 | 3     | Pattern library                          | Done        |
 | 4     | Typography                               | Done        |
-| 5     | Motion                                   | Not started |
-| 6     | Settings aggregate and migrations        | Not started |
+| 5     | Motion                                   | Done        |
+| 6     | Settings aggregate and migrations        | Done        |
 | 7     | Per-section overrides and inheritance    | Not started |
 | 8     | Token compiler and compiled-CSS pipeline | Not started |
 | 9     | Style presets                            | Not started |
@@ -26,9 +26,8 @@ npm install
 composer check
 ```
 
-Phase 5 is next: `Domain/Theming/` gains `MotionPreset` (five complete timing sets),
-`MotionEasing` (six named curves plus a validated custom bezier), `MotionEffect` (17
-individually toggleable effects) and `MotionSettings`.
+Phase 7 is next: `SectionId`, `SectionOverride` (every field nullable, null means inherit) and
+a `SectionResolver` that folds global settings with an override into a resolved section.
 
 ## Decisions recorded so far
 

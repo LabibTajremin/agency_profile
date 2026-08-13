@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Domain\Theming;
 
+use Edulume\Core\Domain\Support\Guard;
+
 /**
  * How a pattern is applied: per-mode opacity, scale, tint source, rotation, blend and
  * attachment.
@@ -93,6 +95,60 @@ final class PatternSettings
             self::coerceRotation($rotation),
             $blendMode,
             $attachment,
+        );
+    }
+
+    /**
+     * @param array<array-key, mixed> $stored
+     */
+    public static function fromArray(array $stored): self
+    {
+        $defaults = self::defaultsFor(self::DEFAULT_PATTERN_SLUG);
+
+        $settings = self::of(
+            Guard::toString($stored['patternSlug'] ?? null, $defaults->patternSlug),
+            Guard::toFloat($stored['lightModeOpacity'] ?? null, $defaults->lightModeOpacity),
+            Guard::toFloat($stored['darkModeOpacity'] ?? null, $defaults->darkModeOpacity),
+            Guard::toFloat($stored['scale'] ?? null, $defaults->scale),
+            Guard::toEnum(PatternColorSource::class, $stored['colorSource'] ?? null, $defaults->colorSource),
+            Guard::toInt($stored['rotation'] ?? null, $defaults->rotation),
+            Guard::toEnum(PatternBlendMode::class, $stored['blendMode'] ?? null, $defaults->blendMode),
+            Guard::toEnum(PatternAttachment::class, $stored['attachment'] ?? null, $defaults->attachment),
+        );
+
+        return Guard::toBool($stored['enabled'] ?? true, true) ? $settings : $settings->switchedOff();
+    }
+
+    /**
+     * @return array<string, bool|float|int|string>
+     */
+    public function toArray(): array
+    {
+        return [
+            'enabled' => $this->enabled,
+            'patternSlug' => $this->patternSlug,
+            'lightModeOpacity' => $this->lightModeOpacity,
+            'darkModeOpacity' => $this->darkModeOpacity,
+            'scale' => $this->scale,
+            'colorSource' => $this->colorSource->value,
+            'rotation' => $this->rotation,
+            'blendMode' => $this->blendMode->value,
+            'attachment' => $this->attachment->value,
+        ];
+    }
+
+    public function switchedOff(): self
+    {
+        return new self(
+            false,
+            $this->patternSlug,
+            $this->lightModeOpacity,
+            $this->darkModeOpacity,
+            $this->scale,
+            $this->colorSource,
+            $this->rotation,
+            $this->blendMode,
+            $this->attachment,
         );
     }
 
