@@ -26,8 +26,13 @@ npm install
 composer check
 ```
 
-Phase 12 is next: the chunked, resumable CSV importer with field mapping, per-row validation
-and filtered export, built for a 30-second `max_execution_time`.
+Phase 13 is next: the `Lead` entity, the `LeadStatus` pipeline with legal transitions enforced
+in the domain, and the custom `{prefix}edulume_leads` tables with their migration runner.
+
+Phase 12's WordPress-side adapters — a `ContentWriter` backed by `wp_insert_post`, a
+`ContentReader` backed by `WP_Query`, a file-backed `CsvSource`, and a real
+`ExecutionBudget` reading `max_execution_time` — still need writing. The ports, the use cases
+and the fakes proving the contracts are all in place.
 
 ### Two things Phase 10 could not finish in this sandbox
 

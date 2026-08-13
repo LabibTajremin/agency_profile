@@ -40,3 +40,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Content model: sixteen post types, eleven taxonomies and eight real post-to-post
   relationships stored as IDs, with filterable permalink bases and a per-item accent
   override, all registered by the plugin so content survives a theme switch.
+- CSV import and export: chunked and resumable against an injected execution budget, per-row
+  error reporting that never aborts a run, and an export that honours the applied filters and
+  round-trips back through the importer.
