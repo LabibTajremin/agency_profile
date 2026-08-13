@@ -26,8 +26,9 @@ npm install
 composer check
 ```
 
-Phase 13 is next: the `Lead` entity, the `LeadStatus` pipeline with legal transitions enforced
-in the domain, and the custom `{prefix}edulume_leads` tables with their migration runner.
+Phase 14 is next: the form builder and submission — field types, multi-step forms with
+conditional logic, all six placements, spam protection that works with no captcha configured,
+GDPR consent and erasure, and per-IP rate limiting.
 
 Phase 12's WordPress-side adapters — a `ContentWriter` backed by `wp_insert_post`, a
 `ContentReader` backed by `WP_Query`, a file-backed `CsvSource`, and a real

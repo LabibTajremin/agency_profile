@@ -142,6 +142,88 @@ function current_user_can(string $capability, ...$args): bool
 {
 }
 
+/**
+ * @param string $queries
+ *
+ * @return array<string, string>
+ */
+function dbDelta($queries = '', bool $execute = true): array
+{
+}
+
+const ABSPATH = '/';
+
+class wpdb
+{
+    public string $prefix;
+
+    public string $options;
+
+    public string $posts;
+
+    /**
+     * @param mixed ...$args
+     */
+    public function prepare(string $query, ...$args): string
+    {
+    }
+
+    /**
+     * @param list<mixed>|null $args
+     *
+     * @return string|null
+     */
+    public function get_var(?string $query = null, int $x = 0, int $y = 0)
+    {
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function get_results(?string $query = null, string $output = 'OBJECT'): array
+    {
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     * @param list<string>|null $format
+     */
+    public function insert(string $table, array $data, $format = null): int|false
+    {
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     * @param array<string, mixed> $where
+     */
+    public function update(string $table, array $data, array $where): int|false
+    {
+    }
+
+    public function query(string $query): int|bool
+    {
+    }
+
+    public function get_charset_collate(): string
+    {
+    }
+
+    public int $insert_id;
+
+    public function esc_like(string $text): string
+    {
+    }
+}
+
+/**
+ * @param mixed $data
+ *
+ * @return string|false
+ */
+function wp_json_encode($data, int $flags = 0, int $depth = 512)
+{
+}
+
 class WP_Role
 {
     public string $name;
@@ -198,6 +280,88 @@ function apply_filters(string $hook, $value, ...$args)
  * @param int|string|null $object
  */
 function current_user_can(string $capability, ...$args): bool
+{
+}
+
+/**
+ * @param string $queries
+ *
+ * @return array<string, string>
+ */
+function dbDelta($queries = '', bool $execute = true): array
+{
+}
+
+const ABSPATH = '/';
+
+class wpdb
+{
+    public string $prefix;
+
+    public string $options;
+
+    public string $posts;
+
+    /**
+     * @param mixed ...$args
+     */
+    public function prepare(string $query, ...$args): string
+    {
+    }
+
+    /**
+     * @param list<mixed>|null $args
+     *
+     * @return string|null
+     */
+    public function get_var(?string $query = null, int $x = 0, int $y = 0)
+    {
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function get_results(?string $query = null, string $output = 'OBJECT'): array
+    {
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     * @param list<string>|null $format
+     */
+    public function insert(string $table, array $data, $format = null): int|false
+    {
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     * @param array<string, mixed> $where
+     */
+    public function update(string $table, array $data, array $where): int|false
+    {
+    }
+
+    public function query(string $query): int|bool
+    {
+    }
+
+    public function get_charset_collate(): string
+    {
+    }
+
+    public int $insert_id;
+
+    public function esc_like(string $text): string
+    {
+    }
+}
+
+/**
+ * @param mixed $data
+ *
+ * @return string|false
+ */
+function wp_json_encode($data, int $flags = 0, int $depth = 512)
 {
 }
 

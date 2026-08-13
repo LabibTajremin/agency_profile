@@ -43,3 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CSV import and export: chunked and resumable against an injected execution budget, per-row
   error reporting that never aborts a run, and an export that honours the applied filters and
   round-trips back through the importer.
+- Lead domain and storage: the `Lead` entity with the pipeline's legal transitions enforced in
+  the domain, an append-only note trail, assignment, and custom indexed tables created through
+  an idempotent migration with every query prepared.

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Infrastructure\Wp;
 
+use Edulume\Core\Infrastructure\Lead\LeadTableMigrator;
 use Edulume\Core\Infrastructure\Settings\OptionSettingsRepository;
 
 /**
@@ -21,6 +22,8 @@ final class Activation
     public static function run(string $version): void
     {
         Capabilities::grantToAdministrator();
+
+        (new LeadTableMigrator())->migrate();
 
         update_option(self::VERSION_OPTION, $version, true);
 
