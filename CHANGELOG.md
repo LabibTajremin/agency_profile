@@ -59,3 +59,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - REST API: the `edulume/v1` route catalogue as auditable data, with a JSON schema and a
   required capability on every route, and a registrar that derives the permission callback
   from the definition rather than trusting each controller to remember one.
+- Admin shell foundations: an accent-derived admin palette proven AA across all 24 accents in
+  both admin modes, with an admin light/dark choice independent of the public site, and the
+  Cmd-K settings search index.

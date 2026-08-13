@@ -26,10 +26,19 @@ npm install
 composer check
 ```
 
-Phase 18 is next, and it is where the work changes shape: the React + TypeScript admin SPA on
-`@wordpress/components`, themed by the site accent and provably AA on all 24 accents, with the
-menu IA, admin dark mode and the Cmd-K settings search. Phases 18–23 are admin work, 24–33 are
-theme work, and 34–38 are hardening and release.
+Phase 18 is partly done. What landed is the half that can be proven here:
+
+- `AdminTheme` derives the admin palette from the site accent through the contrast engine, with
+  the admin's light/dark choice independent of the public site's. An automated check proves AA
+  on every admin pair, and the non-text threshold on the focus ring, across **all 24 accents in
+  both admin modes** — the acceptance criterion, asserted rather than asserted-to.
+- `SettingsSearchIndex` backs the Cmd-K search: ranked, stably ordered, reaching every
+  registered control including the ones behind Advanced, and returning the panel, control and
+  disclosure state to jump to.
+
+What remains in Phase 18 is the React SPA itself on `@wordpress/components` — the menu IA from
+PRD §9.2, the routed shell, the Lucide icon sprite and the icon picker. That needs a browser to
+build against, which this sandbox does not have.
 
 Phase 17's remaining work: the concrete controller bodies. `RestHandlers` currently answers
 `GET /settings` and `GET /presets` for real and returns a stub for the rest; each remaining
