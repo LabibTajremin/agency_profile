@@ -26,9 +26,14 @@ npm install
 composer check
 ```
 
-Phase 14 is next: the form builder and submission — field types, multi-step forms with
-conditional logic, all six placements, spam protection that works with no captcha configured,
-GDPR consent and erasure, and per-IP rate limiting.
+Phase 15 is next: the lead inbox — admin screen with search and filters, the detail drawer,
+pipeline management, branch-aware assignment, filtered CSV export and the accent-inheriting
+autoresponder template.
+
+Phase 14's WordPress-side adapters still need writing: a REST/admin-post submission endpoint,
+a transient-backed `RateLimiter`, reCAPTCHA/hCaptcha/Turnstile `CaptchaVerifier`
+implementations, a `wp_mail` `LeadNotifier`, and an uploads-backed `UploadedFileStore`. The
+ports, the use cases and the fakes proving the contracts are all in place.
 
 Phase 12's WordPress-side adapters — a `ContentWriter` backed by `wp_insert_post`, a
 `ContentReader` backed by `WP_Query`, a file-backed `CsvSource`, and a real
