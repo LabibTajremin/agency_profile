@@ -224,6 +224,13 @@ function wp_json_encode($data, int $flags = 0, int $depth = 512)
 {
 }
 
+/**
+ * @param array<string, mixed> $args
+ */
+function register_rest_route(string $namespace, string $route, array $args = [], bool $override = false): bool
+{
+}
+
 class WP_Role
 {
     public string $name;
@@ -362,6 +369,13 @@ class wpdb
  * @return string|false
  */
 function wp_json_encode($data, int $flags = 0, int $depth = 512)
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ */
+function register_rest_route(string $namespace, string $route, array $args = [], bool $override = false): bool
 {
 }
 

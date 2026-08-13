@@ -26,9 +26,15 @@ npm install
 composer check
 ```
 
-Phase 17 is next: the `edulume/v1` REST namespace — settings read/write, palette generation,
-preview compile, leads and content queries, with a full JSON schema and a capability check on
-every route.
+Phase 18 is next, and it is where the work changes shape: the React + TypeScript admin SPA on
+`@wordpress/components`, themed by the site accent and provably AA on all 24 accents, with the
+menu IA, admin dark mode and the Cmd-K settings search. Phases 18–23 are admin work, 24–33 are
+theme work, and 34–38 are hardening and release.
+
+Phase 17's remaining work: the concrete controller bodies. `RestHandlers` currently answers
+`GET /settings` and `GET /presets` for real and returns a stub for the rest; each remaining
+route needs wiring to the use case that already exists behind it, plus integration tests
+asserting 401/403 on the privileged routes.
 
 Phase 16's WordPress-side adapters still need writing: a `wp_remote_post` `WebhookTransport`,
 the four concrete `CrmConnector` implementations, an option-backed `IntegrationLog`, and the

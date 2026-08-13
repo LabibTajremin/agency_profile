@@ -56,3 +56,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integrations and tracking: an HMAC-signed outbound webhook with capped exponential retries,
   CRM connectors that log failures instead of blocking the lead, and consent categories that
   actually gate every tracking script.
+- REST API: the `edulume/v1` route catalogue as auditable data, with a JSON schema and a
+  required capability on every route, and a registrar that derives the permission callback
+  from the definition rather than trusting each controller to remember one.

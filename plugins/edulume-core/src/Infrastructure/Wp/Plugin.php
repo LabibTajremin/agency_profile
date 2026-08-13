@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Wp;
 
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
+use Edulume\Core\Infrastructure\Rest\RestHandlers;
+use Edulume\Core\Infrastructure\Rest\RestRegistrar;
 use Edulume\Core\Infrastructure\Theming\StylesheetEnqueuer;
 
 /**
@@ -51,6 +53,7 @@ final class Plugin
 
         $this->stylesheetEnqueuer()->register();
         (new ContentRegistrar())->register();
+        (new RestRegistrar(new RestHandlers($this->container)))->register();
     }
 
     public function activate(): null
