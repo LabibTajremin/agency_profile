@@ -4,3 +4,5 @@ parameters:
         - plugins/edulume-core/src
         - bin
     treatPhpDocTypesAsCertain: false
+    scanFiles:
+        - tools/phpstan/wordpress-stubs.php

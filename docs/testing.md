@@ -3,11 +3,18 @@
 ## The single command
 
 ```bash
+npx wp-env start   # once, for the integration suite
 composer check
 ```
 
 Runs lint → static analysis → unit tests → integration tests. Exits non-zero if any step fails.
 The same steps run on every pull request.
+
+The unit suite needs nothing but PHP. The integration suite needs a real WordPress, a real
+database and real option storage — that is precisely what it proves — so it runs under
+`wp-env` (Docker) and has its own config, `phpunit-integration.xml.dist`, with its own
+bootstrap. Without WordPress present it fails with instructions rather than skipping: a green
+run must never mean "did not run".
 
 ## Suites
 

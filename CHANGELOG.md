@@ -34,3 +34,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   block emitted last, all named by a content hash.
 - Style presets: ten complete looks, preview-first non-destructive application, byte-for-byte
   undo, and lossless export/import of user presets.
+- Plugin bootstrap: plugin header, activation, deactivation and a gated uninstall, an explicit
+  service container, named capabilities, option-backed settings storage that migrates on read,
+  a hashed stylesheet written into uploads, and the first integration suite under `wp-env`.

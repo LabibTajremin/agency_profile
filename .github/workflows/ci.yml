@@ -44,6 +44,25 @@ jobs:
       - name: Enforce coverage floor on Domain and Application
         run: php bin/coverage-gate.php build/coverage.xml 100 90
 
+  php-integration:
+    name: WordPress integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+          tools: composer:v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: composer install --prefer-dist --no-progress
+      - run: npm ci
+      - run: npx wp-env start
+      - run: npx wp-env run tests-cli --env-cwd=wp-content/plugins/edulume-core vendor/bin/phpunit --configuration=/var/www/html/wp-content/plugins/edulume-core/phpunit-integration.xml.dist --testsuite integration
+
   js-quality:
     name: JS lint & unit tests
     runs-on: ubuntu-latest

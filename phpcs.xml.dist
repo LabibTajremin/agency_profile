@@ -7,6 +7,8 @@
     <arg value="sp"/>
 
     <file>plugins/edulume-core/src</file>
+    <file>plugins/edulume-core/edulume-core.php</file>
+    <file>plugins/edulume-core/uninstall.php</file>
     <file>plugins/edulume-core/tests</file>
     <file>bin</file>
 
@@ -21,9 +23,14 @@
         <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
 
-    <!-- CLI entry points legitimately declare helpers and then run. -->
+    <!--
+        CLI entry points and the WordPress plugin header file legitimately declare things and
+        then run.
+    -->
     <rule ref="PSR1.Files.SideEffects">
         <exclude-pattern>bin/*</exclude-pattern>
+        <exclude-pattern>*/edulume-core.php</exclude-pattern>
+        <exclude-pattern>*/uninstall.php</exclude-pattern>
     </rule>
 
     <rule ref="Generic.Files.LineLength">

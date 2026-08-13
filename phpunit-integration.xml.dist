@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
-         bootstrap="vendor/autoload.php"
+         bootstrap="plugins/edulume-core/tests/Integration/bootstrap.php"
          colors="true"
-         cacheDirectory="build/.phpunit.cache"
+         cacheDirectory="build/.phpunit-integration.cache"
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
          failOnWarning="true">
     <testsuites>
-        <testsuite name="unit">
-            <directory>plugins/edulume-core/tests/Unit</directory>
+        <testsuite name="integration">
+            <directory>plugins/edulume-core/tests/Integration</directory>
         </testsuite>
     </testsuites>
 
     <source>
         <include>
-            <directory>plugins/edulume-core/src/Domain</directory>
-            <directory>plugins/edulume-core/src/Application</directory>
+            <directory>plugins/edulume-core/src/Infrastructure</directory>
+            <directory>plugins/edulume-core/src/Admin</directory>
         </include>
     </source>
-
-    <coverage includeUncoveredFiles="true"/>
 </phpunit>

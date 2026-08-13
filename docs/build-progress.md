@@ -26,14 +26,20 @@ npm install
 composer check
 ```
 
-Phase 10 is next, and it is the turning point: WordPress enters the codebase. Plugin header,
-activation/deactivation/uninstall, a service container, hook registration, capabilities, the
-settings repository behind its `Application/Port` interface, and the first integration tests
-under `wp-env`. The `php-integration` job joins CI in this phase, as does WPCS.
+Phase 11 is next: the sixteen post types and their taxonomies, registered by the plugin, with
+real post-to-post relationships, editable permalink bases and a per-item accent override.
 
-Phase 8's Infrastructure half (writing the compiled stylesheet into `wp-content/uploads/` and
-enqueueing it) is deferred to Phase 10, which is where WordPress first enters the codebase.
-`CompiledStylesheet` already carries the content hash and the filename the writer needs.
+### Two things Phase 10 could not finish in this sandbox
+
+- **The integration suite has not been run here.** It needs `wp-env`, which needs a Docker
+  daemon, and this build environment has the Docker client but no daemon. The suite, its
+  bootstrap, its own PHPUnit config and the `php-integration` CI job are all in place, and the
+  job runs them on every pull request. Without WordPress present the suite fails with
+  instructions rather than skipping — a green run must never mean "did not run".
+- **WordPress Coding Standards are still not enforced.** `wp-coding-standards/wpcs` cannot be
+  installed here (the sandbox cannot reach GitHub for Composer dist downloads), so adding the
+  ruleset would mean shipping a gate whose findings nobody has seen — likely red on arrival.
+  It needs adding, and its findings fixing, in an environment that can install it.
 
 ## Decisions recorded so far
 

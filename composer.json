@@ -36,7 +36,7 @@
             "phpstan analyse --configuration=phpstan-domain.neon.dist"
         ],
         "test:unit": "phpunit --testsuite unit",
-        "test:integration": "phpunit --testsuite integration",
+        "test:integration": "phpunit --configuration=phpunit-integration.xml.dist --testsuite integration",
         "test:coverage": "XDEBUG_MODE=coverage phpunit --testsuite unit --path-coverage --coverage-clover build/coverage.xml",
         "coverage:gate": "php bin/coverage-gate.php build/coverage.xml 100 90",
         "check": [
@@ -44,7 +44,8 @@
             "@analyse",
             "@test:unit",
             "@test:integration"
-        ]
+        ],
+        "test:integration:coverage": "XDEBUG_MODE=coverage phpunit --configuration=phpunit-integration.xml.dist --testsuite integration --coverage-clover build/coverage-integration.xml"
     },
     "scripts-descriptions": {
         "check": "Runs lint, static analysis, unit tests and integration tests. The single command a human runs before pushing."
