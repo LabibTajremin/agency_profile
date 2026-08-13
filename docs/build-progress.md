@@ -26,8 +26,10 @@ npm install
 composer check
 ```
 
-Phase 9 is next: `StylePreset` and a library of 10+ complete looks, plus the `ApplyStylePreset`
-use case — preview-first, non-destructive, snapshot before applying, undoable in-session.
+Phase 10 is next, and it is the turning point: WordPress enters the codebase. Plugin header,
+activation/deactivation/uninstall, a service container, hook registration, capabilities, the
+settings repository behind its `Application/Port` interface, and the first integration tests
+under `wp-env`. The `php-integration` job joins CI in this phase, as does WPCS.
 
 Phase 8's Infrastructure half (writing the compiled stylesheet into `wp-content/uploads/` and
 enqueueing it) is deferred to Phase 10, which is where WordPress first enters the codebase.

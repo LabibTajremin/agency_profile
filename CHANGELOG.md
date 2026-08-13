@@ -27,3 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings aggregate: `ThemeSettings` with a schema version, lossless `toArray()`/
   `fromArray()`, `Guard` coercion helpers, and a migration runner carrying a v1 blob forward
   without data loss.
+- Per-section overrides: inheritance stored as absence, `divergedKeys()`, and a resolver that
+  folds global settings with an override into a section where nothing is nullable.
+- Token compiler and stylesheet pipeline: the complete custom-property set per mode, a
+  dark block re-declaring only what differs, scoped section blocks, and a `prefers-reduced-motion`
+  block emitted last, all named by a content hash.
+- Style presets: ten complete looks, preview-first non-destructive application, byte-for-byte
+  undo, and lossless export/import of user presets.
