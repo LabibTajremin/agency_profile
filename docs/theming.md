@@ -98,3 +98,38 @@ enlarges the site. The narrow-viewport end uses a **damped ratio**: a 1.5 ratio 
 confident on a desktop headline is a wall of text on a 360px phone. Below the base step the
 wide-viewport size is the smaller of the two, so the bounds are ordered explicitly — an
 inverted `clamp()` silently pins to one end.
+
+## Sections and inheritance
+
+`SectionOverride` is a sparse map keyed by `SectionOverrideKey`. An absent key means inherit —
+inheritance is stored as **absence**, never as a copy of the global value. That is what makes a
+later global change propagate into untouched sections, and what lets the admin show an accurate
+modified dot with a per-key revert. `divergedKeys()` reports exactly what the user changed.
+
+`SectionResolver` folds the global settings with an override into a `ResolvedSection` where
+nothing is nullable. An override that sets nothing resolves identically to global, field for
+field — the property everything else relies on.
+
+## The compiled stylesheet
+
+`TokenCompiler` is the only place a design decision becomes a value. Nothing downstream — theme
+stylesheet, block, or template — may contain a colour, font or spacing literal; it reads a
+token instead.
+
+`CompileStylesheet` emits, in this order:
+
+1. `:root` with the light-mode tokens
+2. `[data-theme="dark"]` re-declaring **only** the tokens that actually differ
+3. one scoped block per diverging section, in both modes
+4. the pattern layer, drawn on a pseudo-element so opacity and blend apply to the pattern and
+   not to the content above it
+5. `@media (prefers-reduced-motion: reduce)` — **last**
+
+The reduced-motion block is last on purpose. Source order decides the winner in CSS, and a
+visitor who asked their operating system for less motion must beat every stored setting,
+however specific.
+
+`CompiledStylesheet` carries a content hash derived from the CSS itself, not from a timestamp
+or a settings blob, so the filename changes when and only when the output changes. That is what
+lets the file be served with a far-future cache header and still update the moment a setting
+moves.

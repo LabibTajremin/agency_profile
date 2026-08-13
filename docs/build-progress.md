@@ -3,20 +3,20 @@
 Tracks the phases defined in `EDULUME_BUILD_INSTRUCTIONS.md` §8. Update this file at the end
 of every phase so the next session — human or agent — knows exactly where to start.
 
-| Phase | Name                                     | Status      |
-| ----- | ---------------------------------------- | ----------- |
-| 0     | Repository scaffold and the CI gate      | Done        |
-| 1     | Colour foundation                        | Done        |
-| 2     | Accent palettes                          | Done        |
-| 3     | Pattern library                          | Done        |
-| 4     | Typography                               | Done        |
-| 5     | Motion                                   | Done        |
-| 6     | Settings aggregate and migrations        | Done        |
-| 7     | Per-section overrides and inheritance    | Not started |
-| 8     | Token compiler and compiled-CSS pipeline | Not started |
-| 9     | Style presets                            | Not started |
-| 10    | Plugin bootstrap and WordPress infra     | Not started |
-| 11–38 | Content, leads, admin, theme, release    | Not started |
+| Phase | Name                                     | Status                      |
+| ----- | ---------------------------------------- | --------------------------- |
+| 0     | Repository scaffold and the CI gate      | Done                        |
+| 1     | Colour foundation                        | Done                        |
+| 2     | Accent palettes                          | Done                        |
+| 3     | Pattern library                          | Done                        |
+| 4     | Typography                               | Done                        |
+| 5     | Motion                                   | Done                        |
+| 6     | Settings aggregate and migrations        | Done                        |
+| 7     | Per-section overrides and inheritance    | Done                        |
+| 8     | Token compiler and compiled-CSS pipeline | Done (domain + application) |
+| 9     | Style presets                            | Not started                 |
+| 10    | Plugin bootstrap and WordPress infra     | Not started                 |
+| 11–38 | Content, leads, admin, theme, release    | Not started                 |
 
 ## Where to start
 
@@ -26,8 +26,12 @@ npm install
 composer check
 ```
 
-Phase 7 is next: `SectionId`, `SectionOverride` (every field nullable, null means inherit) and
-a `SectionResolver` that folds global settings with an override into a resolved section.
+Phase 9 is next: `StylePreset` and a library of 10+ complete looks, plus the `ApplyStylePreset`
+use case — preview-first, non-destructive, snapshot before applying, undoable in-session.
+
+Phase 8's Infrastructure half (writing the compiled stylesheet into `wp-content/uploads/` and
+enqueueing it) is deferred to Phase 10, which is where WordPress first enters the codebase.
+`CompiledStylesheet` already carries the content hash and the filename the writer needs.
 
 ## Decisions recorded so far
 
