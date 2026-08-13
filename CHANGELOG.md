@@ -62,3 +62,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Admin shell foundations: an accent-derived admin palette proven AA across all 24 accents in
   both admin modes, with an admin light/dark choice independent of the public site, and the
   Cmd-K settings search index.
+- Safety nets: settings export and import with a full before/after diff shown first, granular
+  and full resets behind a typed confirmation, a bounded snapshot history, session undo/redo,
+  and a safe mode that renders defaults without touching what is stored.
