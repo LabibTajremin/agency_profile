@@ -50,3 +50,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   conditional logic, six placements, honeypot and time-trap spam protection that works with no
   captcha configured, per-address rate limiting, GDPR consent, retention periods and erasure
   that also removes uploaded files.
+- Lead inbox: composable filters with pagination, a counsellor scope applied after the request
+  so it cannot be widened, page-by-page filtered CSV export, branch-aware notification
+  recipients, and an autoresponder that inlines the site's own accent.

@@ -35,6 +35,22 @@ final class InMemoryLeadRepository implements LeadRepository
 
     public function search(LeadQuery $query): array
     {
+        return array_slice($this->matching($query), $query->offset(), $query->perPage);
+    }
+
+    public function count(LeadQuery $query): int
+    {
+        return count($this->matching($query));
+    }
+
+    /**
+     * Counting must ignore pagination, exactly as a SQL COUNT(*) does; a fake that counts one
+     * page is a fake that hides a broken pager.
+     *
+     * @return list<Lead>
+     */
+    private function matching(LeadQuery $query): array
+    {
         $matching = [];
 
         foreach ($this->leads as $lead) {
@@ -57,12 +73,7 @@ final class InMemoryLeadRepository implements LeadRepository
             $matching[] = $lead;
         }
 
-        return array_slice($matching, $query->offset(), $query->perPage);
-    }
-
-    public function count(LeadQuery $query): int
-    {
-        return count($this->search($query->forPage(1)));
+        return $matching;
     }
 
     public function delete(int $id): void

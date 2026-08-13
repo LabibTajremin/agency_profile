@@ -26,9 +26,13 @@ npm install
 composer check
 ```
 
-Phase 15 is next: the lead inbox — admin screen with search and filters, the detail drawer,
-pipeline management, branch-aware assignment, filtered CSV export and the accent-inheriting
-autoresponder template.
+Phase 16 is next: integrations and tracking — outbound webhook with a signed payload and
+retries, Mailchimp/Brevo/Google Sheets/HubSpot connectors, GA4/Meta/GTM fields, and a
+cookie-consent banner whose toggles actually gate the scripts.
+
+Phase 15's WordPress-side screen still needs writing: the admin Leads list table, the detail
+drawer and the export download handler. The listing, pipeline, export and autoresponder logic
+they call is done and covered.
 
 Phase 14's WordPress-side adapters still need writing: a REST/admin-post submission endpoint,
 a transient-backed `RateLimiter`, reCAPTCHA/hCaptcha/Turnstile `CaptchaVerifier`
