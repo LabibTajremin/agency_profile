@@ -53,3 +53,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Lead inbox: composable filters with pagination, a counsellor scope applied after the request
   so it cannot be widened, page-by-page filtered CSV export, branch-aware notification
   recipients, and an autoresponder that inlines the site's own accent.
+- Integrations and tracking: an HMAC-signed outbound webhook with capped exponential retries,
+  CRM connectors that log failures instead of blocking the lead, and consent categories that
+  actually gate every tracking script.

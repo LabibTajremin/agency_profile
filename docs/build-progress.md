@@ -26,9 +26,13 @@ npm install
 composer check
 ```
 
-Phase 16 is next: integrations and tracking — outbound webhook with a signed payload and
-retries, Mailchimp/Brevo/Google Sheets/HubSpot connectors, GA4/Meta/GTM fields, and a
-cookie-consent banner whose toggles actually gate the scripts.
+Phase 17 is next: the `edulume/v1` REST namespace — settings read/write, palette generation,
+preview compile, leads and content queries, with a full JSON schema and a capability check on
+every route.
+
+Phase 16's WordPress-side adapters still need writing: a `wp_remote_post` `WebhookTransport`,
+the four concrete `CrmConnector` implementations, an option-backed `IntegrationLog`, and the
+front-end consent banner that reads `ConsentState`.
 
 Phase 15's WordPress-side screen still needs writing: the admin Leads list table, the detail
 drawer and the export download handler. The listing, pipeline, export and autoresponder logic
