@@ -67,3 +67,34 @@ is invisible on a near-black one. Defaults are 0.06 in light mode and 0.10 in da
 Scale is clamped to 0.5×–3×, rotation wraps into a single turn, and every value coerces
 rather than throws — these settings arrive from REST, from imported JSON, and from rows
 written by an older schema.
+
+## Typography
+
+`FontLibrary` ships **22 self-hosted families**, every one SIL Open Font Licence 1.1 with a
+matching row in `CREDITS.md` — enforced by a test, not by memory. Three of them cover Arabic,
+Bengali and Devanagari.
+
+Families are self-hosted WOFF2 by default. The Google Fonts CDN is an opt-in toggle, off by
+default: a default-on CDN sends every visitor's IP to a third party and costs a connection to
+a second origin.
+
+`FontPairingLibrary` ships **10 pairings**. A pairing sets heading and body; the other four
+roles (display, interface, quote, code) inherit from one of those two.
+
+### Overrides are stored as absence
+
+`TypographySettings` holds sparse per-role overrides. A role with no entry follows the
+pairing, so changing the pairing later propagates into every role the user never touched.
+`withoutRoleOverride()` restores inheritance by removing the key, never by copying the current
+value into it.
+
+`familiesInUse()` returns only the families a role actually resolves to. Enqueueing the whole
+bundled library is how a 100 KB font budget turns into half a megabyte.
+
+### The scale
+
+`TypeScale` emits fluid `clamp()` values in rem, never px, so raising the browser base size
+enlarges the site. The narrow-viewport end uses a **damped ratio**: a 1.5 ratio that reads as
+confident on a desktop headline is a wall of text on a 360px phone. Below the base step the
+wide-viewport size is the smaller of the two, so the bounds are ordered explicitly — an
+inverted `clamp()` silently pins to one end.

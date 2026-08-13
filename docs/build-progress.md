@@ -9,7 +9,7 @@ of every phase so the next session — human or agent — knows exactly where to
 | 1     | Colour foundation                        | Done        |
 | 2     | Accent palettes                          | Done        |
 | 3     | Pattern library                          | Done        |
-| 4     | Typography                               | Not started |
+| 4     | Typography                               | Done        |
 | 5     | Motion                                   | Not started |
 | 6     | Settings aggregate and migrations        | Not started |
 | 7     | Per-section overrides and inheritance    | Not started |
@@ -26,10 +26,9 @@ npm install
 composer check
 ```
 
-Phase 4 is next: `Domain/Theming/` gains `FontFamily`, `FontCategory`, `FontLibrary` (22
-self-hosted families), `FontRole`, `FontPairing`, `FontPairingLibrary` (10 pairings),
-`TypeScale` and `TypographySettings`. Every bundled family needs a `CREDITS.md` entry in the
-same commit that introduces it.
+Phase 5 is next: `Domain/Theming/` gains `MotionPreset` (five complete timing sets),
+`MotionEasing` (six named curves plus a validated custom bezier), `MotionEffect` (17
+individually toggleable effects) and `MotionSettings`.
 
 ## Decisions recorded so far
 
