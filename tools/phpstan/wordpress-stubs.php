@@ -103,6 +103,45 @@ function wp_enqueue_style(string $handle, string $src = '', array $deps = [], $v
 {
 }
 
+/**
+ * @param array<string, mixed> $args
+ */
+function register_post_type(string $postType, array $args = []): void
+{
+}
+
+/**
+ * @param string|list<string> $objectType
+ * @param array<string, mixed> $args
+ */
+function register_taxonomy(string $taxonomy, $objectType, array $args = []): void
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ */
+function register_post_meta(string $postType, string $metaKey, array $args = []): bool
+{
+}
+
+/**
+ * @param mixed $value
+ * @param mixed ...$args
+ *
+ * @return mixed
+ */
+function apply_filters(string $hook, $value, ...$args)
+{
+}
+
+/**
+ * @param int|string|null $object
+ */
+function current_user_can(string $capability, ...$args): bool
+{
+}
+
 class WP_Role
 {
     public string $name;
@@ -121,6 +160,45 @@ class WP_Role
     public function has_cap(string $cap): bool
     {
     }
+}
+
+/**
+ * @param array<string, mixed> $args
+ */
+function register_post_type(string $postType, array $args = []): void
+{
+}
+
+/**
+ * @param string|list<string> $objectType
+ * @param array<string, mixed> $args
+ */
+function register_taxonomy(string $taxonomy, $objectType, array $args = []): void
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ */
+function register_post_meta(string $postType, string $metaKey, array $args = []): bool
+{
+}
+
+/**
+ * @param mixed $value
+ * @param mixed ...$args
+ *
+ * @return mixed
+ */
+function apply_filters(string $hook, $value, ...$args)
+{
+}
+
+/**
+ * @param int|string|null $object
+ */
+function current_user_can(string $capability, ...$args): bool
+{
 }
 
 class WP_Roles

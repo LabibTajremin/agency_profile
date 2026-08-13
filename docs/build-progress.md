@@ -26,8 +26,8 @@ npm install
 composer check
 ```
 
-Phase 11 is next: the sixteen post types and their taxonomies, registered by the plugin, with
-real post-to-post relationships, editable permalink bases and a per-item accent override.
+Phase 12 is next: the chunked, resumable CSV importer with field mapping, per-row validation
+and filtered export, built for a 30-second `max_execution_time`.
 
 ### Two things Phase 10 could not finish in this sandbox
 

@@ -37,3 +37,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Plugin bootstrap: plugin header, activation, deactivation and a gated uninstall, an explicit
   service container, named capabilities, option-backed settings storage that migrates on read,
   a hashed stylesheet written into uploads, and the first integration suite under `wp-env`.
+- Content model: sixteen post types, eleven taxonomies and eight real post-to-post
+  relationships stored as IDs, with filterable permalink bases and a per-item accent
+  override, all registered by the plugin so content survives a theme switch.
