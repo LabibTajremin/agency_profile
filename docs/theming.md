@@ -133,3 +133,31 @@ however specific.
 or a settings blob, so the filename changes when and only when the output changes. That is what
 lets the file be served with a far-future cache header and still update the moment a setting
 moves.
+
+## Why a misspelt token is worse than a missing one
+
+`composer audit:tokens` (`bin/token-audit.php`) fails the build when theme CSS reads a custom
+property that neither the compiler emits nor the theme declares. It exists because of a bug
+that survived every other gate in this pipeline.
+
+The theme read `var(--edulume-surface-sunken, #f1f2f4)` in the footer and the utility bar. It
+looked right, it passed the literal gate — a fallback is allowed — and in light mode it *was*
+right, because the fallback is a light grey and so is the light-mode surface. Nothing emits
+`--edulume-surface-sunken`. The compiler emits `--edulume-surface-subtle`.
+
+In dark mode the ink token flipped to near-white, as designed, and the background stayed the
+light grey literal, because a fallback does not change with the mode. The result was white on
+white at **1.07:1** against a 4.5:1 requirement, on every template, for as long as the typo
+had existed. The failure was invisible in the mode people develop in.
+
+So the gate does not check against a list of valid token names. A hand-maintained list would
+have been written by the same person who made the typo, and would have contained it. It
+instantiates `TokenCompiler`, compiles the default settings in **both** modes, and asks what
+came out — a token emitted in only one mode is precisely the asymmetry worth catching.
+
+The corollary for anyone adding CSS: a `var()` fallback is a degradation path for when the
+plugin is deactivated, never a value. If something must respond to the accent or the mode, it
+has to be a `var()` of a token that does. Tokens the compiler does not own — the spacing steps,
+the pill radius, the shadow — are derived in the theme's own `:root` in `base.css` from tokens
+it does, which is why widening the gutter moves the header padding and the footer rhythm with
+it.

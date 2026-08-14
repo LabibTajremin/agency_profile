@@ -41,6 +41,9 @@ one lead form on each.
 ## 4. Accessibility
 
 - [ ] axe sweep green in CI (every template, both modes)
+- [ ] `composer audit:tokens` green — proves no stylesheet reads a custom property nothing
+      defines. That failure looks correct in light mode, because the `var()` fallback is a
+      light-mode value, and fails every template in dark; see [theming](theming.md)
 - [ ] NVDA / Firefox pass recorded — see [accessibility](accessibility.md)
 - [ ] VoiceOver / Safari pass recorded, macOS and iOS
 - [ ] 200% zoom and 400% reflow checked at four breakpoints
