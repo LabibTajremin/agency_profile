@@ -88,7 +88,8 @@ function isExcluded(string $relativePath): bool
         return true;
     }
 
-    return str_ends_with($relativePath, '.map')
+    return str_ends_with($relativePath, '.phar')
+        || str_ends_with($relativePath, '.map')
         || str_contains($relativePath, '/node_modules/')
         || str_contains($relativePath, '/vendor/')
         || str_contains($relativePath, '/tests/');

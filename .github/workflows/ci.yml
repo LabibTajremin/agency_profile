@@ -94,6 +94,13 @@ jobs:
         # lock file that cannot be satisfied there would break `composer install` for everyone.
         # WordPress's core test bootstrap refuses to start without these.
         run: composer require --dev --no-interaction --no-audit --no-progress yoast/phpunit-polyfills:^2.0
+      - name: Fetch PHPUnit 9 for the integration suite
+        # Downloaded into the plugin directory, which is what wp-env mounts into the container.
+        # The repository's own PHPUnit stays at 10 for the unit suite; only WordPress's test
+        # suite needs the older one.
+        run: |
+          curl -sSLo plugins/edulume-core/phpunit-9.phar https://phar.phpunit.de/phpunit-9.phar
+          chmod +x plugins/edulume-core/phpunit-9.phar
       - run: npm ci
       - run: npm run env:start
       - name: Prove WordPress is actually up

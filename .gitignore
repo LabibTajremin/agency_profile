@@ -17,3 +17,4 @@
 /composer.local.json
 /composer.local.lock
 .phpunit-integration.cache/
+plugins/edulume-core/phpunit-9.phar

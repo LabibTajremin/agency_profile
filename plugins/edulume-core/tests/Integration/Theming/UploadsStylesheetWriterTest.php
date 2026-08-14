@@ -8,7 +8,6 @@ use Edulume\Core\Application\Theming\CompiledStylesheet;
 use Edulume\Core\Infrastructure\Theming\StylesheetEnqueuer;
 use Edulume\Core\Infrastructure\Theming\UploadsStylesheetWriter;
 use Edulume\Core\Infrastructure\Wp\Container;
-use PHPUnit\Framework\Attributes\Test;
 use WP_UnitTestCase;
 
 /**
@@ -30,7 +29,7 @@ final class UploadsStylesheetWriterTest extends WP_UnitTestCase
         }
     }
 
-    #[Test]
+    /** @test */
     public function it_writes_the_stylesheet_into_the_uploads_directory(): void
     {
         $stylesheet = CompiledStylesheet::of(":root {\n  --edulume-accent: #123a6b;\n}\n");
@@ -42,7 +41,7 @@ final class UploadsStylesheetWriterTest extends WP_UnitTestCase
         $this->assertStringContainsString('/uploads/' . UploadsStylesheetWriter::DIRECTORY_NAME . '/', $url);
     }
 
-    #[Test]
+    /** @test */
     public function it_writes_exactly_what_it_was_given(): void
     {
         $css = ":root {\n  --edulume-accent: #123a6b;\n}\n";
@@ -53,7 +52,7 @@ final class UploadsStylesheetWriterTest extends WP_UnitTestCase
         $this->assertSame($css, file_get_contents($this->writer->directoryPath() . '/' . $stylesheet->fileName()));
     }
 
-    #[Test]
+    /** @test */
     public function it_leaves_an_identical_file_alone(): void
     {
         $stylesheet = CompiledStylesheet::of(":root {\n  --edulume-accent: #123a6b;\n}\n");
@@ -67,7 +66,7 @@ final class UploadsStylesheetWriterTest extends WP_UnitTestCase
         $this->assertSame($writtenAt, filemtime($path));
     }
 
-    #[Test]
+    /** @test */
     public function it_prunes_every_stylesheet_except_the_one_it_keeps(): void
     {
         $old = CompiledStylesheet::of(":root {\n  --edulume-accent: #123a6b;\n}\n");
@@ -81,7 +80,7 @@ final class UploadsStylesheetWriterTest extends WP_UnitTestCase
         $this->assertFileExists($this->writer->directoryPath() . '/' . $new->fileName());
     }
 
-    #[Test]
+    /** @test */
     public function it_publishes_and_enqueues_the_compiled_stylesheet(): void
     {
         $container = new Container();

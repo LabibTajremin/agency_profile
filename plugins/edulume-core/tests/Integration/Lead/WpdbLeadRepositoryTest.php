@@ -11,7 +11,6 @@ use Edulume\Core\Domain\Lead\LeadStatus;
 use Edulume\Core\Domain\Lead\LeadTableSchema;
 use Edulume\Core\Infrastructure\Lead\LeadTableMigrator;
 use Edulume\Core\Infrastructure\Lead\WpdbLeadRepository;
-use PHPUnit\Framework\Attributes\Test;
 use WP_UnitTestCase;
 
 /**
@@ -46,14 +45,14 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         return Lead::captured($name, $email, '+8801700000000', 'enquiry', ['destination' => 'Canada'], self::NOW, $branchId);
     }
 
-    #[Test]
+    /** @test */
     public function it_creates_both_tables(): void
     {
         $this->assertTrue((new LeadTableMigrator())->tablesExist());
         $this->assertSame(LeadTableSchema::CURRENT_VERSION, (new LeadTableMigrator())->installedVersion());
     }
 
-    #[Test]
+    /** @test */
     public function it_migrates_idempotently(): void
     {
         $id = $this->repository->save($this->capture('Amina Rahman', 'amina@example.test'), self::NOW);
@@ -65,7 +64,7 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         $this->assertNotNull($this->repository->find($id));
     }
 
-    #[Test]
+    /** @test */
     public function it_round_trips_a_lead_including_notes_and_submission(): void
     {
         $lead = $this->capture('Amina Rahman', 'amina@example.test', 7)
@@ -85,13 +84,13 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         $this->assertCount(3, $loaded->notes);
     }
 
-    #[Test]
+    /** @test */
     public function it_returns_nothing_for_a_lead_that_does_not_exist(): void
     {
         $this->assertNull($this->repository->find(987654));
     }
 
-    #[Test]
+    /** @test */
     public function it_updates_rather_than_duplicating_on_a_second_save(): void
     {
         $id = $this->repository->save($this->capture('Amina Rahman', 'amina@example.test'), self::NOW);
@@ -104,7 +103,7 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         $this->assertSame(1, $this->repository->count(LeadQuery::all()));
     }
 
-    #[Test]
+    /** @test */
     public function it_deletes_a_lead_and_its_meta(): void
     {
         $id = $this->repository->save($this->capture('Amina Rahman', 'amina@example.test'), self::NOW);
@@ -121,7 +120,7 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         );
     }
 
-    #[Test]
+    /** @test */
     public function it_filters_by_status_assignee_and_branch(): void
     {
         $this->repository->save(
@@ -136,7 +135,7 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         $this->assertCount(0, $this->repository->search(LeadQuery::of(branchId: 99)));
     }
 
-    #[Test]
+    /** @test */
     public function it_searches_across_name_email_and_phone(): void
     {
         $this->repository->save($this->capture('Amina Rahman', 'amina@example.test'), self::NOW);
@@ -147,7 +146,7 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         $this->assertCount(2, $this->repository->search(LeadQuery::of(searchTerm: '+880')));
     }
 
-    #[Test]
+    /** @test */
     public function it_paginates_and_filters_ten_thousand_leads_without_a_slow_query(): void
     {
         global $wpdb;
@@ -191,7 +190,7 @@ final class WpdbLeadRepositoryTest extends WP_UnitTestCase
         $this->assertLessThan(self::SLOW_QUERY_SECONDS, $elapsed, 'Filtering the inbox took too long.');
     }
 
-    #[Test]
+    /** @test */
     public function it_ignores_a_sort_column_that_is_not_on_the_allowlist(): void
     {
         $this->repository->save($this->capture('Amina Rahman', 'amina@example.test'), self::NOW);

@@ -14,7 +14,6 @@ use Edulume\Core\Infrastructure\Wp\Activation;
 use Edulume\Core\Infrastructure\Wp\Capabilities;
 use Edulume\Core\Infrastructure\Wp\Container;
 use Edulume\Core\Infrastructure\Wp\Deactivation;
-use PHPUnit\Framework\Attributes\Test;
 use WP_UnitTestCase;
 
 /**
@@ -34,7 +33,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         delete_option(Activation::ACTIVATED_AT_OPTION);
     }
 
-    #[Test]
+    /** @test */
     public function it_grants_every_capability_to_the_administrator_on_activation(): void
     {
         Activation::run(self::TEST_VERSION);
@@ -48,7 +47,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         }
     }
 
-    #[Test]
+    /** @test */
     public function it_never_grants_a_capability_to_a_subscriber(): void
     {
         Activation::run(self::TEST_VERSION);
@@ -62,7 +61,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         }
     }
 
-    #[Test]
+    /** @test */
     public function it_records_the_version_it_activated_at(): void
     {
         Activation::run(self::TEST_VERSION);
@@ -71,7 +70,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         $this->assertNotSame('', (string) get_option(Activation::ACTIVATED_AT_OPTION));
     }
 
-    #[Test]
+    /** @test */
     public function it_keeps_the_original_activation_timestamp_across_a_reactivation(): void
     {
         Activation::run(self::TEST_VERSION);
@@ -83,7 +82,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         $this->assertSame('0.2.0-test', get_option(Activation::VERSION_OPTION));
     }
 
-    #[Test]
+    /** @test */
     public function it_writes_no_settings_on_activation(): void
     {
         delete_option(OptionSettingsRepository::SETTINGS_OPTION);
@@ -93,7 +92,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         $this->assertFalse(Activation::hasStoredSettings());
     }
 
-    #[Test]
+    /** @test */
     public function it_loses_no_configuration_when_deactivated(): void
     {
         $repository = new OptionSettingsRepository(new \Edulume\Core\Domain\Theming\SettingsMigrator());
@@ -107,7 +106,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         $this->assertSame($settings->toArray(), $repository->load()->toArray());
     }
 
-    #[Test]
+    /** @test */
     public function it_removes_every_capability_when_they_are_revoked(): void
     {
         Activation::run(self::TEST_VERSION);
@@ -122,7 +121,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         }
     }
 
-    #[Test]
+    /** @test */
     public function it_wires_the_container_to_the_wordpress_implementations(): void
     {
         $container = new Container();
@@ -133,7 +132,7 @@ final class PluginLifecycleTest extends WP_UnitTestCase
         $this->assertInstanceOf(StylesheetWriter::class, $container->stylesheetWriter());
     }
 
-    #[Test]
+    /** @test */
     public function it_builds_each_service_once(): void
     {
         $container = new Container();

@@ -11,7 +11,6 @@ use Edulume\Core\Domain\Theming\SettingsMigrator;
 use Edulume\Core\Domain\Theming\ThemeMode;
 use Edulume\Core\Domain\Theming\ThemeSettings;
 use Edulume\Core\Infrastructure\Settings\OptionSettingsRepository;
-use PHPUnit\Framework\Attributes\Test;
 use WP_UnitTestCase;
 
 /**
@@ -32,13 +31,13 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         delete_option(OptionSettingsRepository::SECTION_OVERRIDES_OPTION);
     }
 
-    #[Test]
+    /** @test */
     public function it_returns_the_defaults_when_nothing_has_been_saved(): void
     {
         $this->assertSame(ThemeSettings::defaults()->toArray(), $this->repository->load()->toArray());
     }
 
-    #[Test]
+    /** @test */
     public function it_persists_settings_and_reloads_them_unchanged(): void
     {
         $settings = ThemeSettings::defaults()->withCustomAccent(Srgb::fromHex('#7a2e6b'));
@@ -48,7 +47,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame($settings->toArray(), $this->repository->load()->toArray());
     }
 
-    #[Test]
+    /** @test */
     public function it_survives_a_full_option_cache_flush(): void
     {
         $settings = ThemeSettings::defaults()->withCustomAccent(Srgb::fromHex('#0f766e'));
@@ -59,7 +58,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame($settings->toArray(), $this->repository->load()->toArray());
     }
 
-    #[Test]
+    /** @test */
     public function it_migrates_an_older_blob_on_read_and_writes_the_result_back(): void
     {
         update_option(OptionSettingsRepository::SETTINGS_OPTION, [
@@ -81,7 +80,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame(ThemeSettings::CURRENT_SCHEMA_VERSION, $stored['schemaVersion']);
     }
 
-    #[Test]
+    /** @test */
     public function it_loads_defaults_from_a_corrupt_option_rather_than_failing(): void
     {
         update_option(OptionSettingsRepository::SETTINGS_OPTION, 'not an array at all', false);
@@ -89,7 +88,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame(ThemeSettings::defaults()->accentSlug, $this->repository->load()->accentSlug);
     }
 
-    #[Test]
+    /** @test */
     public function it_persists_a_section_override(): void
     {
         $override = SectionOverride::inheritEverything()->with(SectionOverrideKey::AccentSlug, 'ivy-green');
@@ -102,7 +101,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame($override->toArray(), $loaded['hero']->toArray());
     }
 
-    #[Test]
+    /** @test */
     public function it_stores_inheritance_as_absence_rather_than_an_empty_row(): void
     {
         $this->repository->saveSectionOverride('hero', SectionOverride::inheritEverything());
@@ -110,7 +109,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame([], $this->repository->loadSectionOverrides());
     }
 
-    #[Test]
+    /** @test */
     public function it_removes_an_override_when_the_last_key_is_reset(): void
     {
         $this->repository->saveSectionOverride(
@@ -123,7 +122,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame([], $this->repository->loadSectionOverrides());
     }
 
-    #[Test]
+    /** @test */
     public function it_ignores_a_stored_override_for_something_that_is_not_a_section(): void
     {
         update_option(OptionSettingsRepository::SECTION_OVERRIDES_OPTION, [
@@ -134,7 +133,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame(['hero'], array_keys($this->repository->loadSectionOverrides()));
     }
 
-    #[Test]
+    /** @test */
     public function it_deletes_nothing_when_asked_to_remove_an_override_that_is_not_there(): void
     {
         $this->repository->saveSectionOverride(
@@ -147,7 +146,7 @@ final class OptionSettingsRepositoryTest extends WP_UnitTestCase
         $this->assertSame(['hero'], array_keys($this->repository->loadSectionOverrides()));
     }
 
-    #[Test]
+    /** @test */
     public function it_keeps_the_settings_out_of_the_autoloaded_option_set(): void
     {
         $this->repository->save(ThemeSettings::defaults());

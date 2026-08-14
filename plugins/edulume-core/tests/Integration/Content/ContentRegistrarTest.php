@@ -7,7 +7,6 @@ namespace Edulume\Core\Tests\Integration\Content;
 use Edulume\Core\Domain\Content\ContentModel;
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
 use Edulume\Core\Infrastructure\Content\PostTypeAccentOverride;
-use PHPUnit\Framework\Attributes\Test;
 use WP_UnitTestCase;
 
 /**
@@ -26,7 +25,7 @@ final class ContentRegistrarTest extends WP_UnitTestCase
         (new ContentRegistrar())->registerAccentOverrides();
     }
 
-    #[Test]
+    /** @test */
     public function it_registers_every_post_type_with_its_labels_and_rewrite_rules(): void
     {
         foreach (ContentModel::postTypes() as $definition) {
@@ -41,7 +40,7 @@ final class ContentRegistrarTest extends WP_UnitTestCase
         }
     }
 
-    #[Test]
+    /** @test */
     public function it_registers_every_taxonomy_against_its_post_types(): void
     {
         foreach (ContentModel::taxonomies() as $definition) {
@@ -53,7 +52,7 @@ final class ContentRegistrarTest extends WP_UnitTestCase
         }
     }
 
-    #[Test]
+    /** @test */
     public function it_resolves_a_relationship_in_both_directions(): void
     {
         $institution = self::factory()->post->create(['post_type' => ContentModel::postTypeKey('institution')]);
@@ -76,7 +75,7 @@ final class ContentRegistrarTest extends WP_UnitTestCase
         $this->assertSame([$course], $coursesAtInstitution);
     }
 
-    #[Test]
+    /** @test */
     public function it_keeps_content_when_the_theme_changes(): void
     {
         $course = self::factory()->post->create([
@@ -90,7 +89,7 @@ final class ContentRegistrarTest extends WP_UnitTestCase
         $this->assertSame('MSc Data Science', get_the_title($course));
     }
 
-    #[Test]
+    /** @test */
     public function it_stores_a_curated_accent_override_on_an_item(): void
     {
         $course = self::factory()->post->create(['post_type' => ContentModel::postTypeKey('course')]);
@@ -100,7 +99,7 @@ final class ContentRegistrarTest extends WP_UnitTestCase
         $this->assertSame('ivy-green', get_post_meta($course, PostTypeAccentOverride::META_KEY, true));
     }
 
-    #[Test]
+    /** @test */
     public function it_normalises_a_custom_accent_hex(): void
     {
         $this->assertSame('#7a2e6b', PostTypeAccentOverride::sanitize('#7A2E6B'));
@@ -110,7 +109,7 @@ final class ContentRegistrarTest extends WP_UnitTestCase
         $this->assertSame('', PostTypeAccentOverride::sanitize(''));
     }
 
-    #[Test]
+    /** @test */
     public function it_lets_a_site_owner_localise_a_rewrite_base(): void
     {
         add_filter(

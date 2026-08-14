@@ -36,7 +36,7 @@
             "phpstan analyse --configuration=phpstan-domain.neon.dist"
         ],
         "test:unit": "phpunit --testsuite unit",
-        "test:integration": "phpunit --configuration=plugins/edulume-core/phpunit-integration.xml.dist --testsuite integration",
+        "test:integration": "php plugins/edulume-core/phpunit-9.phar --configuration=plugins/edulume-core/phpunit-integration.xml.dist --testsuite integration",
         "test:coverage": "XDEBUG_MODE=coverage phpunit --testsuite unit --path-coverage --coverage-clover build/coverage.xml",
         "coverage:gate": "php bin/coverage-gate.php build/coverage.xml 100 90",
         "check": [
@@ -49,7 +49,6 @@
             "@test:unit",
             "@test:integration"
         ],
-        "test:integration:coverage": "XDEBUG_MODE=coverage phpunit --configuration=plugins/edulume-core/phpunit-integration.xml.dist --testsuite integration --coverage-clover build/coverage-integration.xml",
         "audit:theme": "php bin/theme-audit.php",
         "audit:queries": "php bin/query-audit.php",
         "audit:i18n": "php bin/i18n-audit.php",
