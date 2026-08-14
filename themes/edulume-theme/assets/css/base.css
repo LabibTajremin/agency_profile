@@ -153,3 +153,53 @@ video {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+/*
+ * The focus ring.
+ *
+ * `:focus-visible` rather than `:focus`, so a mouse click on a button does not leave a ring
+ * behind — that is the reason people used to remove focus outlines altogether, and removing
+ * them is what made keyboard navigation impossible on half the web.
+ *
+ * Two rings: the accent one, and a contrasting offset behind it. A single accent ring is
+ * invisible against a section whose background is that same accent, which is a state this
+ * theme can genuinely produce.
+ */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--edulume-focus-ring, #1b5fa8);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--edulume-focus-halo, #ffffff);
+}
+
+/* Every interactive target clears the 44px floor on both axes. */
+:where(button, [role='button'], summary, .edulume-nav__list a, .edulume-footer__menu a) {
+  min-block-size: 44px;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * Reduced motion, declared last in the base sheet so nothing in it can lose to a later rule.
+ * This overrides every motion setting the configurator can store — that is deliberate and not
+ * configurable.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

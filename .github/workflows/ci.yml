@@ -79,3 +79,35 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+
+  # The performance budget and the accessibility sweep both need a running site, so they share
+  # the wp-env stack rather than each paying for their own two-minute Docker start.
+  site-audits:
+    name: Lighthouse budget & axe sweep
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+          tools: composer:v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: composer install --prefer-dist --no-progress
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+      - run: npx wp-env start
+      - name: Seed the demo content the audits measure against
+        run: npx wp-env run tests-cli wp edulume demo import boutique --mode=full
+      - name: Lighthouse against the mobile budget
+        run: npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json
+      - name: axe against every template in both modes
+        run: node tools/axe/run.mjs
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright

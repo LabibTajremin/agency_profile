@@ -38,6 +38,10 @@ function steps(): array
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Coverage + gate', 'command' => 'composer test:coverage && composer coverage:gate',
             'job' => 'php-unit', 'needsDocker' => false, 'slow' => true],
+        ['name' => 'Lighthouse budget', 'command' => 'npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json',
+            'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
+        ['name' => 'axe sweep (every template, both modes)', 'command' => 'node tools/axe/run.mjs',
+            'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
         ['name' => 'JS lint and format', 'command' => 'npm run lint', 'job' => 'js-quality',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'JS unit tests', 'command' => 'npm test', 'job' => 'js-quality',
@@ -84,7 +88,11 @@ $skipped = [];
 
 foreach (steps() as $step) {
     if ($step['needsDocker'] && !$hasDocker) {
-        $skipped[] = $step['name'] . ' — no Docker daemon; this runs in the php-integration CI job';
+        $skipped[] = sprintf(
+            '%s — no Docker daemon; this runs in the %s CI job',
+            $step['name'],
+            $step['job']
+        );
 
         continue;
     }
