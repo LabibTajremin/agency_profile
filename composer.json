@@ -43,6 +43,7 @@
             "@lint",
             "@analyse",
             "@audit:theme",
+            "@audit:tokens",
             "@audit:queries",
             "@audit:i18n",
             "@audit:security",
@@ -50,6 +51,7 @@
             "@test:integration"
         ],
         "audit:theme": "php bin/theme-audit.php",
+        "audit:tokens": "php bin/token-audit.php",
         "audit:queries": "php bin/query-audit.php",
         "audit:i18n": "php bin/i18n-audit.php",
         "audit:security": "php bin/security-audit.php",

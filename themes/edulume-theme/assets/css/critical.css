@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
   gap: var(--edulume-space-4, 1rem);
-  max-inline-size: var(--edulume-container, 72rem);
+  max-inline-size: var(--edulume-content-width, 75rem);
   margin-inline: auto;
   padding-block: var(--edulume-space-3, 0.75rem);
   padding-inline: var(--edulume-space-4, 1rem);

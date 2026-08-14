@@ -9,6 +9,47 @@
 
 :root {
   color-scheme: light dark;
+
+  /*
+   * Tokens the theme derives for itself, rather than ones the compiler emits.
+   *
+   * The compiler owns the values a person can configure — the accent, the gutter, the radius.
+   * The chrome needs a few more than that: a spacing step finer than the gutter, a pill radius,
+   * a shadow. Deriving them here from emitted tokens, instead of writing them as literals at
+   * every use site, is what keeps a single recompile in charge of the whole theme: widen the
+   * gutter and the header padding, the drawer inset and the footer rhythm all move with it.
+   *
+   * Derived, specifically, and never hardcoded. A literal in a `var()` fallback is frozen at the
+   * moment it is written: it cannot follow the accent, and — the reason this file gained the
+   * block at all — it cannot follow the mode. `var(--edulume-surface-sunken, #f1f2f4)` read a
+   * token nothing emitted, so every mode got the light-grey fallback, and dark mode put nearly
+   * white text on it at 1.07:1. Anything that has to change with the mode is a `var()` of a
+   * token that does.
+   */
+  --edulume-space-2: calc(var(--edulume-gutter, 1.5rem) / 3);
+  --edulume-space-3: calc(var(--edulume-gutter, 1.5rem) / 2);
+  --edulume-space-4: calc(var(--edulume-gutter, 1.5rem) * 2 / 3);
+  --edulume-space-6: calc(var(--edulume-gutter, 1.5rem) * 4 / 3);
+  --edulume-space-8: calc(var(--edulume-gutter, 1.5rem) * 2);
+
+  --edulume-radius-2: var(--edulume-radius, 0.75rem);
+  /* A pill, not a rounded rectangle: any radius past half the height renders identically. */
+  --edulume-radius-full: 999px;
+
+  /* Mixed from the ink so the shadow darkens on a light page and lightens on a dark one. */
+  --edulume-shadow-2: 0 2px 8px color-mix(in oklab, var(--edulume-ink, #16181d) 20%, transparent);
+
+  /*
+   * Two rings. The accent one carries the site's identity; the halo behind it is the page
+   * surface, which is what keeps the ring visible when the focused control sits on a section
+   * painted in that same accent.
+   */
+  --edulume-focus-ring: var(--edulume-accent, #365e92);
+  --edulume-focus-halo: var(--edulume-surface, #fbfbfc);
+
+  --edulume-hero-height: 60vh;
+  /* Hero text sits over an image, which is the same contrast problem as text on the accent. */
+  --edulume-hero-ink: var(--edulume-on-accent, #ffffff);
 }
 
 *,

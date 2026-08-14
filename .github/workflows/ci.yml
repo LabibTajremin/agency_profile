@@ -26,6 +26,9 @@ jobs:
       - run: composer lint
       - run: composer analyse
       - run: composer audit:theme
+      # Catches a misspelt custom property, which is invisible in light mode because the var()
+      # fallback is a light-mode value, and wrong in every other mode for the same reason.
+      - run: composer audit:tokens
       - run: composer audit:queries
       - run: composer audit:i18n
       - run: composer audit:security

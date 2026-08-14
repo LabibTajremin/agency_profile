@@ -25,7 +25,7 @@
 }
 
 .edulume-container {
-  max-inline-size: var(--edulume-container, 72rem);
+  max-inline-size: var(--edulume-content-width, 75rem);
   margin-inline: auto;
   padding-inline: var(--edulume-space-4, 1rem);
 }
@@ -43,9 +43,9 @@
   gap: var(--edulume-space-3, 0.75rem);
   padding-block: var(--edulume-space-2, 0.5rem);
   padding-inline: var(--edulume-space-4, 1rem);
-  background-color: var(--edulume-accent-fill, #123a6b);
-  color: var(--edulume-accent-on-fill, #ffffff);
-  font-size: var(--edulume-font-size--1, 0.875rem);
+  background-color: var(--edulume-accent, #123a6b);
+  color: var(--edulume-on-accent, #ffffff);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
 }
 
 .edulume-announcement__message {
@@ -76,9 +76,9 @@
   gap: var(--edulume-space-4, 1rem);
   padding-block: var(--edulume-space-2, 0.5rem);
   padding-inline: var(--edulume-space-4, 1rem);
-  background-color: var(--edulume-surface-sunken, #f1f2f4);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
   color: var(--edulume-ink-muted, #4a4f58);
-  font-size: var(--edulume-font-size--1, 0.875rem);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
 }
 
 .edulume-utility__menu {
@@ -107,7 +107,7 @@
   display: flex;
   align-items: center;
   gap: var(--edulume-space-4, 1rem);
-  max-inline-size: var(--edulume-container, 72rem);
+  max-inline-size: var(--edulume-content-width, 75rem);
   margin-inline: auto;
   padding-block: var(--edulume-space-3, 0.75rem);
   padding-inline: var(--edulume-space-4, 1rem);
@@ -185,7 +185,7 @@
   position: absolute;
   inset-inline: 0;
   padding: var(--edulume-space-6, 2rem);
-  background-color: var(--edulume-surface-raised, #ffffff);
+  background-color: var(--edulume-surface, #ffffff);
   border-block-end: 1px solid var(--edulume-border, #e3e5e9);
   columns: 3;
 }
@@ -213,7 +213,7 @@
   inline-size: min(22rem, 90vw);
   z-index: 40;
   padding: var(--edulume-space-6, 2rem);
-  background-color: var(--edulume-surface-raised, #ffffff);
+  background-color: var(--edulume-surface, #ffffff);
   overflow-y: auto;
 }
 
@@ -250,14 +250,14 @@
 .edulume-footer {
   margin-block-start: var(--edulume-section-spacing, 4rem);
   padding-block: var(--edulume-space-8, 3rem);
-  background-color: var(--edulume-surface-sunken, #f1f2f4);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
   color: var(--edulume-ink, #16181d);
 }
 
 .edulume-footer__inner {
   display: grid;
   gap: var(--edulume-space-6, 2rem);
-  max-inline-size: var(--edulume-container, 72rem);
+  max-inline-size: var(--edulume-content-width, 75rem);
   margin-inline: auto;
   padding-inline: var(--edulume-space-4, 1rem);
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -273,13 +273,13 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--edulume-space-4, 1rem);
-  max-inline-size: var(--edulume-container, 72rem);
+  max-inline-size: var(--edulume-content-width, 75rem);
   margin-inline: auto;
   margin-block-start: var(--edulume-space-6, 2rem);
   padding-inline: var(--edulume-space-4, 1rem);
   padding-block-start: var(--edulume-space-4, 1rem);
   border-block-start: 1px solid var(--edulume-border, #e3e5e9);
-  font-size: var(--edulume-font-size--1, 0.875rem);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
 }
 
 .edulume-footer__menu {
@@ -339,13 +339,13 @@
   inline-size: 48px;
   block-size: 48px;
   border-radius: var(--edulume-radius-full, 999px);
-  background-color: var(--edulume-accent-fill, #123a6b);
-  color: var(--edulume-accent-on-fill, #ffffff);
+  background-color: var(--edulume-accent, #123a6b);
+  color: var(--edulume-on-accent, #ffffff);
   box-shadow: var(--edulume-shadow-2, 0 2px 8px rgb(0 0 0 / 20%));
 }
 
 .edulume-fab__action--back-to-top {
-  background-color: var(--edulume-surface-raised, #ffffff);
+  background-color: var(--edulume-surface, #ffffff);
   color: var(--edulume-ink, #16181d);
 }
 
@@ -373,7 +373,7 @@
 .edulume-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--edulume-surface-raised, #ffffff);
+  background-color: var(--edulume-surface, #ffffff);
   border: 1px solid var(--edulume-border, #e3e5e9);
   border-radius: var(--edulume-radius-2, 0.5rem);
   overflow: hidden;

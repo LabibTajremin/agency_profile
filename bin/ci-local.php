@@ -32,6 +32,8 @@ function steps(): array
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Theme and text-domain audit', 'command' => 'composer audit:theme', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
+        ['name' => 'Design-token audit', 'command' => 'composer audit:tokens', 'job' => 'php-quality',
+            'needsDocker' => false, 'slow' => false],
         ['name' => 'Unbounded-query audit', 'command' => 'composer audit:queries', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Logical-CSS and text-domain audit', 'command' => 'composer audit:i18n', 'job' => 'php-quality',
