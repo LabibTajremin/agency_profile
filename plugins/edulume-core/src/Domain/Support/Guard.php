@@ -6,6 +6,7 @@ namespace Edulume\Core\Domain\Support;
 
 use BackedEnum;
 use ReflectionEnum;
+use ReflectionNamedType;
 
 /**
  * The one place untrusted input is normalised.
@@ -199,7 +200,9 @@ final class Guard
 
         $backingType = (new ReflectionEnum($enumClass))->getBackingType();
 
-        if ($backingType === null || $backingType->getName() !== get_debug_type($value)) {
+        // Narrowed to ReflectionNamedType rather than null-checked: getBackingType() is
+        // declared as returning the ReflectionType base, which has no getName().
+        if (!$backingType instanceof ReflectionNamedType || $backingType->getName() !== get_debug_type($value)) {
             return null;
         }
 
