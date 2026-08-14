@@ -36,6 +36,8 @@
         <exclude-pattern>*/functions.php</exclude-pattern>
         <!-- Theme templates and includes are, by WordPress's design, files that run. -->
         <exclude-pattern>themes/*</exclude-pattern>
+        <!-- A test bootstrap exists to have side effects; that is the whole job. -->
+        <exclude-pattern>*/tests/*/bootstrap.php</exclude-pattern>
     </rule>
 
     <rule ref="Generic.Files.LineLength">
