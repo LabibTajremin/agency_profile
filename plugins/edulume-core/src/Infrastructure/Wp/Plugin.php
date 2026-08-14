@@ -6,6 +6,7 @@ namespace Edulume\Core\Infrastructure\Wp;
 
 use Edulume\Core\Infrastructure\Blocks\BlockRegistrar;
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
+use Edulume\Core\Infrastructure\Demo\DemoCliCommand;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
 use Edulume\Core\Infrastructure\Rest\RestRegistrar;
 use Edulume\Core\Infrastructure\Theming\StylesheetEnqueuer;
@@ -56,6 +57,7 @@ final class Plugin
         (new ContentRegistrar())->register();
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
+        DemoCliCommand::register($this->container);
     }
 
     public function activate(): null

@@ -65,7 +65,7 @@ final class WpdbLeadRepository implements LeadRepository
         $table = $wpdb->prefix . LeadTableSchema::LEADS_TABLE;
 
         $rows = $wpdb->get_results(
-            $wpdb->prepare("SELECT * FROM {$table} WHERE id = %d", $id),
+            $wpdb->prepare('SELECT * FROM %i WHERE id = %d', $table, $id),
             'ARRAY_A'
         );
 
@@ -119,7 +119,12 @@ final class WpdbLeadRepository implements LeadRepository
 
         $rows = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT * FROM {$table} WHERE {$where} ORDER BY {$order} LIMIT %d OFFSET %d",
+                // The WHERE fragment is built from bound placeholders and the ORDER BY from an
+                // allowlist of column names, so neither can carry request data. The table name
+                // is a %i identifier placeholder. Nothing here is interpolated from input.
+                // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+                "SELECT * FROM %i WHERE {$where} ORDER BY {$order} LIMIT %d OFFSET %d",
+                $table,
                 ...$values
             ),
             'ARRAY_A'
@@ -135,11 +140,11 @@ final class WpdbLeadRepository implements LeadRepository
         $table = $wpdb->prefix . LeadTableSchema::LEADS_TABLE;
 
         if ($query->status === null) {
-            return (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$table} WHERE 1 = %d", 1));
+            return (int) $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM %i WHERE 1 = %d', $table, 1));
         }
 
         return (int) $wpdb->get_var(
-            $wpdb->prepare("SELECT COUNT(*) FROM {$table} WHERE status = %s", $query->status->value)
+            $wpdb->prepare('SELECT COUNT(*) FROM %i WHERE status = %s', $table, $query->status->value)
         );
     }
 
@@ -150,8 +155,8 @@ final class WpdbLeadRepository implements LeadRepository
         $leads = $wpdb->prefix . LeadTableSchema::LEADS_TABLE;
         $meta = $wpdb->prefix . LeadTableSchema::LEAD_META_TABLE;
 
-        $wpdb->query($wpdb->prepare("DELETE FROM {$meta} WHERE lead_id = %d", $id));
-        $wpdb->query($wpdb->prepare("DELETE FROM {$leads} WHERE id = %d", $id));
+        $wpdb->query($wpdb->prepare('DELETE FROM %i WHERE lead_id = %d', $meta, $id));
+        $wpdb->query($wpdb->prepare('DELETE FROM %i WHERE id = %d', $leads, $id));
     }
 
     private function saveMeta(int $leadId, Lead $lead): void
@@ -160,7 +165,7 @@ final class WpdbLeadRepository implements LeadRepository
 
         $table = $wpdb->prefix . LeadTableSchema::LEAD_META_TABLE;
 
-        $wpdb->query($wpdb->prepare("DELETE FROM {$table} WHERE lead_id = %d", $leadId));
+        $wpdb->query($wpdb->prepare('DELETE FROM %i WHERE lead_id = %d', $table, $leadId));
 
         $wpdb->insert($table, [
             'lead_id' => $leadId,
@@ -210,7 +215,12 @@ final class WpdbLeadRepository implements LeadRepository
         $table = $wpdb->prefix . LeadTableSchema::LEAD_META_TABLE;
 
         $value = $wpdb->get_var(
-            $wpdb->prepare("SELECT meta_value FROM {$table} WHERE lead_id = %d AND meta_key = %s", $leadId, $key)
+            $wpdb->prepare(
+                'SELECT meta_value FROM %i WHERE lead_id = %d AND meta_key = %s',
+                $table,
+                $leadId,
+                $key
+            )
         );
 
         return Guard::toArray(json_decode((string) $value, true));

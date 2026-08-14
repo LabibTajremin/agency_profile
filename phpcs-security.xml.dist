@@ -24,7 +24,18 @@
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/build/*</exclude-pattern>
 
-    <rule ref="WordPress.Security"/>
+    <rule ref="WordPress.Security">
+        <properties>
+            <!--
+                CSS printed into a <style> element cannot be escaped with esc_html() — that
+                mangles the `>` in every child selector. edulume_escape_css() removes what
+                actually matters in that context: anything that could close the element.
+            -->
+            <property name="customEscapingFunctions" type="array">
+                <element value="edulume_escape_css"/>
+            </property>
+        </properties>
+    </rule>
     <rule ref="WordPress.DB.PreparedSQL"/>
     <rule ref="WordPress.DB.PreparedSQLPlaceholders"/>
     <rule ref="WordPress.WP.EnqueuedResourceParameters"/>

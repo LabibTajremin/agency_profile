@@ -91,6 +91,19 @@ function edulume_critical_css(): string
     return is_readable($path) ? (string) file_get_contents($path) : '';
 }
 
+/**
+ * The escaper for CSS printed inside a `<style>` element.
+ *
+ * `esc_html()` is wrong here — it would mangle `>` in every child selector. What actually
+ * matters in this context is that nothing can close the element and start markup, so that is
+ * what this removes. Registered as a custom escaping function in `phpcs-security.xml.dist`
+ * so the security ruleset recognises it rather than being told to ignore the line.
+ */
+function edulume_escape_css(string $css): string
+{
+    return (string) preg_replace('#</\s*(style|script)#i', '', wp_strip_all_tags($css));
+}
+
 add_action('wp_head', static function (): void {
     $critical = edulume_critical_css();
 
@@ -98,7 +111,7 @@ add_action('wp_head', static function (): void {
         return;
     }
 
-    printf('<style id="edulume-critical">%s</style>', wp_strip_all_tags($critical));
+    printf('<style id="edulume-critical">%s</style>', edulume_escape_css($critical));
 }, 2);
 
 add_action('wp_enqueue_scripts', static function (): void {

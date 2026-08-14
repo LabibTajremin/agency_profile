@@ -9,6 +9,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edulume\n"
 
+#: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:85
+msgid "A lead cannot move to that status from where it is."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:93
+msgid "A new enquiry arrived through %s."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/trust-bar.php:13
 msgid "Accreditations"
 msgstr ""
@@ -25,7 +33,7 @@ msgstr ""
 msgid "Check your eligibility"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/content/finder.php:84
+#: themes/edulume-theme/template-parts/content/finder.php:89
 msgid "Clear filters"
 msgstr ""
 
@@ -97,11 +105,27 @@ msgstr ""
 msgid "It may have moved. Try a search, or pick up from one of these."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:40
+msgid "New enquiry from %2$s (%1$s)"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/footer/centred.php:18
 #: themes/edulume-theme/template-parts/footer/columns.php:18
 #: themes/edulume-theme/template-parts/footer/compact.php:18
 #: themes/edulume-theme/template-parts/footer/contact-first.php:18
 msgid "Newsletter"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:35
+msgid "No such content type."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:61
+msgid "No such form."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:169
+msgid "No such lead."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/archive.php:54
@@ -118,6 +142,10 @@ msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:253
 msgid "Open menu"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:83
+msgid "Please check the highlighted fields."
 msgstr ""
 
 #: themes/edulume-theme/index.php:41
@@ -192,6 +220,15 @@ msgstr ""
 msgid "Testimonials"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:69
+msgid "That is not a pipeline status."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ThemeController.php:70
+#: plugins/edulume-core/src/Infrastructure/Rest/ThemeController.php:89
+msgid "That section does not exist."
+msgstr ""
+
 #: themes/edulume-theme/404.php:28
 msgid "Useful links"
 msgstr ""
@@ -206,6 +243,10 @@ msgstr ""
 
 #: themes/edulume-theme/404.php:21
 msgid "We could not find that page"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:56
+msgid "We have your enquiry (%s)"
 msgstr ""
 
 #: themes/edulume-theme/footer.php:42

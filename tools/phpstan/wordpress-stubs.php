@@ -792,3 +792,41 @@ function wp_delete_post(int $postId, bool $forceDelete = false)
 }
 
 const OBJECT = 'OBJECT';
+
+class WP_CLI
+{
+    /**
+     * @param object|callable|string $callable
+     * @param array<string, mixed> $args
+     */
+    public static function add_command(string $name, $callable, array $args = []): bool
+    {
+    }
+
+    public static function success(string $message): void
+    {
+    }
+
+    public static function error(string $message): void
+    {
+    }
+
+    public static function line(string $message = ''): void
+    {
+    }
+}
+
+function wp_print_inline_script_tag(string $javascript, array $attributes = []): void
+{
+}
+
+function wp_strip_all_tags(string $text, bool $removeBreaks = false): string
+{
+}
+
+/**
+ * @return string|false
+ */
+function get_post_type_archive_link(string $postType)
+{
+}

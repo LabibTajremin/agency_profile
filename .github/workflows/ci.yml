@@ -69,8 +69,14 @@ jobs:
           cache: npm
       - run: composer install --prefer-dist --no-progress
       - run: npm ci
-      - run: npx wp-env start
-      - run: npx wp-env run tests-cli --env-cwd=wp-content/plugins/edulume-core vendor/bin/phpunit --configuration=/var/www/html/wp-content/plugins/edulume-core/phpunit-integration.xml.dist --testsuite integration
+      - run: npm run env:start
+      - name: Prove WordPress is actually up
+        # `npx wp-env` used to resolve to an unrelated package that printed a message and
+        # exited 0, so this job reported success without ever starting WordPress. wp-env is a
+        # real devDependency now, and this step fails loudly if the site is not answering —
+        # a green run must never mean "did not run".
+        run: npx wp-env run tests-cli wp core version
+      - run: npm run test:integration
 
   js-quality:
     name: JS lint & unit tests
@@ -108,9 +114,16 @@ jobs:
       - run: npx playwright install --with-deps chromium
         env:
           PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
-      - run: npx wp-env start
+      - run: npm run env:start
+      - name: Prove WordPress is actually up
+        run: npx wp-env run cli wp core version
+      - name: Activate the plugin and theme
+        run: |
+          npx wp-env run cli wp plugin activate edulume-core
+          npx wp-env run cli wp theme activate edulume-theme
+          npx wp-env run cli wp rewrite structure '/%postname%/'
       - name: Seed the demo content the audits measure against
-        run: npx wp-env run tests-cli wp edulume demo import boutique --mode=full
+        run: npx wp-env run cli wp edulume demo import boutique --mode=full
       - name: Lighthouse against the mobile budget
         run: npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json
       - name: axe against every template in both modes
@@ -146,6 +159,7 @@ jobs:
       - run: npm ci
       - name: Plugin Check
         run: |
-          npx wp-env start
+          npm run env:start
+          npx wp-env run cli wp core version
           npx wp-env run cli wp plugin install plugin-check --activate
           npx wp-env run cli wp plugin check edulume-core --format=table --severity=5

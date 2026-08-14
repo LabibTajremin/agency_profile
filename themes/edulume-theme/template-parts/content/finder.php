@@ -80,7 +80,12 @@ $edulume_terms = apply_filters('edulume_finder_options', [], $edulume_type);
             <?php endforeach; ?>
         </select>
 
-        <a class="edulume-finder__clear" href="<?php echo esc_url(strtok((string) $_SERVER['REQUEST_URI'], '?')); ?>">
+        <?php
+        // The archive link rather than the current URL with its query stripped: it is the same
+        // destination, and it does not require reading a superglobal to work it out.
+        $edulume_clear_url = get_post_type_archive_link($edulume_type);
+        ?>
+        <a class="edulume-finder__clear" href="<?php echo esc_url($edulume_clear_url ?: home_url('/')); ?>">
             <?php esc_html_e('Clear filters', 'edulume'); ?>
         </a>
     </div>

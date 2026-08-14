@@ -259,3 +259,20 @@ if (!is_dir(dirname($output))) {
 file_put_contents($output, renderPot($entries));
 
 printf("Wrote %d string(s) to %s\n", count($entries), $output);
+
+/*
+ * The plugin and the theme each load their own text domain from their own directory, so each
+ * needs the template beside it in the shipped ZIP. Copied here rather than by the packaging
+ * script, so the three copies cannot drift between a regenerate and a release.
+ */
+foreach (['plugins/edulume-core/languages', 'themes/edulume-theme/languages'] as $shipped) {
+    $directory = dirname(__DIR__) . '/' . $shipped;
+
+    if (!is_dir($directory) && !mkdir($directory, 0o755, true) && !is_dir($directory)) {
+        continue;
+    }
+
+    copy($output, $directory . '/edulume.pot');
+
+    printf("Copied to %s/edulume.pot\n", $shipped);
+}

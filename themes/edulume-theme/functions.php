@@ -112,7 +112,9 @@ add_action('wp_head', static function (): void {
     })();
     JS;
 
-    printf('<script>%s</script>', $script);
+    // wp_print_inline_script_tag escapes and applies the site's CSP nonce if one is set;
+    // printing the tag by hand does neither.
+    wp_print_inline_script_tag($script);
 }, 1);
 
 /**
