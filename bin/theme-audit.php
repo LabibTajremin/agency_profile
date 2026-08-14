@@ -57,10 +57,36 @@ function auditFiles(string $directory, string $extension): array
 
 /**
  * Removes `var(--token, fallback)` fallbacks so only literals used as real values remain.
+ *
+ * Scanned with balanced parentheses rather than matched with one expression, because a fallback
+ * is allowed to contain a function — `var(--shadow, 0 2px 8px rgb(0 0 0 / 20%))` is a perfectly
+ * ordinary declaration, and a regex that stops at the first `)` reports it as a literal.
  */
 function withoutTokenFallbacks(string $css): string
 {
-    return preg_replace('/var\(\s*--[a-z0-9-]+\s*,[^()]*\)/i', 'var(--token)', $css) ?? $css;
+    $result = '';
+    $offset = 0;
+
+    while (preg_match('/var\(\s*--[a-z0-9-]+\s*,/i', $css, $matches, PREG_OFFSET_CAPTURE, $offset) === 1) {
+        [$opening, $start] = $matches[0];
+        $depth = 1;
+        $cursor = $start + strlen((string) $opening);
+        $length = strlen($css);
+
+        while ($cursor < $length && $depth > 0) {
+            $depth += match ($css[$cursor]) {
+                '(' => 1,
+                ')' => -1,
+                default => 0,
+            };
+            $cursor++;
+        }
+
+        $result .= substr($css, $offset, $start - $offset) . 'var(--token)';
+        $offset = $cursor;
+    }
+
+    return $result . substr($css, $offset);
 }
 
 /**

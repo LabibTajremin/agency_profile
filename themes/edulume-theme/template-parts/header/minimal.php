@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Minimal header: brand and a drawer trigger only. Navigation lives in the drawer at every width.
+ *
+ * @package Edulume\Theme
+ */
+
+declare(strict_types=1);
+
+defined('ABSPATH') || exit;
+
+?>
+<div class="edulume-header__inner edulume-header__inner--minimal">
+    <div class="edulume-header__brand"><?php edulume_the_logo('header'); ?></div>
+    <div class="edulume-header__actions">
+        <?php edulume_the_mode_toggle(); ?>
+        <?php edulume_the_drawer_toggle(); ?>
+    </div>
+</div>

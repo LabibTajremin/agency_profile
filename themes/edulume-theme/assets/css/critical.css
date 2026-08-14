@@ -1,0 +1,33 @@
+/*
+ * Critical CSS: what the first screen needs before the main stylesheet arrives.
+ *
+ * Kept deliberately short. Inlining is only a win while it stays smaller than the request it
+ * replaces, and everything here is duplicated in base.css and chrome.css — this file exists to
+ * stop the header and hero reflowing, not to be a second stylesheet.
+ */
+
+body {
+  margin: 0;
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  font-family: var(--edulume-font-body, system-ui, sans-serif);
+}
+
+.edulume-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--edulume-space-4, 1rem);
+  max-inline-size: var(--edulume-container, 72rem);
+  margin-inline: auto;
+  padding-block: var(--edulume-space-3, 0.75rem);
+  padding-inline: var(--edulume-space-4, 1rem);
+}
+
+.edulume-drawer[hidden] {
+  display: none;
+}
+
+/* Reserving the hero's height is what keeps CLS at zero while the image decodes. */
+.edulume-hero {
+  min-block-size: var(--edulume-hero-height, 60vh);
+}

@@ -26,6 +26,9 @@ function edulume_core_is_active(): bool
     return class_exists(EDULUME_CORE_PLUGIN_CLASS);
 }
 
+require_once __DIR__ . '/inc/chrome.php';
+require_once __DIR__ . '/inc/assets.php';
+
 add_action('after_setup_theme', static function (): void {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -44,14 +47,50 @@ add_action('after_setup_theme', static function (): void {
     load_theme_textdomain('edulume', get_template_directory() . '/languages');
 });
 
-add_action('wp_enqueue_scripts', static function (): void {
-    wp_enqueue_style(
-        'edulume-base',
-        get_template_directory_uri() . '/assets/css/base.css',
-        [],
-        EDULUME_THEME_VERSION
-    );
+/**
+ * The footer widget areas.
+ *
+ * Four are registered regardless of the active footer variant, because a variant switch must
+ * never delete a widget: the narrower variants simply render fewer of them, and switching back
+ * brings the rest into view again with their content intact.
+ */
+add_action('widgets_init', static function (): void {
+    for ($column = 1; $column <= 4; $column++) {
+        register_sidebar([
+            'id' => 'edulume-footer-' . $column,
+            'name' => sprintf(
+                /* translators: %d: the footer column number. */
+                __('Footer column %d', 'edulume'),
+                $column
+            ),
+            'before_widget' => '<section id="%1$s" class="edulume-widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="edulume-widget__title">',
+            'after_title' => '</h2>',
+        ]);
+    }
 });
+
+/**
+ * The archive heading, without the "Archives:" prefix WordPress adds by default.
+ *
+ * The prefix reads as a database term rather than a page title, and on a course archive it is
+ * actively confusing.
+ */
+function edulume_archive_title(): string
+{
+    if (is_home() && !is_front_page()) {
+        return (string) get_the_title((int) get_option('page_for_posts'));
+    }
+
+    if (is_search()) {
+        return (string) get_search_query();
+    }
+
+    return wp_strip_all_tags(get_the_archive_title(), true);
+}
+
+add_filter('get_the_archive_title_prefix', '__return_empty_string');
 
 /**
  * The no-flash mode resolver.
