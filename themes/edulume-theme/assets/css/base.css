@@ -1,0 +1,155 @@
+/*
+ * The base stylesheet.
+ *
+ * Every value is a token compiled by Edulume Core. There is deliberately not one colour, font
+ * stack or spacing literal in this file: a global change has to be one recompile, never a
+ * search across the theme. The fallbacks exist so the theme degrades to something readable
+ * when the plugin is deactivated, not as a second source of truth.
+ */
+
+:root {
+  color-scheme: light dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  font-family: var(--edulume-font-body, system-ui, sans-serif);
+  font-size: var(--edulume-font-size-0, 1rem);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--edulume-font-heading, inherit);
+  line-height: 1.2;
+  margin-block: 0 0.5em;
+}
+
+h1 {
+  font-size: var(--edulume-font-size-5, 2.5rem);
+}
+h2 {
+  font-size: var(--edulume-font-size-4, 2rem);
+}
+h3 {
+  font-size: var(--edulume-font-size-3, 1.6rem);
+}
+h4 {
+  font-size: var(--edulume-font-size-2, 1.3rem);
+}
+
+a {
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+code,
+pre {
+  font-family: var(--edulume-font-code, monospace);
+}
+
+blockquote {
+  font-family: var(--edulume-font-quote, inherit);
+  border-inline-start: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  margin-inline: 0;
+  padding-inline-start: var(--edulume-gutter, 1.5rem);
+}
+
+/* Logical properties throughout, so RTL is a direction attribute rather than a second sheet. */
+.edulume-container {
+  max-inline-size: var(--edulume-content-width, 75rem);
+  margin-inline: auto;
+  padding-inline: var(--edulume-gutter, 1.5rem);
+}
+
+.edulume-container--wide {
+  max-inline-size: var(--edulume-wide-width, 90rem);
+}
+
+.edulume-section {
+  position: relative;
+  padding-block: var(--edulume-section-spacing, 6rem);
+}
+
+.edulume-card,
+.edulume-button {
+  border-radius: var(--edulume-radius, 0.75rem);
+}
+
+.edulume-card {
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+}
+
+.edulume-button {
+  background-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-on-accent, #ffffff);
+  border: 0;
+  padding: 0.75em 1.5em;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease),
+    filter var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease);
+}
+
+.edulume-muted {
+  color: var(--edulume-ink-muted, #5b616e);
+}
+
+/* A visible focus ring at or above 3:1, in the site's own accent. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--edulume-accent, #365e92);
+  outline-offset: 2px;
+}
+
+.edulume-skip-link {
+  position: absolute;
+  inset-block-start: -100%;
+  inset-inline-start: 0;
+  padding: 0.75em 1.5em;
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  z-index: 100;
+}
+
+.edulume-skip-link:focus {
+  inset-block-start: 0;
+}
+
+/* Touch targets never below 44x44. */
+.edulume-nav a,
+.edulume-button,
+.edulume-icon-button {
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img,
+video {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.screen-reader-text {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

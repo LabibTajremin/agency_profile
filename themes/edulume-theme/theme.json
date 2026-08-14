@@ -1,0 +1,192 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "layout": {
+      "contentSize": "var(--edulume-content-width, 75rem)",
+      "wideSize": "var(--edulume-wide-width, 90rem)"
+    },
+    "color": {
+      "custom": true,
+      "customGradient": false,
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "palette": [
+        {
+          "slug": "surface",
+          "name": "Surface",
+          "color": "var(--edulume-surface)"
+        },
+        {
+          "slug": "surface-subtle",
+          "name": "Subtle surface",
+          "color": "var(--edulume-surface-subtle)"
+        },
+        {
+          "slug": "ink",
+          "name": "Ink",
+          "color": "var(--edulume-ink)"
+        },
+        {
+          "slug": "ink-muted",
+          "name": "Muted ink",
+          "color": "var(--edulume-ink-muted)"
+        },
+        {
+          "slug": "border",
+          "name": "Border",
+          "color": "var(--edulume-border)"
+        },
+        {
+          "slug": "accent",
+          "name": "Accent",
+          "color": "var(--edulume-accent)"
+        },
+        {
+          "slug": "on-accent",
+          "name": "On accent",
+          "color": "var(--edulume-on-accent)"
+        },
+        {
+          "slug": "accent-text",
+          "name": "Accent text",
+          "color": "var(--edulume-accent-text)"
+        }
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "slug": "heading",
+          "name": "Heading",
+          "fontFamily": "var(--edulume-font-heading)"
+        },
+        {
+          "slug": "body",
+          "name": "Body",
+          "fontFamily": "var(--edulume-font-body)"
+        },
+        {
+          "slug": "interface",
+          "name": "Interface",
+          "fontFamily": "var(--edulume-font-interface)"
+        },
+        {
+          "slug": "quote",
+          "name": "Quote",
+          "fontFamily": "var(--edulume-font-quote)"
+        },
+        {
+          "slug": "code",
+          "name": "Code",
+          "fontFamily": "var(--edulume-font-code)"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "xs",
+          "name": "Extra small",
+          "size": "var(--edulume-font-size-n2)"
+        },
+        {
+          "slug": "small",
+          "name": "Small",
+          "size": "var(--edulume-font-size-n1)"
+        },
+        {
+          "slug": "medium",
+          "name": "Medium",
+          "size": "var(--edulume-font-size-0)"
+        },
+        {
+          "slug": "large",
+          "name": "Large",
+          "size": "var(--edulume-font-size-2)"
+        },
+        {
+          "slug": "x-large",
+          "name": "Extra large",
+          "size": "var(--edulume-font-size-4)"
+        },
+        {
+          "slug": "xx-large",
+          "name": "Display",
+          "size": "var(--edulume-font-size-6)"
+        }
+      ]
+    },
+    "spacing": {
+      "units": ["rem", "%", "vw"],
+      "spacingSizes": [
+        {
+          "slug": "gutter",
+          "name": "Gutter",
+          "size": "var(--edulume-gutter)"
+        },
+        {
+          "slug": "section",
+          "name": "Section",
+          "size": "var(--edulume-section-spacing)"
+        }
+      ]
+    },
+    "border": {
+      "radius": true,
+      "color": true,
+      "style": true,
+      "width": true
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--edulume-surface)",
+      "text": "var(--edulume-ink)"
+    },
+    "typography": {
+      "fontFamily": "var(--edulume-font-body)",
+      "fontSize": "var(--edulume-font-size-0)",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--edulume-accent-text)"
+        }
+      },
+      "h1": {
+        "typography": {
+          "fontFamily": "var(--edulume-font-heading)",
+          "fontSize": "var(--edulume-font-size-5)"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontFamily": "var(--edulume-font-heading)",
+          "fontSize": "var(--edulume-font-size-4)"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontFamily": "var(--edulume-font-heading)",
+          "fontSize": "var(--edulume-font-size-3)"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var(--edulume-accent)",
+          "text": "var(--edulume-on-accent)"
+        },
+        "border": {
+          "radius": "var(--edulume-radius)"
+        }
+      }
+    },
+    "spacing": {
+      "blockGap": "var(--edulume-gutter)"
+    }
+  }
+}

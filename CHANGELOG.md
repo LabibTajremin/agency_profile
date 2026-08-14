@@ -68,3 +68,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Eligibility checker and cost calculator: profile clamping, course matching that reports near
   misses instead of hiding them, deterministic ranking, and a cost estimate converted once at
   the end through admin-editable static rates with no paid API.
+- Roles and permissions: four roles stated as denials as much as grants, with the inbox scope
+  applied to the query rather than to the rendered list.
+- Theme skeleton: `theme.json` v3 registering the same tokens the front end uses, a base
+  stylesheet built entirely on custom properties, a no-flash inline mode resolver, graceful
+  degradation with an admin notice when the plugin is absent, and the shipped child theme.
+- SEO: a Schema.org `@graph` that prunes empty properties, and deferral to Yoast/RankMath/
+  SEOPress for meta tags while keeping the structured data.
+- Security: an allowlist-based SVG sanitiser that strips scripts, event handlers and external
+  references.
+- A `composer audit:theme` gate proving no colour, font or spacing literal exists in theme CSS
+  outside a `var()` fallback, and that every translation call uses the one text domain.

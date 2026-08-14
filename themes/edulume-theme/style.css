@@ -1,0 +1,20 @@
+/*
+Theme Name:   Edulume
+Theme URI:    https://edulume.com/
+Author:       Edulume
+Description:  A premium theme for study-abroad and overseas-education consultancies. Presentation only — Edulume Core owns the data, so your content survives a theme switch.
+Version:      0.1.0
+Requires at least: 6.5
+Tested up to: 6.5
+Requires PHP: 8.1
+License:      GPL-2.0-or-later
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  edulume
+Tags:         education, business, block-styles, full-width-template, translation-ready, rtl-language-support
+*/
+
+/*
+ * This file exists for the WordPress theme header only. Every actual style lives in
+ * assets/css/, built on the custom properties Edulume Core compiles. Nothing here may contain
+ * a colour, font or spacing literal.
+ */

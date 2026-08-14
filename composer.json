@@ -42,10 +42,12 @@
         "check": [
             "@lint",
             "@analyse",
+            "@audit:theme",
             "@test:unit",
             "@test:integration"
         ],
-        "test:integration:coverage": "XDEBUG_MODE=coverage phpunit --configuration=phpunit-integration.xml.dist --testsuite integration --coverage-clover build/coverage-integration.xml"
+        "test:integration:coverage": "XDEBUG_MODE=coverage phpunit --configuration=phpunit-integration.xml.dist --testsuite integration --coverage-clover build/coverage-integration.xml",
+        "audit:theme": "php bin/theme-audit.php"
     },
     "scripts-descriptions": {
         "check": "Runs lint, static analysis, unit tests and integration tests. The single command a human runs before pushing."

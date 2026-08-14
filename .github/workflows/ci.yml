@@ -24,6 +24,7 @@ jobs:
       - run: composer install --prefer-dist --no-progress
       - run: composer lint
       - run: composer analyse
+      - run: composer audit:theme
 
   php-unit:
     name: PHP unit tests (${{ matrix.php }})

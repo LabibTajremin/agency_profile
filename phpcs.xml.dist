@@ -9,6 +9,8 @@
     <file>plugins/edulume-core/src</file>
     <file>plugins/edulume-core/edulume-core.php</file>
     <file>plugins/edulume-core/uninstall.php</file>
+    <file>themes/edulume-theme/functions.php</file>
+    <file>themes/edulume-child/functions.php</file>
     <file>plugins/edulume-core/tests</file>
     <file>bin</file>
 
@@ -31,6 +33,7 @@
         <exclude-pattern>bin/*</exclude-pattern>
         <exclude-pattern>*/edulume-core.php</exclude-pattern>
         <exclude-pattern>*/uninstall.php</exclude-pattern>
+        <exclude-pattern>*/functions.php</exclude-pattern>
     </rule>
 
     <rule ref="Generic.Files.LineLength">
