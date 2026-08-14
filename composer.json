@@ -47,7 +47,9 @@
             "@test:integration"
         ],
         "test:integration:coverage": "XDEBUG_MODE=coverage phpunit --configuration=phpunit-integration.xml.dist --testsuite integration --coverage-clover build/coverage-integration.xml",
-        "audit:theme": "php bin/theme-audit.php"
+        "audit:theme": "php bin/theme-audit.php",
+        "ci": "php bin/ci-local.php",
+        "ci:quick": "php bin/ci-local.php --quick"
     },
     "scripts-descriptions": {
         "check": "Runs lint, static analysis, unit tests and integration tests. The single command a human runs before pushing."

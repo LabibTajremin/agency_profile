@@ -1,8 +1,9 @@
 name: CI
 
 on:
+  # Every pull request, whatever it targets. Pinning this to one base branch means a PR opened
+  # against anything else silently runs no checks at all, which reads as green.
   pull_request:
-    branches: [main]
   push:
     branches: [main]
 
