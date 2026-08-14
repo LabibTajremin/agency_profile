@@ -3,18 +3,18 @@
 Tracks the phases defined in `EDULUME_BUILD_INSTRUCTIONS.md` §8. Update this file at the end of
 every phase so the next session — human or agent — knows exactly where to start.
 
-| Phase | Name                                     | Status |
-| ----- | ---------------------------------------- | ------ |
-| 0     | Repository scaffold and the CI gate      | Done   |
-| 1–9   | Colour, accents, patterns, type, motion, settings, overrides, tokens, presets | Done |
-| 10–13 | Plugin bootstrap, content model, CSV, lead domain | Done |
-| 14–17 | Forms, inbox, integrations, REST API     | Done   |
-| 18    | Admin shell — routes, menu IA, ⌘K search | Done (see note) |
-| 19–21 | Configurator panels, live preview, setup wizard | Done (see note) |
-| 22–24 | Safety nets, roles, theme skeleton       | Done   |
-| 25–28 | Global chrome, page templates, blocks, finders | Done |
-| 29–34 | Eligibility, performance, accessibility, SEO, i18n, security | Done |
-| 35–38 | Demos, licensing, documentation, release | Done (see note) |
+| Phase | Name                                                                          | Status          |
+| ----- | ----------------------------------------------------------------------------- | --------------- |
+| 0     | Repository scaffold and the CI gate                                           | Done            |
+| 1–9   | Colour, accents, patterns, type, motion, settings, overrides, tokens, presets | Done            |
+| 10–13 | Plugin bootstrap, content model, CSV, lead domain                             | Done            |
+| 14–17 | Forms, inbox, integrations, REST API                                          | Done            |
+| 18    | Admin shell — routes, menu IA, ⌘K search                                      | Done (see note) |
+| 19–21 | Configurator panels, live preview, setup wizard                               | Done (see note) |
+| 22–24 | Safety nets, roles, theme skeleton                                            | Done            |
+| 25–28 | Global chrome, page templates, blocks, finders                                | Done            |
+| 29–34 | Eligibility, performance, accessibility, SEO, i18n, security                  | Done            |
+| 35–38 | Demos, licensing, documentation, release                                      | Done (see note) |
 
 ## Where to start
 
@@ -32,7 +32,7 @@ Everything in the table is written, and everything a headless environment can pr
 seven build gates (theme literals, text domain, unbounded queries, logical CSS, untranslated
 strings, security, coverage).
 
-Three things are written but can only be *measured* on a running site, and their CI jobs do that
+Three things are written but can only be _measured_ on a running site, and their CI jobs do that
 rather than this file asserting it:
 
 - **Live preview latency under 300 ms** (Phase 20). The patch protocol and its minimal-diff

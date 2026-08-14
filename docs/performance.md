@@ -17,6 +17,12 @@ The numbers are in `Edulume\Core\Domain\Performance\PerformanceBudget` and asser
 Measured under 4× CPU throttling on a Slow 4G profile, three runs per URL. Measuring on a fast
 desktop connection is how a site ships at four seconds on a phone with a green badge in CI.
 
+**Status: the `site-audits` job runs on every pull request but does not block it yet.** The
+budget above has not been met against a complete site, and gating every pull request on a number
+nobody has hit trains people to ignore a red check. The job's output is what the budget gets
+tuned against; it becomes blocking the first time it passes, and it is already a required box on
+the [release checklist](release-checklist.md).
+
 A metric the run did not produce counts as a **breach**, not a pass. Silent omission is exactly
 how a budget stops catching anything.
 

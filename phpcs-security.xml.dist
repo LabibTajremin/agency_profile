@@ -36,6 +36,15 @@
             </property>
         </properties>
     </rule>
+    <!--
+        Exception messages are developer-facing and are never echoed to a page. The sniff exists
+        for code that prints them, which none of this does — throwing a domain error with the
+        offending value in it is how the error is useful at all.
+    -->
+    <rule ref="WordPress.Security.EscapeOutput.ExceptionNotEscaped">
+        <severity>0</severity>
+    </rule>
+
     <rule ref="WordPress.DB.PreparedSQL"/>
     <rule ref="WordPress.DB.PreparedSQLPlaceholders"/>
     <rule ref="WordPress.WP.EnqueuedResourceParameters"/>

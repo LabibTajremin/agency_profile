@@ -26,6 +26,43 @@ defined('ABSPATH') || exit;
 
 const VERSION = '0.1.0';
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+/*
+ * Two autoloader locations, in the order they are likely to exist.
+ *
+ * A released plugin carries its own `vendor/`; a checkout of this repository shares the root
+ * one. Hard-coding the repository layout is what made the plugin fatal the moment it ran
+ * anywhere other than this working copy — and a fatal in a plugin file takes the whole site
+ * down, wp-admin included, so this checks rather than assumes.
+ */
+$edulumeAutoloaders = [
+    __DIR__ . '/vendor/autoload.php',
+    dirname(__DIR__, 2) . '/vendor/autoload.php',
+];
+
+$edulumeLoaded = false;
+
+foreach ($edulumeAutoloaders as $edulumeAutoloader) {
+    if (is_readable($edulumeAutoloader)) {
+        require_once $edulumeAutoloader;
+        $edulumeLoaded = true;
+
+        break;
+    }
+}
+
+if (!$edulumeLoaded) {
+    add_action('admin_notices', static function (): void {
+        printf(
+            '<div class="notice notice-error"><p>%s</p></div>',
+            esc_html__(
+                'Edulume Core is missing its dependencies. Install the release ZIP rather than a '
+                . 'source checkout, or run composer install in the plugin directory.',
+                'edulume'
+            )
+        );
+    });
+
+    return;
+}
 
 Plugin::boot(VERSION, __FILE__);
