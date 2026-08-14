@@ -421,3 +421,233 @@ function do_action(string $hookName, ...$args): void
 function esc_attr(string $text): string
 {
 }
+
+/**
+ * @param array<string, mixed> $postData
+ *
+ * @return int|WP_Error
+ */
+function wp_insert_post(array $postData, bool $wpError = false)
+{
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return int|bool
+ */
+function update_post_meta(int $postId, string $key, $value)
+{
+}
+
+/**
+ * @param list<string>|string $terms
+ *
+ * @return array<int, int>|WP_Error
+ */
+function wp_set_object_terms(int $objectId, $terms, string $taxonomy, bool $append = false)
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ *
+ * @return array<int, mixed>
+ */
+function get_posts(array $args = []): array
+{
+}
+
+class WP_Error
+{
+    public function get_error_message(string $code = ''): string
+    {
+    }
+}
+
+/**
+ * @param array<string, mixed> $args
+ *
+ * @return array<string, mixed>|WP_Error
+ */
+function wp_remote_post(string $url, array $args = [])
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ *
+ * @return array<string, mixed>|WP_Error
+ */
+function wp_remote_get(string $url, array $args = [])
+{
+}
+
+/**
+ * @param array<string, mixed>|WP_Error $response
+ */
+function wp_remote_retrieve_body($response): string
+{
+}
+
+/**
+ * @param array<string, mixed>|WP_Error $response
+ *
+ * @return int|string
+ */
+function wp_remote_retrieve_response_code($response)
+{
+}
+
+/**
+ * @param mixed $thing
+ *
+ * @phpstan-assert-if-true WP_Error $thing
+ */
+function is_wp_error($thing): bool
+{
+}
+
+/**
+ * @param mixed $value
+ */
+function set_transient(string $transient, $value, int $expiration = 0): bool
+{
+}
+
+/**
+ * @return mixed
+ */
+function get_transient(string $transient)
+{
+}
+
+function delete_transient(string $transient): bool
+{
+}
+
+/**
+ * @param string|list<string> $to
+ * @param list<string>|string $headers
+ * @param list<string> $attachments
+ */
+function wp_mail($to, string $subject, string $message, $headers = '', array $attachments = []): bool
+{
+}
+
+function __(string $text, string $domain = 'default'): string
+{
+}
+
+function _e(string $text, string $domain = 'default'): void
+{
+}
+
+function _x(string $text, string $context, string $domain = 'default'): string
+{
+}
+
+function _n(string $single, string $plural, int $number, string $domain = 'default'): string
+{
+}
+
+function esc_html(string $text): string
+{
+}
+
+function esc_html__(string $text, string $domain = 'default'): string
+{
+}
+
+function esc_html_e(string $text, string $domain = 'default'): void
+{
+}
+
+function esc_attr__(string $text, string $domain = 'default'): string
+{
+}
+
+function esc_attr_e(string $text, string $domain = 'default'): void
+{
+}
+
+function esc_url(string $url): string
+{
+}
+
+function sanitize_text_field(string $value): string
+{
+}
+
+function sanitize_key(string $key): string
+{
+}
+
+function sanitize_email(string $email): string
+{
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function wp_unslash($value)
+{
+}
+
+/**
+ * @return mixed
+ */
+function get_option(string $option, mixed $default = false)
+{
+}
+
+/**
+ * @param mixed $value
+ */
+function update_option(string $option, $value, ?bool $autoload = null): bool
+{
+}
+
+function delete_option(string $option): bool
+{
+}
+
+function home_url(string $path = ''): string
+{
+}
+
+/**
+ * @param mixed ...$args
+ *
+ * @return mixed
+ */
+function apply_filters(string $hookName, $value, ...$args)
+{
+}
+
+/**
+ * @param callable|string|array<int, mixed> $callback
+ */
+function add_action(string $hookName, $callback, int $priority = 10, int $acceptedArgs = 1): bool
+{
+}
+
+/**
+ * @param callable|string|array<int, mixed> $callback
+ */
+function add_filter(string $hookName, $callback, int $priority = 10, int $acceptedArgs = 1): bool
+{
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function wp_upload_dir(?string $time = null, bool $createDir = true): array
+{
+}
+
+function wp_delete_file(string $file): void
+{
+}
