@@ -88,6 +88,12 @@ jobs:
           node-version: '20'
           cache: npm
       - run: composer install --prefer-dist --no-progress
+      - name: Install the WordPress test-suite polyfills
+        # Installed here rather than committed to composer.json for the same reason WPCS is:
+        # neither can be installed in every environment this repository is developed in, and a
+        # lock file that cannot be satisfied there would break `composer install` for everyone.
+        # WordPress's core test bootstrap refuses to start without these.
+        run: composer require --dev --no-interaction --no-audit --no-progress yoast/phpunit-polyfills:^2.0
       - run: npm ci
       - run: npm run env:start
       - name: Prove WordPress is actually up

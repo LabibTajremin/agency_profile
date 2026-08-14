@@ -52,6 +52,19 @@ if (!$loaded) {
     exit(1);
 }
 
+/*
+ * WordPress's core test bootstrap requires Yoast's PHPUnit Polyfills and refuses to start
+ * without them. Pointing the constant at the installed package is the documented way to say
+ * where they are; loading the autoloader alone is not enough, because core looks for the path.
+ */
+if (!defined('WP_TESTS_PHPUNIT_POLYFILLS_PATH')) {
+    $polyfills = dirname($autoloader, 2) . '/yoast/phpunit-polyfills';
+
+    if (is_dir($polyfills)) {
+        define('WP_TESTS_PHPUNIT_POLYFILLS_PATH', $polyfills);
+    }
+}
+
 require_once $testsDirectory . '/includes/functions.php';
 
 tests_add_filter('muplugins_loaded', static function (): void {
