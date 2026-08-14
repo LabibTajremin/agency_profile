@@ -117,20 +117,24 @@ final class WpdbLeadRepository implements LeadRepository
         $values[] = $query->perPage;
         $values[] = $query->offset();
 
+        /*
+         * The WHERE fragment is built from bound placeholders and the ORDER BY from an
+         * allowlist of column names, so neither can carry request data; the table name is a %i
+         * identifier placeholder. The replacement count is right too — the WHERE fragment
+         * carries its own placeholders, which the sniff cannot see from where it is looking.
+         */
+        // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+        // phpcs:disable WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
         $rows = $wpdb->get_results(
             $wpdb->prepare(
-                // The WHERE fragment is built from bound placeholders and the ORDER BY from an
-                // allowlist of column names, so neither can carry request data. The table name
-                // is a %i identifier placeholder. Nothing here is interpolated from input.
-                // The replacement count below is right: the WHERE fragment carries its own
-                // placeholders, which the sniff cannot see from here.
-                // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
                 "SELECT * FROM %i WHERE {$where} ORDER BY {$order} LIMIT %d OFFSET %d",
                 $table,
                 ...$values
             ),
             'ARRAY_A'
         );
+        // phpcs:enable WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
+        // phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 
         return array_map([$this, 'hydrate'], $rows);
     }
