@@ -105,7 +105,9 @@ final class SvgSanitiser
 
     private function cleanAttributes(\DOMElement $element): void
     {
-        foreach (iterator_to_array($element->attributes ?? []) as $attribute) {
+        // `DOMElement::$attributes` is always a map, never null — the base-class declaration is
+        // what makes it look nullable, and `?? []` would widen the type back out again.
+        foreach (iterator_to_array($element->attributes) as $attribute) {
             if (!$attribute instanceof \DOMAttr) {
                 continue;
             }
