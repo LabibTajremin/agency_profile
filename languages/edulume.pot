@@ -1,0 +1,271 @@
+# Copyright (C) Edulume
+# This file is distributed under the same licence as the Edulume package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Edulume\n"
+"Report-Msgid-Bugs-To: https://example.test/support\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: edulume\n"
+
+#: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:85
+msgid "A lead cannot move to that status from where it is."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:93
+msgid "A new enquiry arrived through %s."
+msgstr ""
+
+#: themes/edulume-theme/inc/consent.php:88
+msgid "Accept selected"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/trust-bar.php:13
+msgid "Accreditations"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/breadcrumbs.php:23
+msgid "Breadcrumb"
+msgstr ""
+
+#: themes/edulume-theme/404.php:38
+msgid "Browse destinations"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/eligibility.php:14
+msgid "Check your eligibility"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/finder.php:89
+msgid "Clear filters"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:269
+msgid "Close"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:182
+msgid "Contact details"
+msgstr ""
+
+#: themes/edulume-theme/inc/consent.php:61
+msgid "Cookie choices"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/courses.php:13
+msgid "Courses"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/destinations.php:13
+msgid "Destinations"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:160
+msgid "Dismiss this announcement"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:54
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:55
+msgid "Edulume"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/events.php:13
+msgid "Events"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/finder.php:42
+msgid "Filter"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/finder.php:34
+msgid "Filter results"
+msgstr ""
+
+#: themes/edulume-theme/404.php:33
+msgid "Find a course"
+msgstr ""
+
+#: themes/edulume-theme/footer.php:23
+msgid "Footer"
+msgstr ""
+
+#: themes/edulume-theme/functions.php:64
+msgid "Footer column %d"
+msgstr ""
+
+#: themes/edulume-theme/functions.php:44
+msgid "Footer menu"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/faq.php:13
+msgid "Frequently asked questions"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/cta.php:13
+msgid "Get in touch"
+msgstr ""
+
+#: themes/edulume-theme/404.php:30
+msgid "Home"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/hero.php:13
+msgid "Introduction"
+msgstr ""
+
+#: themes/edulume-theme/404.php:23
+msgid "It may have moved. Try a search, or pick up from one of these."
+msgstr ""
+
+#: themes/edulume-theme/inc/consent.php:92
+msgid "Necessary only"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:40
+msgid "New enquiry from %2$s (%1$s)"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/footer/centred.php:18
+#: themes/edulume-theme/template-parts/footer/columns.php:18
+#: themes/edulume-theme/template-parts/footer/compact.php:18
+#: themes/edulume-theme/template-parts/footer/contact-first.php:18
+msgid "Newsletter"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:35
+msgid "No such content type."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:61
+msgid "No such form."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:169
+msgid "No such lead."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/archive.php:54
+msgid "Nothing here yet. Adjust your filters or check back soon."
+msgstr ""
+
+#: themes/edulume-theme/search.php:48
+msgid "Nothing matched. Try fewer words, or a country or course name."
+msgstr ""
+
+#: themes/edulume-theme/index.php:45
+msgid "Nothing published here yet."
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:253
+msgid "Open menu"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:83
+msgid "Please check the highlighted fields."
+msgstr ""
+
+#: themes/edulume-theme/index.php:41
+msgid "Posts navigation"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:231
+msgid "Primary"
+msgstr ""
+
+#: themes/edulume-theme/functions.php:43
+msgid "Primary menu"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:109
+msgid "Quick contact"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/related.php:26
+msgid "Related"
+msgstr ""
+
+#: themes/edulume-theme/search.php:22
+msgid "Results for %s"
+msgstr ""
+
+#: themes/edulume-theme/search.php:43
+#: themes/edulume-theme/template-parts/content/archive.php:49
+msgid "Results navigation"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/finder.php:36
+msgid "Search"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/finder.php:41
+msgid "Search by name or keyword"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/services.php:13
+msgid "Services"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:264
+msgid "Site menu"
+msgstr ""
+
+#: themes/edulume-theme/header.php:29
+msgid "Skip to content"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/finder.php:73
+msgid "Sort by"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/footer/centred.php:19
+#: themes/edulume-theme/template-parts/footer/columns.php:19
+#: themes/edulume-theme/template-parts/footer/compact.php:19
+#: themes/edulume-theme/template-parts/footer/contact-first.php:19
+msgid "Stay in touch"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/success-stories.php:13
+msgid "Success stories"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:292
+msgid "Switch between light and dark"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/testimonials.php:13
+msgid "Testimonials"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:69
+msgid "That is not a pipeline status."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Rest/ThemeController.php:70
+#: plugins/edulume-core/src/Infrastructure/Rest/ThemeController.php:89
+msgid "That section does not exist."
+msgstr ""
+
+#: themes/edulume-theme/404.php:28
+msgid "Useful links"
+msgstr ""
+
+#: themes/edulume-theme/functions.php:45
+msgid "Utility bar"
+msgstr ""
+
+#: themes/edulume-theme/maintenance.php:28
+msgid "We are making a few changes and will be back shortly."
+msgstr ""
+
+#: themes/edulume-theme/404.php:21
+msgid "We could not find that page"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:56
+msgid "We have your enquiry (%s)"
+msgstr ""
+
+#: themes/edulume-theme/footer.php:42
+msgid "© %s. All rights reserved."
+msgstr ""

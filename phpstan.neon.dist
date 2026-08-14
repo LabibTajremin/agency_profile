@@ -1,0 +1,13 @@
+parameters:
+    # The version the plugin header claims, not the one the developer happens to run.
+    # A standalone `null` return type is PHP 8.2 syntax; it parsed fine on 8.4 here and
+    # fatalled on the 8.1 the product supports, which nothing caught until it ran there.
+    phpVersion: 80100
+
+    level: 6
+    paths:
+        - plugins/edulume-core/src
+        - bin
+    treatPhpDocTypesAsCertain: false
+    scanFiles:
+        - tools/phpstan/wordpress-stubs.php

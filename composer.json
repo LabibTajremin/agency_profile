@@ -1,0 +1,69 @@
+{
+    "name": "edulume/edulume",
+    "description": "Edulume \u2014 a premium WordPress theme and companion plugin for study-abroad consultancies.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "phpstan/phpstan": "^1.11",
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Edulume\\Core\\": "plugins/edulume-core/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Edulume\\Core\\Tests\\Unit\\": "plugins/edulume-core/tests/Unit/",
+            "Edulume\\Core\\Tests\\Integration\\": "plugins/edulume-core/tests/Integration/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "analyse": [
+            "phpstan analyse --configuration=phpstan.neon.dist",
+            "phpstan analyse --configuration=phpstan-domain.neon.dist"
+        ],
+        "test:unit": "phpunit --testsuite unit",
+        "test:integration": "php plugins/edulume-core/phpunit-9.phar --configuration=plugins/edulume-core/phpunit-integration.xml.dist --testsuite integration",
+        "test:coverage": "XDEBUG_MODE=coverage phpunit --testsuite unit --coverage-clover build/coverage.xml",
+        "test:coverage:paths": "XDEBUG_MODE=coverage phpunit --testsuite unit --path-coverage --coverage-clover build/coverage-paths.xml",
+        "coverage:gate": "php bin/coverage-gate.php build/coverage.xml 100 90",
+        "coverage:gate:paths": "php bin/coverage-gate.php build/coverage-paths.xml 100 90",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@audit:theme",
+            "@audit:tokens",
+            "@audit:queries",
+            "@audit:i18n",
+            "@audit:security",
+            "@test:unit",
+            "@test:integration"
+        ],
+        "audit:theme": "php bin/theme-audit.php",
+        "audit:tokens": "php bin/token-audit.php",
+        "audit:queries": "php bin/query-audit.php",
+        "audit:i18n": "php bin/i18n-audit.php",
+        "audit:security": "php bin/security-audit.php",
+        "make:pot": "php bin/make-pot.php",
+        "package": "php bin/package.php",
+        "package:verify": "php bin/package.php --verify",
+        "ci": "php bin/ci-local.php",
+        "ci:quick": "php bin/ci-local.php --quick"
+    },
+    "scripts-descriptions": {
+        "check": "Runs lint, static analysis, unit tests and integration tests. The single command a human runs before pushing."
+    }
+}

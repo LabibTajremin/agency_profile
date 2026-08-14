@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<ruleset name="Edulume">
+    <description>PSR-12 for framework-agnostic code, WordPress Coding Standards for WordPress-facing code.</description>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <file>plugins/edulume-core/src</file>
+    <file>plugins/edulume-core/edulume-core.php</file>
+    <file>plugins/edulume-core/uninstall.php</file>
+    <file>themes/edulume-theme</file>
+    <file>themes/edulume-child</file>
+    <file>plugins/edulume-core/tests</file>
+    <file>bin</file>
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/build/*</exclude-pattern>
+
+    <rule ref="PSR12"/>
+
+    <!-- Test method names are sentences by policy: it_generates_a_palette_from_a_custom_hex(). -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+
+    <!--
+        CLI entry points and the WordPress plugin header file legitimately declare things and
+        then run.
+    -->
+    <rule ref="PSR1.Files.SideEffects">
+        <exclude-pattern>bin/*</exclude-pattern>
+        <exclude-pattern>*/edulume-core.php</exclude-pattern>
+        <exclude-pattern>*/uninstall.php</exclude-pattern>
+        <exclude-pattern>*/functions.php</exclude-pattern>
+        <!-- Theme templates and includes are, by WordPress's design, files that run. -->
+        <exclude-pattern>themes/*</exclude-pattern>
+        <!-- A test bootstrap exists to have side effects; that is the whole job. -->
+        <exclude-pattern>*/tests/*/bootstrap.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="140"/>
+            <property name="absoluteLineLimit" value="0"/>
+        </properties>
+    </rule>
+
+    <!--
+        The threshold sits above the largest enum in the domain. An exhaustive `match` over
+        enum cases scores as branching but reads as a lookup table, and splitting one would
+        make the mapping harder to check, not easier. Real branching logic still trips this.
+    -->
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="18"/>
+            <property name="absoluteComplexity" value="24"/>
+        </properties>
+    </rule>
+</ruleset>

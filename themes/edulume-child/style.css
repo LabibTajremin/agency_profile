@@ -1,0 +1,18 @@
+/*
+Theme Name:   Edulume Child
+Theme URI:    https://edulume.com/
+Template:     edulume-theme
+Author:       Edulume
+Description:  Start here for custom work. Overriding a template or adding CSS in a child theme survives every parent update; editing the parent does not.
+Version:      0.1.0
+Requires PHP: 8.1
+License:      GPL-2.0-or-later
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  edulume-child
+*/
+
+/*
+ * Add your own rules below. Prefer changing a setting in Edulume before writing CSS here:
+ * anything the configurator can do stays consistent across the whole site and survives an
+ * update, whereas CSS written here is yours to maintain.
+ */

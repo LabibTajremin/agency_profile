@@ -1,0 +1,246 @@
+/*
+ * The base stylesheet.
+ *
+ * Every value is a token compiled by Edulume Core. There is deliberately not one colour, font
+ * stack or spacing literal in this file: a global change has to be one recompile, never a
+ * search across the theme. The fallbacks exist so the theme degrades to something readable
+ * when the plugin is deactivated, not as a second source of truth.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /*
+   * Tokens the theme derives for itself, rather than ones the compiler emits.
+   *
+   * The compiler owns the values a person can configure — the accent, the gutter, the radius.
+   * The chrome needs a few more than that: a spacing step finer than the gutter, a pill radius,
+   * a shadow. Deriving them here from emitted tokens, instead of writing them as literals at
+   * every use site, is what keeps a single recompile in charge of the whole theme: widen the
+   * gutter and the header padding, the drawer inset and the footer rhythm all move with it.
+   *
+   * Derived, specifically, and never hardcoded. A literal in a `var()` fallback is frozen at the
+   * moment it is written: it cannot follow the accent, and — the reason this file gained the
+   * block at all — it cannot follow the mode. `var(--edulume-surface-sunken, #f1f2f4)` read a
+   * token nothing emitted, so every mode got the light-grey fallback, and dark mode put nearly
+   * white text on it at 1.07:1. Anything that has to change with the mode is a `var()` of a
+   * token that does.
+   */
+  --edulume-space-2: calc(var(--edulume-gutter, 1.5rem) / 3);
+  --edulume-space-3: calc(var(--edulume-gutter, 1.5rem) / 2);
+  --edulume-space-4: calc(var(--edulume-gutter, 1.5rem) * 2 / 3);
+  --edulume-space-6: calc(var(--edulume-gutter, 1.5rem) * 4 / 3);
+  --edulume-space-8: calc(var(--edulume-gutter, 1.5rem) * 2);
+
+  --edulume-radius-2: var(--edulume-radius, 0.75rem);
+  /* A pill, not a rounded rectangle: any radius past half the height renders identically. */
+  --edulume-radius-full: 999px;
+
+  /* Mixed from the ink so the shadow darkens on a light page and lightens on a dark one. */
+  --edulume-shadow-2: 0 2px 8px color-mix(in oklab, var(--edulume-ink, #16181d) 20%, transparent);
+
+  /*
+   * Two rings. The accent one carries the site's identity; the halo behind it is the page
+   * surface, which is what keeps the ring visible when the focused control sits on a section
+   * painted in that same accent.
+   */
+  --edulume-focus-ring: var(--edulume-accent, #365e92);
+  --edulume-focus-halo: var(--edulume-surface, #fbfbfc);
+
+  --edulume-hero-height: 60vh;
+  /* Hero text sits over an image, which is the same contrast problem as text on the accent. */
+  --edulume-hero-ink: var(--edulume-on-accent, #ffffff);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  font-family: var(--edulume-font-body, system-ui, sans-serif);
+  font-size: var(--edulume-font-size-0, 1rem);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--edulume-font-heading, inherit);
+  line-height: 1.2;
+  margin-block: 0 0.5em;
+}
+
+h1 {
+  font-size: var(--edulume-font-size-5, 2.5rem);
+}
+h2 {
+  font-size: var(--edulume-font-size-4, 2rem);
+}
+h3 {
+  font-size: var(--edulume-font-size-3, 1.6rem);
+}
+h4 {
+  font-size: var(--edulume-font-size-2, 1.3rem);
+}
+
+a {
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+code,
+pre {
+  font-family: var(--edulume-font-code, monospace);
+}
+
+blockquote {
+  font-family: var(--edulume-font-quote, inherit);
+  border-inline-start: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  margin-inline: 0;
+  padding-inline-start: var(--edulume-gutter, 1.5rem);
+}
+
+/* Logical properties throughout, so RTL is a direction attribute rather than a second sheet. */
+.edulume-container {
+  max-inline-size: var(--edulume-content-width, 75rem);
+  margin-inline: auto;
+  padding-inline: var(--edulume-gutter, 1.5rem);
+}
+
+.edulume-container--wide {
+  max-inline-size: var(--edulume-wide-width, 90rem);
+}
+
+.edulume-section {
+  position: relative;
+  padding-block: var(--edulume-section-spacing, 6rem);
+}
+
+.edulume-card,
+.edulume-button {
+  border-radius: var(--edulume-radius, 0.75rem);
+}
+
+.edulume-card {
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+}
+
+.edulume-button {
+  background-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-on-accent, #ffffff);
+  border: 0;
+  padding: 0.75em 1.5em;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease),
+    filter var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease);
+}
+
+.edulume-muted {
+  color: var(--edulume-ink-muted, #5b616e);
+}
+
+/* A visible focus ring at or above 3:1, in the site's own accent. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--edulume-accent, #365e92);
+  outline-offset: 2px;
+}
+
+.edulume-skip-link {
+  position: absolute;
+  inset-block-start: -100%;
+  inset-inline-start: 0;
+  padding: 0.75em 1.5em;
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  z-index: 100;
+}
+
+.edulume-skip-link:focus {
+  inset-block-start: 0;
+}
+
+/* Touch targets never below 44x44. */
+.edulume-nav a,
+.edulume-button,
+.edulume-icon-button {
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img,
+video {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.screen-reader-text {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/*
+ * The focus ring.
+ *
+ * `:focus-visible` rather than `:focus`, so a mouse click on a button does not leave a ring
+ * behind — that is the reason people used to remove focus outlines altogether, and removing
+ * them is what made keyboard navigation impossible on half the web.
+ *
+ * Two rings: the accent one, and a contrasting offset behind it. A single accent ring is
+ * invisible against a section whose background is that same accent, which is a state this
+ * theme can genuinely produce.
+ */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--edulume-focus-ring, #1b5fa8);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--edulume-focus-halo, #ffffff);
+}
+
+/* Every interactive target clears the 44px floor on both axes. */
+:where(button, [role='button'], summary, .edulume-nav__list a, .edulume-footer__menu a) {
+  min-block-size: 44px;
+}
+
+.screen-reader-text {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * Reduced motion, declared last in the base sheet so nothing in it can lose to a later rule.
+ * This overrides every motion setting the configurator can store — that is deliberate and not
+ * configurable.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

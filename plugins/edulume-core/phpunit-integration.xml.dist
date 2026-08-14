@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    PHPUnit 9, not 10, and inside the plugin rather than at the repository root.
+
+    WordPress's core test suite calls `PHPUnit\Util\Test::parseTestMethodAnnotations()`, which
+    PHPUnit 10 removed — every test errors before reaching an assertion, on 6.5 and on 6.8
+    alike. Running integration on PHPUnit 9 is what the WordPress ecosystem does, and it is why
+    the tests in this suite use `@test` annotations while the unit suite uses attributes.
+
+    The paths are relative to this file, because only the plugin directory is mounted into the
+    wp-env container.
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
+         bootstrap="tests/Integration/bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         beStrictAboutOutputDuringTests="true"
+         failOnRisky="true"
+         failOnWarning="true">
+    <testsuites>
+        <testsuite name="integration">
+            <directory suffix="Test.php">tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

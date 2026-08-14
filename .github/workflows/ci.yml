@@ -1,0 +1,235 @@
+name: CI
+
+on:
+  # Every pull request, whatever it targets. Pinning this to one base branch means a PR opened
+  # against anything else silently runs no checks at all, which reads as green.
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  php-quality:
+    name: PHP lint & static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+          tools: composer:v2
+      - run: composer install --prefer-dist --no-progress
+      - run: composer lint
+      - run: composer analyse
+      - run: composer audit:theme
+      # Catches a misspelt custom property, which is invisible in light mode because the var()
+      # fallback is a light-mode value, and wrong in every other mode for the same reason.
+      - run: composer audit:tokens
+      - run: composer audit:queries
+      - run: composer audit:i18n
+      - run: composer audit:security
+      - name: The translation template is regenerable and current
+        run: |
+          composer make:pot
+          git diff --exit-code languages/edulume.pot
+
+  php-unit:
+    name: PHP unit tests (${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.1', '8.2', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
+          tools: composer:v2
+      - run: composer install --prefer-dist --no-progress
+      # Tests only across the version matrix. What this job answers is "does the suite pass on
+      # 8.1, 8.2 and 8.3", and it should answer it in two minutes rather than two hours.
+      - run: composer test:unit
+
+  php-coverage:
+    name: Coverage floor
+    runs-on: ubuntu-latest
+    # Line coverage, which takes about twenty seconds.
+    #
+    # This job used to run Xdebug *path* coverage, which enumerates every distinct execution
+    # path through each function and is therefore combinatorial in branch count: it reached 56%
+    # of the suite in sixty minutes and needed roughly 107, against a 90-minute timeout. It had
+    # never once finished. A gate that never finishes is not a strict gate, it is no gate — and
+    # while it was failing to run, the suite was leaving 51 lines of Domain and Application
+    # untested, including three conditional-logic operators and every post type's label set.
+    # Twenty seconds of line coverage found all of them.
+    #
+    # The old comment defended path coverage on the grounds that line coverage "reports a
+    # different figure for the same code". It did: 99.01% against 100%. That gap was three lines
+    # unreachable by construction, which path coverage's dead-code analysis excluded silently.
+    # They now carry `@codeCoverageIgnore` and say why in the source, so both modes agree at
+    # 100% and the exclusions are visible to a reader instead of implied by a coverage driver.
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: xdebug
+          tools: composer:v2
+      - run: composer install --prefer-dist --no-progress
+      - run: composer test:coverage
+      - name: Enforce the coverage floor on Domain and Application
+        run: composer coverage:gate
+
+  php-integration:
+    name: WordPress integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+          tools: composer:v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: composer install --prefer-dist --no-progress
+      - name: Install the WordPress test-suite polyfills
+        # Installed here rather than committed to composer.json for the same reason WPCS is:
+        # neither can be installed in every environment this repository is developed in, and a
+        # lock file that cannot be satisfied there would break `composer install` for everyone.
+        # WordPress's core test bootstrap refuses to start without these.
+        run: composer require --dev --no-interaction --no-audit --no-progress yoast/phpunit-polyfills:^2.0
+      - name: Fetch PHPUnit 9 for the integration suite
+        # Downloaded into the plugin directory, which is what wp-env mounts into the container.
+        # The repository's own PHPUnit stays at 10 for the unit suite; only WordPress's test
+        # suite needs the older one.
+        run: |
+          curl -sSLo plugins/edulume-core/phpunit-9.phar https://phar.phpunit.de/phpunit-9.phar
+          chmod +x plugins/edulume-core/phpunit-9.phar
+      - run: npm ci
+      - run: npm run env:start
+      - name: Prove WordPress is actually up
+        # `npx wp-env` used to resolve to an unrelated package that printed a message and
+        # exited 0, so this job reported success without ever starting WordPress. wp-env is a
+        # real devDependency now, and this step fails loudly if the site is not answering —
+        # a green run must never mean "did not run".
+        run: npx wp-env run tests-cli wp core version
+      - run: npm run test:integration
+
+  js-quality:
+    name: JS lint & unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+
+  # The performance budget and the accessibility sweep both need a running site, so they share
+  # the wp-env stack rather than each paying for their own two-minute Docker start.
+  site-audits:
+    name: Lighthouse budget & axe sweep
+    runs-on: ubuntu-latest
+    # Blocking. This job carried `continue-on-error: true` while the budget in lighthouserc.json
+    # had never been measured against a complete site — gating every pull request on a number
+    # nobody had met yet would only have trained everyone to ignore a red check. The condition
+    # written here was that it becomes blocking once it has passed once.
+    #
+    # It has now passed twice in a row on a fully seeded site: every assertion in
+    # lighthouserc.json at `error` severity across seven URLs and twenty-one runs under mobile
+    # throttling, and the axe sweep clean on all ten templates in both modes. The escape hatch
+    # has served its purpose, and leaving it in place would mean the accessibility sweep could
+    # go red without anybody being stopped by it — which is the failure this branch already had
+    # once, when a token nothing emitted put white text on white in every dark-mode template.
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+          tools: composer:v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: composer install --prefer-dist --no-progress
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+      - run: npm run env:start
+      - name: Prove WordPress is actually up
+        run: npx wp-env run cli wp core version
+      - name: Activate the plugin and theme
+        run: |
+          npx wp-env run cli wp plugin activate edulume-core
+          npx wp-env run cli wp theme activate edulume-theme
+          npx wp-env run cli wp rewrite structure '/%postname%/'
+          npx wp-env run cli wp rewrite flush --hard
+      - name: Seed the demo content the audits measure against
+        run: |
+          npx wp-env run cli wp edulume demo import boutique --mode=full
+          npx wp-env run cli wp post create --post_type=page --post_title=About --post_status=publish
+          npx wp-env run cli wp post create --post_type=page --post_title=Contact --post_status=publish
+          npx wp-env run cli wp rewrite flush --hard
+      - name: Every audited URL answers 200
+        # Lighthouse reports a 404 as a runtime error rather than a low score, so a mistyped
+        # archive base looks identical to a slow page. Checking first turns "the audit failed"
+        # into either "this URL is missing" or "this page is too slow", which are different
+        # problems with different fixes.
+        run: bash tools/audit/check-urls.sh
+      - name: Lighthouse against the mobile budget
+        run: npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json
+      - name: axe against every template in both modes
+        run: node tools/axe/run.mjs
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+
+  # WPCS and Plugin Check both need dependencies that cannot be installed in every development
+  # environment, so they get their own job with their own install. Either they run and pass, or
+  # the job fails — neither can be silently skipped inside a green lint.
+  wordpress-standards:
+    name: WPCS security & Plugin Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+          tools: composer:v2, cs2pr
+      - run: composer install --prefer-dist --no-progress
+      - name: Install the WordPress Coding Standards
+        run: |
+          composer require --dev --no-interaction --with-all-dependencies \
+            wp-coding-standards/wpcs:^3.1 \
+            dealerdirect/phpcodesniffer-composer-installer:^1.0
+      - name: PHPCS with the WordPress security ruleset
+        run: vendor/bin/phpcs --standard=phpcs-security.xml.dist
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Plugin Check
+        run: |
+          npm run env:start
+          npx wp-env run cli wp core version
+          npx wp-env run cli wp plugin install plugin-check --activate
+          npx wp-env run cli wp plugin check edulume-core --format=table --severity=5

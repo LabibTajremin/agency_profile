@@ -1,0 +1,45 @@
+# Branch coverage, measured on a cadence rather than on every push.
+#
+# Xdebug path coverage is the only way to get branch data out of this suite, and it costs
+# roughly 107 minutes because it enumerates every distinct execution path through each function
+# — combinatorial in branch count, where line coverage is linear and finishes in twenty seconds.
+#
+# It used to run on every pull request, where it never once completed inside its timeout. The
+# per-pull-request gate is now line coverage in the main CI workflow, which enforces the 100%
+# floor on Domain and Application. This workflow keeps the branch figure available without
+# putting an hour and three quarters in front of every push.
+#
+# If this cadence turns out to be too loose, the next step is to shard it: split the suite into
+# four testsuites, run them as a matrix, and merge the resulting `.cov` files with `phpcov`.
+# That trades one 107-minute job for four 27-minute ones.
+name: Branch coverage
+
+on:
+  schedule:
+    # Sundays at 03:00 UTC — off the working week, so a long job competes with nothing.
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+jobs:
+  path-coverage:
+    name: Path coverage & branch floor
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: xdebug
+          tools: composer:v2
+      - run: composer install --prefer-dist --no-progress
+      - run: composer test:coverage:paths
+      - name: Enforce the line and branch floors on Domain and Application
+        run: composer coverage:gate:paths
+      - name: Keep the report, so a drop can be read rather than guessed at
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: path-coverage-clover
+          path: build/coverage-paths.xml
+          if-no-files-found: warn
