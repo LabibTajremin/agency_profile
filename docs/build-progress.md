@@ -51,10 +51,15 @@ rather than this file asserting it:
   phase. This session is scoped to a single designated branch, so phases land as separate
   commits on `claude/build-instruction-execution-bilonz`. The history still reads one phase at
   a time.
-- **Branch-coverage floor is 90%, line is 100%.** Xdebug path coverage attributes an unreachable
-  bailout branch to every internal call and to the implicit `UnhandledMatchError` arm of an
-  exhaustive `match`, so a literal 100% is unattainable. The gate reports "not measured" rather
-  than a vacuous 100% when branch data is absent. See `docs/testing.md`.
+- **Line-coverage floor is 100% and runs per pull request; branch coverage is 90% and runs
+  weekly.** Branch data needs Xdebug path coverage, which takes roughly 107 minutes over this
+  suite and so cannot sit in front of every push — it had never once finished inside its
+  timeout, and while it was failing to run it left 51 lines of `Domain` and `Application`
+  untested. Line coverage measures the same floor in twenty seconds. A literal 100% branch
+  figure stays unattainable because path coverage attributes an unreachable bailout branch to
+  every internal call and to the implicit `UnhandledMatchError` arm of an exhaustive `match`.
+  The gate reports "not measured" rather than a vacuous 100% when branch data is absent. See
+  `docs/testing.md`.
 - **`AccentReview` is per mode.** No single colour clears 4.5:1 against both a near-white and a
   near-black surface, so a single verdict would always be false.
 - **WPCS runs in its own CI job**, not in `composer lint`. It cannot be installed in every

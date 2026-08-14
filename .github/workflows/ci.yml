@@ -144,15 +144,18 @@ jobs:
   site-audits:
     name: Lighthouse budget & axe sweep
     runs-on: ubuntu-latest
-    # Non-blocking on pull requests, and blocking before a release — see
-    # docs/release-checklist.md, which requires a green run as release evidence.
+    # Blocking. This job carried `continue-on-error: true` while the budget in lighthouserc.json
+    # had never been measured against a complete site — gating every pull request on a number
+    # nobody had met yet would only have trained everyone to ignore a red check. The condition
+    # written here was that it becomes blocking once it has passed once.
     #
-    # The reason is stated plainly rather than hidden: the budget in lighthouserc.json has
-    # never been measured against a complete site, so gating every pull request on a number
-    # nobody has met yet would train everyone to ignore a red check. The job still runs, still
-    # reports, and its output is what the budget gets tuned against. It becomes blocking once
-    # it has passed once.
-    continue-on-error: true
+    # It has now passed twice in a row on a fully seeded site: every assertion in
+    # lighthouserc.json at `error` severity across seven URLs and twenty-one runs under mobile
+    # throttling, and the axe sweep clean on all ten templates in both modes. The escape hatch
+    # has served its purpose, and leaving it in place would mean the accessibility sweep could
+    # go red without anybody being stopped by it — which is the failure this branch already had
+    # once, when a token nothing emitted put white text on white in every dark-mode template.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2

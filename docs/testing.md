@@ -64,17 +64,55 @@ Every condition still gets a test. The floor is the automated backstop, not the 
 
 ## Why coverage runs in its own job
 
-Xdebug's path coverage over the full suite takes roughly three quarters of an hour, so it runs
-once on PHP 8.1 rather than three times across the version matrix. The matrix job runs the tests
-without coverage and answers the question it exists to answer — does the suite pass on 8.1, 8.2
-and 8.3 — in about two minutes.
+Coverage runs once on PHP 8.1 rather than three times across the version matrix. The matrix job
+runs the tests without coverage and answers the question it exists to answer — does the suite
+pass on 8.1, 8.2 and 8.3 — in about two minutes.
 
-It stays _path_ coverage. Plain line coverage is roughly twenty times faster, but it reports a
-different figure for the same code: Xdebug performs dead-code analysis under path coverage and
-not under line coverage, so files that measure 100% under one measure 99% under the other.
-Switching to the faster mode to make CI quicker would have redefined what "100%" means rather
-than measured it, which is the kind of change that looks like a speed-up in the diff and is a
-loosened gate in fact.
+### The gate that never ran
+
+The per-pull-request gate used to be Xdebug **path** coverage. That was a mistake worth
+recording, because it failed in the way that is hardest to notice: it did not report a wrong
+answer, it reported no answer at all.
+
+Path coverage enumerates every distinct execution path through each function, so its cost is
+combinatorial in branch count where line coverage is linear. Over this suite it reached 56% in
+sixty minutes and needed roughly 107, against a 90-minute timeout. It had never once finished.
+Every push cancelled the attempt, and a timeout looks much like a cancellation in a check list.
+
+A gate that never finishes is not a strict gate. It is no gate. While it was failing to run,
+the suite was leaving 51 lines of `Domain` and `Application` untested — three of the five
+conditional-logic operators that decide which questions a person is shown, every post type's
+label set, both validation guards on `Pattern::of()`, and the `slugs()` accessor behind every
+picker in the configurator. Line coverage found all of them in twenty seconds.
+
+The per-pull-request gate is now line coverage, and it enforces the 100% floor exactly.
+
+### What the two modes actually disagreed about
+
+The old note claimed path coverage had to stay because line coverage "reports a different
+figure for the same code" — 99.01% against 100%. That was true, and the difference was not
+noise: three lines are unreachable by construction, and Xdebug's dead-code analysis was
+excluding them silently under path coverage.
+
+- `SvgSanitiser` narrows a `DOMNode` to `DOMAttr`. A `DOMNamedNodeMap` taken from `$attributes`
+  yields nothing else, so the arm exists for static analysis and no test can reach it.
+- `SettingsMigrator`'s `default` match arm. The version is clamped to `[first, current]` and
+  the loop only runs below current, so version 1 is the only value it sees.
+- `AdminTheme::meetsContrastRequirements` returning false. `compile()` resolves every
+  foreground through `nearestCompliantForeground`, so no accent seed can fail it — a sweep of
+  the RGB cube in both modes confirms none does.
+
+Those three now carry `@codeCoverageIgnore` and state their reasoning in the source. Both modes
+agree at 100%, and the exclusions are visible to a reader instead of implied by a coverage
+driver's heuristics — which is the more honest arrangement, since an exclusion nobody can see
+is indistinguishable from a line nobody tested.
+
+### Branch coverage
+
+Branch data needs path coverage, so it runs on its own schedule — weekly, plus manual dispatch,
+in `.github/workflows/branch-coverage.yml` — rather than in front of every push. If that
+cadence proves too loose, the next step is to shard the suite four ways and merge the resulting
+`.cov` files with `phpcov`, which turns one 107-minute job into four 27-minute ones.
 
 ## Why the two suites run on different PHPUnit versions
 
