@@ -89,6 +89,10 @@ final class AdminMenu
 
     private function currentRoute(): string
     {
+        // No nonce, and there could not be one: this is WordPress's own admin routing
+        // parameter, read to decide which screen to draw. The capability check that matters
+        // already happened when the page was registered.
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $page = isset($_GET['page']) ? sanitize_key(wp_unslash((string) $_GET['page'])) : self::SLUG;
 
         // Whitelisted against the registered pages rather than echoed back. The value reaches a

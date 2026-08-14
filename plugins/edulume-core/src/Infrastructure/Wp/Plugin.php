@@ -49,8 +49,15 @@ final class Plugin
 
     private function register(): void
     {
-        register_activation_hook($this->entryFile, fn (): null => $this->activate());
-        register_deactivation_hook($this->entryFile, static fn (): null => self::deactivate());
+        // `void`, not the standalone `null` return type: that is PHP 8.2 syntax and this
+        // plugin declares PHP 8.1. It parses fine on a newer runtime, so nothing caught it
+        // until the plugin ran on the version it claims to support.
+        register_activation_hook($this->entryFile, function (): void {
+            $this->activate();
+        });
+        register_deactivation_hook($this->entryFile, static function (): void {
+            self::deactivate();
+        });
 
         add_action('init', [$this, 'loadTextDomain']);
 
@@ -62,18 +69,14 @@ final class Plugin
         DemoCliCommand::register($this->container);
     }
 
-    public function activate(): null
+    public function activate(): void
     {
         Activation::run($this->version);
-
-        return null;
     }
 
-    public static function deactivate(): null
+    public static function deactivate(): void
     {
         Deactivation::run();
-
-        return null;
     }
 
     public function loadTextDomain(): void

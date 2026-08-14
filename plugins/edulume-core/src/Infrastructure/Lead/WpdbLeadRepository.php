@@ -124,7 +124,7 @@ final class WpdbLeadRepository implements LeadRepository
                 // is a %i identifier placeholder. Nothing here is interpolated from input.
                 // The replacement count below is right: the WHERE fragment carries its own
                 // placeholders, which the sniff cannot see from here.
-                // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
+                // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
                 "SELECT * FROM %i WHERE {$where} ORDER BY {$order} LIMIT %d OFFSET %d",
                 $table,
                 ...$values
