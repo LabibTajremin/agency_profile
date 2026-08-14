@@ -28,6 +28,7 @@ jobs:
       - run: composer audit:theme
       - run: composer audit:queries
       - run: composer audit:i18n
+      - run: composer audit:security
       - name: The translation template is regenerable and current
         run: |
           composer make:pot
@@ -116,3 +117,35 @@ jobs:
         run: node tools/axe/run.mjs
         env:
           PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+
+  # WPCS and Plugin Check both need dependencies that cannot be installed in every development
+  # environment, so they get their own job with their own install. Either they run and pass, or
+  # the job fails — neither can be silently skipped inside a green lint.
+  wordpress-standards:
+    name: WPCS security & Plugin Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+          tools: composer:v2, cs2pr
+      - run: composer install --prefer-dist --no-progress
+      - name: Install the WordPress Coding Standards
+        run: |
+          composer require --dev --no-interaction --with-all-dependencies \
+            wp-coding-standards/wpcs:^3.1 \
+            dealerdirect/phpcodesniffer-composer-installer:^1.0
+      - name: PHPCS with the WordPress security ruleset
+        run: vendor/bin/phpcs --standard=phpcs-security.xml.dist
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Plugin Check
+        run: |
+          npx wp-env start
+          npx wp-env run cli wp plugin install plugin-check --activate
+          npx wp-env run cli wp plugin check edulume-core --format=table --severity=5
