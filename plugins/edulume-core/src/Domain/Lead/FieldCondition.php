@@ -38,7 +38,7 @@ final class FieldCondition
      */
     public static function fromArray(array $data): ?self
     {
-        $fieldId = Guard::toString($data['fieldId'] ?? '');
+        $fieldId = trim(Guard::toString($data['fieldId'] ?? ''));
 
         // A condition with no field to look at is not a condition; treated as absence rather
         // than as a condition that is never satisfied, which would hide the field forever.
