@@ -141,7 +141,7 @@ property that neither the compiler emits nor the theme declares. It exists becau
 that survived every other gate in this pipeline.
 
 The theme read `var(--edulume-surface-sunken, #f1f2f4)` in the footer and the utility bar. It
-looked right, it passed the literal gate — a fallback is allowed — and in light mode it *was*
+looked right, it passed the literal gate — a fallback is allowed — and in light mode it _was_
 right, because the fallback is a light grey and so is the light-mode surface. Nothing emits
 `--edulume-surface-sunken`. The compiler emits `--edulume-surface-subtle`.
 
