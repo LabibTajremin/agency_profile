@@ -164,8 +164,19 @@ jobs:
           npx wp-env run cli wp plugin activate edulume-core
           npx wp-env run cli wp theme activate edulume-theme
           npx wp-env run cli wp rewrite structure '/%postname%/'
+          npx wp-env run cli wp rewrite flush --hard
       - name: Seed the demo content the audits measure against
-        run: npx wp-env run cli wp edulume demo import boutique --mode=full
+        run: |
+          npx wp-env run cli wp edulume demo import boutique --mode=full
+          npx wp-env run cli wp post create --post_type=page --post_title=About --post_status=publish
+          npx wp-env run cli wp post create --post_type=page --post_title=Contact --post_status=publish
+          npx wp-env run cli wp rewrite flush --hard
+      - name: Every audited URL answers 200
+        # Lighthouse reports a 404 as a runtime error rather than a low score, so a mistyped
+        # archive base looks identical to a slow page. Checking first turns "the audit failed"
+        # into either "this URL is missing" or "this page is too slow", which are different
+        # problems with different fixes.
+        run: bash tools/audit/check-urls.sh
       - name: Lighthouse against the mobile budget
         run: npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json
       - name: axe against every template in both modes

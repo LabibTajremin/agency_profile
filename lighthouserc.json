@@ -6,13 +6,13 @@
         "http://localhost:8888/",
         "http://localhost:8888/courses/",
         "http://localhost:8888/destinations/",
+        "http://localhost:8888/institutions/",
         "http://localhost:8888/services/",
         "http://localhost:8888/about/",
         "http://localhost:8888/contact/"
       ],
       "numberOfRuns": 3,
       "settings": {
-        "preset": "desktop",
         "formFactor": "mobile",
         "screenEmulation": {
           "mobile": true,
@@ -33,23 +33,82 @@
     },
     "assert": {
       "assertions": {
-        "categories:performance": ["error", { "minScore": 0.9 }],
-        "categories:accessibility": ["error", { "minScore": 1 }],
-        "categories:best-practices": ["warn", { "minScore": 0.9 }],
-        "categories:seo": ["error", { "minScore": 0.9 }],
-        "largest-contentful-paint": ["error", { "maxNumericValue": 2000 }],
-        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.05 }],
-        "total-blocking-time": ["error", { "maxNumericValue": 200 }],
-        "resource-summary:script:size": ["error", { "maxNumericValue": 122880 }],
-        "resource-summary:stylesheet:size": ["error", { "maxNumericValue": 61440 }],
-        "resource-summary:font:size": ["error", { "maxNumericValue": 102400 }],
-        "resource-summary:total:count": ["error", { "maxNumericValue": 45 }],
+        "categories:performance": [
+          "error",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "categories:accessibility": [
+          "error",
+          {
+            "minScore": 1
+          }
+        ],
+        "categories:best-practices": [
+          "warn",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "categories:seo": [
+          "error",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "largest-contentful-paint": [
+          "error",
+          {
+            "maxNumericValue": 2000
+          }
+        ],
+        "cumulative-layout-shift": [
+          "error",
+          {
+            "maxNumericValue": 0.05
+          }
+        ],
+        "total-blocking-time": [
+          "error",
+          {
+            "maxNumericValue": 200
+          }
+        ],
+        "resource-summary:script:size": [
+          "error",
+          {
+            "maxNumericValue": 122880
+          }
+        ],
+        "resource-summary:stylesheet:size": [
+          "error",
+          {
+            "maxNumericValue": 61440
+          }
+        ],
+        "resource-summary:font:size": [
+          "error",
+          {
+            "maxNumericValue": 102400
+          }
+        ],
+        "resource-summary:total:count": [
+          "error",
+          {
+            "maxNumericValue": 45
+          }
+        ],
         "unsized-images": "error",
         "uses-responsive-images": "error",
         "modern-image-formats": "error",
         "prioritize-lcp-image": "error"
       }
     },
-    "upload": { "target": "filesystem", "outputDir": "build/lighthouse" }
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "build/lighthouse"
+    },
+    "//": "Mobile, throttled. Measuring on a fast desktop connection is how a site ships at four seconds on a phone with a green badge in CI."
   }
 }
