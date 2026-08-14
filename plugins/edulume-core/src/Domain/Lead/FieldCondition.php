@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Domain\Lead;
 
+use Edulume\Core\Domain\Support\Guard;
+
 /**
  * "Show this field only when that one says X."
  *
@@ -17,6 +19,38 @@ final class FieldCondition
         public readonly ConditionOperator $operator,
         public readonly string $expected,
     ) {
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function toArray(): array
+    {
+        return [
+            'fieldId' => $this->fieldId,
+            'operator' => $this->operator->value,
+            'expected' => $this->expected,
+        ];
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    public static function fromArray(array $data): ?self
+    {
+        $fieldId = Guard::toString($data['fieldId'] ?? '');
+
+        // A condition with no field to look at is not a condition; treated as absence rather
+        // than as a condition that is never satisfied, which would hide the field forever.
+        if ($fieldId === '') {
+            return null;
+        }
+
+        return self::of(
+            $fieldId,
+            Guard::toEnum(ConditionOperator::class, $data['operator'] ?? null, ConditionOperator::Equals),
+            Guard::toString($data['expected'] ?? ''),
+        );
     }
 
     public static function of(string $fieldId, ConditionOperator $operator, string $expected = ''): self

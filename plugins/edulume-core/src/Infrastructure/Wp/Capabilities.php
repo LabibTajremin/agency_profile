@@ -18,6 +18,15 @@ final class Capabilities
     public const MANAGE_CONTENT = 'edulume_manage_content';
     public const IMPORT_DEMO_CONTENT = 'edulume_import_demo_content';
 
+    /**
+     * Seeing every lead, not only your own.
+     *
+     * A separate capability rather than a role check, because the distinction that matters is
+     * "may this request widen its own scope", and a role name is the wrong thing to ask that of
+     * — a site can rename or recombine roles, and the check has to keep meaning the same thing.
+     */
+    public const MANAGE_ALL_LEADS = 'edulume_manage_all_leads';
+
     private const ADMINISTRATOR_ROLE = 'administrator';
 
     /**
@@ -31,6 +40,7 @@ final class Capabilities
             self::EXPORT_LEADS,
             self::MANAGE_CONTENT,
             self::IMPORT_DEMO_CONTENT,
+            self::MANAGE_ALL_LEADS,
         ];
     }
 

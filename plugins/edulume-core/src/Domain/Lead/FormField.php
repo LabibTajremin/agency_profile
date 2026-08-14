@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Domain\Lead;
 
+use Edulume\Core\Domain\Support\Guard;
+
 /**
  * One field on a form.
  */
@@ -41,6 +43,38 @@ final class FormField
             max(0, $stepIndex),
             $type->needsOptions() ? $options : [],
             $condition,
+        );
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'label' => $this->label,
+            'type' => $this->type->value,
+            'isRequired' => $this->isRequired,
+            'stepIndex' => $this->stepIndex,
+            'options' => $this->options,
+            'condition' => $this->condition?->toArray(),
+        ];
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    public static function fromArray(array $data): self
+    {
+        return self::of(
+            Guard::toString($data['id'] ?? ''),
+            Guard::toString($data['label'] ?? ''),
+            Guard::toEnum(FormFieldType::class, $data['type'] ?? null, FormFieldType::Text),
+            Guard::toBool($data['isRequired'] ?? false),
+            Guard::toInt($data['stepIndex'] ?? 0, 0, 0),
+            Guard::toStringList($data['options'] ?? []),
+            FieldCondition::fromArray(Guard::toArray($data['condition'] ?? [])),
         );
     }
 

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Domain\Lead;
 
+use Edulume\Core\Domain\Support\Guard;
+
 /**
  * A form: its fields, how they are stepped, where it appears, and what it promises about the
  * data it collects.
@@ -49,6 +51,46 @@ final class FormDefinition
             $placement,
             min(self::MAXIMUM_RETENTION_DAYS, max(self::MINIMUM_RETENTION_DAYS, $retentionDays)),
             $consentText,
+        );
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'fields' => array_map(static fn (FormField $field): array => $field->toArray(), $this->fields),
+            'placement' => $this->placement->value,
+            'retentionDays' => $this->retentionDays,
+            'consentText' => $this->consentText,
+        ];
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    public static function fromArray(array $data): self
+    {
+        $fields = [];
+
+        foreach (Guard::toArray($data['fields'] ?? []) as $row) {
+            // A row that is not an array is a storage corruption, not a field. Skipped rather
+            // than defaulted, because a field with no id would silently collect nothing.
+            if (is_array($row)) {
+                $fields[] = FormField::fromArray($row);
+            }
+        }
+
+        return self::of(
+            Guard::toString($data['id'] ?? ''),
+            Guard::toString($data['title'] ?? ''),
+            $fields,
+            Guard::toEnum(FormPlacement::class, $data['placement'] ?? null, FormPlacement::Inline),
+            Guard::toInt($data['retentionDays'] ?? self::DEFAULT_RETENTION_DAYS),
+            Guard::toString($data['consentText'] ?? ''),
         );
     }
 

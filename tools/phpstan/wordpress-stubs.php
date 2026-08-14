@@ -460,7 +460,22 @@ function get_posts(array $args = []): array
 
 class WP_Error
 {
+    /**
+     * @param string|int $code
+     * @param mixed $data
+     */
+    public function __construct($code = '', string $message = '', $data = '')
+    {
+    }
+
     public function get_error_message(string $code = ''): string
+    {
+    }
+
+    /**
+     * @return string|int
+     */
+    public function get_error_code()
     {
     }
 }
@@ -651,3 +666,129 @@ function wp_upload_dir(?string $time = null, bool $createDir = true): array
 function wp_delete_file(string $file): void
 {
 }
+
+class WP_REST_Request
+{
+    /**
+     * @return mixed
+     */
+    public function get_param(string $key)
+    {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function get_params(): array
+    {
+    }
+}
+
+function current_user_can(string $capability): bool
+{
+}
+
+function get_current_user_id(): int
+{
+}
+
+class WP_Post
+{
+    public int $ID;
+
+    public string $post_name;
+
+    public string $post_title;
+
+    public string $post_type;
+}
+
+class WP_Query
+{
+    /** @var array<int, mixed> */
+    public array $posts;
+
+    public int $found_posts;
+
+    /**
+     * @param array<string, mixed> $args
+     */
+    public function __construct(array $args = [])
+    {
+    }
+}
+
+/**
+ * @param WP_Post|int|null $post
+ */
+function get_the_title($post = null): string
+{
+}
+
+/**
+ * @param WP_Post|int|null $post
+ *
+ * @return string|false
+ */
+function get_permalink($post = null)
+{
+}
+
+/**
+ * @param WP_Post|int|null $post
+ */
+function get_the_excerpt($post = null): string
+{
+}
+
+/**
+ * @param WP_Post|int|null $post
+ *
+ * @return string|false
+ */
+function get_the_post_thumbnail_url($post = null, string $size = 'post-thumbnail')
+{
+}
+
+/**
+ * @return array<string, int>|false
+ */
+function get_nav_menu_locations()
+{
+}
+
+/**
+ * @param int|string $menu
+ *
+ * @return object|false
+ */
+function wp_get_nav_menu_object($menu)
+{
+}
+
+/**
+ * @param mixed $value
+ */
+function set_theme_mod(string $name, $value): void
+{
+}
+
+/**
+ * @return WP_Post|null
+ */
+function get_page_by_path(string $path, string $output = 'OBJECT', string $postType = 'page')
+{
+}
+
+function sanitize_title(string $title): string
+{
+}
+
+/**
+ * @return WP_Post|false|null
+ */
+function wp_delete_post(int $postId, bool $forceDelete = false)
+{
+}
+
+const OBJECT = 'OBJECT';
