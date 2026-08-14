@@ -30,6 +30,7 @@ function edulume_conditional_modules(): array
     return [
         // The drawer and the mode toggle exist in the chrome on every page.
         'chrome' => static fn (): bool => true,
+        'consent' => static fn (): bool => true,
         'finder' => static fn (): bool => edulume_page_has('finder'),
         'compare' => static fn (): bool => edulume_page_has('compare'),
         'eligibility' => static fn (): bool => edulume_page_has('eligibility'),

@@ -14,6 +14,9 @@ use Edulume\Core\Domain\Support\Guard;
  */
 final class ConsentState
 {
+    /** Distinguishes "answered, and said no to everything" from "never asked". */
+    private const REJECTED_MARKER = 'none';
+
     /**
      * @param array<string, bool> $decisions
      */
@@ -75,6 +78,64 @@ final class ConsentState
         }
 
         return $stored;
+    }
+
+    /**
+     * Reads the compact cookie form: a comma-separated list of granted categories.
+     *
+     * An empty or unreadable cookie reads as *undecided*, not as rejected. The difference
+     * matters: undecided shows the banner again, while a wrongly-remembered rejection means the
+     * visitor is never asked and the site quietly loses every measurement it was entitled to.
+     */
+    public static function fromCookie(string $cookie): self
+    {
+        $trimmed = trim($cookie);
+
+        if ($trimmed === '') {
+            return self::undecided();
+        }
+
+        if ($trimmed === self::REJECTED_MARKER) {
+            return self::rejectingEverything();
+        }
+
+        $granted = [];
+
+        foreach (explode(',', $trimmed) as $value) {
+            $category = ConsentCategory::tryFrom(trim($value));
+
+            if ($category !== null) {
+                $granted[] = $category;
+            }
+        }
+
+        return $granted === [] ? self::undecided() : self::granting($granted);
+    }
+
+    /**
+     * The cookie value to store. Categories only — never a timestamp or an identifier, because
+     * a consent cookie that identifies the visitor is itself the thing being consented to.
+     */
+    public function toCookie(): string
+    {
+        if (!$this->hasDecided) {
+            return '';
+        }
+
+        $granted = [];
+
+        foreach (ConsentCategory::cases() as $category) {
+            if (!$category->isAlwaysAllowed() && $this->allows($category)) {
+                $granted[] = $category->value;
+            }
+        }
+
+        return $granted === [] ? self::REJECTED_MARKER : implode(',', $granted);
+    }
+
+    public function hasBeenAnswered(): bool
+    {
+        return $this->hasDecided;
     }
 
     public function allows(ConsentCategory $category): bool

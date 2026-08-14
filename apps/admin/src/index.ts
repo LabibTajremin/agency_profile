@@ -63,3 +63,14 @@ export type {
   RoleChoice,
   WizardRole,
 } from './wizard/newUser';
+
+export {
+  ROUTES,
+  requiredIcons,
+  resolveRoute,
+  routeById,
+  routeBySlug,
+  urlFor,
+  visibleRoutes,
+} from './shell/routes';
+export type { RouteDefinition as AdminRoute, RouteId } from './shell/routes';

@@ -17,6 +17,10 @@ msgstr ""
 msgid "A new enquiry arrived through %s."
 msgstr ""
 
+#: themes/edulume-theme/inc/consent.php:88
+msgid "Accept selected"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/trust-bar.php:13
 msgid "Accreditations"
 msgstr ""
@@ -45,6 +49,10 @@ msgstr ""
 msgid "Contact details"
 msgstr ""
 
+#: themes/edulume-theme/inc/consent.php:61
+msgid "Cookie choices"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/courses.php:13
 msgid "Courses"
 msgstr ""
@@ -55,6 +63,11 @@ msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:160
 msgid "Dismiss this announcement"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:54
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:55
+msgid "Edulume"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/events.php:13
@@ -77,11 +90,11 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:63
+#: themes/edulume-theme/functions.php:64
 msgid "Footer column %d"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:43
+#: themes/edulume-theme/functions.php:44
 msgid "Footer menu"
 msgstr ""
 
@@ -103,6 +116,10 @@ msgstr ""
 
 #: themes/edulume-theme/404.php:23
 msgid "It may have moved. Try a search, or pick up from one of these."
+msgstr ""
+
+#: themes/edulume-theme/inc/consent.php:92
+msgid "Necessary only"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:40
@@ -156,7 +173,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:42
+#: themes/edulume-theme/functions.php:43
 msgid "Primary menu"
 msgstr ""
 
@@ -233,7 +250,7 @@ msgstr ""
 msgid "Useful links"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:44
+#: themes/edulume-theme/functions.php:45
 msgid "Utility bar"
 msgstr ""
 

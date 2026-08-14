@@ -830,3 +830,33 @@ function wp_strip_all_tags(string $text, bool $removeBreaks = false): string
 function get_post_type_archive_link(string $postType)
 {
 }
+
+/**
+ * @param callable|string|array<int, mixed>|null $callback
+ */
+function add_menu_page(
+    string $pageTitle,
+    string $menuTitle,
+    string $capability,
+    string $menuSlug,
+    $callback = '',
+    string $iconUrl = '',
+    ?int $position = null
+): string {
+}
+
+/**
+ * @param callable|string|array<int, mixed>|null $callback
+ *
+ * @return string|false
+ */
+function add_submenu_page(
+    string $parentSlug,
+    string $pageTitle,
+    string $menuTitle,
+    string $capability,
+    string $menuSlug,
+    $callback = '',
+    ?int $position = null
+) {
+}
