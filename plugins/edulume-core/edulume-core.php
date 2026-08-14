@@ -27,42 +27,38 @@ defined('ABSPATH') || exit;
 const VERSION = '0.1.0';
 
 /*
- * Two autoloader locations, in the order they are likely to exist.
+ * The plugin registers its own PSR-4 autoloader rather than relying on Composer's.
  *
- * A released plugin carries its own `vendor/`; a checkout of this repository shares the root
- * one. Hard-coding the repository layout is what made the plugin fatal the moment it ran
- * anywhere other than this working copy — and a fatal in a plugin file takes the whole site
- * down, wp-admin included, so this checks rather than assumes.
+ * Composer's generated autoloader resolves `Edulume\Core\` relative to wherever `vendor/` sits.
+ * That is fine in this repository and wrong everywhere else: wp-env mounts the root `vendor/`
+ * inside the plugin directory, so the generated mapping looked for
+ * `edulume-core/plugins/edulume-core/src` and the plugin fatalled on activation with a
+ * class-not-found — taking wp-admin down with it.
+ *
+ * Mapping the one namespace against `__DIR__` cannot drift, whatever the deployment does with
+ * `vendor/`. The Composer autoloader is still included when present, for third-party packages.
  */
-$edulumeAutoloaders = [
-    __DIR__ . '/vendor/autoload.php',
-    dirname(__DIR__, 2) . '/vendor/autoload.php',
-];
+spl_autoload_register(static function (string $class): void {
+    $prefix = 'Edulume\\Core\\';
 
-$edulumeLoaded = false;
+    if (!str_starts_with($class, $prefix)) {
+        return;
+    }
 
-foreach ($edulumeAutoloaders as $edulumeAutoloader) {
+    $relative = str_replace('\\', '/', substr($class, strlen($prefix)));
+    $file = __DIR__ . '/src/' . $relative . '.php';
+
+    if (is_readable($file)) {
+        require_once $file;
+    }
+});
+
+foreach ([__DIR__ . '/vendor/autoload.php', dirname(__DIR__, 2) . '/vendor/autoload.php'] as $edulumeAutoloader) {
     if (is_readable($edulumeAutoloader)) {
         require_once $edulumeAutoloader;
-        $edulumeLoaded = true;
 
         break;
     }
-}
-
-if (!$edulumeLoaded) {
-    add_action('admin_notices', static function (): void {
-        printf(
-            '<div class="notice notice-error"><p>%s</p></div>',
-            esc_html__(
-                'Edulume Core is missing its dependencies. Install the release ZIP rather than a '
-                . 'source checkout, or run composer install in the plugin directory.',
-                'edulume'
-            )
-        );
-    });
-
-    return;
 }
 
 Plugin::boot(VERSION, __FILE__);

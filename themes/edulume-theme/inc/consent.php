@@ -111,11 +111,14 @@ add_action('wp_footer', static function (): void {
         }
 
         if (edulume_consent_allows($script['category']) && is_string($script['src'] ?? null)) {
+            // Versioned with the theme rather than null: an unversioned third-party script is
+            // one a browser can serve from cache indefinitely, including after the site owner
+            // has switched the tracker off and expects it gone.
             wp_enqueue_script(
                 'edulume-tracking-' . sanitize_key($script['category']),
                 $script['src'],
                 [],
-                null,
+                EDULUME_THEME_VERSION,
                 true
             );
         }
