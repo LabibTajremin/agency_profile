@@ -28,6 +28,15 @@ export const DEVICE_FRAMES: readonly DeviceFrame[] = [
 
 export const PREVIEW_MESSAGE = 'edulume/preview';
 
+/**
+ * The attribute the compiled stylesheet keys its dark block on.
+ *
+ * The same string as `CompileStylesheet::DARK_MODE_ATTRIBUTE` and the theme's no-flash script.
+ * The preview used to set its own name, which meant the mode switch toggled an attribute
+ * nothing read — the preview would simply not change mode, silently.
+ */
+export const MODE_ATTRIBUTE = 'data-theme';
+
 export type PreviewCommand =
   | {
       readonly type: 'patch';
@@ -203,7 +212,7 @@ export function applyPreviewCommand(root: StyleTarget, command: PreviewCommand):
   }
 
   if (command.type === 'mode') {
-    root.setAttribute('data-edulume-mode', command.mode);
+    root.setAttribute(MODE_ATTRIBUTE, command.mode);
 
     return null;
   }

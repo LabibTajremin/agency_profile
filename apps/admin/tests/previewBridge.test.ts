@@ -190,12 +190,12 @@ describe('applying a preview command', () => {
     expect(removed).toEqual(['--b']);
   });
 
-  it('switches the mode through the data attribute the theme reads', () => {
+  it('switches the mode through the same attribute the compiled stylesheet keys on', () => {
     const { root, attributes } = recordingRoot();
 
     applyPreviewCommand(root, { type: 'mode', mode: 'dark' });
 
-    expect(attributes['data-edulume-mode']).toBe('dark');
+    expect(attributes['data-theme']).toBe('dark');
   });
 
   it('hands navigation back to the caller instead of touching location itself', () => {

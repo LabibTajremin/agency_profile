@@ -18,6 +18,7 @@ export type { RestRequest, RestResponse, RestTransport } from './settingsClient'
 
 export {
   DEVICE_FRAMES,
+  MODE_ATTRIBUTE,
   PREVIEW_MESSAGE,
   PreviewBridge,
   applyPreviewCommand,

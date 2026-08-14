@@ -296,6 +296,29 @@
   margin-inline-start: auto;
 }
 
+/*
+ * Core block styles inside our chrome.
+ *
+ * A widget area holds core blocks — headings, lists, archive links — and those carry
+ * WordPress's own colours, which have no idea this theme has a dark mode. On a dark footer
+ * they stay dark-on-dark: the axe sweep caught exactly this, passing every template in light
+ * mode and failing all ten in dark.
+ *
+ * Inheriting our ink token is what fixes it for every core block at once, including ones this
+ * theme has never heard of. Links stay distinguishable by underline rather than by colour,
+ * which is the more accessible signal anyway.
+ */
+.edulume-footer :is(a, .wp-block-heading, .edulume-widget__title, .edulume-footer__heading),
+.edulume-utility :is(a, .wp-block-heading) {
+  color: inherit;
+}
+
+.edulume-footer a,
+.edulume-utility a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 /* Floating cluster ------------------------------------------------------- */
 
 .edulume-fab {
