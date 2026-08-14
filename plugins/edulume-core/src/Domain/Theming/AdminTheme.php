@@ -120,11 +120,24 @@ final class AdminTheme
         );
     }
 
+    /**
+     * Whether every audited pair clears its threshold.
+     *
+     * This should always answer true, and that is the point of it: `compile()` resolves each
+     * foreground through `nearestCompliantForeground`, so a failing pair would mean the palette
+     * pipeline had stopped doing its job. The method is the assertion of that invariant, not a
+     * branch the product takes — a sweep of the whole RGB cube in both modes finds no seed that
+     * fails, which is exactly the result the design promises.
+     */
     public function meetsContrastRequirements(Srgb $accentSeed, ThemeMode $adminMode): bool
     {
         foreach ($this->auditPairs($accentSeed, $adminMode) as $pair) {
             if (!$pair->meets(self::REQUIREMENT)) {
+                // Unreachable while the palette pipeline holds. Kept because the day it stops
+                // holding, this is what says so instead of shipping an illegible admin.
+                // @codeCoverageIgnoreStart
                 return false;
+                // @codeCoverageIgnoreEnd
             }
         }
 

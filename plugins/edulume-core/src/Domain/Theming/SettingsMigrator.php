@@ -40,7 +40,14 @@ final class SettingsMigrator
         while ($version < ThemeSettings::CURRENT_SCHEMA_VERSION) {
             $stored = match ($version) {
                 1 => $this->migrateVersionOneToTwo($stored),
+                // Unreachable at the current schema version: `$version` is clamped to the range
+                // [first, current] above and the loop only runs below current, so version 1 is
+                // the only value this can see. It exists so that adding version 3 without its
+                // migration step degrades to "carry the data forward" rather than throwing an
+                // `UnhandledMatchError` at a person mid-upgrade.
+                // @codeCoverageIgnoreStart
                 default => $stored,
+                // @codeCoverageIgnoreEnd
             };
 
             $version++;

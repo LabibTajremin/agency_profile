@@ -108,9 +108,16 @@ final class SvgSanitiser
         // `DOMElement::$attributes` is always a map, never null — the base-class declaration is
         // what makes it look nullable, and `?? []` would widen the type back out again.
         foreach (iterator_to_array($element->attributes) as $attribute) {
+            // A `DOMNamedNodeMap` taken from `$attributes` yields nothing but `DOMAttr`, so this
+            // arm is unreachable — it is here to narrow the `DOMNode` the stub declares, which
+            // static analysis needs and no test can produce. Excluded from coverage rather than
+            // left as a permanent 99.x%, because a floor nobody can reach is a floor everyone
+            // learns to ignore.
+            // @codeCoverageIgnoreStart
             if (!$attribute instanceof \DOMAttr) {
                 continue;
             }
+            // @codeCoverageIgnoreEnd
 
             $name = $attribute->nodeName;
 

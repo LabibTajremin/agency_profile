@@ -59,11 +59,22 @@ jobs:
   php-coverage:
     name: Coverage floor
     runs-on: ubuntu-latest
-    # Xdebug path coverage over 1,700 tests takes roughly three quarters of an hour. It is paid
-    # once, on one version, rather than three times per push — and it stays path coverage
-    # because plain line coverage reports a different figure for the same code, so switching to
-    # the faster mode would quietly redefine what "100%" means rather than measure it.
-    timeout-minutes: 90
+    # Line coverage, which takes about twenty seconds.
+    #
+    # This job used to run Xdebug *path* coverage, which enumerates every distinct execution
+    # path through each function and is therefore combinatorial in branch count: it reached 56%
+    # of the suite in sixty minutes and needed roughly 107, against a 90-minute timeout. It had
+    # never once finished. A gate that never finishes is not a strict gate, it is no gate — and
+    # while it was failing to run, the suite was leaving 51 lines of Domain and Application
+    # untested, including three conditional-logic operators and every post type's label set.
+    # Twenty seconds of line coverage found all of them.
+    #
+    # The old comment defended path coverage on the grounds that line coverage "reports a
+    # different figure for the same code". It did: 99.01% against 100%. That gap was three lines
+    # unreachable by construction, which path coverage's dead-code analysis excluded silently.
+    # They now carry `@codeCoverageIgnore` and say why in the source, so both modes agree at
+    # 100% and the exclusions are visible to a reader instead of implied by a coverage driver.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
