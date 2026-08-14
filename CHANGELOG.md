@@ -79,3 +79,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   references.
 - A `composer audit:theme` gate proving no colour, font or spacing literal exists in theme CSS
   outside a `var()` fallback, and that every translation call uses the one text domain.
+- Configurator panels: the nine panels described as data — controls with a settings path, inline
+  help, an Advanced flag and a live-sample kind — so the search index, the modified dot, the
+  revert button and the REST round-trip all work one way rather than nine.
+- Live preview: token changes applied inside the iframe as CSS custom-property patches over
+  `postMessage`, with a minimal-diff bridge, a device and page switcher, hold-to-compare, and an
+  unsaved-changes guard that names the panels at risk.
+- Setup wizard: eight optional steps that never block `wp-admin`, creating an _additional_ user
+  with one of the product roles, with uniqueness validated inline rather than on submit.
+- Global chrome: six header variants, four footer variants, the utility bar, the scheduled
+  announcement bar, the mobile drawer with a focus trap, the floating action cluster, the 404,
+  search and maintenance templates, and a favicon set that generates the full icon range and
+  `site.webmanifest` from one square.
+- Page templates: one shared archive body and one shared single body that all sixteen content
+  types delegate to, plus the modular home page whose sections are reorderable and individually
+  re-themeable.
+- Block library: 38 blocks in five groups, each with two to four style variations, registered by
+  the plugin so content survives a theme switch, and each declaring the script module it needs.
+- Finders: course, institution and scholarship finders with declared facets, clamped page sizes,
+  URL-shareable filter state in a stable order, compare sets of two to four, and `localStorage`
+  shortlists with no login.
+- Performance budget and accessibility, both enforced in CI: Lighthouse against explicit
+  thresholds under 4× CPU throttling on Slow 4G, and axe against every template in both modes.
+- Internationalisation: a build gate on physical CSS direction properties and on untranslated
+  strings, a regenerable `.pot` checked for staleness in CI, and locale-aware numbers, currency
+  and dates including South Asian digit grouping.
+- Security hardening: a build gate on executable constructs, unprepared queries, REST routes
+  with no permission callback and unsanitised request data; an allowlist upload policy checking
+  extension and MIME type together; Administrator-only custom CSS and JS; and the WPCS security
+  ruleset and Plugin Check as their own CI job.
+- Starter demos: four complete demos and a chunked, resumable importer with full, content-only
+  and settings-only modes, an explicit merge-or-replace choice, and an exact rollback.
+- Licensing and updates: activation, deactivation, site-limit enforcement and a fourteen-day
+  grace period — with no licence state ever disabling the product.
+- Documentation and packaging: installation, setup, settings, content, CSV format with a sample,
+  block reference, child-theme guide, FAQ, troubleshooting and support policy; a verified
+  `CREDITS.md`; and an allowlist-based ZIP builder.

@@ -55,6 +55,8 @@
         "audit:i18n": "php bin/i18n-audit.php",
         "audit:security": "php bin/security-audit.php",
         "make:pot": "php bin/make-pot.php",
+        "package": "php bin/package.php",
+        "package:verify": "php bin/package.php --verify",
         "ci": "php bin/ci-local.php",
         "ci:quick": "php bin/ci-local.php --quick"
     },

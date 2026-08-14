@@ -1,49 +1,48 @@
-# CSV import
+# CSV import and export
 
-## Why it is chunked
+**Edulume → Content → Import** takes a CSV and creates or updates content. It is chunked and
+resumable, so a 3,000-row catalogue imports on hosting with a 30-second execution limit.
 
-Shared hosting routinely caps `max_execution_time` at 30 seconds. An importer that cannot stop
-and resume simply cannot import a real course catalogue on the hosting most of these sites run
-on — and one that dies halfway leaving no cursor is worse than one that never started.
+## The format
 
-`ImportContentCsv` imports as much as the request's budget allows, then returns a
-`CsvImportCursor` recording the next row, the counts so far, and whether the file is finished.
-The next request passes that cursor straight back in.
+- UTF-8, comma-separated, first row is the header.
+- Column order does not matter. You map columns to fields on screen after upload, and the
+  mapping is remembered for next time.
+- A row that fails is **reported and skipped**; the run continues. You get a per-row error list
+  at the end rather than a single "import failed".
+- Re-importing a row whose `slug` already exists updates that item instead of duplicating it.
+  This is what makes the export → edit → re-import round trip safe.
 
-The budget is an injected port, not a reading of the wall clock. The whole point is proving
-the importer stops in time, and a test that waits 30 seconds to find out is a test nobody runs.
+A sample file is at [`courses-sample.csv`](samples/courses-sample.csv).
 
-## Column mapping
+## Course columns
 
-Each column of the uploaded file maps to one target:
+| Column             | Required | Notes                                                    |
+| ------------------ | -------- | -------------------------------------------------------- |
+| `title`            | yes      | The course name                                          |
+| `slug`             | no       | Generated from the title if empty; the update key        |
+| `institution`      | yes      | Matched on institution title or slug                     |
+| `destination`      | yes      | Matched on destination title or slug                     |
+| `study_level`      | yes      | One of the Study Level terms; created if missing         |
+| `field_of_study`   | no       | Comma-separated; terms created if missing                |
+| `intake`           | no       | Comma-separated, e.g. `September,January`                |
+| `duration_months`  | no       | Whole number                                             |
+| `tuition_amount`   | no       | Number only — no currency symbol, no thousands separator |
+| `tuition_currency` | no       | Three-letter code, e.g. `AUD`                            |
+| `ielts`            | no       | Decimal, e.g. `6.5`                                      |
+| `description`      | no       | Plain text or basic HTML                                 |
+| `content`          | no       | The full body                                            |
 
-| Target         | Meaning                                                  |
-| -------------- | -------------------------------------------------------- |
-| `title`        | The item title. Required — a row without one is reported |
-| `content`      | The main body                                            |
-| `excerpt`      | The summary                                              |
-| `slug`         | The permalink segment                                    |
-| `status`       | `publish`, `draft`, …                                    |
-| `meta`         | A meta key, given in the mapping                         |
-| `taxonomy`     | A taxonomy key; multiple terms separated by `\|`         |
-| `relationship` | The other end of a post-to-post relationship             |
-| `ignore`       | Nothing; the column is skipped                           |
+## Things that bite
 
-A `meta`, `taxonomy` or `relationship` column with no key is treated as ignored rather than
-half-configured.
-
-## Errors are reported, never fatal
-
-A malformed row is recorded as a `CsvRowError` — row number, column, and what was wrong — and
-skipped. One bad row in five thousand must not cost the site owner the other 4,999. The report
-comes back with every error from the pass, and the run continues.
+- **Tuition with a currency symbol** (`£12,000`) is rejected with a per-row error. Put the
+  number in `tuition_amount` and the code in `tuition_currency`.
+- **A spreadsheet's leading zeros** disappear before the file reaches us. Format the column as
+  text in Excel or Sheets before saving.
+- **A cell starting with `=`, `+`, `-` or `@`** is escaped on export so a spreadsheet does not
+  execute it as a formula. That escaping survives a re-import.
 
 ## Export
 
-`ExportContentCsv` writes the same column mapping the importer reads, so an export can be
-edited in a spreadsheet and imported straight back. Values containing commas, quotes or
-newlines are quoted and escaped.
-
-The filters passed to an export are the ones the admin list was showing. An export that
-quietly returns everything when the screen said "Postgraduate, Canada" is the kind of surprise
-that gets noticed only after it has been mailed to a client.
+**Edulume → Content → Export** exports the current filter, page by page, and the result
+round-trips back through the importer unchanged.
