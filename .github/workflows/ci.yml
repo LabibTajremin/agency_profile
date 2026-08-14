@@ -26,6 +26,7 @@ jobs:
       - run: composer lint
       - run: composer analyse
       - run: composer audit:theme
+      - run: composer audit:queries
 
   php-unit:
     name: PHP unit tests (${{ matrix.php }})

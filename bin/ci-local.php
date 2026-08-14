@@ -32,6 +32,8 @@ function steps(): array
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Theme and text-domain audit', 'command' => 'composer audit:theme', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
+        ['name' => 'Unbounded-query audit', 'command' => 'composer audit:queries', 'job' => 'php-quality',
+            'needsDocker' => false, 'slow' => false],
         ['name' => 'PHP unit tests', 'command' => 'composer test:unit', 'job' => 'php-unit',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Coverage + gate', 'command' => 'composer test:coverage && composer coverage:gate',

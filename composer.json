@@ -43,11 +43,13 @@
             "@lint",
             "@analyse",
             "@audit:theme",
+            "@audit:queries",
             "@test:unit",
             "@test:integration"
         ],
         "test:integration:coverage": "XDEBUG_MODE=coverage phpunit --configuration=phpunit-integration.xml.dist --testsuite integration --coverage-clover build/coverage-integration.xml",
         "audit:theme": "php bin/theme-audit.php",
+        "audit:queries": "php bin/query-audit.php",
         "ci": "php bin/ci-local.php",
         "ci:quick": "php bin/ci-local.php --quick"
     },

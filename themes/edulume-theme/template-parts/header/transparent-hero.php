@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Transparent header: identical markup to the classic arrangement, drawn over a full-bleed hero. Falls back to the solid treatment wherever no hero follows.
+ * Transparent header: identical markup to the classic arrangement, drawn over a full-bleed
+ * hero. Falls back to the solid treatment wherever no hero follows.
  *
  * @package Edulume\Theme
  */

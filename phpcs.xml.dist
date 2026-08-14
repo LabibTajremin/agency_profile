@@ -9,8 +9,8 @@
     <file>plugins/edulume-core/src</file>
     <file>plugins/edulume-core/edulume-core.php</file>
     <file>plugins/edulume-core/uninstall.php</file>
-    <file>themes/edulume-theme/functions.php</file>
-    <file>themes/edulume-child/functions.php</file>
+    <file>themes/edulume-theme</file>
+    <file>themes/edulume-child</file>
     <file>plugins/edulume-core/tests</file>
     <file>bin</file>
 
@@ -34,6 +34,8 @@
         <exclude-pattern>*/edulume-core.php</exclude-pattern>
         <exclude-pattern>*/uninstall.php</exclude-pattern>
         <exclude-pattern>*/functions.php</exclude-pattern>
+        <!-- Theme templates and includes are, by WordPress's design, files that run. -->
+        <exclude-pattern>themes/*</exclude-pattern>
     </rule>
 
     <rule ref="Generic.Files.LineLength">
