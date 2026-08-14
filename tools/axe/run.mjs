@@ -31,13 +31,28 @@ const MODES = ['light', 'dark'];
 
 const BLOCKING_IMPACTS = new Set(['critical', 'serious']);
 
-function describe(violation) {
-  const targets = violation.nodes
-    .slice(0, 3)
-    .map((node) => node.target.join(' '))
-    .join(', ');
+/*
+ * Contrast violations carry the numbers that explain them: what axe measured for foreground,
+ * background and ratio, and what it wanted. Printing the selector alone says a colour is wrong
+ * without saying which colour, which is the difference between fixing this and guessing at it.
+ */
+function describeNode(node) {
+  const check = (node.any ?? []).find((candidate) => candidate.data?.contrastRatio !== undefined);
+  const target = node.target.join(' ');
 
-  return `  [${violation.impact}] ${violation.id}: ${violation.help}\n    at ${targets}`;
+  if (check === undefined) {
+    return `    at ${target}`;
+  }
+
+  const { fgColor, bgColor, contrastRatio, expectedContrastRatio } = check.data;
+
+  return `    at ${target}\n      fg ${fgColor} on bg ${bgColor} = ${contrastRatio}:1, needs ${expectedContrastRatio}`;
+}
+
+function describe(violation) {
+  const nodes = violation.nodes.map(describeNode).join('\n');
+
+  return `  [${violation.impact}] ${violation.id}: ${violation.help}\n${nodes}`;
 }
 
 async function auditPage(page, template, mode) {
