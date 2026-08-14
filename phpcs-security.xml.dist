@@ -49,6 +49,8 @@
     <rule ref="WordPress.DB.PreparedSQLPlaceholders"/>
     <rule ref="WordPress.WP.EnqueuedResourceParameters"/>
 
-    <config name="minimum_wp_version" value="6.4"/>
+    <!-- The version the plugin header claims and the one wp-env installs. Keeping the
+         three in step is what stops a sniff being tuned for a version nobody tests. -->
+    <config name="minimum_wp_version" value="6.5"/>
     <config name="text_domain" value="edulume"/>
 </ruleset>

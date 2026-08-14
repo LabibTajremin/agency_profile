@@ -1,7 +1,7 @@
 === Edulume Core ===
 Contributors: edulume
 Tags: education, study abroad, consultancy, leads, courses
-Requires at least: 6.4
+Requires at least: 6.5
 Tested up to: 6.7
 Requires PHP: 8.1
 Stable tag: 0.1.0

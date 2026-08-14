@@ -2,7 +2,7 @@
 
 ## What you need
 
-- WordPress 6.4 or newer
+- WordPress 6.5 or newer
 - PHP 8.1 or newer
 - MySQL 5.7 / MariaDB 10.4 or newer
 
