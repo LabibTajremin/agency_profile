@@ -17,8 +17,8 @@
 .edulume-skip-link:focus {
   clip: auto;
   clip-path: none;
-  height: auto;
-  width: auto;
+  block-size: auto;
+  inline-size: auto;
   padding: var(--edulume-space-3, 0.75rem);
   background-color: var(--edulume-surface, #fbfbfc);
   color: var(--edulume-ink, #16181d);

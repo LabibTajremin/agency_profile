@@ -27,6 +27,11 @@ jobs:
       - run: composer analyse
       - run: composer audit:theme
       - run: composer audit:queries
+      - run: composer audit:i18n
+      - name: The translation template is regenerable and current
+        run: |
+          composer make:pot
+          git diff --exit-code languages/edulume.pot
 
   php-unit:
     name: PHP unit tests (${{ matrix.php }})
