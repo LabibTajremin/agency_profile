@@ -387,3 +387,37 @@ class WP_Roles
     /** @var array<string, string> */
     public array $role_names;
 }
+
+/**
+ * @param array<string, mixed> $args
+ *
+ * @return mixed
+ */
+function register_block_type(string $name, array $args = [])
+{
+}
+
+/**
+ * @param array<string, mixed> $properties
+ */
+function register_block_style(string $blockName, array $properties): bool
+{
+}
+
+/**
+ * @param array<string, string> $attributes
+ */
+function get_block_wrapper_attributes(array $attributes = []): string
+{
+}
+
+/**
+ * @param mixed ...$args
+ */
+function do_action(string $hookName, ...$args): void
+{
+}
+
+function esc_attr(string $text): string
+{
+}

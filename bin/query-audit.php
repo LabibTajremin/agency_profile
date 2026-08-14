@@ -59,7 +59,7 @@ function unlimitedGetResults(string $contents): bool
         return false;
     }
 
-    foreach ($matches[1] ?? [] as $arguments) {
+    foreach ($matches[1] as $arguments) {
         $statement = (string) $arguments;
 
         if (stripos($statement, 'limit') !== false || isUniqueKeyLookup($statement)) {

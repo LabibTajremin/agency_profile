@@ -119,7 +119,11 @@ final class FinderQuery
         return $this->selections !== [] || $this->search !== '';
     }
 
-    /** Changing a filter returns to page one; staying on page nine of the old result set is a bug. */
+    /**
+     * Changing a filter returns to page one; staying on page nine of the old result set is a bug.
+     *
+     * @param list<string> $values
+     */
     public function withSelection(string $facetKey, array $values): self
     {
         $selections = $this->selections;

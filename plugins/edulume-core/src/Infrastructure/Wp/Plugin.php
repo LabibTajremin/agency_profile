@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Infrastructure\Wp;
 
+use Edulume\Core\Infrastructure\Blocks\BlockRegistrar;
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
 use Edulume\Core\Infrastructure\Rest\RestRegistrar;
@@ -53,6 +54,7 @@ final class Plugin
 
         $this->stylesheetEnqueuer()->register();
         (new ContentRegistrar())->register();
+        (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
     }
 

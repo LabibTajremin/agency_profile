@@ -66,6 +66,12 @@ function edulume_require_feature(string $feature): void
     edulume_page_has($feature, true);
 }
 
+/**
+ * Blocks announce what they need as they render. The plugin fires this; the theme is what
+ * knows how assets get onto the page, so the two meet here rather than the plugin enqueuing.
+ */
+add_action('edulume_block_requires_feature', 'edulume_require_feature');
+
 function edulume_motion_is_active(): bool
 {
     return (bool) apply_filters('edulume_motion_is_active', false);
