@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    The integration configuration lives inside the plugin, not at the repository root.
+
+    Only the plugin directory is mounted into the wp-env container, so a root-level config is
+    not there to be found when the suite runs where it is meant to run. Every path here is
+    relative to this file, which makes the config work identically in the container and in a
+    checkout.
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="tests/Integration/bootstrap.php"
+         colors="true"
+         cacheDirectory=".phpunit-integration.cache"
+         beStrictAboutOutputDuringTests="true"
+         failOnRisky="true"
+         failOnWarning="true">
+    <testsuites>
+        <testsuite name="integration">
+            <directory>tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+
+    <source>
+        <include>
+            <directory>src/Infrastructure</directory>
+        </include>
+    </source>
+</phpunit>

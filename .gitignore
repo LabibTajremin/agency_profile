@@ -16,3 +16,4 @@
 
 /composer.local.json
 /composer.local.lock
+.phpunit-integration.cache/

@@ -25,7 +25,33 @@ if (!is_readable($testsDirectory . '/includes/functions.php')) {
     exit(1);
 }
 
-require_once dirname(__DIR__, 3) . '/../vendor/autoload.php';
+/*
+ * The same two candidates the plugin itself tries, and for the same reason: the repository
+ * layout puts `vendor/` at the root, while wp-env mounts it inside the plugin directory. A
+ * single hard-coded relative path is right in exactly one of those.
+ */
+$autoloaders = [
+    dirname(__DIR__, 2) . '/vendor/autoload.php',
+    dirname(__DIR__, 4) . '/vendor/autoload.php',
+];
+
+$loaded = false;
+
+foreach ($autoloaders as $autoloader) {
+    if (is_readable($autoloader)) {
+        require_once $autoloader;
+        $loaded = true;
+
+        break;
+    }
+}
+
+if (!$loaded) {
+    fwrite(STDERR, "Could not find Composer's autoloader. Run `composer install`.\n");
+
+    exit(1);
+}
+
 require_once $testsDirectory . '/includes/functions.php';
 
 tests_add_filter('muplugins_loaded', static function (): void {
