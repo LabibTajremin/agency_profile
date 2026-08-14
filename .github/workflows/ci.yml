@@ -49,9 +49,29 @@ jobs:
           coverage: xdebug
           tools: composer:v2
       - run: composer install --prefer-dist --no-progress
+      # Tests only across the version matrix. What this job answers is "does the suite pass on
+      # 8.1, 8.2 and 8.3", and it should answer it in two minutes rather than two hours.
+      - run: composer test:unit
+
+  php-coverage:
+    name: Coverage floor
+    runs-on: ubuntu-latest
+    # Xdebug path coverage over 1,700 tests takes roughly three quarters of an hour. It is paid
+    # once, on one version, rather than three times per push — and it stays path coverage
+    # because plain line coverage reports a different figure for the same code, so switching to
+    # the faster mode would quietly redefine what "100%" means rather than measure it.
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: xdebug
+          tools: composer:v2
+      - run: composer install --prefer-dist --no-progress
       - run: composer test:coverage
-      - name: Enforce coverage floor on Domain and Application
-        run: php bin/coverage-gate.php build/coverage.xml 100 90
+      - name: Enforce the coverage floor on Domain and Application
+        run: composer coverage:gate
 
   php-integration:
     name: WordPress integration tests

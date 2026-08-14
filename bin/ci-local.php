@@ -45,7 +45,7 @@ function steps(): array
         ['name' => 'PHP unit tests', 'command' => 'composer test:unit', 'job' => 'php-unit',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Coverage + gate', 'command' => 'composer test:coverage && composer coverage:gate',
-            'job' => 'php-unit', 'needsDocker' => false, 'slow' => true],
+            'job' => 'php-coverage', 'needsDocker' => false, 'slow' => true],
         ['name' => 'Lighthouse budget', 'command' => 'npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json',
             'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
         ['name' => 'axe sweep (every template, both modes)', 'command' => 'node tools/axe/run.mjs',
