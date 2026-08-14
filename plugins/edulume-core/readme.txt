@@ -2,7 +2,7 @@
 Contributors: edulume
 Tags: education, study abroad, consultancy, leads, courses
 Requires at least: 6.5
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 8.1
 Stable tag: 0.1.0
 License: GPLv2 or later

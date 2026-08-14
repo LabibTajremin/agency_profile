@@ -75,3 +75,15 @@ not under line coverage, so files that measure 100% under one measure 99% under 
 Switching to the faster mode to make CI quicker would have redefined what "100%" means rather
 than measured it, which is the kind of change that looks like a speed-up in the diff and is a
 loosened gate in fact.
+
+## Why wp-env pins WordPress 6.8
+
+WordPress's core test suite calls `PHPUnit\Util\Test::parseTestMethodAnnotations()`, which
+PHPUnit 10 removed. On WordPress 6.5 every integration test therefore errors before it runs an
+assertion — all 42 of them, with the same message and zero assertions, which is what that
+failure looks like if you meet it.
+
+PHPUnit 10 support landed in the 6.8 cycle, so that is what wp-env installs. The alternative was
+running the integration suite on PHPUnit 9, which would have meant annotations there and
+attributes in the unit suite — two test dialects in one repository, to avoid moving a version
+number.
