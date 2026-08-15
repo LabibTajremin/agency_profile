@@ -5,7 +5,8 @@
     "content": "Pre-departure briefing, September intake. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Pre-departure briefing, September intake"
-    }
+    },
+    "image": "scene-pre-departure-briefing-september-intake.svg"
   },
   {
     "title": "UK Admissions Fair, Dhanmondi",
@@ -13,7 +14,8 @@
     "content": "UK Admissions Fair, Dhanmondi. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "UK Admissions Fair, Dhanmondi"
-    }
+    },
+    "image": "scene-uk-admissions-fair-dhanmondi.svg"
   },
   {
     "title": "IELTS mock test in progress",
@@ -21,7 +23,8 @@
     "content": "IELTS mock test in progress. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "IELTS mock test in progress"
-    }
+    },
+    "image": "scene-ielts-mock-test-in-progress.svg"
   },
   {
     "title": "Counselling session, Dhanmondi office",
@@ -29,7 +32,8 @@
     "content": "Counselling session, Dhanmondi office. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Counselling session, Dhanmondi office"
-    }
+    },
+    "image": "scene-counselling-session-dhanmondi-office.svg"
   },
   {
     "title": "Students at the Canada Study Permit workshop",
@@ -37,7 +41,8 @@
     "content": "Students at the Canada Study Permit workshop. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Students at the Canada Study Permit workshop"
-    }
+    },
+    "image": "scene-students-at-the-canada-study-permit-workshop.svg"
   },
   {
     "title": "Offer letter day",
@@ -45,7 +50,8 @@
     "content": "Offer letter day. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Offer letter day"
-    }
+    },
+    "image": "scene-offer-letter-day.svg"
   },
   {
     "title": "Our Dhanmondi reception",
@@ -53,7 +59,8 @@
     "content": "Our Dhanmondi reception. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Our Dhanmondi reception"
-    }
+    },
+    "image": "scene-our-dhanmondi-reception.svg"
   },
   {
     "title": "Scholarship clinic, online cohort",
@@ -61,7 +68,8 @@
     "content": "Scholarship clinic, online cohort. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Scholarship clinic, online cohort"
-    }
+    },
+    "image": "scene-scholarship-clinic-online-cohort.svg"
   },
   {
     "title": "Airport send-off, February intake",
@@ -69,7 +77,8 @@
     "content": "Airport send-off, February intake. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Airport send-off, February intake"
-    }
+    },
+    "image": "scene-airport-send-off-february-intake.svg"
   },
   {
     "title": "Alumni meet-up, Dhaka",
@@ -77,7 +86,8 @@
     "content": "Alumni meet-up, Dhaka. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Alumni meet-up, Dhaka"
-    }
+    },
+    "image": "scene-alumni-meet-up-dhaka.svg"
   },
   {
     "title": "Test preparation classroom",
@@ -85,7 +95,8 @@
     "content": "Test preparation classroom. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Test preparation classroom"
-    }
+    },
+    "image": "scene-test-preparation-classroom.svg"
   },
   {
     "title": "Visa documentation review",
@@ -93,6 +104,7 @@
     "content": "Visa documentation review. Photography from our own offices and events — replace these with your own before launch if you would rather show your team than ours.",
     "meta": {
       "_edulume_caption": "Visa documentation review"
-    }
+    },
+    "image": "scene-visa-documentation-review.svg"
   }
 ]

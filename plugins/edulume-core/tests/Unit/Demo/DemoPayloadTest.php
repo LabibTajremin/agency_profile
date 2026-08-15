@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Edulume\Core\Tests\Unit\Demo;
 
 use Edulume\Core\Domain\Demo\DemoLibrary;
+use Edulume\Core\Domain\Security\SvgSanitiser;
 use Edulume\Core\Infrastructure\Demo\WpDemoStore;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -157,6 +158,83 @@ final class DemoPayloadTest extends TestCase
                 sprintf('%s has no demo content, so its section imports empty', $key),
             );
         }
+    }
+
+    /**
+     * Every image an item names must actually be on disk.
+     *
+     * A missing file does not throw — the importer skips it — so a typo here would show up as
+     * one card without a picture on a live site, which is precisely the kind of thing nobody
+     * notices until a client does.
+     */
+    #[Test]
+    public function every_image_an_item_names_exists_in_the_media_directory(): void
+    {
+        $demo = DemoLibrary::find('boutique');
+        self::assertNotNull($demo);
+
+        $store = new WpDemoStore();
+        $media = dirname(__DIR__, 3) . '/demos/boutique/media';
+        $withImages = 0;
+
+        foreach (array_keys($demo->itemCounts) as $postType) {
+            foreach ($store->itemsFor($demo, $postType) as $index => $row) {
+                if (!isset($row['image'])) {
+                    continue;
+                }
+
+                $withImages++;
+
+                self::assertFileExists(
+                    $media . '/' . (string) $row['image'],
+                    sprintf('%s[%d] names an image that is not bundled', $postType, $index),
+                );
+            }
+        }
+
+        self::assertGreaterThan(100, $withImages, 'the pack should be largely illustrated');
+    }
+
+    /**
+     * Bundled SVG survives the sanitiser the importer runs it through.
+     *
+     * If artwork were stripped to nothing on the way in, every import would silently produce
+     * posts with no featured image and the cause would be three layers away from the symptom.
+     */
+    #[Test]
+    public function every_bundled_svg_survives_sanitisation(): void
+    {
+        $sanitiser = new SvgSanitiser();
+        $media = dirname(__DIR__, 3) . '/demos/boutique/media';
+        $files = glob($media . '/*.svg');
+
+        self::assertNotFalse($files);
+        self::assertGreaterThan(0, count($files));
+
+        foreach ($files as $file) {
+            $sanitised = $sanitiser->sanitise((string) file_get_contents($file));
+
+            self::assertNotSame('', $sanitised, basename($file));
+            self::assertStringContainsString('<svg', $sanitised, basename($file));
+        }
+    }
+
+    #[Test]
+    public function the_credits_file_accounts_for_every_bundled_image(): void
+    {
+        $media = dirname(__DIR__, 3) . '/demos/boutique/media';
+        $credits = json_decode((string) file_get_contents($media . '/../media-credits.json'), true);
+
+        self::assertIsArray($credits);
+        self::assertIsArray($credits['images'] ?? null);
+
+        $recorded = array_map(static fn (array $row): string => (string) $row['file'], $credits['images']);
+        $onDisk = array_map('basename', glob($media . '/*.svg') ?: []);
+
+        sort($recorded);
+        sort($onDisk);
+
+        self::assertSame($onDisk, $recorded, 'every bundled image must have a licence recorded');
     }
 
     #[Test]

@@ -515,6 +515,15 @@ const sectionsPanel: PanelDefinition = {
       keywords: ['hero', 'features', 'testimonials', 'cta'],
     },
     {
+      id: 'section-enabled',
+      label: 'Show this section',
+      kind: 'toggle',
+      path: 'sections.override.enabled',
+      help: 'Off removes the section from the page entirely — its markup is never rendered, so it costs nothing and is invisible to screen readers. The header and footer cannot be switched off.',
+      overridable: true,
+      keywords: ['hide', 'show', 'disable', 'enable', 'remove', 'off', 'on', 'visibility'],
+    },
+    {
       id: 'section-accent',
       label: 'Section accent',
       kind: 'accent',

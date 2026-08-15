@@ -6,7 +6,8 @@
     "meta": {
       "_edulume_duration": "8 weeks",
       "_edulume_fee": "BDT 12,000"
-    }
+    },
+    "image": "subject-health.svg"
   },
   {
     "title": "IELTS — speaking and writing intensive",
@@ -15,7 +16,8 @@
     "meta": {
       "_edulume_duration": "4 weeks",
       "_edulume_fee": "BDT 7,500"
-    }
+    },
+    "image": "subject-law.svg"
   },
   {
     "title": "PTE Academic",
@@ -24,7 +26,8 @@
     "meta": {
       "_edulume_duration": "6 weeks",
       "_edulume_fee": "BDT 11,000"
-    }
+    },
+    "image": "subject-science.svg"
   },
   {
     "title": "Duolingo English Test preparation",
@@ -33,7 +36,8 @@
     "meta": {
       "_edulume_duration": "3 weeks",
       "_edulume_fee": "BDT 5,500"
-    }
+    },
+    "image": "subject-social-science.svg"
   },
   {
     "title": "GRE quantitative and verbal",
@@ -42,6 +46,7 @@
     "meta": {
       "_edulume_duration": "10 weeks",
       "_edulume_fee": "BDT 18,000"
-    }
+    },
+    "image": "subject-architecture.svg"
   }
 ]

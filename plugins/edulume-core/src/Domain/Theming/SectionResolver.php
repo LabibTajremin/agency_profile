@@ -33,7 +33,28 @@ final class SectionResolver
             $this->resolveTypography($global, $override),
             $override->intOr(SectionOverrideKey::SectionSpacingPixels, $global->layout->sectionSpacingPixels),
             $override->intOr(SectionOverrideKey::CornerRadiusPixels, $global->layout->cornerRadiusPixels),
+            $this->resolveEnabled($id, $override),
         );
+    }
+
+    /**
+     * Sections are on unless a stored override says otherwise.
+     *
+     * Defaulting to on matters for upgrades: a site that has never opened the panel has no
+     * stored value for any section, and defaulting to off would empty every homepage on the
+     * release that introduced this.
+     *
+     * The header and footer ignore the override entirely rather than hiding the control and
+     * trusting the UI. A value can reach this from imported JSON or a REST call that never went
+     * near the admin, and the answer has to be the same wherever it came from.
+     */
+    private function resolveEnabled(SectionId $id, SectionOverride $override): bool
+    {
+        if (!$id->canBeSwitchedOff()) {
+            return true;
+        }
+
+        return $override->boolOr(SectionOverrideKey::Enabled, $id->isEnabledByDefault());
     }
 
     private function resolveAccentSeed(ThemeSettings $global, SectionOverride $override): Srgb

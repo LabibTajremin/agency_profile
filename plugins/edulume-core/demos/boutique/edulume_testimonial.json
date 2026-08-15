@@ -6,7 +6,8 @@
     "meta": {
       "_edulume_student_course": "MSc Data Science, University of Leeds",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-airport-send-off-february-intake.svg"
   },
   {
     "title": "Tasnim Akter",
@@ -15,7 +16,8 @@
     "meta": {
       "_edulume_student_course": "BSc Nursing, Deakin University",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-alumni-meet-up-dhaka.svg"
   },
   {
     "title": "Mahmudul Hasan",
@@ -24,7 +26,8 @@
     "meta": {
       "_edulume_student_course": "MSc Civil Engineering, University of Glasgow",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-counselling-session-dhanmondi-office.svg"
   },
   {
     "title": "Rifat Islam",
@@ -33,7 +36,8 @@
     "meta": {
       "_edulume_student_course": "MBA, Dalhousie University",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-ielts-mock-test-in-progress.svg"
   },
   {
     "title": "Anika Tabassum",
@@ -42,7 +46,8 @@
     "meta": {
       "_edulume_student_course": "MSc Public Health, University of Birmingham",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-offer-letter-day.svg"
   },
   {
     "title": "Fahim Reza",
@@ -51,7 +56,8 @@
     "meta": {
       "_edulume_student_course": "MSc Computer Science, Technical University of Munich",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-our-dhanmondi-reception.svg"
   },
   {
     "title": "Sumaiya Khatun",
@@ -60,7 +66,8 @@
     "meta": {
       "_edulume_student_course": "LLM International Law, University College Dublin",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-pre-departure-briefing-september-intake.svg"
   },
   {
     "title": "Arif Mahmud",
@@ -69,7 +76,8 @@
     "meta": {
       "_edulume_student_course": "MSc Renewable Energy, Monash University",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-scholarship-clinic-online-cohort.svg"
   },
   {
     "title": "Nabila Ahmed",
@@ -78,7 +86,8 @@
     "meta": {
       "_edulume_student_course": "BBA, University of Nottingham Malaysia",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-students-at-the-canada-study-permit-workshop.svg"
   },
   {
     "title": "Shahriar Kabir",
@@ -87,6 +96,7 @@
     "meta": {
       "_edulume_student_course": "MSc Robotics, RWTH Aachen University",
       "_edulume_rating": "5"
-    }
+    },
+    "image": "scene-test-preparation-classroom.svg"
   }
 ]

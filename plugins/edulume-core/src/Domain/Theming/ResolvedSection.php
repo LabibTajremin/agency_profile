@@ -14,6 +14,7 @@ final class ResolvedSection
 {
     private function __construct(
         public readonly SectionId $id,
+        public readonly bool $isEnabled,
         public readonly Srgb $accentSeed,
         public readonly SectionBackgroundTone $backgroundTone,
         public readonly PatternSettings $pattern,
@@ -32,10 +33,12 @@ final class ResolvedSection
         MotionSettings $motion,
         TypographySettings $typography,
         int $sectionSpacingPixels,
-        int $cornerRadiusPixels
+        int $cornerRadiusPixels,
+        bool $isEnabled = true
     ): self {
         return new self(
             $id,
+            $isEnabled,
             $accentSeed,
             $backgroundTone,
             $pattern,
@@ -55,6 +58,7 @@ final class ResolvedSection
     public function toComparableArray(): array
     {
         return [
+            'isEnabled' => $this->isEnabled,
             'accentSeed' => $this->accentSeed->toHex(),
             'backgroundTone' => $this->backgroundTone->value,
             'pattern' => $this->pattern->toArray(),

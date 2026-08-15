@@ -5,7 +5,8 @@
     "content": "British Council Certified partner for IELTS registration and UK guidance.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-british-council.svg"
   },
   {
     "title": "IDP Education",
@@ -13,7 +14,8 @@
     "content": "IDP Education Authorised IELTS test centre partner.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-idp-education.svg"
   },
   {
     "title": "Pearson PTE",
@@ -21,7 +23,8 @@
     "content": "Pearson PTE Registered preparation and booking partner.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-pearson-pte.svg"
   },
   {
     "title": "Education New Zealand",
@@ -29,7 +32,8 @@
     "content": "Education New Zealand Recognised agent for New Zealand institutions.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-education-new-zealand.svg"
   },
   {
     "title": "ICEF",
@@ -37,7 +41,8 @@
     "content": "ICEF ICEF-accredited agency.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-icef.svg"
   },
   {
     "title": "Australian Trade and Investment Commission",
@@ -45,7 +50,8 @@
     "content": "Australian Trade and Investment Commission Qualified Education Agent Counsellor certified.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-australian-trade-and-investment-commission.svg"
   },
   {
     "title": "DAAD",
@@ -53,7 +59,8 @@
     "content": "DAAD Information partner for German higher education.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-daad.svg"
   },
   {
     "title": "EducationUSA",
@@ -61,6 +68,7 @@
     "content": "EducationUSA Advising network partner for US applications.",
     "meta": {
       "_edulume_partner_type": "Accreditation"
-    }
+    },
+    "image": "partner-educationusa.svg"
   }
 ]

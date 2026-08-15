@@ -5,7 +5,8 @@
     "content": "Farhana founded the practice in 2010 after eight years with a British Council partner agency. She handles UK and Canadian postgraduate applications personally and still takes every first consultation herself.",
     "meta": {
       "_edulume_role": "Founder and Principal Counsellor"
-    }
+    },
+    "image": "portrait-farhana-rahman.svg"
   },
   {
     "title": "Imran Chowdhury",
@@ -13,7 +14,8 @@
     "content": "Imran spent four years working in Melbourne before returning to Dhaka, which shows in how practically he briefs students on cost of living and part-time work.",
     "meta": {
       "_edulume_role": "Senior Counsellor — Australia and New Zealand"
-    }
+    },
+    "image": "portrait-imran-chowdhury.svg"
   },
   {
     "title": "Nusrat Jahan",
@@ -21,7 +23,8 @@
     "content": "Nusrat built the documentation checklists the whole office now works from. She is the person who notices that a bank statement is three days short of the maintenance period.",
     "meta": {
       "_edulume_role": "Visa and Documentation Lead"
-    }
+    },
+    "image": "portrait-nusrat-jahan.svg"
   },
   {
     "title": "Tanvir Ahmed",
@@ -29,7 +32,8 @@
     "content": "Tanvir teaches the writing and speaking modules and runs the diagnostic mocks. His students average a full band improvement over an eight-week course.",
     "meta": {
       "_edulume_role": "Test Preparation Lead"
-    }
+    },
+    "image": "portrait-tanvir-ahmed.svg"
   },
   {
     "title": "Sadia Islam",
@@ -37,7 +41,8 @@
     "content": "Sadia came from a university international office and knows how funding committees actually read an application, which is not how applicants assume they do.",
     "meta": {
       "_edulume_role": "Scholarship and Funding Adviser"
-    }
+    },
+    "image": "portrait-sadia-islam.svg"
   },
   {
     "title": "Rezaul Karim",
@@ -45,6 +50,7 @@
     "content": "Rezaul is who students message at two in the morning from an airport, and he answers. He coordinates accommodation and arrival for every intake.",
     "meta": {
       "_edulume_role": "Student Services and Pre-Departure"
-    }
+    },
+    "image": "portrait-rezaul-karim.svg"
   }
 ]

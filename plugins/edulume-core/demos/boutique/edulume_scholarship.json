@@ -9,7 +9,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-data-science.svg"
   },
   {
     "title": "Commonwealth Master's Scholarship",
@@ -21,7 +22,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-education.svg"
   },
   {
     "title": "Glasgow International Leadership Scholarship",
@@ -33,7 +35,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "Ontario Graduate Scholarship",
@@ -45,7 +48,8 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-health.svg"
   },
   {
     "title": "Vanier Canada Graduate Scholarship",
@@ -57,7 +61,8 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-law.svg"
   },
   {
     "title": "Australia Awards Scholarship",
@@ -69,7 +74,8 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-science.svg"
   },
   {
     "title": "Melbourne Graduate Scholarship",
@@ -81,7 +87,8 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-social-science.svg"
   },
   {
     "title": "DAAD Study Scholarship",
@@ -93,7 +100,8 @@
     },
     "terms": {
       "edulume_destination": ["Germany"]
-    }
+    },
+    "image": "subject-architecture.svg"
   },
   {
     "title": "Fulbright Foreign Student Program",
@@ -105,7 +113,8 @@
     },
     "terms": {
       "edulume_destination": ["United States"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MEXT Scholarship",
@@ -117,6 +126,7 @@
     },
     "terms": {
       "edulume_destination": ["Japan"]
-    }
+    },
+    "image": "subject-computer-science.svg"
   }
 ]

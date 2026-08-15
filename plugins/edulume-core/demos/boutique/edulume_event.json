@@ -6,7 +6,8 @@
     "meta": {
       "_edulume_event_date": "2026-09-12",
       "_edulume_venue": "Dhanmondi, Dhaka"
-    }
+    },
+    "image": "scene-airport-send-off-february-intake.svg"
   },
   {
     "title": "Canada Study Permit Workshop",
@@ -15,7 +16,8 @@
     "meta": {
       "_edulume_event_date": "2026-09-27",
       "_edulume_venue": "Dhanmondi, Dhaka"
-    }
+    },
+    "image": "scene-alumni-meet-up-dhaka.svg"
   },
   {
     "title": "Free IELTS Mock Test",
@@ -24,7 +26,8 @@
     "meta": {
       "_edulume_event_date": "2026-10-04",
       "_edulume_venue": "Dhanmondi, Dhaka"
-    }
+    },
+    "image": "scene-counselling-session-dhanmondi-office.svg"
   },
   {
     "title": "Scholarship Application Clinic",
@@ -33,7 +36,8 @@
     "meta": {
       "_edulume_event_date": "2026-10-18",
       "_edulume_venue": "Online"
-    }
+    },
+    "image": "scene-ielts-mock-test-in-progress.svg"
   },
   {
     "title": "Australia and New Zealand Information Evening",
@@ -42,7 +46,8 @@
     "meta": {
       "_edulume_event_date": "2026-11-08",
       "_edulume_venue": "Gulshan, Dhaka"
-    }
+    },
+    "image": "scene-offer-letter-day.svg"
   },
   {
     "title": "Pre-Departure Briefing — September Intake",
@@ -51,6 +56,7 @@
     "meta": {
       "_edulume_event_date": "2026-08-22",
       "_edulume_venue": "Dhanmondi, Dhaka"
-    }
+    },
+    "image": "scene-our-dhanmondi-reception.svg"
   }
 ]

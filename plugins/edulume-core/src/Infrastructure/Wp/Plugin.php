@@ -10,6 +10,7 @@ use Edulume\Core\Infrastructure\Admin\AdminMenu;
 use Edulume\Core\Infrastructure\Demo\DemoCliCommand;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
 use Edulume\Core\Infrastructure\Rest\RestRegistrar;
+use Edulume\Core\Infrastructure\Theming\SectionVisibility;
 use Edulume\Core\Infrastructure\Theming\StylesheetEnqueuer;
 
 /**
@@ -82,6 +83,7 @@ final class Plugin
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
         (new AdminMenu())->register();
+        (new SectionVisibility($this->container))->register();
         DemoCliCommand::register($this->container);
     }
 

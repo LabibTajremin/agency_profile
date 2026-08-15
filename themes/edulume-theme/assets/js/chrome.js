@@ -110,9 +110,9 @@
   }
 
   function setUpModeToggle() {
-    var toggles = document.querySelectorAll('[data-edulume-mode-toggle]');
+    var inputs = document.querySelectorAll('[data-edulume-mode-input]');
 
-    if (toggles.length === 0) {
+    if (inputs.length === 0) {
       return;
     }
 
@@ -120,28 +120,43 @@
       return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     }
 
+    /*
+     * The radios are driven from the document attribute rather than the other way round.
+     *
+     * The no-flash script in the head has already set `data-theme` before first paint, so on
+     * load the attribute is the truth and the inputs have to catch up to it. Checking a radio
+     * in markup instead would mean the server guessing a mode it cannot know.
+     */
     function reflect() {
-      Array.prototype.forEach.call(toggles, function (toggle) {
-        toggle.setAttribute('aria-pressed', current() === 'dark' ? 'true' : 'false');
+      var mode = current();
+
+      Array.prototype.forEach.call(inputs, function (input) {
+        input.checked = input.value === mode;
       });
     }
 
-    Array.prototype.forEach.call(toggles, function (toggle) {
-      toggle.addEventListener('click', function () {
-        var next = current() === 'dark' ? 'light' : 'dark';
+    function apply(next) {
+      document.documentElement.setAttribute('data-theme', next);
 
-        document.documentElement.setAttribute('data-theme', next);
+      try {
+        window.localStorage.setItem('edulume-theme', next);
+      } catch (error) {
+        // Private browsing refuses storage. The choice still applies for this page view.
+      }
 
-        try {
-          window.localStorage.setItem('edulume-theme', next);
-        } catch (error) {
-          // Private browsing refuses storage. The choice still applies for this page view.
+      // Mirrored into a cookie so the server can pick the right logo file on the next
+      // request instead of shipping the light one and swapping it after paint.
+      document.cookie = 'edulume-theme=' + next + ';path=/;max-age=31536000;samesite=lax';
+      reflect();
+    }
+
+    Array.prototype.forEach.call(inputs, function (input) {
+      // `change` rather than `click`: a radio group is also driven by arrow keys, and a click
+      // listener would leave keyboard users selecting a mode that never applied.
+      input.addEventListener('change', function () {
+        if (input.checked) {
+          apply(input.value === 'dark' ? 'dark' : 'light');
         }
-
-        // Mirrored into a cookie so the server can pick the right logo file on the next
-        // request instead of shipping the light one and swapping it after paint.
-        document.cookie = 'edulume-theme=' + next + ';path=/;max-age=31536000;samesite=lax';
-        reflect();
       });
     });
 

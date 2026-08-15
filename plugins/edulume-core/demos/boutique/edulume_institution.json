@@ -9,7 +9,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "crest-university-of-glasgow.svg"
   },
   {
     "title": "University of Leeds",
@@ -21,7 +22,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "crest-university-of-leeds.svg"
   },
   {
     "title": "Queen Mary University of London",
@@ -33,7 +35,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "crest-queen-mary-university-of-london.svg"
   },
   {
     "title": "University of Birmingham",
@@ -45,7 +48,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "crest-university-of-birmingham.svg"
   },
   {
     "title": "Coventry University",
@@ -57,7 +61,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "crest-coventry-university.svg"
   },
   {
     "title": "University of Toronto",
@@ -69,7 +74,8 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "crest-university-of-toronto.svg"
   },
   {
     "title": "University of Waterloo",
@@ -81,7 +87,8 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "crest-university-of-waterloo.svg"
   },
   {
     "title": "Dalhousie University",
@@ -93,7 +100,8 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "crest-dalhousie-university.svg"
   },
   {
     "title": "University of Manitoba",
@@ -105,7 +113,8 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "crest-university-of-manitoba.svg"
   },
   {
     "title": "University of Melbourne",
@@ -117,7 +126,8 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "crest-university-of-melbourne.svg"
   },
   {
     "title": "Monash University",
@@ -129,7 +139,8 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "crest-monash-university.svg"
   },
   {
     "title": "Deakin University",
@@ -141,7 +152,8 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "crest-deakin-university.svg"
   },
   {
     "title": "Technical University of Munich",
@@ -153,7 +165,8 @@
     },
     "terms": {
       "edulume_destination": ["Germany"]
-    }
+    },
+    "image": "crest-technical-university-of-munich.svg"
   },
   {
     "title": "RWTH Aachen University",
@@ -165,7 +178,8 @@
     },
     "terms": {
       "edulume_destination": ["Germany"]
-    }
+    },
+    "image": "crest-rwth-aachen-university.svg"
   },
   {
     "title": "Arizona State University",
@@ -177,7 +191,8 @@
     },
     "terms": {
       "edulume_destination": ["United States"]
-    }
+    },
+    "image": "crest-arizona-state-university.svg"
   },
   {
     "title": "Northeastern University",
@@ -189,7 +204,8 @@
     },
     "terms": {
       "edulume_destination": ["United States"]
-    }
+    },
+    "image": "crest-northeastern-university.svg"
   },
   {
     "title": "University of Nottingham Malaysia",
@@ -201,7 +217,8 @@
     },
     "terms": {
       "edulume_destination": ["Malaysia"]
-    }
+    },
+    "image": "crest-university-of-nottingham-malaysia.svg"
   },
   {
     "title": "Monash University Malaysia",
@@ -213,7 +230,8 @@
     },
     "terms": {
       "edulume_destination": ["Malaysia"]
-    }
+    },
+    "image": "crest-monash-university-malaysia.svg"
   },
   {
     "title": "University College Dublin",
@@ -225,7 +243,8 @@
     },
     "terms": {
       "edulume_destination": ["Republic of Ireland"]
-    }
+    },
+    "image": "crest-university-college-dublin.svg"
   },
   {
     "title": "Trinity College Dublin",
@@ -237,7 +256,8 @@
     },
     "terms": {
       "edulume_destination": ["Republic of Ireland"]
-    }
+    },
+    "image": "crest-trinity-college-dublin.svg"
   },
   {
     "title": "University of Tokyo",
@@ -249,7 +269,8 @@
     },
     "terms": {
       "edulume_destination": ["Japan"]
-    }
+    },
+    "image": "crest-university-of-tokyo.svg"
   },
   {
     "title": "Kyushu University",
@@ -261,7 +282,8 @@
     },
     "terms": {
       "edulume_destination": ["Japan"]
-    }
+    },
+    "image": "crest-kyushu-university.svg"
   },
   {
     "title": "University of Sheffield",
@@ -273,7 +295,8 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "crest-university-of-sheffield.svg"
   },
   {
     "title": "Griffith University",
@@ -285,6 +308,7 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "crest-griffith-university.svg"
   }
 ]

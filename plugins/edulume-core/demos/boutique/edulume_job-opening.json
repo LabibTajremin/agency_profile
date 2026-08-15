@@ -6,7 +6,8 @@
     "meta": {
       "_edulume_location": "Dhanmondi, Dhaka",
       "_edulume_employment_type": "Full time"
-    }
+    },
+    "image": "scene-students-at-the-canada-study-permit-workshop.svg"
   },
   {
     "title": "IELTS Instructor",
@@ -15,7 +16,8 @@
     "meta": {
       "_edulume_location": "Dhanmondi, Dhaka",
       "_edulume_employment_type": "Part time"
-    }
+    },
+    "image": "scene-test-preparation-classroom.svg"
   },
   {
     "title": "Visa Documentation Officer",
@@ -24,7 +26,8 @@
     "meta": {
       "_edulume_location": "Uttara, Dhaka",
       "_edulume_employment_type": "Full time"
-    }
+    },
+    "image": "scene-uk-admissions-fair-dhanmondi.svg"
   },
   {
     "title": "Digital Marketing Executive",
@@ -33,6 +36,7 @@
     "meta": {
       "_edulume_location": "Dhanmondi, Dhaka",
       "_edulume_employment_type": "Full time"
-    }
+    },
+    "image": "scene-visa-documentation-review.svg"
   }
 ]

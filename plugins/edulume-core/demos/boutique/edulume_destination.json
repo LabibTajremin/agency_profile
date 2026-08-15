@@ -11,7 +11,8 @@
     },
     "terms": {
       "edulume_region": ["Europe"]
-    }
+    },
+    "image": "destination-united-kingdom.svg"
   },
   {
     "title": "Canada",
@@ -25,7 +26,8 @@
     },
     "terms": {
       "edulume_region": ["North America"]
-    }
+    },
+    "image": "destination-canada.svg"
   },
   {
     "title": "Australia",
@@ -39,7 +41,8 @@
     },
     "terms": {
       "edulume_region": ["Oceania"]
-    }
+    },
+    "image": "destination-australia.svg"
   },
   {
     "title": "Germany",
@@ -53,7 +56,8 @@
     },
     "terms": {
       "edulume_region": ["Europe"]
-    }
+    },
+    "image": "destination-germany.svg"
   },
   {
     "title": "United States",
@@ -67,7 +71,8 @@
     },
     "terms": {
       "edulume_region": ["North America"]
-    }
+    },
+    "image": "destination-united-states.svg"
   },
   {
     "title": "Malaysia",
@@ -81,7 +86,8 @@
     },
     "terms": {
       "edulume_region": ["Asia"]
-    }
+    },
+    "image": "destination-malaysia.svg"
   },
   {
     "title": "Republic of Ireland",
@@ -95,7 +101,8 @@
     },
     "terms": {
       "edulume_region": ["Europe"]
-    }
+    },
+    "image": "destination-republic-of-ireland.svg"
   },
   {
     "title": "Japan",
@@ -109,6 +116,7 @@
     },
     "terms": {
       "edulume_region": ["Asia"]
-    }
+    },
+    "image": "destination-japan.svg"
   }
 ]

@@ -13,6 +13,14 @@ namespace Edulume\Core\Domain\Theming;
  */
 enum SectionOverrideKey: string
 {
+    /**
+     * Whether the section renders at all.
+     *
+     * First in the list because it is the one override that makes the rest moot: a section
+     * switched off has no accent, no pattern and no spacing worth resolving.
+     */
+    case Enabled = 'enabled';
+
     case AccentSlug = 'accentSlug';
     case CustomAccent = 'customAccent';
     case PatternEnabled = 'patternEnabled';

@@ -14,7 +14,8 @@
     "terms": {
       "edulume_subject": ["Computer Science"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-computer-science.svg"
   },
   {
     "title": "MSc Data Science — University of Leeds",
@@ -31,7 +32,8 @@
     "terms": {
       "edulume_subject": ["Data Science"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-data-science.svg"
   },
   {
     "title": "MSc Artificial Intelligence — Coventry University",
@@ -48,7 +50,8 @@
     "terms": {
       "edulume_subject": ["Computer Science"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-computer-science.svg"
   },
   {
     "title": "MSc Cyber Security — University of Waterloo",
@@ -65,7 +68,8 @@
     "terms": {
       "edulume_subject": ["Computer Science"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-computer-science.svg"
   },
   {
     "title": "MSc Civil Engineering — Dalhousie University",
@@ -82,7 +86,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "MSc Mechanical Engineering — Monash University",
@@ -99,7 +104,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "MSc Electrical and Electronic Engineering — Deakin University",
@@ -116,7 +122,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "MSc Renewable Energy — Technical University of Munich",
@@ -133,7 +140,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["Germany"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "MBA — Arizona State University",
@@ -150,7 +158,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["United States"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MSc International Business — University of Nottingham Malaysia",
@@ -167,7 +176,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["Malaysia"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MSc Finance — University of Glasgow",
@@ -184,7 +194,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MSc Supply Chain Management — University of Leeds",
@@ -201,7 +212,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MSc Public Health — Coventry University",
@@ -218,7 +230,8 @@
     "terms": {
       "edulume_subject": ["Health"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-health.svg"
   },
   {
     "title": "MSc Nursing — University of Waterloo",
@@ -235,7 +248,8 @@
     "terms": {
       "edulume_subject": ["Health"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-health.svg"
   },
   {
     "title": "MSc Pharmaceutical Science — Dalhousie University",
@@ -252,7 +266,8 @@
     "terms": {
       "edulume_subject": ["Health"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-health.svg"
   },
   {
     "title": "LLM International Law — Monash University",
@@ -269,7 +284,8 @@
     "terms": {
       "edulume_subject": ["Law"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-law.svg"
   },
   {
     "title": "MA Education — Deakin University",
@@ -286,7 +302,8 @@
     "terms": {
       "edulume_subject": ["Education"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-education.svg"
   },
   {
     "title": "MSc Environmental Science — Technical University of Munich",
@@ -303,7 +320,8 @@
     "terms": {
       "edulume_subject": ["Science"],
       "edulume_destination": ["Germany"]
-    }
+    },
+    "image": "subject-science.svg"
   },
   {
     "title": "MSc Biotechnology — Arizona State University",
@@ -320,7 +338,8 @@
     "terms": {
       "edulume_subject": ["Science"],
       "edulume_destination": ["United States"]
-    }
+    },
+    "image": "subject-science.svg"
   },
   {
     "title": "MSc Architecture — University of Nottingham Malaysia",
@@ -337,7 +356,8 @@
     "terms": {
       "edulume_subject": ["Architecture"],
       "edulume_destination": ["Malaysia"]
-    }
+    },
+    "image": "subject-architecture.svg"
   },
   {
     "title": "BSc Computer Science — University of Glasgow",
@@ -354,7 +374,8 @@
     "terms": {
       "edulume_subject": ["Computer Science"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-computer-science.svg"
   },
   {
     "title": "BSc Software Engineering — University of Leeds",
@@ -371,7 +392,8 @@
     "terms": {
       "edulume_subject": ["Computer Science"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-computer-science.svg"
   },
   {
     "title": "BEng Civil Engineering — Coventry University",
@@ -388,7 +410,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "BEng Mechanical Engineering — University of Waterloo",
@@ -405,7 +428,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "BBA Business Administration — Dalhousie University",
@@ -422,7 +446,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "BSc Accounting and Finance — Monash University",
@@ -439,7 +464,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "BSc Nursing — Deakin University",
@@ -456,7 +482,8 @@
     "terms": {
       "edulume_subject": ["Health"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-health.svg"
   },
   {
     "title": "BSc Pharmacy — Technical University of Munich",
@@ -473,7 +500,8 @@
     "terms": {
       "edulume_subject": ["Health"],
       "edulume_destination": ["Germany"]
-    }
+    },
+    "image": "subject-health.svg"
   },
   {
     "title": "LLB Law — Arizona State University",
@@ -490,7 +518,8 @@
     "terms": {
       "edulume_subject": ["Law"],
       "edulume_destination": ["United States"]
-    }
+    },
+    "image": "subject-law.svg"
   },
   {
     "title": "BA Economics — University of Nottingham Malaysia",
@@ -507,7 +536,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["Malaysia"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "BSc Data Analytics — University of Glasgow",
@@ -524,7 +554,8 @@
     "terms": {
       "edulume_subject": ["Data Science"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-data-science.svg"
   },
   {
     "title": "MSc Project Management — University of Leeds",
@@ -541,7 +572,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MSc Robotics — Coventry University",
@@ -558,7 +590,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["United Kingdom"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "MSc Aerospace Engineering — University of Waterloo",
@@ -575,7 +608,8 @@
     "terms": {
       "edulume_subject": ["Engineering"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-engineering.svg"
   },
   {
     "title": "MSc Marketing — Dalhousie University",
@@ -592,7 +626,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["Canada"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MSc Human Resource Management — Monash University",
@@ -609,7 +644,8 @@
     "terms": {
       "edulume_subject": ["Business"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-business.svg"
   },
   {
     "title": "MSc Food Science — Deakin University",
@@ -626,7 +662,8 @@
     "terms": {
       "edulume_subject": ["Science"],
       "edulume_destination": ["Australia"]
-    }
+    },
+    "image": "subject-science.svg"
   },
   {
     "title": "MSc Urban Planning — Technical University of Munich",
@@ -643,7 +680,8 @@
     "terms": {
       "edulume_subject": ["Architecture"],
       "edulume_destination": ["Germany"]
-    }
+    },
+    "image": "subject-architecture.svg"
   },
   {
     "title": "MA International Relations — Arizona State University",
@@ -660,7 +698,8 @@
     "terms": {
       "edulume_subject": ["Social Science"],
       "edulume_destination": ["United States"]
-    }
+    },
+    "image": "subject-social-science.svg"
   },
   {
     "title": "MSc Clinical Psychology — University of Nottingham Malaysia",
@@ -677,6 +716,7 @@
     "terms": {
       "edulume_subject": ["Health"],
       "edulume_destination": ["Malaysia"]
-    }
+    },
+    "image": "subject-health.svg"
   }
 ]

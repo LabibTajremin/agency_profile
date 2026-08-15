@@ -7,7 +7,8 @@
       "_edulume_address": "House 42, Road 9/A, Dhanmondi, Dhaka 1209",
       "_edulume_phone": "+880 1711 000000",
       "_edulume_hours": "Sunday to Thursday, 10:00 to 18:00"
-    }
+    },
+    "image": "scene-pre-departure-briefing-september-intake.svg"
   },
   {
     "title": "Uttara",
@@ -17,7 +18,8 @@
       "_edulume_address": "Road 1, Sector 3, Uttara Model Town, Dhaka 1230",
       "_edulume_phone": "+880 1711 000001",
       "_edulume_hours": "Sunday to Thursday, 10:00 to 18:00"
-    }
+    },
+    "image": "scene-scholarship-clinic-online-cohort.svg"
   },
   {
     "title": "Chattogram",
@@ -27,6 +29,7 @@
       "_edulume_address": "Nasirabad, Chattogram 4000",
       "_edulume_phone": "+880 1711 000002",
       "_edulume_hours": "Sunday to Thursday, 10:00 to 17:00"
-    }
+    },
+    "image": "scene-students-at-the-canada-study-permit-workshop.svg"
   }
 ]

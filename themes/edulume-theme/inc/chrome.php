@@ -282,13 +282,70 @@ function edulume_the_drawer(): void
 }
 
 /**
- * The visitor's light/dark toggle.
+ * The visitor's light/dark control, as a pair of radios.
+ *
+ * A radio group rather than a button because the two modes are a choice between two named
+ * options, and that is what a radio group means. A lone toggle button has to encode the current
+ * state and the action it will perform in the same control, which is why they so often show the
+ * icon of the mode you are *not* in and leave everyone guessing.
+ *
+ * `role="radiogroup"` with real inputs, so arrow keys move between them, the browser handles
+ * focus, and a screen reader announces "Light, radio button, 1 of 2, selected". The visible
+ * labels are the icons; the accessible names come from the text beside them.
  */
 function edulume_the_mode_toggle(): void
 {
-    printf(
-        '<button type="button" class="edulume-mode-toggle" data-edulume-mode-toggle aria-pressed="false">'
-        . '<span class="screen-reader-text">%s</span></button>',
-        esc_html__('Switch between light and dark', 'edulume')
-    );
+    $modes = [
+        'light' => [
+            'label' => __('Light', 'edulume'),
+            /* A sun: a filled centre and eight rays. */
+            'icon' => '<circle cx="12" cy="12" r="4.2"/>'
+                . '<g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
+                . '<path d="M12 2.4v2.6M12 19v2.6M4.6 12H2M22 12h-2.6"/>'
+                . '<path d="M5.8 5.8l1.9 1.9M16.3 16.3l1.9 1.9M18.2 5.8l-1.9 1.9M7.7 16.3l-1.9 1.9"/>'
+                . '</g>',
+        ],
+        'dark' => [
+            'label' => __('Dark', 'edulume'),
+            /* A crescent, cut from one circle by another rather than drawn by hand. */
+            'icon' => '<path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8z"/>',
+        ],
+    ];
+
+    echo '<div class="edulume-mode-switch" role="radiogroup" aria-label="'
+        . esc_attr__('Colour mode', 'edulume') . '" data-edulume-mode-switch>';
+
+    foreach ($modes as $value => $mode) {
+        printf(
+            '<label class="edulume-mode-switch__option" data-mode="%1$s">'
+            . '<input type="radio" name="edulume-mode" value="%1$s" class="screen-reader-text" '
+            . 'data-edulume-mode-input>'
+            . '<span class="edulume-mode-switch__icon" aria-hidden="true">'
+            . '<svg viewBox="0 0 24 24" fill="currentColor" focusable="false">%2$s</svg>'
+            . '</span>'
+            . '<span class="edulume-mode-switch__label">%3$s</span>'
+            . '</label>',
+            esc_attr($value),
+            $mode['icon'],
+            esc_html($mode['label'])
+        );
+    }
+
+    echo '</div>';
+}
+
+/**
+ * Whether a home-page section should render.
+ *
+ * The documented way for a template to ask. Defaults to true so that a deactivated plugin — or
+ * a slug the plugin has never heard of, such as one a child theme added — renders rather than
+ * silently disappears.
+ */
+function edulume_section_is_enabled(string $slug): bool
+{
+    if (!edulume_core_is_active()) {
+        return true;
+    }
+
+    return (bool) apply_filters('edulume_section_is_enabled', true, $slug);
 }
