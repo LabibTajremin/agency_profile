@@ -49,9 +49,18 @@ final class WpDemoStore implements DemoStore
         return $id;
     }
 
+    /**
+     * The demo payloads live at the plugin root, so this walks up three levels, not two.
+     *
+     * `__DIR__` is `<plugin>/src/Infrastructure/Demo`; two levels reaches `<plugin>/src`, which
+     * has no `demos/` in it. That off-by-one made every import silently create nothing: the
+     * unreadable file returns an empty list, the importer reports "complete", and the site owner
+     * is told the demo imported when not one row was written. A wrong path that throws is a bug
+     * someone fixes in a minute; a wrong path that returns `[]` is a bug that ships.
+     */
     public function itemsFor(DemoDefinition $demo, string $postType): array
     {
-        $file = sprintf('%s/demos/%s/%s.json', dirname(__DIR__, 2), $demo->slug, $postType);
+        $file = sprintf('%s/demos/%s/%s.json', dirname(__DIR__, 3), $demo->slug, $postType);
 
         if (!is_readable($file)) {
             return [];
