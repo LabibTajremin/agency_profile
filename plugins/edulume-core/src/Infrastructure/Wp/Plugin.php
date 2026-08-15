@@ -84,7 +84,7 @@ final class Plugin
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
         (new AdminMenu())->register();
-        (new AdminAssets($this->container, $this->container->adminTheme()))->register();
+        (new AdminAssets($this->container, $this->container->adminTheme(), $this->version))->register();
         (new SectionVisibility($this->container))->register();
         DemoCliCommand::register($this->container);
     }

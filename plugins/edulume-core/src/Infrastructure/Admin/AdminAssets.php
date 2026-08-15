@@ -28,6 +28,7 @@ final class AdminAssets
     public function __construct(
         private readonly Container $container,
         private readonly AdminTheme $adminTheme,
+        private readonly string $version,
     ) {
     }
 
@@ -38,7 +39,19 @@ final class AdminAssets
 
     public function enqueue(): void
     {
-        wp_register_style(self::HANDLE, false, [], null);
+        /*
+         * Versioned with the plugin's own version rather than `null`.
+         *
+         * There is no file behind this handle — it exists only to hang inline CSS on — so a
+         * cache-busting query string changes nothing about what is fetched. It is set anyway
+         * because `null` means "WordPress's version", which drifts with core updates and is a
+         * lie about what produced this stylesheet.
+         *
+         * Passed in rather than read from the entry file's constant: a constant defined in a
+         * file nothing else loads is invisible to static analysis, and reaching for a global
+         * from an injected class is the kind of shortcut that makes it untestable.
+         */
+        wp_register_style(self::HANDLE, false, [], $this->version);
         wp_enqueue_style(self::HANDLE);
         wp_add_inline_style(self::HANDLE, $this->css());
     }

@@ -21,10 +21,6 @@ msgstr ""
 msgid "Accept selected"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/trust-bar.php:13
-msgid "Accreditations"
-msgstr ""
-
 #: themes/edulume-theme/template-parts/content/breadcrumbs.php:23
 msgid "Breadcrumb"
 msgstr ""
@@ -45,6 +41,10 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: themes/edulume-theme/inc/chrome.php:316
+msgid "Colour mode"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:182
 msgid "Contact details"
 msgstr ""
@@ -57,6 +57,10 @@ msgstr ""
 msgid "Courses"
 msgstr ""
 
+#: themes/edulume-theme/inc/chrome.php:309
+msgid "Dark"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/destinations.php:13
 msgid "Destinations"
 msgstr ""
@@ -65,8 +69,8 @@ msgstr ""
 msgid "Dismiss this announcement"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:54
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:55
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:56
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:57
 msgid "Edulume"
 msgstr ""
 
@@ -116,6 +120,10 @@ msgstr ""
 
 #: themes/edulume-theme/404.php:23
 msgid "It may have moved. Try a search, or pick up from one of these."
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:300
+msgid "Light"
 msgstr ""
 
 #: themes/edulume-theme/inc/consent.php:92
@@ -229,10 +237,6 @@ msgstr ""
 msgid "Success stories"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:292
-msgid "Switch between light and dark"
-msgstr ""
-
 #: themes/edulume-theme/template-parts/home/testimonials.php:13
 msgid "Testimonials"
 msgstr ""
@@ -244,6 +248,10 @@ msgstr ""
 #: plugins/edulume-core/src/Infrastructure/Rest/ThemeController.php:70
 #: plugins/edulume-core/src/Infrastructure/Rest/ThemeController.php:89
 msgid "That section does not exist."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/trust-bar.php:16
+msgid "Trusted by"
 msgstr ""
 
 #: themes/edulume-theme/404.php:28

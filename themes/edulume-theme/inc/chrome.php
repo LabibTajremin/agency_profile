@@ -326,12 +326,59 @@ function edulume_the_mode_toggle(): void
             . '<span class="edulume-mode-switch__label">%3$s</span>'
             . '</label>',
             esc_attr($value),
-            $mode['icon'],
+            // Escaped rather than trusted, even though the markup two dozen lines above is a
+            // constant in this file. "It is hardcoded" is how every escaping gap starts, and it
+            // stops being true the first time somebody makes the icon set filterable.
+            wp_kses($mode['icon'], edulume_allowed_icon_markup()),
             esc_html($mode['label'])
         );
     }
 
     echo '</div>';
+}
+
+/**
+ * The SVG elements and attributes an inline icon may use.
+ *
+ * An allowlist, not a denylist: anything not named here — `script`, `foreignObject`, every
+ * `on*` handler — is stripped, so an icon can only ever draw.
+ *
+ * @return array<string, array<string, bool>>
+ */
+function edulume_allowed_icon_markup(): array
+{
+    $shape = [
+        'd' => true,
+        'cx' => true,
+        'cy' => true,
+        'r' => true,
+        'x' => true,
+        'y' => true,
+        'width' => true,
+        'height' => true,
+        'rx' => true,
+        'ry' => true,
+        'points' => true,
+        'fill' => true,
+        'fill-rule' => true,
+        'stroke' => true,
+        'stroke-width' => true,
+        'stroke-linecap' => true,
+        'stroke-linejoin' => true,
+        'opacity' => true,
+        'transform' => true,
+    ];
+
+    return [
+        'g' => $shape,
+        'path' => $shape,
+        'circle' => $shape,
+        'rect' => $shape,
+        'line' => $shape,
+        'polyline' => $shape,
+        'polygon' => $shape,
+        'ellipse' => $shape,
+    ];
 }
 
 /**

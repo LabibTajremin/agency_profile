@@ -34,6 +34,12 @@ function steps(): array
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Design-token audit', 'command' => 'composer audit:tokens', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
+        // Regenerates the template and fails if it moved. This runs in CI and did not run here,
+        // which is exactly how a pull request went red on a stale `.pot` after a translatable
+        // string was added — a check the local gate could have caught in two seconds.
+        ['name' => 'Translation template is current',
+            'command' => 'composer make:pot && git diff --exit-code languages/edulume.pot',
+            'job' => 'php-quality', 'needsDocker' => false, 'slow' => false],
         ['name' => 'Unbounded-query audit', 'command' => 'composer audit:queries', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Logical-CSS and text-domain audit', 'command' => 'composer audit:i18n', 'job' => 'php-quality',
