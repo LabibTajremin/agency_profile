@@ -155,11 +155,22 @@ installed. The theme alone registers no content types.
 `wp-content/uploads/edulume/`. Confirm that directory is writable — cPanel occasionally sets
 `uploads` to 755 with the wrong owner after a migration.
 
-## What is not included
+## About the demo imagery
 
-**Images.** The demo imports text, not photography — there are no bundled images, and the
-importer has no media step. Every section will be structurally complete and visually plain until
-you add your own images through the media library.
+The import brings 69 images into the media library and sets them as featured images, so cards,
+archives and the logo wall are illustrated rather than blank.
+
+They are **generated vector artwork**, not photography: layered gradients in the site's own
+palette with a subject-appropriate motif — skylines for destinations, monograms for team members
+and universities, figure groups for event scenes. That is a deliberate choice rather than a
+shortcut. Nothing available to bundle here is licensed for redistribution, and shipping
+unlicensed stock is exactly what the licence check in the importer exists to prevent.
+
+Replace them with your own photography when you have it. Everything the import creates is
+tagged, so removing the demo takes its images with it — including the files on disk, not just
+the library records.
+
+## What is not included
 
 **The other three demo packs.** `gulf-premium`, `test-prep` and `guide-site` are declared in the
 library but carry no content files yet. Import `boutique`; the others create nothing.

@@ -29,6 +29,15 @@ final class ChromeSettings
         public readonly AnnouncementBar $announcement = new AnnouncementBar(false, ''),
         public readonly ContactDetails $contact = new ContactDetails(),
         public readonly LogoSet $logos = new LogoSet(),
+        /**
+         * Whether the logo wall prints each partner's name under its mark.
+         *
+         * On by default. A wall of unlabelled logos is a recognition test the visitor did not
+         * ask to sit — it works for household brands and fails for a regional accreditor, which
+         * is most of what a consultancy actually lists. Turning it off is the right call once
+         * the marks are genuinely recognisable, so it is a switch rather than a rule.
+         */
+        public readonly bool $showsPartnerNames = true,
     ) {
     }
 
@@ -102,6 +111,7 @@ final class ChromeSettings
                 'footerDark' => $this->logos->footerDark,
                 'alternativeText' => $this->logos->alternativeText,
             ],
+            'showsPartnerNames' => $this->showsPartnerNames,
         ];
     }
 
@@ -123,6 +133,7 @@ final class ChromeSettings
             self::announcementFrom($data['announcement'] ?? []),
             self::contactFrom($data['contact'] ?? []),
             self::logosFrom($data['logos'] ?? []),
+            Guard::toBool($data['showsPartnerNames'] ?? true),
         );
     }
 

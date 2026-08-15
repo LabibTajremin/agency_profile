@@ -515,6 +515,14 @@ const sectionsPanel: PanelDefinition = {
       keywords: ['hero', 'features', 'testimonials', 'cta'],
     },
     {
+      id: 'partner-names',
+      label: 'Show partner names',
+      kind: 'toggle',
+      path: 'chrome.showsPartnerNames',
+      help: 'On shows each logo with its name beside it. Off shows the logos alone, larger — good once your partners are recognisable on sight. The names stay readable to screen readers either way.',
+      keywords: ['logo', 'logos', 'trusted by', 'accreditation', 'partners', 'caption', 'label'],
+    },
+    {
       id: 'section-enabled',
       label: 'Show this section',
       kind: 'toggle',

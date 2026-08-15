@@ -488,3 +488,119 @@
     color: var(--edulume-ink, #16181d);
   }
 }
+
+/* Logo wall ---------------------------------------------------------------- */
+
+/*
+ * Partner and accreditation marks.
+ *
+ * The mark size is a token rather than a fixed value because it is the thing most likely to
+ * need adjusting per site: a wall of wordmarks wants more width than a wall of monograms.
+ */
+.edulume-logo-wall {
+  --edulume-logo-mark-size: 7.5rem;
+
+  display: grid;
+  gap: var(--edulume-space-4, 1rem);
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.edulume-logo-wall__item {
+  display: flex;
+  align-items: center;
+  gap: var(--edulume-space-4, 1rem);
+  padding: var(--edulume-space-4, 1rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+  /* `transform` and `opacity` only: both are composited, so a hover cannot cause a reflow. */
+  transition:
+    transform var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    box-shadow var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    border-color var(--edulume-duration-base, 240ms) var(--edulume-easing, ease);
+}
+
+.edulume-logo-wall__mark {
+  flex: 0 0 auto;
+  inline-size: var(--edulume-logo-mark-size);
+  block-size: auto;
+  /*
+   * Greyscale at rest, colour on hover. A wall of competing brand colours pulls the eye away
+   * from the page's own accent; desaturating settles it without hiding anything.
+   */
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition:
+    filter var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    opacity var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    transform var(--edulume-duration-base, 240ms) var(--edulume-easing, ease);
+}
+
+.edulume-logo-wall__name {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  color: var(--edulume-ink-muted, #5b616e);
+}
+
+/* Hover and keyboard focus behave identically — a keyboard user gets the same affordance. */
+.edulume-logo-wall__item:hover,
+.edulume-logo-wall__item:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--edulume-accent, #365e92);
+  box-shadow: var(--edulume-shadow-2, 0 2px 8px rgb(0 0 0 / 20%));
+}
+
+.edulume-logo-wall__item:hover .edulume-logo-wall__mark,
+.edulume-logo-wall__item:focus-within .edulume-logo-wall__mark {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.edulume-logo-wall__item:hover .edulume-logo-wall__name,
+.edulume-logo-wall__item:focus-within .edulume-logo-wall__name {
+  color: var(--edulume-ink, #16181d);
+}
+
+/*
+ * Names off: the mark carries the whole tile, so it gets the full width and the row gets
+ * tighter. Set from the admin, applied as an attribute rather than a second stylesheet.
+ */
+.edulume-logo-wall[data-show-names='false'] {
+  --edulume-logo-mark-size: 11rem;
+
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+}
+
+.edulume-logo-wall[data-show-names='false'] .edulume-logo-wall__item {
+  justify-content: center;
+}
+
+.edulume-logo-wall[data-show-names='false'] .edulume-logo-wall__name {
+  /*
+   * Hidden visually, kept for assistive technology. `display: none` would leave a screen-reader
+   * user with a wall of images whose only description is a filename.
+   */
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edulume-logo-wall__item,
+  .edulume-logo-wall__mark {
+    transition: none;
+  }
+
+  .edulume-logo-wall__item:hover,
+  .edulume-logo-wall__item:focus-within {
+    transform: none;
+  }
+
+  .edulume-logo-wall__item:hover .edulume-logo-wall__mark,
+  .edulume-logo-wall__item:focus-within .edulume-logo-wall__mark {
+    transform: none;
+  }
+}
