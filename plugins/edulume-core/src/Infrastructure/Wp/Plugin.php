@@ -6,6 +6,7 @@ namespace Edulume\Core\Infrastructure\Wp;
 
 use Edulume\Core\Infrastructure\Blocks\BlockRegistrar;
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
+use Edulume\Core\Infrastructure\Admin\AdminAssets;
 use Edulume\Core\Infrastructure\Admin\AdminMenu;
 use Edulume\Core\Infrastructure\Demo\DemoCliCommand;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
@@ -83,6 +84,7 @@ final class Plugin
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
         (new AdminMenu())->register();
+        (new AdminAssets($this->container, $this->container->adminTheme()))->register();
         (new SectionVisibility($this->container))->register();
         DemoCliCommand::register($this->container);
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Content;
 
 use Edulume\Core\Domain\Content\ContentModel;
+use Edulume\Core\Infrastructure\Admin\AdminMenu;
 use Edulume\Core\Domain\Content\PostTypeDefinition;
 use Edulume\Core\Domain\Content\RelationshipDefinition;
 use Edulume\Core\Domain\Content\TaxonomyDefinition;
@@ -51,6 +52,16 @@ final class ContentRegistrar
                 'publicly_queryable' => $postType->isPubliclyQueryable,
                 'show_in_rest' => true,
                 'has_archive' => true,
+                /*
+                 * Nested under the one Edulume menu instead of planting sixteen top-level
+                 * entries in the sidebar.
+                 *
+                 * Sixteen post types each claiming their own top-level item buries WordPress's
+                 * own menu below the fold and makes the product look like sixteen plugins. It
+                 * is also the single most common thing a non-technical site owner gets lost in:
+                 * everything to do with the site should be in one place, and now it is.
+                 */
+                'show_in_menu' => AdminMenu::SLUG,
                 'menu_icon' => $postType->menuIcon,
                 'supports' => $postType->supports(),
                 'taxonomies' => $postType->taxonomyKeys,

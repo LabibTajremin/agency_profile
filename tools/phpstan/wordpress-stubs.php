@@ -924,3 +924,36 @@ function wp_delete_attachment(int $postId, bool $forceDelete = false)
 function get_post_type($post = null)
 {
 }
+
+/**
+ * Admin styling and screen helpers, used to paint wp-admin in the site's accent and to
+ * register the contextual help each screen carries.
+ *
+ * @param string|false $src
+ * @param list<string> $deps
+ * @param string|bool|null $ver
+ */
+function wp_register_style(string $handle, $src, array $deps = [], $ver = false, string $media = 'all'): bool
+{
+}
+
+function wp_add_inline_style(string $handle, string $data): bool
+{
+}
+
+class WP_Screen
+{
+    /**
+     * @param array<string, mixed> $args
+     */
+    public function add_help_tab(array $args): void
+    {
+    }
+}
+
+/**
+ * @return \WP_Screen|null
+ */
+function get_current_screen()
+{
+}
