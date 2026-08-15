@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Dhanmondi (Head Office)",
+    "excerpt": "House 42, Road 9/A, Dhanmondi, Dhaka 1209",
+    "content": "House 42, Road 9/A, Dhanmondi, Dhaka 1209\n\nTelephone +880 1711 000000. Open Sunday to Thursday, 10:00 to 18:00. Walk-ins are welcome, though a booked appointment means a counsellor will have read your transcript before you arrive.",
+    "meta": {
+      "_edulume_address": "House 42, Road 9/A, Dhanmondi, Dhaka 1209",
+      "_edulume_phone": "+880 1711 000000",
+      "_edulume_hours": "Sunday to Thursday, 10:00 to 18:00"
+    }
+  },
+  {
+    "title": "Uttara",
+    "excerpt": "Road 1, Sector 3, Uttara Model Town, Dhaka 1230",
+    "content": "Road 1, Sector 3, Uttara Model Town, Dhaka 1230\n\nTelephone +880 1711 000001. Open Sunday to Thursday, 10:00 to 18:00. Walk-ins are welcome, though a booked appointment means a counsellor will have read your transcript before you arrive.",
+    "meta": {
+      "_edulume_address": "Road 1, Sector 3, Uttara Model Town, Dhaka 1230",
+      "_edulume_phone": "+880 1711 000001",
+      "_edulume_hours": "Sunday to Thursday, 10:00 to 18:00"
+    }
+  },
+  {
+    "title": "Chattogram",
+    "excerpt": "Nasirabad, Chattogram 4000",
+    "content": "Nasirabad, Chattogram 4000\n\nTelephone +880 1711 000002. Open Sunday to Thursday, 10:00 to 17:00. Walk-ins are welcome, though a booked appointment means a counsellor will have read your transcript before you arrive.",
+    "meta": {
+      "_edulume_address": "Nasirabad, Chattogram 4000",
+      "_edulume_phone": "+880 1711 000002",
+      "_edulume_hours": "Sunday to Thursday, 10:00 to 17:00"
+    }
+  }
+]

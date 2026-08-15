@@ -61,6 +61,22 @@ final class Plugin
 
         add_action('init', [$this, 'loadTextDomain']);
 
+        /*
+         * Upgrades run themselves.
+         *
+         * `register_activation_hook` fires on activation and never again — so uploading a new
+         * version over an existing install, whether by FTP, cPanel or the WordPress updater,
+         * runs no migration at all. The plugin then executes new code against an old schema,
+         * which is the failure nobody sees until a lead cannot be saved.
+         *
+         * Comparing the stored version against the shipped one on `admin_init` closes that.
+         * `admin_init` rather than `plugins_loaded` because `dbDelta()` lives in an admin
+         * include and because a schema change has no business running on a front-end request.
+         * `Activation::run()` is written to be safe repeatedly: `dbDelta` is declarative, and
+         * capabilities and options are set to a known value rather than appended to.
+         */
+        add_action('admin_init', [$this, 'runPendingUpgrade']);
+
         $this->stylesheetEnqueuer()->register();
         (new ContentRegistrar())->register();
         (new BlockRegistrar())->register();
@@ -71,6 +87,21 @@ final class Plugin
 
     public function activate(): void
     {
+        Activation::run($this->version);
+    }
+
+    /**
+     * Brings the database up to the version of the code that is running.
+     *
+     * Cheap on every request but the first after an upgrade: one option read, then a string
+     * comparison. It writes nothing when the versions already agree.
+     */
+    public function runPendingUpgrade(): void
+    {
+        if (!Activation::isUpgradePending($this->version)) {
+            return;
+        }
+
         Activation::run($this->version);
     }
 

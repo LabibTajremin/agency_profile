@@ -76,6 +76,89 @@ final class DemoPayloadTest extends TestCase
         }
     }
 
+    /**
+     * Demo content that announces itself as demo content is a defect, not a disclaimer.
+     *
+     * The first version of this pack shipped rows titled "Course 1" whose body read "Replace
+     * this with your own copy before launch". That fails twice over: nobody evaluating the theme
+     * can judge a section full of numbered stubs, and a site launched under time pressure
+     * publishes the instruction-to-self as live copy on a real domain.
+     */
+    #[Test]
+    public function no_item_carries_placeholder_copy(): void
+    {
+        $demo = DemoLibrary::find('boutique');
+        self::assertNotNull($demo);
+
+        $store = new WpDemoStore();
+        $banned = ['replace this', 'lorem ipsum', 'your own copy', 'placeholder', 'sample text', 'tbd'];
+
+        foreach (array_keys($demo->itemCounts) as $postType) {
+            foreach ($store->itemsFor($demo, $postType) as $index => $row) {
+                $haystack = strtolower(implode(' ', [
+                    (string) ($row['title'] ?? ''),
+                    (string) ($row['excerpt'] ?? ''),
+                    (string) ($row['content'] ?? ''),
+                ]));
+
+                foreach ($banned as $needle) {
+                    self::assertStringNotContainsString(
+                        $needle,
+                        $haystack,
+                        sprintf('%s[%d] reads as placeholder copy', $postType, $index),
+                    );
+                }
+            }
+        }
+    }
+
+    /**
+     * "Course 1", "Institution 7" — a title that is a noun plus its index is a stub with a
+     * number on it, and it is instantly recognisable as one on a live page.
+     */
+    #[Test]
+    public function no_title_is_a_noun_with_an_index_stuck_on_it(): void
+    {
+        $demo = DemoLibrary::find('boutique');
+        self::assertNotNull($demo);
+
+        $store = new WpDemoStore();
+
+        foreach (array_keys($demo->itemCounts) as $postType) {
+            foreach ($store->itemsFor($demo, $postType) as $row) {
+                self::assertDoesNotMatchRegularExpression(
+                    '/^[A-Za-z ]+\s\d+$/',
+                    (string) ($row['title'] ?? ''),
+                    sprintf('%s: "%s" is a numbered stub', $postType, (string) ($row['title'] ?? '')),
+                );
+            }
+        }
+    }
+
+    /**
+     * A section renders empty when its post type has no rows, so "every section is populated"
+     * is a property of the pack covering the whole content model — not of any one file.
+     */
+    #[Test]
+    public function the_pack_covers_every_post_type_the_content_model_registers(): void
+    {
+        $demo = DemoLibrary::find('boutique');
+        self::assertNotNull($demo);
+
+        $registered = array_map(
+            static fn (object $type): string => $type->key,
+            \Edulume\Core\Domain\Content\ContentModel::postTypes(),
+        );
+
+        foreach ($registered as $key) {
+            self::assertArrayHasKey(
+                $key,
+                $demo->itemCounts,
+                sprintf('%s has no demo content, so its section imports empty', $key),
+            );
+        }
+    }
+
     #[Test]
     public function an_unknown_post_type_yields_nothing_rather_than_failing(): void
     {

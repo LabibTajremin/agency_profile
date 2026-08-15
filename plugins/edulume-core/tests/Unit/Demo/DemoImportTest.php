@@ -60,8 +60,15 @@ final class DemoImportTest extends TestCase
 
         self::assertNotNull($demo);
         self::assertSame($demo->postTypes(), $demo->postTypes());
-        self::assertSame(30, $demo->itemCountFor('edulume_course'));
-        self::assertSame(0, $demo->itemCountFor('edulume_partner'));
+
+        // Counts come from the declaration rather than from literals here. This test is about
+        // ordering; pinning "30 courses" in it meant that filling the pack out failed a test
+        // whose name promises nothing about how many courses there are.
+        foreach ($demo->itemCounts as $postType => $declared) {
+            self::assertSame($declared, $demo->itemCountFor($postType), $postType);
+        }
+
+        self::assertSame(0, $demo->itemCountFor('edulume_not_a_registered_type'));
     }
 
     #[Test]

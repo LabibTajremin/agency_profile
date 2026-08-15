@@ -1,52 +1,114 @@
 [
   {
-    "title": "Frequently asked question 1",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "How much does it cost to study in the UK?",
+    "excerpt": "Budget £28,000 to £38,000 for a one-year masters, all in.",
+    "content": "Tuition for a taught masters runs roughly £17,000 to £26,000 depending on the university and subject. Living costs outside London are around £9,600 for nine months — the figure the Home Office uses — and £12,000 in London.\n\nAdd the visa fee, the Immigration Health Surcharge and flights, and a realistic all-in figure is £28,000 to £38,000 for the year.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 2",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "Do you charge students a fee?",
+    "excerpt": "For most universities, no. Where we do, you are told before any work starts.",
+    "content": "We are paid a commission by most of the universities we place students with, which means our service costs you nothing for those applications. Where an institution does not pay commission, there is a service fee, and we tell you what it is before we begin.\n\nWe do not accept a commission that would push us to recommend a university that is wrong for you. If a self-funded application is the better choice, we will say so.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 3",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "What IELTS score do I actually need?",
+    "excerpt": "Usually 6.5 overall with no band below 6.0, but the band breakdown matters more than the overall.",
+    "content": "Most taught masters ask for 6.5 overall. The detail that catches students out is the minimum in each band: a 7.0 overall with a 5.5 in writing will be rejected where a flat 6.5 is accepted.\n\nSome universities accept PTE, the Duolingo test, or a waiver if your degree was taught in English. We confirm which before you book a test.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 4",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "Can I work while studying?",
+    "excerpt": "Yes, in every destination we place into, with limits.",
+    "content": "The UK allows twenty hours a week during term and full time in vacations. Canada allows twenty-four hours a week off campus. Australia permits forty-eight hours a fortnight.\n\nPlan on part-time work covering living costs, not tuition. Applications that rely on term-time earnings to pay fees are refused at the visa stage.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 5",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "How long does the whole process take?",
+    "excerpt": "Nine to twelve months from first consultation to departure, comfortably.",
+    "content": "Applications open around a year ahead. A realistic timeline is three months for testing and shortlisting, two months for applications and offers, two months for the deposit and CAS or equivalent, and one to two months for the visa.\n\nIt can be done in four months when a deadline demands it. It is more expensive and more stressful that way.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 6",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "What happens if my visa is refused?",
+    "excerpt": "We review the refusal, fix the cause, and refile. Most refusals are documentation problems.",
+    "content": "Refusals are far more often about how funds were evidenced than about whether they exist. We obtain the refusal notice, identify the specific ground, and rebuild the file to address it directly.\n\nMost of the refusals we take over are approved on the second application. Where a refusal is not recoverable we tell you, rather than taking a fee for a hopeless refiling.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 7",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "Do I need to show bank statements? Whose account?",
+    "excerpt": "Yes. Yours or an immediate family member's, held for the required period.",
+    "content": "Every destination requires evidence that tuition and living costs can be met. The funds must usually have been held for a continuous period — twenty-eight days for the UK — and the source of any large deposit must be explainable.\n\nA sponsor must be an immediate family member, with proof of relationship. This is the single most common reason a file is sent back.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 8",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "Is a low CGPA an automatic rejection?",
+    "excerpt": "No, but it narrows the list and the case has to be made deliberately.",
+    "content": "Published minimums are guidance, not law, and admissions committees weigh relevant work experience, a strong dissertation and an upward grade trend.\n\nWhat does not work is applying widely and hoping. We identify the small number of institutions that genuinely consider the whole application and put the case properly.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 9",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "Which destination is cheapest?",
+    "excerpt": "Germany and Malaysia, by a wide margin — but cheapest is not always best value.",
+    "content": "German public universities charge no tuition; you fund living costs only. Malaysia offers British and Australian branch campus degrees at roughly a third of the home-campus fee.\n\nWeigh that against post-study work rights and where you want to be in five years. The UK costs more per year and takes one year rather than two, which narrows the gap considerably.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   },
   {
-    "title": "Frequently asked question 10",
-    "excerpt": "An answer that saves a phone call.",
-    "content": "An answer that saves a phone call. Replace this with your own copy before launch."
+    "title": "Can my spouse come with me?",
+    "excerpt": "It depends on the destination and the level of your course.",
+    "content": "Canada and Australia allow dependants for most degree-level study, and spouses generally hold open work rights. The UK restricts dependants to research postgraduates and a small number of funded programmes.\n\nDependant applications increase the maintenance funds you must evidence, sometimes substantially. Plan for it from the start rather than adding it later.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
+  },
+  {
+    "title": "When should I start?",
+    "excerpt": "Twelve months before your intended intake. Fifteen if you need to improve a test score.",
+    "content": "Starting early costs nothing and buys options: scholarship deadlines, the pick of accommodation, and time to retake a test if the first score falls short.\n\nStarting late does not make the process impossible. It makes it more expensive and removes the safety margin, which is the part students regret.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
+  },
+  {
+    "title": "Do you help after I arrive?",
+    "excerpt": "Yes. Accommodation, arrival and the first fortnight are part of the service.",
+    "content": "We help secure accommodation before you fly, arrange airport pickup on first arrival, and stay reachable through the first weeks — which is when the genuinely disorienting problems happen.\n\nOur alumni group in each major destination city is usually more useful than we are after the first month, and we will introduce you.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
+  },
+  {
+    "title": "What is the Graduate Route and how long do I get?",
+    "excerpt": "Two years of unsponsored work in the UK after graduating. Three for doctoral graduates.",
+    "content": "The Graduate Route lets you stay and work, or look for work, without an employer sponsor. You apply from inside the UK before your student visa expires.\n\nIt is not a path to settlement by itself — you need to move onto a Skilled Worker visa for that — but it gives two years to find an employer who will sponsor you.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
+  },
+  {
+    "title": "Are online or distance degrees worth it?",
+    "excerpt": "For career progression sometimes. For migration, almost never.",
+    "content": "A distance degree from a good university can be worth taking on its own terms. What it does not do is confer post-study work rights, and it does not satisfy the study requirement for any migration pathway we work with.\n\nIf your goal is to live and work abroad, an online degree does not move you toward it.",
+    "terms": {
+      "edulume_faq_topic": ["Applying"]
+    }
   }
 ]

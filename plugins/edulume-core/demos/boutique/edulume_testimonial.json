@@ -1,42 +1,92 @@
 [
   {
-    "title": "Testimonial 1",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Sabbir Hossain",
+    "excerpt": "MSc Data Science, University of Leeds",
+    "content": "They told me my first shortlist was unrealistic. I was annoyed at the time. The second shortlist got me three offers and a £6,000 scholarship, so they were right.",
+    "meta": {
+      "_edulume_student_course": "MSc Data Science, University of Leeds",
+      "_edulume_rating": "5"
+    }
   },
   {
-    "title": "Testimonial 2",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Tasnim Akter",
+    "excerpt": "BSc Nursing, Deakin University",
+    "content": "My IELTS writing was stuck at 6.0 for two attempts. Eight weeks with Tanvir and I got 7.0. Nobody else had told me what was actually wrong with my Task 2.",
+    "meta": {
+      "_edulume_student_course": "BSc Nursing, Deakin University",
+      "_edulume_rating": "5"
+    }
   },
   {
-    "title": "Testimonial 3",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Mahmudul Hasan",
+    "excerpt": "MSc Civil Engineering, University of Glasgow",
+    "content": "The visa file was the part I was dreading and it turned out to be the easiest. Nusrat had the whole checklist done before I had finished worrying about it.",
+    "meta": {
+      "_edulume_student_course": "MSc Civil Engineering, University of Glasgow",
+      "_edulume_rating": "5"
+    }
   },
   {
-    "title": "Testimonial 4",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Rifat Islam",
+    "excerpt": "MBA, Dalhousie University",
+    "content": "I chose Halifax over Toronto because they explained the provincial nomination difference. Two years later I have permanent residency. That one conversation changed everything.",
+    "meta": {
+      "_edulume_student_course": "MBA, Dalhousie University",
+      "_edulume_rating": "5"
+    }
   },
   {
-    "title": "Testimonial 5",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Anika Tabassum",
+    "excerpt": "MSc Public Health, University of Birmingham",
+    "content": "They found me a scholarship I had never heard of and would never have found. The deadline was six weeks before the admission deadline I was watching.",
+    "meta": {
+      "_edulume_student_course": "MSc Public Health, University of Birmingham",
+      "_edulume_rating": "5"
+    }
   },
   {
-    "title": "Testimonial 6",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Fahim Reza",
+    "excerpt": "MSc Computer Science, Technical University of Munich",
+    "content": "No tuition fee sounded too good to be true. They walked my parents through the blocked account requirement until everyone was comfortable. I graduate next year with no debt.",
+    "meta": {
+      "_edulume_student_course": "MSc Computer Science, Technical University of Munich",
+      "_edulume_rating": "5"
+    }
   },
   {
-    "title": "Testimonial 7",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Sumaiya Khatun",
+    "excerpt": "LLM International Law, University College Dublin",
+    "content": "My CGPA was below the published requirement. They told me honestly it was a long shot, helped me make the case anyway, and it worked.",
+    "meta": {
+      "_edulume_student_course": "LLM International Law, University College Dublin",
+      "_edulume_rating": "5"
+    }
   },
   {
-    "title": "Testimonial 8",
-    "excerpt": "A student describing what the process was actually like.",
-    "content": "A student describing what the process was actually like. Replace this with your own copy before launch."
+    "title": "Arif Mahmud",
+    "excerpt": "MSc Renewable Energy, Monash University",
+    "content": "Rezaul arranged my accommodation and picked me up at the airport. After a fourteen-hour flight, that mattered more than I expected it to.",
+    "meta": {
+      "_edulume_student_course": "MSc Renewable Energy, Monash University",
+      "_edulume_rating": "5"
+    }
+  },
+  {
+    "title": "Nabila Ahmed",
+    "excerpt": "BBA, University of Nottingham Malaysia",
+    "content": "A British degree at a third of the price, four hours from home. My family could visit. Nobody else even mentioned Malaysia as an option.",
+    "meta": {
+      "_edulume_student_course": "BBA, University of Nottingham Malaysia",
+      "_edulume_rating": "5"
+    }
+  },
+  {
+    "title": "Shahriar Kabir",
+    "excerpt": "MSc Robotics, RWTH Aachen University",
+    "content": "They were straight with me that I would need German to B2 eventually. I started classes a year early because of that advice and it made the move painless.",
+    "meta": {
+      "_edulume_student_course": "MSc Robotics, RWTH Aachen University",
+      "_edulume_rating": "5"
+    }
   }
 ]

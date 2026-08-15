@@ -1,0 +1,66 @@
+[
+  {
+    "title": "British Council",
+    "excerpt": "Certified partner for IELTS registration and UK guidance.",
+    "content": "British Council Certified partner for IELTS registration and UK guidance.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  },
+  {
+    "title": "IDP Education",
+    "excerpt": "Authorised IELTS test centre partner.",
+    "content": "IDP Education Authorised IELTS test centre partner.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  },
+  {
+    "title": "Pearson PTE",
+    "excerpt": "Registered preparation and booking partner.",
+    "content": "Pearson PTE Registered preparation and booking partner.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  },
+  {
+    "title": "Education New Zealand",
+    "excerpt": "Recognised agent for New Zealand institutions.",
+    "content": "Education New Zealand Recognised agent for New Zealand institutions.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  },
+  {
+    "title": "ICEF",
+    "excerpt": "ICEF-accredited agency.",
+    "content": "ICEF ICEF-accredited agency.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  },
+  {
+    "title": "Australian Trade and Investment Commission",
+    "excerpt": "Qualified Education Agent Counsellor certified.",
+    "content": "Australian Trade and Investment Commission Qualified Education Agent Counsellor certified.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  },
+  {
+    "title": "DAAD",
+    "excerpt": "Information partner for German higher education.",
+    "content": "DAAD Information partner for German higher education.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  },
+  {
+    "title": "EducationUSA",
+    "excerpt": "Advising network partner for US applications.",
+    "content": "EducationUSA Advising network partner for US applications.",
+    "meta": {
+      "_edulume_partner_type": "Accreditation"
+    }
+  }
+]

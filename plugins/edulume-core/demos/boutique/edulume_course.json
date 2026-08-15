@@ -1,152 +1,682 @@
 [
   {
-    "title": "Course 1",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Computer Science — University of Glasgow",
+    "excerpt": "Masters at University of Glasgow. 12 months, GBP 24,500 per year, IELTS 6.5.",
+    "content": "MSc Computer Science is a masters-level programme at University of Glasgow in United Kingdom, running 12 months.\n\nTuition is GBP 24,500 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "24,500",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Glasgow"
+    },
+    "terms": {
+      "edulume_subject": ["Computer Science"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 2",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Data Science — University of Leeds",
+    "excerpt": "Masters at University of Leeds. 12 months, GBP 26,000 per year, IELTS 6.5.",
+    "content": "MSc Data Science is a masters-level programme at University of Leeds in United Kingdom, running 12 months.\n\nTuition is GBP 26,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "26,000",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Leeds"
+    },
+    "terms": {
+      "edulume_subject": ["Data Science"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 3",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Artificial Intelligence — Coventry University",
+    "excerpt": "Masters at Coventry University. 12 months, GBP 17,700 per year, IELTS 6.0.",
+    "content": "MSc Artificial Intelligence is a masters-level programme at Coventry University in United Kingdom, running 12 months.\n\nTuition is GBP 17,700 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "17,700",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Coventry University"
+    },
+    "terms": {
+      "edulume_subject": ["Computer Science"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 4",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Cyber Security — University of Waterloo",
+    "excerpt": "Masters at University of Waterloo. 12 months, CAD 32,000 per year, IELTS 6.5.",
+    "content": "MSc Cyber Security is a masters-level programme at University of Waterloo in Canada, running 12 months.\n\nTuition is CAD 32,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "32,000",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Waterloo"
+    },
+    "terms": {
+      "edulume_subject": ["Computer Science"],
+      "edulume_destination": ["Canada"]
+    }
   },
   {
-    "title": "Course 5",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Civil Engineering — Dalhousie University",
+    "excerpt": "Masters at Dalhousie University. 12 months, CAD 24,800 per year, IELTS 6.5.",
+    "content": "MSc Civil Engineering is a masters-level programme at Dalhousie University in Canada, running 12 months.\n\nTuition is CAD 24,800 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "24,800",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Dalhousie University"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["Canada"]
+    }
   },
   {
-    "title": "Course 6",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Mechanical Engineering — Monash University",
+    "excerpt": "Masters at Monash University. 12 months, AUD 44,000 per year, IELTS 6.5.",
+    "content": "MSc Mechanical Engineering is a masters-level programme at Monash University in Australia, running 12 months.\n\nTuition is AUD 44,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "44,000",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Monash University"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["Australia"]
+    }
   },
   {
-    "title": "Course 7",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Electrical and Electronic Engineering — Deakin University",
+    "excerpt": "Masters at Deakin University. 12 months, AUD 38,600 per year, IELTS 6.0.",
+    "content": "MSc Electrical and Electronic Engineering is a masters-level programme at Deakin University in Australia, running 12 months.\n\nTuition is AUD 38,600 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "38,600",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Deakin University"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["Australia"]
+    }
   },
   {
-    "title": "Course 8",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Renewable Energy — Technical University of Munich",
+    "excerpt": "Masters at Technical University of Munich. 12 months, no tuition fee, IELTS 6.5.",
+    "content": "MSc Renewable Energy is a masters-level programme at Technical University of Munich in Germany, running 12 months.\n\nTuition is no tuition fee. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "0",
+      "_edulume_currency": "EUR",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Technical University of Munich"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["Germany"]
+    }
   },
   {
-    "title": "Course 9",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MBA — Arizona State University",
+    "excerpt": "Masters at Arizona State University. 12 months, USD 33,000 per year, IELTS 6.5.",
+    "content": "MBA is a masters-level programme at Arizona State University in United States, running 12 months.\n\nTuition is USD 33,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "33,000",
+      "_edulume_currency": "USD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Arizona State University"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["United States"]
+    }
   },
   {
-    "title": "Course 10",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc International Business — University of Nottingham Malaysia",
+    "excerpt": "Masters at University of Nottingham Malaysia. 12 months, MYR 48,000 per year, IELTS 6.0.",
+    "content": "MSc International Business is a masters-level programme at University of Nottingham Malaysia in Malaysia, running 12 months.\n\nTuition is MYR 48,000 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "48,000",
+      "_edulume_currency": "MYR",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "University of Nottingham Malaysia"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["Malaysia"]
+    }
   },
   {
-    "title": "Course 11",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Finance — University of Glasgow",
+    "excerpt": "Masters at University of Glasgow. 12 months, GBP 24,500 per year, IELTS 6.5.",
+    "content": "MSc Finance is a masters-level programme at University of Glasgow in United Kingdom, running 12 months.\n\nTuition is GBP 24,500 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "24,500",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Glasgow"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 12",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Supply Chain Management — University of Leeds",
+    "excerpt": "Masters at University of Leeds. 12 months, GBP 26,000 per year, IELTS 6.5.",
+    "content": "MSc Supply Chain Management is a masters-level programme at University of Leeds in United Kingdom, running 12 months.\n\nTuition is GBP 26,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "26,000",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Leeds"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 13",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Public Health — Coventry University",
+    "excerpt": "Masters at Coventry University. 12 months, GBP 17,700 per year, IELTS 6.0.",
+    "content": "MSc Public Health is a masters-level programme at Coventry University in United Kingdom, running 12 months.\n\nTuition is GBP 17,700 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "17,700",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Coventry University"
+    },
+    "terms": {
+      "edulume_subject": ["Health"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 14",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Nursing — University of Waterloo",
+    "excerpt": "Masters at University of Waterloo. 18 months, CAD 32,000 per year, IELTS 6.5.",
+    "content": "MSc Nursing is a masters-level programme at University of Waterloo in Canada, running 18 months.\n\nTuition is CAD 32,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "18 months",
+      "_edulume_tuition": "32,000",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Waterloo"
+    },
+    "terms": {
+      "edulume_subject": ["Health"],
+      "edulume_destination": ["Canada"]
+    }
   },
   {
-    "title": "Course 15",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Pharmaceutical Science — Dalhousie University",
+    "excerpt": "Masters at Dalhousie University. 12 months, CAD 24,800 per year, IELTS 6.5.",
+    "content": "MSc Pharmaceutical Science is a masters-level programme at Dalhousie University in Canada, running 12 months.\n\nTuition is CAD 24,800 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "24,800",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Dalhousie University"
+    },
+    "terms": {
+      "edulume_subject": ["Health"],
+      "edulume_destination": ["Canada"]
+    }
   },
   {
-    "title": "Course 16",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "LLM International Law — Monash University",
+    "excerpt": "Masters at Monash University. 12 months, AUD 44,000 per year, IELTS 6.5.",
+    "content": "LLM International Law is a masters-level programme at Monash University in Australia, running 12 months.\n\nTuition is AUD 44,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "44,000",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Monash University"
+    },
+    "terms": {
+      "edulume_subject": ["Law"],
+      "edulume_destination": ["Australia"]
+    }
   },
   {
-    "title": "Course 17",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MA Education — Deakin University",
+    "excerpt": "Masters at Deakin University. 12 months, AUD 38,600 per year, IELTS 6.0.",
+    "content": "MA Education is a masters-level programme at Deakin University in Australia, running 12 months.\n\nTuition is AUD 38,600 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "38,600",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Deakin University"
+    },
+    "terms": {
+      "edulume_subject": ["Education"],
+      "edulume_destination": ["Australia"]
+    }
   },
   {
-    "title": "Course 18",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Environmental Science — Technical University of Munich",
+    "excerpt": "Masters at Technical University of Munich. 12 months, no tuition fee, IELTS 6.5.",
+    "content": "MSc Environmental Science is a masters-level programme at Technical University of Munich in Germany, running 12 months.\n\nTuition is no tuition fee. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "0",
+      "_edulume_currency": "EUR",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Technical University of Munich"
+    },
+    "terms": {
+      "edulume_subject": ["Science"],
+      "edulume_destination": ["Germany"]
+    }
   },
   {
-    "title": "Course 19",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Biotechnology — Arizona State University",
+    "excerpt": "Masters at Arizona State University. 12 months, USD 33,000 per year, IELTS 6.5.",
+    "content": "MSc Biotechnology is a masters-level programme at Arizona State University in United States, running 12 months.\n\nTuition is USD 33,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "33,000",
+      "_edulume_currency": "USD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Arizona State University"
+    },
+    "terms": {
+      "edulume_subject": ["Science"],
+      "edulume_destination": ["United States"]
+    }
   },
   {
-    "title": "Course 20",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "MSc Architecture — University of Nottingham Malaysia",
+    "excerpt": "Masters at University of Nottingham Malaysia. 18 months, MYR 48,000 per year, IELTS 6.0.",
+    "content": "MSc Architecture is a masters-level programme at University of Nottingham Malaysia in Malaysia, running 18 months.\n\nTuition is MYR 48,000 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "18 months",
+      "_edulume_tuition": "48,000",
+      "_edulume_currency": "MYR",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "University of Nottingham Malaysia"
+    },
+    "terms": {
+      "edulume_subject": ["Architecture"],
+      "edulume_destination": ["Malaysia"]
+    }
   },
   {
-    "title": "Course 21",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BSc Computer Science — University of Glasgow",
+    "excerpt": "Bachelors at University of Glasgow. 3 years, GBP 24,500 per year, IELTS 6.5.",
+    "content": "BSc Computer Science is a bachelors-level programme at University of Glasgow in United Kingdom, running 3 years.\n\nTuition is GBP 24,500 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "3 years",
+      "_edulume_tuition": "24,500",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Glasgow"
+    },
+    "terms": {
+      "edulume_subject": ["Computer Science"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 22",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BSc Software Engineering — University of Leeds",
+    "excerpt": "Bachelors at University of Leeds. 4 years, GBP 26,000 per year, IELTS 6.5.",
+    "content": "BSc Software Engineering is a bachelors-level programme at University of Leeds in United Kingdom, running 4 years.\n\nTuition is GBP 26,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "4 years",
+      "_edulume_tuition": "26,000",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Leeds"
+    },
+    "terms": {
+      "edulume_subject": ["Computer Science"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 23",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BEng Civil Engineering — Coventry University",
+    "excerpt": "Bachelors at Coventry University. 4 years, GBP 17,700 per year, IELTS 6.0.",
+    "content": "BEng Civil Engineering is a bachelors-level programme at Coventry University in United Kingdom, running 4 years.\n\nTuition is GBP 17,700 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "4 years",
+      "_edulume_tuition": "17,700",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Coventry University"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["United Kingdom"]
+    }
   },
   {
-    "title": "Course 24",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BEng Mechanical Engineering — University of Waterloo",
+    "excerpt": "Bachelors at University of Waterloo. 4 years, CAD 32,000 per year, IELTS 6.5.",
+    "content": "BEng Mechanical Engineering is a bachelors-level programme at University of Waterloo in Canada, running 4 years.\n\nTuition is CAD 32,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "4 years",
+      "_edulume_tuition": "32,000",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Waterloo"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["Canada"]
+    }
   },
   {
-    "title": "Course 25",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BBA Business Administration — Dalhousie University",
+    "excerpt": "Bachelors at Dalhousie University. 4 years, CAD 24,800 per year, IELTS 6.5.",
+    "content": "BBA Business Administration is a bachelors-level programme at Dalhousie University in Canada, running 4 years.\n\nTuition is CAD 24,800 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "4 years",
+      "_edulume_tuition": "24,800",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Dalhousie University"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["Canada"]
+    }
   },
   {
-    "title": "Course 26",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BSc Accounting and Finance — Monash University",
+    "excerpt": "Bachelors at Monash University. 3 years, AUD 44,000 per year, IELTS 6.5.",
+    "content": "BSc Accounting and Finance is a bachelors-level programme at Monash University in Australia, running 3 years.\n\nTuition is AUD 44,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "3 years",
+      "_edulume_tuition": "44,000",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Monash University"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["Australia"]
+    }
   },
   {
-    "title": "Course 27",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BSc Nursing — Deakin University",
+    "excerpt": "Bachelors at Deakin University. 4 years, AUD 38,600 per year, IELTS 6.0.",
+    "content": "BSc Nursing is a bachelors-level programme at Deakin University in Australia, running 4 years.\n\nTuition is AUD 38,600 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "4 years",
+      "_edulume_tuition": "38,600",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Deakin University"
+    },
+    "terms": {
+      "edulume_subject": ["Health"],
+      "edulume_destination": ["Australia"]
+    }
   },
   {
-    "title": "Course 28",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BSc Pharmacy — Technical University of Munich",
+    "excerpt": "Bachelors at Technical University of Munich. 4 years, no tuition fee, IELTS 6.5.",
+    "content": "BSc Pharmacy is a bachelors-level programme at Technical University of Munich in Germany, running 4 years.\n\nTuition is no tuition fee. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "4 years",
+      "_edulume_tuition": "0",
+      "_edulume_currency": "EUR",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Technical University of Munich"
+    },
+    "terms": {
+      "edulume_subject": ["Health"],
+      "edulume_destination": ["Germany"]
+    }
   },
   {
-    "title": "Course 29",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "LLB Law — Arizona State University",
+    "excerpt": "Bachelors at Arizona State University. 3 years, USD 33,000 per year, IELTS 6.5.",
+    "content": "LLB Law is a bachelors-level programme at Arizona State University in United States, running 3 years.\n\nTuition is USD 33,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "3 years",
+      "_edulume_tuition": "33,000",
+      "_edulume_currency": "USD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Arizona State University"
+    },
+    "terms": {
+      "edulume_subject": ["Law"],
+      "edulume_destination": ["United States"]
+    }
   },
   {
-    "title": "Course 30",
-    "excerpt": "A course with level, duration, tuition and English requirements.",
-    "content": "A course with level, duration, tuition and English requirements. Replace this with your own copy before launch."
+    "title": "BA Economics — University of Nottingham Malaysia",
+    "excerpt": "Bachelors at University of Nottingham Malaysia. 3 years, MYR 48,000 per year, IELTS 6.0.",
+    "content": "BA Economics is a bachelors-level programme at University of Nottingham Malaysia in Malaysia, running 3 years.\n\nTuition is MYR 48,000 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "3 years",
+      "_edulume_tuition": "48,000",
+      "_edulume_currency": "MYR",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "University of Nottingham Malaysia"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["Malaysia"]
+    }
+  },
+  {
+    "title": "BSc Data Analytics — University of Glasgow",
+    "excerpt": "Bachelors at University of Glasgow. 3 years, GBP 24,500 per year, IELTS 6.5.",
+    "content": "BSc Data Analytics is a bachelors-level programme at University of Glasgow in United Kingdom, running 3 years.\n\nTuition is GBP 24,500 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Bachelors",
+      "_edulume_duration": "3 years",
+      "_edulume_tuition": "24,500",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Glasgow"
+    },
+    "terms": {
+      "edulume_subject": ["Data Science"],
+      "edulume_destination": ["United Kingdom"]
+    }
+  },
+  {
+    "title": "MSc Project Management — University of Leeds",
+    "excerpt": "Masters at University of Leeds. 12 months, GBP 26,000 per year, IELTS 6.5.",
+    "content": "MSc Project Management is a masters-level programme at University of Leeds in United Kingdom, running 12 months.\n\nTuition is GBP 26,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "26,000",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Leeds"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["United Kingdom"]
+    }
+  },
+  {
+    "title": "MSc Robotics — Coventry University",
+    "excerpt": "Masters at Coventry University. 12 months, GBP 17,700 per year, IELTS 6.0.",
+    "content": "MSc Robotics is a masters-level programme at Coventry University in United Kingdom, running 12 months.\n\nTuition is GBP 17,700 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "17,700",
+      "_edulume_currency": "GBP",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Coventry University"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["United Kingdom"]
+    }
+  },
+  {
+    "title": "MSc Aerospace Engineering — University of Waterloo",
+    "excerpt": "Masters at University of Waterloo. 12 months, CAD 32,000 per year, IELTS 6.5.",
+    "content": "MSc Aerospace Engineering is a masters-level programme at University of Waterloo in Canada, running 12 months.\n\nTuition is CAD 32,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "32,000",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "University of Waterloo"
+    },
+    "terms": {
+      "edulume_subject": ["Engineering"],
+      "edulume_destination": ["Canada"]
+    }
+  },
+  {
+    "title": "MSc Marketing — Dalhousie University",
+    "excerpt": "Masters at Dalhousie University. 12 months, CAD 24,800 per year, IELTS 6.5.",
+    "content": "MSc Marketing is a masters-level programme at Dalhousie University in Canada, running 12 months.\n\nTuition is CAD 24,800 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "24,800",
+      "_edulume_currency": "CAD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Dalhousie University"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["Canada"]
+    }
+  },
+  {
+    "title": "MSc Human Resource Management — Monash University",
+    "excerpt": "Masters at Monash University. 12 months, AUD 44,000 per year, IELTS 6.5.",
+    "content": "MSc Human Resource Management is a masters-level programme at Monash University in Australia, running 12 months.\n\nTuition is AUD 44,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "44,000",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Monash University"
+    },
+    "terms": {
+      "edulume_subject": ["Business"],
+      "edulume_destination": ["Australia"]
+    }
+  },
+  {
+    "title": "MSc Food Science — Deakin University",
+    "excerpt": "Masters at Deakin University. 12 months, AUD 38,600 per year, IELTS 6.0.",
+    "content": "MSc Food Science is a masters-level programme at Deakin University in Australia, running 12 months.\n\nTuition is AUD 38,600 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "38,600",
+      "_edulume_currency": "AUD",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "Deakin University"
+    },
+    "terms": {
+      "edulume_subject": ["Science"],
+      "edulume_destination": ["Australia"]
+    }
+  },
+  {
+    "title": "MSc Urban Planning — Technical University of Munich",
+    "excerpt": "Masters at Technical University of Munich. 18 months, no tuition fee, IELTS 6.5.",
+    "content": "MSc Urban Planning is a masters-level programme at Technical University of Munich in Germany, running 18 months.\n\nTuition is no tuition fee. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "18 months",
+      "_edulume_tuition": "0",
+      "_edulume_currency": "EUR",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Technical University of Munich"
+    },
+    "terms": {
+      "edulume_subject": ["Architecture"],
+      "edulume_destination": ["Germany"]
+    }
+  },
+  {
+    "title": "MA International Relations — Arizona State University",
+    "excerpt": "Masters at Arizona State University. 12 months, USD 33,000 per year, IELTS 6.5.",
+    "content": "MA International Relations is a masters-level programme at Arizona State University in United States, running 12 months.\n\nTuition is USD 33,000 per year. The published English requirement is IELTS 6.5 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "12 months",
+      "_edulume_tuition": "33,000",
+      "_edulume_currency": "USD",
+      "_edulume_ielts": "6.5",
+      "_edulume_institution": "Arizona State University"
+    },
+    "terms": {
+      "edulume_subject": ["Social Science"],
+      "edulume_destination": ["United States"]
+    }
+  },
+  {
+    "title": "MSc Clinical Psychology — University of Nottingham Malaysia",
+    "excerpt": "Masters at University of Nottingham Malaysia. 24 months, MYR 48,000 per year, IELTS 6.0.",
+    "content": "MSc Clinical Psychology is a masters-level programme at University of Nottingham Malaysia in Malaysia, running 24 months.\n\nTuition is MYR 48,000 per year. The published English requirement is IELTS 6.0 overall, and most departments ask for no band below 5.5 — we check the band breakdown against your test report before applying, because a strong overall score with one weak band is the most common avoidable rejection we see.\n\nEntry normally requires a recognised bachelors degree in a related subject. Where your CGPA sits below the published threshold we will tell you honestly whether a case is worth making.",
+    "meta": {
+      "_edulume_level": "Masters",
+      "_edulume_duration": "24 months",
+      "_edulume_tuition": "48,000",
+      "_edulume_currency": "MYR",
+      "_edulume_ielts": "6.0",
+      "_edulume_institution": "University of Nottingham Malaysia"
+    },
+    "terms": {
+      "edulume_subject": ["Health"],
+      "edulume_destination": ["Malaysia"]
+    }
   }
 ]

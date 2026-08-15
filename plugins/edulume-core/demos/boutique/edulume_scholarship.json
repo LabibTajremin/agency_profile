@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Chevening Scholarship",
+    "excerpt": "United Kingdom. Full tuition, stipend and flights.",
+    "content": "Full tuition, stipend and flights\n\nThe UK government's flagship award for a one-year masters. Requires two years of work experience and demonstrated leadership. Applications open in August and close in early November.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_value": "Full tuition, stipend and flights"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    }
+  },
+  {
+    "title": "Commonwealth Master's Scholarship",
+    "excerpt": "United Kingdom. Full tuition and stipend.",
+    "content": "Full tuition and stipend\n\nFor students from Commonwealth countries who could not otherwise afford to study in the UK. Nominated through recognised universities and national agencies.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_value": "Full tuition and stipend"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    }
+  },
+  {
+    "title": "Glasgow International Leadership Scholarship",
+    "excerpt": "United Kingdom. £10,000 tuition discount.",
+    "content": "£10,000 tuition discount\n\nAutomatic consideration for international postgraduates holding an offer. No separate application, but the deadline for the offer itself is firm.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_value": "£10,000 tuition discount"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    }
+  },
+  {
+    "title": "Ontario Graduate Scholarship",
+    "excerpt": "Canada. CAD 15,000.",
+    "content": "CAD 15,000\n\nMerit-based, for masters and doctoral students at Ontario universities. Applications are made through the university after admission.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "Canada",
+      "_edulume_value": "CAD 15,000"
+    },
+    "terms": {
+      "edulume_destination": ["Canada"]
+    }
+  },
+  {
+    "title": "Vanier Canada Graduate Scholarship",
+    "excerpt": "Canada. CAD 50,000 per year for three years.",
+    "content": "CAD 50,000 per year for three years\n\nDoctoral only, and highly competitive. Requires nomination by the host university, so the internal deadline falls months before the national one.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "Canada",
+      "_edulume_value": "CAD 50,000 per year for three years"
+    },
+    "terms": {
+      "edulume_destination": ["Canada"]
+    }
+  },
+  {
+    "title": "Australia Awards Scholarship",
+    "excerpt": "Australia. Full tuition, stipend and travel.",
+    "content": "Full tuition, stipend and travel\n\nFunded by the Australian government for students from partner countries, including Bangladesh. Carries a two-year return obligation after graduation.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "Australia",
+      "_edulume_value": "Full tuition, stipend and travel"
+    },
+    "terms": {
+      "edulume_destination": ["Australia"]
+    }
+  },
+  {
+    "title": "Melbourne Graduate Scholarship",
+    "excerpt": "Australia. Partial to full tuition.",
+    "content": "Partial to full tuition\n\nAwarded on academic merit to international graduate coursework students. Automatic consideration on application.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "Australia",
+      "_edulume_value": "Partial to full tuition"
+    },
+    "terms": {
+      "edulume_destination": ["Australia"]
+    }
+  },
+  {
+    "title": "DAAD Study Scholarship",
+    "excerpt": "Germany. €934 per month plus insurance.",
+    "content": "€934 per month plus insurance\n\nFor graduates of all disciplines undertaking a masters in Germany. Applications close a full year before the intended intake.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "Germany",
+      "_edulume_value": "€934 per month plus insurance"
+    },
+    "terms": {
+      "edulume_destination": ["Germany"]
+    }
+  },
+  {
+    "title": "Fulbright Foreign Student Program",
+    "excerpt": "United States. Full tuition, stipend and insurance.",
+    "content": "Full tuition, stipend and insurance\n\nAdministered through the US Embassy in Dhaka. Requires a strong academic record and a clear plan to return and contribute after study.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "United States",
+      "_edulume_value": "Full tuition, stipend and insurance"
+    },
+    "terms": {
+      "edulume_destination": ["United States"]
+    }
+  },
+  {
+    "title": "MEXT Scholarship",
+    "excerpt": "Japan. Full tuition, stipend and flights.",
+    "content": "Full tuition, stipend and flights\n\nThe Japanese government's award, available through embassy recommendation or university recommendation. The embassy route opens in April.\n\nWe track this award's deadline against your application timeline and flag it eight weeks ahead, because scholarship deadlines routinely fall before the admission deadlines students are watching.",
+    "meta": {
+      "_edulume_country": "Japan",
+      "_edulume_value": "Full tuition, stipend and flights"
+    },
+    "terms": {
+      "edulume_destination": ["Japan"]
+    }
+  }
+]
