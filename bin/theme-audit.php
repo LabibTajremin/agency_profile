@@ -100,9 +100,24 @@ function cssLiteralFindings(): array
         foreach (auditFiles($directory, 'css') as $path) {
             $contents = (string) file_get_contents($path);
             $lines = explode("\n", $contents);
+            $printDepth = 0;
 
             foreach ($lines as $number => $line) {
                 if (str_starts_with(ltrim($line), '*') || str_starts_with(ltrim($line), '/*')) {
+                    continue;
+                }
+
+                /*
+                 * Print rules are exempt, and only print rules.
+                 *
+                 * The tokens describe a screen: they follow the light/dark mode, and printing a
+                 * dark-mode palette puts white ink on white paper. Black on white is not a
+                 * hardcoded colour here, it is the only correct answer — the rule this gate
+                 * enforces does not apply to a medium that has no mode.
+                 */
+                $printDepth = printBlockDepth($line, $printDepth);
+
+                if ($printDepth > 0) {
                     continue;
                 }
 
@@ -118,6 +133,23 @@ function cssLiteralFindings(): array
     }
 
     return $findings;
+}
+
+/**
+ * Tracks how deep into an `@media print` block a line sits.
+ *
+ * Counted by brace rather than matched by a regex over the whole block: a stylesheet is not a
+ * regular language, and a nested `@supports` inside the print block would end the match early.
+ */
+function printBlockDepth(string $line, int $depth): int
+{
+    if ($depth === 0) {
+        return preg_match('/@media[^{]*\bprint\b/i', $line) === 1 ? 1 : 0;
+    }
+
+    $depth += substr_count($line, '{') - substr_count($line, '}');
+
+    return max(0, $depth);
 }
 
 /**

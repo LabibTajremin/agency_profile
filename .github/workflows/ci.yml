@@ -203,6 +203,15 @@ jobs:
         run: node tools/axe/run.mjs
         env:
           PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+      # End-to-end, in this job rather than its own: WordPress is already up here, both are
+      # activated, the demo pack is imported and the rewrites are flushed. A second job would
+      # pay for all of that again to assert against the same site.
+      - name: End-to-end journeys
+        run: npm run test:e2e
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+          WP_ADMIN_USER: admin
+          WP_ADMIN_PASSWORD: password
 
   # WPCS and Plugin Check both need dependencies that cannot be installed in every development
   # environment, so they get their own job with their own install. Either they run and pass, or

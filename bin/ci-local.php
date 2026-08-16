@@ -74,6 +74,8 @@ function steps(): array
             'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
         ['name' => 'axe sweep (every template, both modes)', 'command' => 'node tools/axe/run.mjs',
             'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
+        ['name' => 'End-to-end journeys', 'command' => 'npm run test:e2e',
+            'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
         ['name' => 'JS lint and format', 'command' => 'npm run lint', 'job' => 'js-quality',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'JS unit tests', 'command' => 'npm test', 'job' => 'js-quality',
