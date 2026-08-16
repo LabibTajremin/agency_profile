@@ -29,15 +29,23 @@ msgstr ""
 msgid "Accept selected"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/cta.php:31
+msgid "Book a free consultation"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/breadcrumbs.php:23
 msgid "Breadcrumb"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/hero.php:41
+msgid "Browse courses"
 msgstr ""
 
 #: themes/edulume-theme/404.php:38
 msgid "Browse destinations"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/eligibility.php:14
+#: themes/edulume-theme/template-parts/home/eligibility.php:17
 msgid "Check your eligibility"
 msgstr ""
 
@@ -53,7 +61,7 @@ msgstr ""
 msgid "Colour mode"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:465
+#: themes/edulume-theme/inc/chrome.php:469
 msgid "Compare"
 msgstr ""
 
@@ -65,16 +73,8 @@ msgstr ""
 msgid "Cookie choices"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/courses.php:13
-msgid "Courses"
-msgstr ""
-
 #: themes/edulume-theme/inc/chrome.php:309
 msgid "Dark"
-msgstr ""
-
-#: themes/edulume-theme/template-parts/home/destinations.php:13
-msgid "Destinations"
 msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:160
@@ -86,8 +86,8 @@ msgstr ""
 msgid "Edulume"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/events.php:13
-msgid "Events"
+#: themes/edulume-theme/template-parts/home/courses.php:15
+msgid "Featured courses"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:42
@@ -110,27 +110,27 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:64
+#: themes/edulume-theme/functions.php:65
 msgid "Footer column %d"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:44
+#: themes/edulume-theme/functions.php:45
 msgid "Footer menu"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/faq.php:13
+#: themes/edulume-theme/template-parts/home/faq.php:18
 msgid "Frequently asked questions"
-msgstr ""
-
-#: themes/edulume-theme/template-parts/home/cta.php:13
-msgid "Get in touch"
 msgstr ""
 
 #: themes/edulume-theme/404.php:30
 msgid "Home"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/hero.php:13
+#: themes/edulume-theme/template-parts/home/services.php:15
+msgid "How we help"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/hero.php:17
 msgid "Introduction"
 msgstr ""
 
@@ -189,6 +189,10 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/eligibility.php:43
+msgid "Pick where you want to study. We will tell you what you need and what it costs."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:83
 msgid "Please check the highlighted fields."
 msgstr ""
@@ -201,7 +205,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:43
+#: themes/edulume-theme/functions.php:44
 msgid "Primary menu"
 msgstr ""
 
@@ -222,7 +226,7 @@ msgstr ""
 msgid "Results navigation"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:456
+#: themes/edulume-theme/inc/chrome.php:460
 msgid "Save"
 msgstr ""
 
@@ -234,8 +238,8 @@ msgstr ""
 msgid "Search by name or keyword"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/services.php:13
-msgid "Services"
+#: themes/edulume-theme/inc/sections.php:69
+msgid "See all"
 msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:264
@@ -257,12 +261,21 @@ msgstr ""
 msgid "Stay in touch"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/success-stories.php:13
+#: themes/edulume-theme/template-parts/home/destinations.php:15
+msgid "Study destinations"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/success-stories.php:15
 msgid "Success stories"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/testimonials.php:13
-msgid "Testimonials"
+#: themes/edulume-theme/template-parts/home/cta.php:13
+#: themes/edulume-theme/template-parts/home/hero.php:51
+msgid "Talk to a counsellor"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/cta.php:26
+msgid "Tell us where you want to study and we will tell you, honestly, what is realistic."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:69
@@ -278,11 +291,15 @@ msgstr ""
 msgid "Trusted by"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/events.php:15
+msgid "Upcoming events"
+msgstr ""
+
 #: themes/edulume-theme/404.php:28
 msgid "Useful links"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:45
+#: themes/edulume-theme/functions.php:46
 msgid "Utility bar"
 msgstr ""
 
@@ -296,6 +313,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:56
 msgid "We have your enquiry (%s)"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/testimonials.php:17
+msgid "What students say"
 msgstr ""
 
 #: themes/edulume-theme/footer.php:42

@@ -203,11 +203,195 @@ function unsanitisedInputFindings(string $path, string $contents): array
     return $findings;
 }
 
+/**
+ * A bare variable handed to `printf`, `sprintf` or `echo` in theme markup.
+ *
+ * This mirrors `WordPress.Security.EscapeOutput.OutputNotEscaped`, which lives in WPCS — and
+ * WPCS needs a network install that is not available in every environment this repository is
+ * worked in. Twice now a pull request has gone red on this one sniff after a local gate said
+ * green, which is a round trip for a rule that can be approximated here in thirty lines.
+ *
+ * Approximated, not reimplemented: it only looks at arguments that are a lone variable, which
+ * is the shape that actually reaches production unescaped. `printf('%d', $id)` is safe by
+ * conversion and still flagged, because the reader has to know printf's rules to see that and
+ * the sniff never will.
+ *
+ * @return list<string>
+ */
+function unescapedOutputFindings(string $path, string $contents): array
+{
+    if (!str_contains($path, '/themes/')) {
+        return [];
+    }
+
+    $findings = [];
+    $tokens = @token_get_all($contents);
+    $count = count($tokens);
+
+    for ($index = 0; $index < $count; $index++) {
+        $opening = printfCallOpensAt($tokens, $index, $count);
+
+        if ($opening === null) {
+            continue;
+        }
+
+        $arguments = callArguments($tokens, $opening, $count);
+
+        if ($arguments === [] || !formatEmitsMarkup($arguments[0])) {
+            continue;
+        }
+
+        foreach (array_slice($arguments, 1) as $candidate) {
+            $bare = bareVariableIn($candidate);
+
+            if ($bare !== null) {
+                $findings[] = sprintf(
+                    '%s:%d — output argument is not escaped: %s',
+                    $path,
+                    $bare[1],
+                    $bare[0]
+                );
+            }
+        }
+    }
+
+    return $findings;
+}
+
+/**
+ * The offset of the `(` when the token at `$index` starts a `printf`-family call.
+ *
+ * @param list<array{0:int,1:string,2:int}|string> $tokens
+ */
+function printfCallOpensAt(array $tokens, int $index, int $count): ?int
+{
+    $token = $tokens[$index];
+
+    if (!is_array($token) || $token[0] !== T_STRING) {
+        return null;
+    }
+
+    if (!in_array(strtolower($token[1]), ['printf', 'sprintf', 'vsprintf'], true)) {
+        return null;
+    }
+
+    $cursor = $index + 1;
+
+    while ($cursor < $count && is_array($tokens[$cursor]) && $tokens[$cursor][0] === T_WHITESPACE) {
+        $cursor++;
+    }
+
+    return $cursor < $count && $tokens[$cursor] === '(' ? $cursor : null;
+}
+
+/**
+ * Splits a call's arguments at the commas that belong to it, ignoring nested ones.
+ *
+ * @param list<array{0:int,1:string,2:int}|string> $tokens
+ *
+ * @return list<list<array{0:int,1:string,2:int}|string>>
+ */
+function callArguments(array $tokens, int $opening, int $count): array
+{
+    $depth = 0;
+    $argument = [];
+    $arguments = [];
+
+    for ($cursor = $opening; $cursor < $count; $cursor++) {
+        $token = $tokens[$cursor];
+
+        if ($token === '(' || $token === '[') {
+            $depth++;
+
+            if ($depth === 1) {
+                continue;
+            }
+        }
+
+        if ($token === ')' || $token === ']') {
+            $depth--;
+
+            if ($depth === 0) {
+                $arguments[] = $argument;
+
+                return $arguments;
+            }
+        }
+
+        if ($depth === 1 && $token === ',') {
+            $arguments[] = $argument;
+            $argument = [];
+
+            continue;
+        }
+
+        $argument[] = $token;
+    }
+
+    return $arguments;
+}
+
+/**
+ * Whether a format string emits markup, which is the only case this rule is about.
+ *
+ * `sprintf(__('Footer column %d'), $column)` builds a sidebar name, not a page.
+ *
+ * @param list<array{0:int,1:string,2:int}|string> $argument
+ */
+function formatEmitsMarkup(array $argument): bool
+{
+    $format = '';
+
+    foreach ($argument as $piece) {
+        if (is_array($piece) && $piece[0] === T_CONSTANT_ENCAPSED_STRING) {
+            $format .= $piece[1];
+        }
+    }
+
+    return str_contains($format, '<');
+}
+
+/**
+ * The variable and line, when an argument is nothing but a variable.
+ *
+ * Comments are dropped alongside whitespace. Leaving them in put a `T_COMMENT` first in the
+ * token list whenever somebody explained an argument above it — which is exactly what the
+ * escaping fix in `chrome.php` did, so the gate read its own explanation and found nothing.
+ *
+ * @param list<array{0:int,1:string,2:int}|string> $argument
+ *
+ * @return array{0:string,1:int}|null
+ */
+function bareVariableIn(array $argument): ?array
+{
+    $meaningful = array_values(array_filter(
+        $argument,
+        static fn ($piece): bool => !is_array($piece)
+            || !in_array($piece[0], [T_WHITESPACE, T_COMMENT, T_DOC_COMMENT], true)
+    ));
+
+    if ($meaningful === []) {
+        return null;
+    }
+
+    foreach ($meaningful as $piece) {
+        // Any function call in the argument means somebody chose a treatment for it.
+        if (is_array($piece) && $piece[0] === T_STRING) {
+            return null;
+        }
+    }
+
+    $first = $meaningful[0];
+
+    return is_array($first) && $first[0] === T_VARIABLE ? [$first[1], $first[2]] : null;
+}
+
 $sections = [
     'Forbidden constructs' => [],
     'Prepared statements' => [],
     'REST permissions' => [],
     'Input sanitisation' => [],
+    'Escaped output' => [],
 ];
 
 foreach (securityFiles() as $path) {
@@ -220,6 +404,10 @@ foreach (securityFiles() as $path) {
     $sections['Prepared statements'] = [
         ...$sections['Prepared statements'],
         ...unpreparedQueryFindings($path, $contents),
+    ];
+    $sections['Escaped output'] = [
+        ...$sections['Escaped output'],
+        ...unescapedOutputFindings($path, $contents),
     ];
     $sections['REST permissions'] = [
         ...$sections['REST permissions'],

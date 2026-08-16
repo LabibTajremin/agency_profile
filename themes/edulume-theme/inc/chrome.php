@@ -450,18 +450,22 @@ function edulume_the_card_actions(mixed $postId, string $postType): void
 
     if ($canShortlist) {
         printf(
-            '<button type="button" class="edulume-card__action" data-edulume-shortlist="%d" '
+            '<button type="button" class="edulume-card__action" data-edulume-shortlist="%s" '
             . 'aria-pressed="false">%s</button>',
-            $id,
+            // `%d` already forces an integer, so this is not a real escaping gap — but a
+            // reader has to know printf's conversion rules to see that, and the sniff cannot
+            // know them at all. Being explicit costs nothing and makes both the reviewer and
+            // the linter right.
+            esc_attr((string) $id),
             esc_html__('Save', 'edulume')
         );
     }
 
     if ($canCompare) {
         printf(
-            '<button type="button" class="edulume-card__action" data-edulume-compare="%d" '
+            '<button type="button" class="edulume-card__action" data-edulume-compare="%s" '
             . 'aria-pressed="false">%s</button>',
-            $id,
+            esc_attr((string) $id),
             esc_html__('Compare', 'edulume')
         );
     }
