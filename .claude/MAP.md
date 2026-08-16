@@ -1,6 +1,5 @@
 # Codebase Map
 
-Written for the feature round. Placeholders from the brief resolve as:
 `THEME_SLUG=edulume-theme`, `PLUGIN_SLUG=edulume-core`, `PREFIX=edulume_`,
 `TEXT_DOMAIN=edulume`, `PROD_DOMAIN=sparkpath.com.bd`, `BRAND_NAME=SparkPath`.
 
@@ -59,9 +58,8 @@ Registered in `Infrastructure/Content/ContentRegistrar.php` from
 `resource`, `partner`. All `show_in_rest`, `has_archive`, nested under the Edulume menu.
 Relationships are registered post meta `_edulume_rel_<target>` (`RelationshipDefinition`).
 
-**Consequences for this round:** `edulume_destination` already exists (do not add
-`PREFIX_destination`); `edulume_institution` is the universities CPT (do not add
-`PREFIX_university`); `edulume_team-member` is the people CPT (do not add `PREFIX_team`).
+**No second people/place CPT:** `edulume_destination` is the countries type,
+`edulume_institution` the universities, `edulume_team-member` the people.
 
 ## Existing options schema
 
@@ -122,11 +120,10 @@ Relationships are registered post meta `_edulume_rel_<target>` (`RelationshipDef
 
 ## Test setup
 
-- `composer test:unit` (PHPUnit 10) — 100% line coverage gate via `bin/coverage-gate.php`.
-- `composer test:integration` (PHPUnit 9 in `wp-env`).
-- `npm test` (Vitest), `npm run test:e2e` (Playwright), `npm run lint` (ESLint + Prettier).
-- `composer ci` / `ci:quick` runs every gate: PHPCS, PHPStan (2 configs), and the custom
-  audits `theme`, `tokens`, `wiring`, `queries`, `i18n`, `security`, plus Lighthouse and axe.
+- `composer test:unit` (PHPUnit 10, 100% line gate), `composer test:integration` (PHPUnit 9
+  under `wp-env`), `npm test` (Vitest), `npm run test:e2e` (Playwright).
+- `composer ci` / `ci:quick` runs every gate: PHPCS, PHPStan (2 configs), the custom audits
+  `theme`, `tokens`, `wiring`, `queries`, `i18n`, `security`, plus Lighthouse, axe and e2e.
 
 ## What this feature round added
 
