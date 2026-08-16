@@ -80,6 +80,57 @@ function plugins_url(string $path = '', string $plugin = ''): string
 {
 }
 
+function esc_textarea(string $text): string
+{
+}
+
+function sanitize_textarea_field(string $value): string
+{
+}
+
+function is_multisite(): bool
+{
+}
+
+function is_user_logged_in(): bool
+{
+}
+
+function status_header(int $code, string $description = ''): void
+{
+}
+
+function nocache_headers(): void
+{
+}
+
+function get_404_template(): string
+{
+}
+
+/**
+ * @return string|array<string, mixed>|int|null
+ */
+function wp_parse_url(string $url, int $component = -1)
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ * @return array<string, object>
+ */
+function get_post_types(array $args = [], string $output = 'names', string $operator = 'and'): array
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ * @return array<string, object>
+ */
+function get_taxonomies(array $args = [], string $output = 'names', string $operator = 'and'): array
+{
+}
+
 function flush_rewrite_rules(bool $hard = true): void
 {
 }
@@ -99,10 +150,6 @@ function wp_delete_file(string $file): void
 {
 }
 
-/**
- * @param list<string> $deps
- * @param string|bool|null $ver
- */
 /**
  * @param list<string> $deps
  * @param string|bool|null $ver
@@ -752,6 +799,10 @@ class WP_Post
 
 class WP_Query
 {
+    public function set_404(): void
+    {
+    }
+
     /** @var array<int, mixed> */
     public array $posts;
 

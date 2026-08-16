@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Admin;
 
 use Edulume\Core\Domain\Admin\ScreenHelp;
+use Edulume\Core\Infrastructure\Security\LoginShield;
 use Edulume\Core\Infrastructure\Wp\Container;
 use Edulume\Core\Infrastructure\Wp\Capabilities;
 
@@ -109,6 +110,10 @@ final class AdminMenu
 
         if ($route === 'edulume-sections' && $this->container instanceof Container) {
             (new SectionsScreen($this->container))->render();
+        }
+
+        if ($route === 'edulume-safety') {
+            (new ShieldScreen(new LoginShield()))->render();
         }
 
         printf('<div id="edulume-admin-root" data-edulume-route="%s"></div>', esc_attr($route));

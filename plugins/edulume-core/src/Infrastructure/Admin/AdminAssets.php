@@ -71,7 +71,10 @@ final class AdminAssets
         $screen = get_current_screen();
         $id = $screen === null ? '' : (string) $screen->id;
 
-        if (!str_contains($id, 'edulume-demos') && !str_contains($id, 'edulume-sections')) {
+        $screens = ['edulume-demos', 'edulume-sections', 'edulume-safety'];
+        $wanted = array_filter($screens, static fn (string $slug): bool => str_contains($id, $slug));
+
+        if ($wanted === []) {
             return;
         }
 
@@ -91,6 +94,7 @@ final class AdminAssets
                 'importing' => __('Importing…', 'edulume'),
                 'imported' => __('Done. Reloading…', 'edulume'),
                 'importFailed' => __('That did not finish. Try again.', 'edulume'),
+                'confirmShield' => __('Please confirm you have saved your sign-in address.', 'edulume'),
             ],
         ]);
     }
@@ -303,6 +307,39 @@ a {
 
 .edulume-sections__position input {
   inline-size: 4.5rem;
+}
+
+.edulume-shield {
+  max-inline-size: 40rem;
+}
+
+.edulume-shield__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-block: 0 1rem;
+}
+
+.edulume-shield__field label {
+  font-weight: 600;
+}
+
+.edulume-shield__field input[type='checkbox'] + * {
+  font-weight: 400;
+}
+
+.edulume-shield__confirm {
+  padding: 1rem 1.25rem;
+  margin-block: 1.5rem;
+  border: 1px solid var(--edulume-admin-accent);
+  border-radius: 6px;
+  background: var(--edulume-admin-surface-raised);
+}
+
+.edulume-shield__confirm code {
+  display: inline-block;
+  margin-block-start: 0.25rem;
+  word-break: break-all;
 }
 CSS;
 }

@@ -13,6 +13,10 @@ msgstr ""
 msgid " and "
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:368
+msgid "%1$s has failed to sign in %2$d times and is now locked out."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/team.php:62
 msgid "%1$s — %2$s"
 msgstr ""
@@ -39,6 +43,10 @@ msgstr ""
 
 #: themes/edulume-theme/inc/consent.php:88
 msgid "Accept selected"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:211
+msgid "Addresses never locked out, one per line"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:185
@@ -118,12 +126,16 @@ msgstr ""
 msgid "Dismiss this announcement"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:92
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:95
 msgid "Done. Reloading…"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:62
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:120
+msgid "Double the lockout each time the same visitor comes back"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:63
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:64
 msgid "Edulume"
 msgstr ""
 
@@ -131,8 +143,16 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:130
+msgid "Email me when someone is locked out"
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:197
 msgid "Enter a valid email address."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:116
+msgid "Failures allowed"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/courses.php:15
@@ -188,6 +208,10 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:127
+msgid "Give the same message for every failed sign-in"
+msgstr ""
+
 #: themes/edulume-theme/404.php:30
 msgid "Home"
 msgstr ""
@@ -208,6 +232,10 @@ msgstr ""
 msgid "I agree to be contacted about my enquiry."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:166
+msgid "I have saved this address somewhere I can find it."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:106
 msgid "IELTS overall, if you have sat it"
 msgstr ""
@@ -220,7 +248,7 @@ msgstr ""
 msgid "Imported %1$s — %2$d items created."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:91
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:94
 msgid "Importing…"
 msgstr ""
 
@@ -228,8 +256,16 @@ msgstr ""
 msgid "Introduction"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:215
+msgid "Invalid credentials."
+msgstr ""
+
 #: themes/edulume-theme/404.php:23
 msgid "It may have moved. Try a search, or pick up from one of these."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:131
+msgid "Leave this field empty"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:209
@@ -238,6 +274,22 @@ msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:204
 msgid "Living costs"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:115
+msgid "Lock out repeated failures"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:117
+msgid "Lockout, in minutes"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:89
+msgid "Login settings saved."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:112
+msgid "Move my login page"
 msgstr ""
 
 #: themes/edulume-theme/inc/consent.php:92
@@ -319,6 +371,10 @@ msgstr ""
 msgid "Please check the highlighted fields."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:97
+msgid "Please confirm you have saved your sign-in address."
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:198
 msgid "Please tick this to continue."
 msgstr ""
@@ -359,6 +415,10 @@ msgstr ""
 msgid "Removed %d imported item(s)."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:365
+msgid "Repeated failed logins on your site"
+msgstr ""
+
 #: themes/edulume-theme/search.php:22
 msgid "Results for %s"
 msgstr ""
@@ -378,6 +438,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:96
 msgid "Save home page"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:142
+msgid "Save login settings"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/scholarships.php:15
@@ -414,12 +478,20 @@ msgstr ""
 msgid "Sending…"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:176
+msgid "Sign-in address"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:264
 msgid "Site menu"
 msgstr ""
 
 #: themes/edulume-theme/header.php:29
 msgid "Skip to content"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:259
+msgid "Something on this site already uses that address. Pick another."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:72
@@ -445,6 +517,10 @@ msgstr ""
 msgid "Success stories"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:124
+msgid "Switch off XML-RPC"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:314
 msgid "Switch to dark mode"
 msgstr ""
@@ -466,7 +542,11 @@ msgstr ""
 msgid "Thank you. We will be in touch shortly."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:93
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:258
+msgid "That address is one WordPress uses itself. Pick another."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:96
 msgid "That did not finish. Try again."
 msgstr ""
 
@@ -484,12 +564,40 @@ msgstr ""
 msgid "That starter pack does not exist."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:236
+msgid "The Edulume login shield does not run on a multisite network, so it is switched off here."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:255
+msgid "The sign-in address cannot be empty."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:257
+msgid "The sign-in address is too long — use fifty characters or fewer."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:256
+msgid "The sign-in address is too short — use at least three characters."
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:196
 msgid "This field is required."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:133
 msgid "This pack has no content yet."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:133
+msgid "This site sits behind Cloudflare or another proxy"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:158
+msgid "Too many attempts. Try again later."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:123
+msgid "Trap automated sign-in attempts"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/trust-bar.php:16
@@ -569,6 +677,10 @@ msgstr ""
 msgid "Why us"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:46
+msgid "You are not allowed to change security settings."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:42
 msgid "You are not allowed to change the home page."
 msgstr ""
@@ -582,8 +694,20 @@ msgstr ""
 msgid "Your CGPA, out of 4"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:267
+msgid "Your new sign-in address"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:213
+msgid "Your own office address belongs here."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:85
 msgid "Your question"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:164
+msgid "Your sign-in page will be:"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:213

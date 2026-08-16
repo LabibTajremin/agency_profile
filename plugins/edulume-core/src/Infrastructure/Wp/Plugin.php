@@ -12,8 +12,10 @@ use Edulume\Core\Infrastructure\Admin\AdminMenu;
 use Edulume\Core\Infrastructure\Admin\DemoImportAjax;
 use Edulume\Core\Infrastructure\Admin\DemoImportScreen;
 use Edulume\Core\Infrastructure\Admin\SectionsScreen;
+use Edulume\Core\Infrastructure\Admin\ShieldScreen;
 use Edulume\Core\Infrastructure\Demo\DemoCliCommand;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
+use Edulume\Core\Infrastructure\Security\LoginShield;
 use Edulume\Core\Infrastructure\Rest\RestRegistrar;
 use Edulume\Core\Infrastructure\Theming\SectionVisibility;
 use Edulume\Core\Infrastructure\Theming\StylesheetEnqueuer;
@@ -92,6 +94,10 @@ final class Plugin
         (new DemoImportScreen($this->container))->register();
         (new SectionsScreen($this->container))->register();
         (new DemoImportAjax($this->container))->register();
+
+        $shield = new LoginShield();
+        $shield->register();
+        (new ShieldScreen($shield))->register();
         (new AdminAssets($this->container, $this->container->adminTheme(), $this->version))->register();
         (new SectionVisibility($this->container))->register();
         DemoCliCommand::register($this->container);

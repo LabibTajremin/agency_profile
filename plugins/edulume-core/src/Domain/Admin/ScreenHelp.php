@@ -129,12 +129,16 @@ final class ScreenHelp
             self::of(
                 'edulume-safety',
                 'Safety',
-                'Undo. Snapshots of your settings taken automatically before anything big, so a '
-                . 'change you regret is one click away from being undone.',
+                'Two things: undo, and your sign-in page. Snapshots of your settings are taken '
+                . 'automatically before anything big, so a change you regret is one click away '
+                . 'from being undone. Below them you can move your sign-in page somewhere only '
+                . 'you know about, and slow down anyone guessing at passwords.',
                 [
                     'A snapshot is taken before every import and every reset.',
                     'Take one yourself before a large change, and name it something you will recognise.',
                     'Restoring affects settings only. It never touches your pages or enquiries.',
+                    'Before moving your sign-in page: save the new address, and check it works in a private window before you sign out.',
+                    'If you are ever locked out, the line shown on this page goes into wp-config.php and opens the door again.',
                 ],
             ),
             self::of(

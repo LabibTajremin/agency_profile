@@ -173,12 +173,51 @@
     });
   }
 
+  /*
+   * The confirmation gate on the login shield.
+   *
+   * Only ever *adds* a condition: the form is submittable without this script, because a
+   * settings page that cannot be saved when a script fails is worse than one that can be saved
+   * carelessly. The acknowledgement is only demanded when the shield is actually being switched
+   * on — nobody should have to re-read a URL to change how many failed attempts are allowed.
+   */
+  function setUpShield(form) {
+    var enable = form.querySelector('input[name="enabled"]');
+    var confirm = form.querySelector('[data-edulume-shield-confirm]');
+    var slug = form.querySelector('[data-edulume-shield-slug]');
+    var preview = form.querySelector('.edulume-shield__confirm code');
+    var wasEnabled = enable ? enable.checked : false;
+    var originalSlug = slug ? slug.value : '';
+
+    if (!enable || !confirm) {
+      return;
+    }
+
+    if (slug && preview) {
+      slug.addEventListener('input', function () {
+        preview.textContent = preview.textContent.replace(/[^/]*\/?$/, slug.value + '/');
+      });
+    }
+
+    form.addEventListener('submit', function (event) {
+      var turningOn = enable.checked && !wasEnabled;
+      var moving = enable.checked && slug && slug.value !== originalSlug;
+
+      if ((turningOn || moving) && !confirm.checked) {
+        event.preventDefault();
+        confirm.focus();
+        window.alert(text('confirmShield', 'Please confirm you have saved your sign-in address.'));
+      }
+    });
+  }
+
   function start() {
     Array.prototype.forEach.call(document.querySelectorAll('[data-edulume-import]'), setUpImport);
     Array.prototype.forEach.call(
       document.querySelectorAll('[data-edulume-sortable]'),
       setUpSortable
     );
+    Array.prototype.forEach.call(document.querySelectorAll('[data-edulume-shield]'), setUpShield);
   }
 
   if (document.readyState === 'loading') {

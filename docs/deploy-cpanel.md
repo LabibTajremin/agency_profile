@@ -127,6 +127,47 @@ Edulume's setup wizard separately offers to create an **additional** user with o
 roles (Site Manager, Content Editor, Counsellor), with a password strength meter and generator.
 That is user creation, not credential editing.
 
+## Step 7 — Moving the sign-in page (optional, and do it last)
+
+**Edulume → Safety** carries the login shield. It is **off** when the plugin is installed, and
+it should stay off until everything else on this page is done and working.
+
+What it does when you switch it on:
+
+- `wp-login.php` and `/wp-admin` return a genuine **404** to anyone not signed in — not a
+  redirect, because a redirect tells whoever is knocking that the door exists
+- Sign-in moves to a path you choose, `secure-access` by default
+- Repeated failures are locked out, and each repeat offence doubles the wait, capped at a day
+- Every failed sign-in gets the same message, so guessing tells nobody which half they got right
+- A hidden field catches automated attempts
+- XML-RPC is switched off
+
+`admin-ajax.php`, `wp-cron.php`, the REST API, `robots.txt` and the sitemaps are **never**
+blocked, whatever the settings say. Blocking `admin-ajax.php` is the classic version of this
+mistake and it takes the front end down with it. On a multisite network the module does not run
+at all.
+
+### Before you press save
+
+1. Read the address on the page and tick the box confirming you have saved it. The form will not
+   submit without that when you are switching the shield on or moving the path.
+2. Check the email. The new address is sent to the site's admin address the moment it changes.
+3. **Open the new address in a private window and sign in there — before you close the session
+   you are already in.** This is the step that separates a five-second fix from a support
+   ticket.
+
+### If you are locked out
+
+Open `wp-config.php` through **cPanel → File Manager**, and add this line above the
+`/* That's all, stop editing! */` comment:
+
+```php
+define( 'EDULUME_SHIELD_DISABLE', true );
+```
+
+The shield stops entirely — `wp-login.php` works again immediately. Sign in, fix the setting,
+then remove the line.
+
 ## Updating later
 
 1. **Plugins → Installed Plugins**, deactivate Edulume Core — or don't; the version check
