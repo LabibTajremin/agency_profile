@@ -114,8 +114,8 @@ msgstr ""
 msgid "Dismiss this announcement"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:56
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:57
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:61
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:62
 msgid "Edulume"
 msgstr ""
 
@@ -189,6 +189,14 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:106
 msgid "IELTS overall, if you have sat it"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:145
+msgid "Import this pack"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:79
+msgid "Imported %1$s — %2$d items created."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/hero.php:17
@@ -306,6 +314,14 @@ msgstr ""
 msgid "Related"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:175
+msgid "Remove imported content"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:96
+msgid "Removed %d imported item(s)."
+msgstr ""
+
 #: themes/edulume-theme/search.php:22
 msgid "Results for %s"
 msgstr ""
@@ -400,8 +416,16 @@ msgstr ""
 msgid "That section does not exist."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:51
+msgid "That starter pack does not exist."
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:196
 msgid "This field is required."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:133
+msgid "This pack has no content yet."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/trust-bar.php:16
@@ -474,6 +498,10 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:79
 msgid "Which country?"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:200
+msgid "You are not allowed to import content."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:90

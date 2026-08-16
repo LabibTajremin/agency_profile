@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Admin;
 
 use Edulume\Core\Domain\Admin\ScreenHelp;
+use Edulume\Core\Infrastructure\Wp\Container;
 use Edulume\Core\Infrastructure\Wp\Capabilities;
 
 /**
@@ -20,6 +21,10 @@ use Edulume\Core\Infrastructure\Wp\Capabilities;
 final class AdminMenu
 {
     public const SLUG = 'edulume';
+
+    public function __construct(private readonly ?Container $container = null)
+    {
+    }
 
     /**
      * The pages, in sidebar order, each with the capability that opens it.
@@ -87,6 +92,20 @@ final class AdminMenu
 
         echo '<div class="wrap">';
         $this->renderHelp($route);
+
+        /*
+         * The starter-content screen renders server-side.
+         *
+         * Every other page mounts the admin application and lets it draw. This one cannot: it
+         * is the screen somebody opens on a brand-new site, so it has to work before the bundle
+         * has loaded and it has to work if the bundle never loads at all. It also had no REST
+         * route behind it, which is why the import button did not exist for anyone without a
+         * command line.
+         */
+        if ($route === 'edulume-demos' && $this->container instanceof Container) {
+            (new DemoImportScreen($this->container))->render();
+        }
+
         printf('<div id="edulume-admin-root" data-edulume-route="%s"></div>', esc_attr($route));
         echo '</div>';
     }

@@ -957,3 +957,62 @@ class WP_Screen
 function get_current_screen()
 {
 }
+
+/**
+ * Admin-post and redirect helpers, used by the starter-content screen.
+ */
+function admin_url(string $path = '', string $scheme = 'admin'): string
+{
+}
+
+/**
+ * @param array<string, mixed>|string $args
+ */
+function add_query_arg($args, string $url = ''): string
+{
+}
+
+function wp_safe_redirect(string $location, int $status = 302, string $xRedirectBy = 'WordPress'): bool
+{
+}
+
+/**
+ * @param int|string $action
+ *
+ * @return int|false
+ */
+function check_admin_referer($action = -1, string $queryArg = '_wpnonce')
+{
+}
+
+/**
+ * @return string|void
+ */
+function wp_nonce_field(
+    string $action = '-1',
+    string $name = '_wpnonce',
+    bool $referer = true,
+    bool $display = true
+) {
+}
+
+/**
+ * @param string|\WP_Error $message
+ * @param string|int $title
+ * @param array<string, mixed>|int|string $args
+ */
+function wp_die($message = '', $title = '', $args = []): void
+{
+}
+
+function sanitize_text_field(string $str): string
+{
+}
+
+function _n(string $single, string $plural, int $number, string $domain = 'default'): string
+{
+}
+
+function rawurlencode(string $str): string
+{
+}
