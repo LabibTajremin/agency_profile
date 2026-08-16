@@ -32,6 +32,7 @@ use Edulume\Core\Application\Theming\CompileStylesheet;
 use Edulume\Core\Application\Theming\PublishStylesheet;
 use Edulume\Core\Domain\Color\ContrastEngine;
 use Edulume\Core\Domain\Theming\AccentReviewer;
+use Edulume\Core\Domain\Theming\AdminTheme;
 use Edulume\Core\Domain\Theming\PaletteGenerator;
 use Edulume\Core\Domain\Theming\SectionResolver;
 use Edulume\Core\Domain\Theming\SettingsMigrator;
@@ -61,6 +62,17 @@ final class Container
         return $this->service(
             PaletteGenerator::class,
             fn (): PaletteGenerator => new PaletteGenerator($this->contrastEngine()),
+        );
+    }
+
+    /**
+     * The admin's own palette, so wp-admin can wear the site's accent.
+     */
+    public function adminTheme(): AdminTheme
+    {
+        return $this->service(
+            AdminTheme::class,
+            fn (): AdminTheme => new AdminTheme($this->paletteGenerator(), $this->contrastEngine()),
         );
     }
 

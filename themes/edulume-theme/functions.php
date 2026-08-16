@@ -29,6 +29,7 @@ function edulume_core_is_active(): bool
 require_once __DIR__ . '/inc/chrome.php';
 require_once __DIR__ . '/inc/assets.php';
 require_once __DIR__ . '/inc/consent.php';
+require_once __DIR__ . '/inc/sections.php';
 
 add_action('after_setup_theme', static function (): void {
     add_theme_support('title-tag');

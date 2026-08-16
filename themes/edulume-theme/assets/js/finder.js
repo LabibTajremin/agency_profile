@@ -7,6 +7,17 @@
  */
 
 (function finder() {
+  /*
+   * Strings come from the server, which is the only place that knows the site's language.
+   * The English fallbacks are what renders if the inline script that carries them is stripped
+   * by an optimisation plugin — degraded, but never blank.
+   */
+  var strings = (window.edulumeStrings || {}).finder || {};
+
+  function text(key, fallback) {
+    return typeof strings[key] === 'string' && strings[key] !== '' ? strings[key] : fallback;
+  }
+
   var form = document.querySelector('[data-edulume-finder]');
   var results = document.getElementById('edulume-results');
 
@@ -53,7 +64,13 @@
 
     var count = replacement.querySelectorAll('.edulume-card').length;
 
-    announce(count === 1 ? '1 result' : String(count) + ' results');
+    if (count === 0) {
+      announce(text('noResults', 'No results'));
+    } else if (count === 1) {
+      announce(text('oneResult', '1 result'));
+    } else {
+      announce(text('results', '%s results').replace('%s', String(count)));
+    }
 
     return true;
   }
@@ -66,7 +83,7 @@
     }
 
     inFlight = new AbortController();
-    announce('Filtering…');
+    announce(text('filtering', 'Filtering…'));
 
     window
       .fetch(url, { signal: inFlight.signal, headers: { 'X-Requested-With': 'fetch' } })

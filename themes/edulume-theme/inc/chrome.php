@@ -282,13 +282,193 @@ function edulume_the_drawer(): void
 }
 
 /**
- * The visitor's light/dark toggle.
+ * The visitor's light/dark control, as a pair of radios.
+ *
+ * A radio group rather than a button because the two modes are a choice between two named
+ * options, and that is what a radio group means. A lone toggle button has to encode the current
+ * state and the action it will perform in the same control, which is why they so often show the
+ * icon of the mode you are *not* in and leave everyone guessing.
+ *
+ * `role="radiogroup"` with real inputs, so arrow keys move between them, the browser handles
+ * focus, and a screen reader announces "Light, radio button, 1 of 2, selected". The visible
+ * labels are the icons; the accessible names come from the text beside them.
  */
 function edulume_the_mode_toggle(): void
 {
-    printf(
-        '<button type="button" class="edulume-mode-toggle" data-edulume-mode-toggle aria-pressed="false">'
-        . '<span class="screen-reader-text">%s</span></button>',
-        esc_html__('Switch between light and dark', 'edulume')
-    );
+    $modes = [
+        'light' => [
+            'label' => __('Light', 'edulume'),
+            /* A sun: a filled centre and eight rays. */
+            'icon' => '<circle cx="12" cy="12" r="4.2"/>'
+                . '<g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
+                . '<path d="M12 2.4v2.6M12 19v2.6M4.6 12H2M22 12h-2.6"/>'
+                . '<path d="M5.8 5.8l1.9 1.9M16.3 16.3l1.9 1.9M18.2 5.8l-1.9 1.9M7.7 16.3l-1.9 1.9"/>'
+                . '</g>',
+        ],
+        'dark' => [
+            'label' => __('Dark', 'edulume'),
+            /* A crescent, cut from one circle by another rather than drawn by hand. */
+            'icon' => '<path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8z"/>',
+        ],
+    ];
+
+    echo '<div class="edulume-mode-switch" role="radiogroup" aria-label="'
+        . esc_attr__('Colour mode', 'edulume') . '" data-edulume-mode-switch>';
+
+    foreach ($modes as $value => $mode) {
+        printf(
+            '<label class="edulume-mode-switch__option" data-mode="%1$s">'
+            . '<input type="radio" name="edulume-mode" value="%1$s" class="screen-reader-text" '
+            . 'data-edulume-mode-input>'
+            . '<span class="edulume-mode-switch__icon" aria-hidden="true">'
+            . '<svg viewBox="0 0 24 24" fill="currentColor" focusable="false">%2$s</svg>'
+            . '</span>'
+            . '<span class="edulume-mode-switch__label">%3$s</span>'
+            . '</label>',
+            esc_attr($value),
+            // Escaped rather than trusted, even though the markup two dozen lines above is a
+            // constant in this file. "It is hardcoded" is how every escaping gap starts, and it
+            // stops being true the first time somebody makes the icon set filterable.
+            wp_kses($mode['icon'], edulume_allowed_icon_markup()),
+            esc_html($mode['label'])
+        );
+    }
+
+    echo '</div>';
+}
+
+/**
+ * The SVG elements and attributes an inline icon may use.
+ *
+ * An allowlist, not a denylist: anything not named here — `script`, `foreignObject`, every
+ * `on*` handler — is stripped, so an icon can only ever draw.
+ *
+ * @return array<string, array<string, bool>>
+ */
+function edulume_allowed_icon_markup(): array
+{
+    $shape = [
+        'd' => true,
+        'cx' => true,
+        'cy' => true,
+        'r' => true,
+        'x' => true,
+        'y' => true,
+        'width' => true,
+        'height' => true,
+        'rx' => true,
+        'ry' => true,
+        'points' => true,
+        'fill' => true,
+        'fill-rule' => true,
+        'stroke' => true,
+        'stroke-width' => true,
+        'stroke-linecap' => true,
+        'stroke-linejoin' => true,
+        'opacity' => true,
+        'transform' => true,
+    ];
+
+    return [
+        'g' => $shape,
+        'path' => $shape,
+        'circle' => $shape,
+        'rect' => $shape,
+        'line' => $shape,
+        'polyline' => $shape,
+        'polygon' => $shape,
+        'ellipse' => $shape,
+    ];
+}
+
+/**
+ * Whether a home-page section should render.
+ *
+ * The documented way for a template to ask. Defaults to true so that a deactivated plugin — or
+ * a slug the plugin has never heard of, such as one a child theme added — renders rather than
+ * silently disappears.
+ */
+function edulume_section_is_enabled(string $slug): bool
+{
+    if (!edulume_core_is_active()) {
+        return true;
+    }
+
+    return (bool) apply_filters('edulume_section_is_enabled', true, $slug);
+}
+
+/**
+ * The post types a visitor can shortlist or compare.
+ *
+ * Comparison only makes sense between things with the same shape of attributes, which is why
+ * this is a list rather than "anything with a post type".
+ *
+ * @return array<string, list<string>>
+ */
+function edulume_card_action_types(): array
+{
+    return [
+        'compare' => ['edulume_course', 'edulume_institution', 'edulume_test-prep'],
+        'shortlist' => [
+            'edulume_course',
+            'edulume_institution',
+            'edulume_scholarship',
+            'edulume_destination',
+        ],
+    ];
+}
+
+/**
+ * Shortlist and compare controls for one card.
+ *
+ * These buttons are why `compare.js` exists, and until now nothing rendered them: the script
+ * bound to `[data-edulume-compare]` and `[data-edulume-shortlist]`, and no template in the
+ * theme emitted either attribute. A hundred and twenty lines of working code with no way to
+ * reach it, and no error anywhere to say so — the feature simply was not on the site.
+ *
+ * Rendered as real `<button>` elements with `aria-pressed`, so the state is announced rather
+ * than merely coloured, and so the disabled state the script sets at the comparison limit is
+ * one the browser enforces.
+ */
+function edulume_the_card_actions(mixed $postId, string $postType): void
+{
+    $id = is_int($postId) ? $postId : (int) $postId;
+
+    if ($id <= 0) {
+        return;
+    }
+
+    $types = edulume_card_action_types();
+    $canCompare = in_array($postType, $types['compare'], true);
+    $canShortlist = in_array($postType, $types['shortlist'], true);
+
+    if (!$canCompare && !$canShortlist) {
+        return;
+    }
+
+    echo '<div class="edulume-card__actions">';
+
+    if ($canShortlist) {
+        printf(
+            '<button type="button" class="edulume-card__action" data-edulume-shortlist="%s" '
+            . 'aria-pressed="false">%s</button>',
+            // `%d` already forces an integer, so this is not a real escaping gap — but a
+            // reader has to know printf's conversion rules to see that, and the sniff cannot
+            // know them at all. Being explicit costs nothing and makes both the reviewer and
+            // the linter right.
+            esc_attr((string) $id),
+            esc_html__('Save', 'edulume')
+        );
+    }
+
+    if ($canCompare) {
+        printf(
+            '<button type="button" class="edulume-card__action" data-edulume-compare="%s" '
+            . 'aria-pressed="false">%s</button>',
+            esc_attr((string) $id),
+            esc_html__('Compare', 'edulume')
+        );
+    }
+
+    echo '</div>';
 }

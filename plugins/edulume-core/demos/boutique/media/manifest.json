@@ -1,0 +1,292 @@
+{
+  "hero": [
+    {
+      "file": "hero-campus.svg",
+      "title": "Students on campus"
+    }
+  ],
+  "destination": [
+    {
+      "file": "destination-united-kingdom.svg",
+      "title": "United Kingdom"
+    },
+    {
+      "file": "destination-canada.svg",
+      "title": "Canada"
+    },
+    {
+      "file": "destination-australia.svg",
+      "title": "Australia"
+    },
+    {
+      "file": "destination-germany.svg",
+      "title": "Germany"
+    },
+    {
+      "file": "destination-united-states.svg",
+      "title": "United States"
+    },
+    {
+      "file": "destination-malaysia.svg",
+      "title": "Malaysia"
+    },
+    {
+      "file": "destination-republic-of-ireland.svg",
+      "title": "Republic of Ireland"
+    },
+    {
+      "file": "destination-japan.svg",
+      "title": "Japan"
+    }
+  ],
+  "subject": [
+    {
+      "file": "subject-computer-science.svg",
+      "title": "Computer Science"
+    },
+    {
+      "file": "subject-engineering.svg",
+      "title": "Engineering"
+    },
+    {
+      "file": "subject-business.svg",
+      "title": "Business"
+    },
+    {
+      "file": "subject-health.svg",
+      "title": "Health"
+    },
+    {
+      "file": "subject-law.svg",
+      "title": "Law"
+    },
+    {
+      "file": "subject-education.svg",
+      "title": "Education"
+    },
+    {
+      "file": "subject-science.svg",
+      "title": "Science"
+    },
+    {
+      "file": "subject-architecture.svg",
+      "title": "Architecture"
+    },
+    {
+      "file": "subject-data-science.svg",
+      "title": "Data Science"
+    },
+    {
+      "file": "subject-social-science.svg",
+      "title": "Social Science"
+    }
+  ],
+  "portrait": [
+    {
+      "file": "portrait-farhana-rahman.svg",
+      "title": "Farhana Rahman"
+    },
+    {
+      "file": "portrait-imran-chowdhury.svg",
+      "title": "Imran Chowdhury"
+    },
+    {
+      "file": "portrait-nusrat-jahan.svg",
+      "title": "Nusrat Jahan"
+    },
+    {
+      "file": "portrait-tanvir-ahmed.svg",
+      "title": "Tanvir Ahmed"
+    },
+    {
+      "file": "portrait-sadia-islam.svg",
+      "title": "Sadia Islam"
+    },
+    {
+      "file": "portrait-rezaul-karim.svg",
+      "title": "Rezaul Karim"
+    }
+  ],
+  "crest": [
+    {
+      "file": "crest-university-of-glasgow.svg",
+      "title": "University of Glasgow"
+    },
+    {
+      "file": "crest-university-of-leeds.svg",
+      "title": "University of Leeds"
+    },
+    {
+      "file": "crest-queen-mary-university-of-london.svg",
+      "title": "Queen Mary University of London"
+    },
+    {
+      "file": "crest-university-of-birmingham.svg",
+      "title": "University of Birmingham"
+    },
+    {
+      "file": "crest-coventry-university.svg",
+      "title": "Coventry University"
+    },
+    {
+      "file": "crest-university-of-toronto.svg",
+      "title": "University of Toronto"
+    },
+    {
+      "file": "crest-university-of-waterloo.svg",
+      "title": "University of Waterloo"
+    },
+    {
+      "file": "crest-dalhousie-university.svg",
+      "title": "Dalhousie University"
+    },
+    {
+      "file": "crest-university-of-manitoba.svg",
+      "title": "University of Manitoba"
+    },
+    {
+      "file": "crest-university-of-melbourne.svg",
+      "title": "University of Melbourne"
+    },
+    {
+      "file": "crest-monash-university.svg",
+      "title": "Monash University"
+    },
+    {
+      "file": "crest-deakin-university.svg",
+      "title": "Deakin University"
+    },
+    {
+      "file": "crest-technical-university-of-munich.svg",
+      "title": "Technical University of Munich"
+    },
+    {
+      "file": "crest-rwth-aachen-university.svg",
+      "title": "RWTH Aachen University"
+    },
+    {
+      "file": "crest-arizona-state-university.svg",
+      "title": "Arizona State University"
+    },
+    {
+      "file": "crest-northeastern-university.svg",
+      "title": "Northeastern University"
+    },
+    {
+      "file": "crest-university-of-nottingham-malaysia.svg",
+      "title": "University of Nottingham Malaysia"
+    },
+    {
+      "file": "crest-monash-university-malaysia.svg",
+      "title": "Monash University Malaysia"
+    },
+    {
+      "file": "crest-university-college-dublin.svg",
+      "title": "University College Dublin"
+    },
+    {
+      "file": "crest-trinity-college-dublin.svg",
+      "title": "Trinity College Dublin"
+    },
+    {
+      "file": "crest-university-of-tokyo.svg",
+      "title": "University of Tokyo"
+    },
+    {
+      "file": "crest-kyushu-university.svg",
+      "title": "Kyushu University"
+    },
+    {
+      "file": "crest-university-of-sheffield.svg",
+      "title": "University of Sheffield"
+    },
+    {
+      "file": "crest-griffith-university.svg",
+      "title": "Griffith University"
+    }
+  ],
+  "scene": [
+    {
+      "file": "scene-pre-departure-briefing-september-intake.svg",
+      "title": "Pre-departure briefing, September intake"
+    },
+    {
+      "file": "scene-uk-admissions-fair-dhanmondi.svg",
+      "title": "UK Admissions Fair, Dhanmondi"
+    },
+    {
+      "file": "scene-ielts-mock-test-in-progress.svg",
+      "title": "IELTS mock test in progress"
+    },
+    {
+      "file": "scene-counselling-session-dhanmondi-office.svg",
+      "title": "Counselling session, Dhanmondi office"
+    },
+    {
+      "file": "scene-students-at-the-canada-study-permit-workshop.svg",
+      "title": "Students at the Canada Study Permit workshop"
+    },
+    {
+      "file": "scene-offer-letter-day.svg",
+      "title": "Offer letter day"
+    },
+    {
+      "file": "scene-our-dhanmondi-reception.svg",
+      "title": "Our Dhanmondi reception"
+    },
+    {
+      "file": "scene-scholarship-clinic-online-cohort.svg",
+      "title": "Scholarship clinic, online cohort"
+    },
+    {
+      "file": "scene-airport-send-off-february-intake.svg",
+      "title": "Airport send-off, February intake"
+    },
+    {
+      "file": "scene-alumni-meet-up-dhaka.svg",
+      "title": "Alumni meet-up, Dhaka"
+    },
+    {
+      "file": "scene-test-preparation-classroom.svg",
+      "title": "Test preparation classroom"
+    },
+    {
+      "file": "scene-visa-documentation-review.svg",
+      "title": "Visa documentation review"
+    }
+  ],
+  "partner": [
+    {
+      "file": "partner-british-council.svg",
+      "title": "British Council"
+    },
+    {
+      "file": "partner-idp-education.svg",
+      "title": "IDP Education"
+    },
+    {
+      "file": "partner-pearson-pte.svg",
+      "title": "Pearson PTE"
+    },
+    {
+      "file": "partner-education-new-zealand.svg",
+      "title": "Education New Zealand"
+    },
+    {
+      "file": "partner-icef.svg",
+      "title": "ICEF"
+    },
+    {
+      "file": "partner-australian-trade-and-investment-commission.svg",
+      "title": "Australian Trade and Investment Commission"
+    },
+    {
+      "file": "partner-daad.svg",
+      "title": "DAAD"
+    },
+    {
+      "file": "partner-educationusa.svg",
+      "title": "EducationUSA"
+    }
+  ]
+}

@@ -39,12 +39,19 @@ final class PaletteGenerator
         $seedInOklch = ColorSpace::srgbToOklch($seed);
         $neutrals = NeutralScale::fromHue($seedInOklch->hue);
 
+        /*
+         * Dark mode paints a different ramp, so accent-as-text has to be judged against that
+         * one. Resolving it against the light scale's darkest step would prove 4.5:1 against a
+         * near-black nothing renders, and ship a link that fails on the midnight blue that does.
+         */
+        $darkSurface = NeutralScale::midnight()->step(self::DARK_SURFACE_STEP);
+
         $steps = $this->rampSteps($seedInOklch);
         $foregrounds = array_map(fn (Srgb $step): Srgb => $this->foregroundFor($step, $neutrals), $steps);
 
         return AccentPalette::fromSteps($steps, $foregrounds, [
             ThemeMode::Light->value => $this->textFor($steps, $neutrals->step(self::LIGHT_SURFACE_STEP), false),
-            ThemeMode::Dark->value => $this->textFor($steps, $neutrals->step(self::DARK_SURFACE_STEP), true),
+            ThemeMode::Dark->value => $this->textFor($steps, $darkSurface, true),
         ]);
     }
 

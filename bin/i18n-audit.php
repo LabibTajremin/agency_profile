@@ -255,9 +255,71 @@ function translatableTextIn(string $skeleton): array
     return $texts;
 }
 
+/**
+ * User-facing English written directly into a script module.
+ *
+ * The audit read PHP only, and a string in a `.js` file is invisible to it and to `make:pot`
+ * alike. The finder announced "Filtering…" and "3 results" to a screen reader in English on
+ * every site, in every language, and nothing in the pipeline could see it.
+ *
+ * Scripts get their words from `window.edulumeStrings`, populated server-side. This catches the
+ * next module that forgets.
+ *
+ * @return list<string>
+ */
+function untranslatedScriptFindings(): array
+{
+    $findings = [];
+
+    foreach (filesIn('themes/edulume-theme/assets/js', 'js') as $path) {
+        foreach (explode("\n", (string) file_get_contents($path)) as $number => $line) {
+            if (isComment($line)) {
+                continue;
+            }
+
+            // Only assignments that reach a person: text nodes, announcements, labels and
+            // titles. A string used as a key, a selector or a storage name is not copy.
+            $isUserFacing = preg_match(
+                '/\b(textContent|innerText|announce|setAttribute\(\s*[\'"]aria-label[\'"]|title)\s*[=(]/',
+                $line
+            ) === 1;
+
+            if (!$isUserFacing) {
+                continue;
+            }
+
+            /*
+             * Prose looks like a sentence: it either contains a space, or it starts with a
+             * capital and continues in lower case. Attribute names and selectors — `aria-label`,
+             * `data-edulume-finder`, `.edulume-card` — do neither.
+             *
+             * The first version of this test required a space, and so missed the exact line it
+             * was written for: `announce('Filtering…')` is a single word. A gate that does not
+             * fail on the bug that motivated it is decoration, which is why it gets run against
+             * that bug before it is trusted.
+             */
+            $looksLikeProse = preg_match('/[\'"][^\'"]* [^\'"]*[\'"]/', $line) === 1
+                || preg_match('/[\'"][A-Z][a-z]{2,}[^\'"]*[\'"]/', $line) === 1;
+
+            if (!$looksLikeProse) {
+                continue;
+            }
+
+            if (str_contains($line, 'edulumeStrings') || str_contains($line, 'text(')) {
+                continue;
+            }
+
+            $findings[] = sprintf('%s:%d writes English into the page: %s', $path, $number + 1, trim($line));
+        }
+    }
+
+    return $findings;
+}
+
 $sections = [
     'Logical CSS properties' => logicalPropertyFindings(),
     'Translated strings' => unwrappedStringFindings(),
+    'Script strings' => untranslatedScriptFindings(),
 ];
 
 $failed = false;

@@ -1,27 +1,56 @@
 [
   {
-    "title": "Counselling",
-    "excerpt": "One-to-one guidance from shortlist to arrival.",
-    "content": "One-to-one guidance from shortlist to arrival. Replace this with your own copy before launch."
+    "title": "Course and university shortlisting",
+    "excerpt": "A shortlist built from your transcript and budget, not from a brochure.",
+    "content": "We start with your transcript, your test scores and the number you can actually spend, and work outward from there. You get a shortlist of six to eight programmes across three tiers — ambitious, realistic, and safe — with the entry requirement and total first-year cost stated for each.\n\nIf nothing on your current profile is realistic, we say so at this stage. That conversation is uncomfortable and it is cheaper than a year of rejections.",
+    "meta": {
+      "_edulume_icon": "dashicons-yes"
+    },
+    "image": "subject-architecture.svg"
   },
   {
-    "title": "Applications",
-    "excerpt": "We prepare, check and submit your applications.",
-    "content": "We prepare, check and submit your applications. Replace this with your own copy before launch."
+    "title": "Application and document preparation",
+    "excerpt": "Statements, references and transcripts prepared to each university's format.",
+    "content": "Every university wants the same information in a slightly different shape, and the differences are where applications fail. We prepare your personal statement, chase and format academic references, and check that transcripts and certificates meet each institution's attestation rules.\n\nYou write the statement. We edit it until it says what you mean — an admissions officer can tell when a statement was written by an agency, and it does not help you.",
+    "meta": {
+      "_edulume_icon": "dashicons-yes"
+    },
+    "image": "subject-business.svg"
   },
   {
-    "title": "Visa support",
-    "excerpt": "Documentation, financial evidence and interview preparation.",
-    "content": "Documentation, financial evidence and interview preparation. Replace this with your own copy before launch."
+    "title": "Visa filing and interview preparation",
+    "excerpt": "Financial documentation, the application itself, and mock interviews.",
+    "content": "Visa refusals are usually documentation problems, not credibility problems. We assemble financial evidence in the format the mission expects, check the maintenance requirement against your bank statements, and file the application.\n\nFor destinations that interview, we run mock interviews until your answers are consistent with your paperwork. Inconsistency between what you say and what you filed is the single most common refusal ground.",
+    "meta": {
+      "_edulume_icon": "dashicons-yes"
+    },
+    "image": "subject-computer-science.svg"
   },
   {
-    "title": "Accommodation",
-    "excerpt": "Help finding somewhere to live before you fly.",
-    "content": "Help finding somewhere to live before you fly. Replace this with your own copy before launch."
+    "title": "Scholarship and funding search",
+    "excerpt": "Every award you are eligible for, with its deadline, tracked.",
+    "content": "Most students apply to one or two scholarships they have heard of and miss six they were eligible for. We search institutional awards, country-specific funding and external trusts against your profile, then track the deadlines alongside your application deadlines.\n\nScholarship deadlines usually fall earlier than admission deadlines. Missing that gap is the most expensive scheduling error in the process.",
+    "meta": {
+      "_edulume_icon": "dashicons-yes"
+    },
+    "image": "subject-data-science.svg"
   },
   {
-    "title": "Pre-departure",
-    "excerpt": "Banking, insurance and what to pack.",
-    "content": "Banking, insurance and what to pack. Replace this with your own copy before launch."
+    "title": "Pre-departure and arrival support",
+    "excerpt": "Accommodation, banking, SIM, airport pickup and the first week.",
+    "content": "The offer is not the finish line. We help you secure accommodation before you fly, open a bank account where the destination allows it in advance, and arrange airport pickup for your first arrival.\n\nWe also brief you on the things nobody writes down: how much cash to carry, which documents to keep in hand baggage, and what to do if your accommodation falls through on arrival.",
+    "meta": {
+      "_edulume_icon": "dashicons-yes"
+    },
+    "image": "subject-education.svg"
+  },
+  {
+    "title": "IELTS and test preparation",
+    "excerpt": "Small-group and one-to-one preparation for IELTS, PTE and the Duolingo test.",
+    "content": "Preparation is built around the band you need, not a generic syllabus. We diagnose with a full mock, target the weakest band, and re-test at intervals so progress is measured rather than assumed.\n\nClasses run in small groups at our Dhanmondi office, with one-to-one speaking practice included. Students who need a single band improvement usually get it in six to eight weeks.",
+    "meta": {
+      "_edulume_icon": "dashicons-yes"
+    },
+    "image": "subject-engineering.svg"
   }
 ]

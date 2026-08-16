@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Tests\Unit\Theming;
 
+use Edulume\Core\Domain\Color\ColorSpace;
 use Edulume\Core\Domain\Color\ContrastEngine;
 use Edulume\Core\Domain\Color\Srgb;
 use Edulume\Core\Domain\Theming\FontRole;
@@ -70,14 +71,75 @@ final class TokenCompilerTest extends TestCase
         }
     }
 
+    /**
+     * The modes invert, but they are no longer the same ramp read backwards.
+     *
+     * This used to assert `light.surface === dark.ink` exactly, which held while both modes were
+     * built from one accent-tinted scale. Dark mode now has its own ramp so that its background
+     * can be midnight blue and its text cream — and those two cannot come from the ends of a
+     * single scale, because step 0 is simultaneously the light-mode background and the dark-mode
+     * ink. What has to remain true is the inversion itself, which is what this asserts.
+     */
     #[Test]
-    public function it_flips_the_surface_and_ink_between_modes(): void
+    public function it_inverts_surface_and_ink_between_modes(): void
     {
         $light = $this->compiler->compile(ThemeSettings::defaults(), ThemeMode::Light);
         $dark = $this->compiler->compile(ThemeSettings::defaults(), ThemeMode::Dark);
 
-        $this->assertSame($light[TokenCompiler::PREFIX . 'surface'], $dark[TokenCompiler::PREFIX . 'ink']);
-        $this->assertSame($light[TokenCompiler::PREFIX . 'ink'], $dark[TokenCompiler::PREFIX . 'surface']);
+        $lightSurface = Srgb::fromHex($light[TokenCompiler::PREFIX . 'surface'])->relativeLuminance();
+        $lightInk = Srgb::fromHex($light[TokenCompiler::PREFIX . 'ink'])->relativeLuminance();
+        $darkSurface = Srgb::fromHex($dark[TokenCompiler::PREFIX . 'surface'])->relativeLuminance();
+        $darkInk = Srgb::fromHex($dark[TokenCompiler::PREFIX . 'ink'])->relativeLuminance();
+
+        $this->assertGreaterThan($lightInk, $lightSurface, 'light mode is dark ink on a light page');
+        $this->assertGreaterThan($darkSurface, $darkInk, 'dark mode is light ink on a dark page');
+        $this->assertGreaterThan($darkSurface, $lightSurface, 'the dark page is the darker of the two');
+    }
+
+    /**
+     * A dark mode that bottoms out at black reads as black on an OLED panel, and pure white ink
+     * on it produces the halo that makes long-form reading tiring. The brief asked for a
+     * blackish midnight blue with cream text; these are the measurements of that.
+     */
+    #[Test]
+    public function dark_mode_is_midnight_blue_rather_than_black(): void
+    {
+        $dark = $this->compiler->compile(ThemeSettings::defaults(), ThemeMode::Dark);
+        $surface = ColorSpace::srgbToOklch(Srgb::fromHex($dark[TokenCompiler::PREFIX . 'surface']));
+
+        // Blue, by hue, rather than an incidentally cool grey.
+        $this->assertGreaterThan(220.0, $surface->hue);
+        $this->assertLessThan(290.0, $surface->hue);
+
+        // Enough chroma to be seen as a colour, and light enough not to be black.
+        $this->assertGreaterThan(0.02, $surface->chroma);
+        $this->assertGreaterThan(0.10, $surface->lightness);
+        $this->assertLessThan(0.30, $surface->lightness);
+    }
+
+    #[Test]
+    public function dark_mode_text_is_cream_rather_than_white(): void
+    {
+        $dark = $this->compiler->compile(ThemeSettings::defaults(), ThemeMode::Dark);
+        $ink = ColorSpace::srgbToOklch(Srgb::fromHex($dark[TokenCompiler::PREFIX . 'ink']));
+
+        // Warm: a yellow-orange hue, not the cool blue-white of the light-mode scale.
+        $this->assertGreaterThan(40.0, $ink->hue);
+        $this->assertLessThan(120.0, $ink->hue);
+
+        // Off-white rather than white — full lightness is the glare this avoids.
+        $this->assertGreaterThan(0.88, $ink->lightness);
+        $this->assertLessThan(0.99, $ink->lightness);
+        $this->assertGreaterThan(0.01, $ink->chroma);
+    }
+
+    #[Test]
+    public function light_mode_text_stays_dark(): void
+    {
+        $light = $this->compiler->compile(ThemeSettings::defaults(), ThemeMode::Light);
+        $ink = ColorSpace::srgbToOklch(Srgb::fromHex($light[TokenCompiler::PREFIX . 'ink']));
+
+        $this->assertLessThan(0.30, $ink->lightness);
     }
 
     #[Test]

@@ -139,6 +139,7 @@ final class SectionOverride
     private static function coerce(SectionOverrideKey $key, mixed $value): bool|float|int|string
     {
         return match ($key) {
+            SectionOverrideKey::Enabled,
             SectionOverrideKey::PatternEnabled,
             SectionOverrideKey::MotionEnabled => Guard::toBool($value),
 

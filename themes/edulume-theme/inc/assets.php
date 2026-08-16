@@ -36,8 +36,19 @@ function edulume_conditional_modules(): array
         'eligibility' => static fn (): bool => edulume_page_has('eligibility'),
         'calculator' => static fn (): bool => edulume_page_has('calculator'),
         'forms' => static fn (): bool => edulume_page_has('form'),
-        'carousel' => static fn (): bool => edulume_page_has('carousel'),
+        'carousel' => static fn (): bool => edulume_page_has('carousel')
+            || edulume_page_has('marquee'),
         'motion' => static fn (): bool => edulume_motion_is_active(),
+        /*
+         * `tabs`, `counters`, `before-after` and `video` are declared by blocks in the
+         * catalogue and had no module at all, so those blocks rendered and did nothing. One
+         * file rather than four: they are twenty lines apiece, and four requests on a page
+         * using all four is worse than one.
+         */
+        'interactions' => static fn (): bool => edulume_page_has('tabs')
+            || edulume_page_has('counters')
+            || edulume_page_has('before-after')
+            || edulume_page_has('video'),
     ];
 }
 
@@ -149,15 +160,93 @@ add_action('wp_footer', static function (): void {
             continue;
         }
 
+        $handle = 'edulume-' . $module;
+
         wp_enqueue_script(
-            'edulume-' . $module,
+            $handle,
             get_template_directory_uri() . $relative,
             [],
             EDULUME_THEME_VERSION,
             ['strategy' => 'defer', 'in_footer' => true]
         );
+
+        edulume_localise_module($handle, $module);
     }
 }, 1);
+
+/**
+ * The translatable strings a module announces to the visitor.
+ *
+ * These lived in the JavaScript as English literals — "Filtering…", "1 result", "3 results" —
+ * which meant a Bengali or Arabic site announced its filter results in English. The i18n audit
+ * never saw them because it reads PHP, and a string in a `.js` file is invisible to both it and
+ * to `make:pot`. Declaring them here puts them back inside the translation pipeline.
+ *
+ * @return array<string, array<string, string>>
+ */
+function edulume_module_strings(): array
+{
+    return [
+        'carousel' => [
+            'track' => __('Carousel', 'edulume'),
+            'previous' => __('Previous', 'edulume'),
+            'next' => __('Next', 'edulume'),
+        ],
+        'forms' => [
+            'required' => __('This field is required.', 'edulume'),
+            'email' => __('Enter a valid email address.', 'edulume'),
+            'consent' => __('Please tick this to continue.', 'edulume'),
+            'sending' => __('Sending…', 'edulume'),
+            'sent' => __('Thank you. We will be in touch shortly.', 'edulume'),
+        ],
+        'calculator' => [
+            'tuition' => __('Tuition', 'edulume'),
+            'living' => __('Living costs', 'edulume'),
+            'visa' => __('Visa and health surcharge', 'edulume'),
+            'flights' => __('Flights', 'edulume'),
+        ],
+        'eligibility' => [
+            'likely' => __('Likely — your profile meets the published minimums.', 'edulume'),
+            'borderline' => __('Borderline — worth a conversation.', 'edulume'),
+            'unlikely' => __('Unlikely as things stand.', 'edulume'),
+            'gradeGap' => __('a higher grade average', 'edulume'),
+            'englishGap' => __('a higher English score', 'edulume'),
+            'gaps' => __('What would change this: ', 'edulume'),
+            'noGaps' => __('Bring your transcript and test report to your first session.', 'edulume'),
+            'and' => __(' and ', 'edulume'),
+        ],
+        'interactions' => [
+            'reveal' => __('Reveal the after image', 'edulume'),
+            'video' => __('Video', 'edulume'),
+        ],
+        'finder' => [
+            'filtering' => __('Filtering…', 'edulume'),
+            /* translators: %s is the number of results found. */
+            'results' => __('%s results', 'edulume'),
+            'oneResult' => __('1 result', 'edulume'),
+            'noResults' => __('No results', 'edulume'),
+        ],
+    ];
+}
+
+function edulume_localise_module(string $handle, string $module): void
+{
+    $strings = edulume_module_strings()[$module] ?? [];
+
+    if ($strings === []) {
+        return;
+    }
+
+    wp_add_inline_script(
+        $handle,
+        sprintf(
+            'window.edulumeStrings = Object.assign(window.edulumeStrings || {}, {%s: %s});',
+            wp_json_encode($module),
+            wp_json_encode($strings)
+        ),
+        'before'
+    );
+}
 
 /**
  * Marks the first in-content image as the likely LCP element.

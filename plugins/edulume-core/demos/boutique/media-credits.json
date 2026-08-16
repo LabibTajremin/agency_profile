@@ -1,6 +1,353 @@
 {
-  "_comment": "Provenance for every bundled image in this demo. Re-verified at each release; the importer refuses to redistribute anything not cleared for it.",
+  "_comment": "Provenance for every bundled image in this demo. These are generated vector artworks, not photography: layered gradients in the theme's own palette with a subject-appropriate motif. Generated originals, so redistribution is unencumbered — which is the point, since bundling stock photography under a licence nobody re-checked is exactly what MediaLicence exists to prevent.",
   "demo": "boutique",
   "licence": "cc0",
-  "images": []
+  "generated": true,
+  "images": [
+    {
+      "file": "crest-arizona-state-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-coventry-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-dalhousie-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-deakin-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-griffith-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-kyushu-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-monash-university-malaysia.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-monash-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-northeastern-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-queen-mary-university-of-london.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-rwth-aachen-university.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-technical-university-of-munich.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-trinity-college-dublin.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-college-dublin.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-birmingham.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-glasgow.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-leeds.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-manitoba.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-melbourne.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-nottingham-malaysia.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-sheffield.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-tokyo.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-toronto.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "crest-university-of-waterloo.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-australia.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-canada.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-germany.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-japan.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-malaysia.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-republic-of-ireland.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-united-kingdom.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "destination-united-states.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "hero-campus.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-australian-trade-and-investment-commission.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-british-council.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-daad.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-education-new-zealand.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-educationusa.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-icef.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-idp-education.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "partner-pearson-pte.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "portrait-farhana-rahman.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "portrait-imran-chowdhury.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "portrait-nusrat-jahan.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "portrait-rezaul-karim.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "portrait-sadia-islam.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "portrait-tanvir-ahmed.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-airport-send-off-february-intake.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-alumni-meet-up-dhaka.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-counselling-session-dhanmondi-office.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-ielts-mock-test-in-progress.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-offer-letter-day.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-our-dhanmondi-reception.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-pre-departure-briefing-september-intake.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-scholarship-clinic-online-cohort.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-students-at-the-canada-study-permit-workshop.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-test-preparation-classroom.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-uk-admissions-fair-dhanmondi.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "scene-visa-documentation-review.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-architecture.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-business.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-computer-science.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-data-science.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-education.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-engineering.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-health.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-law.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-science.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    },
+    {
+      "file": "subject-social-science.svg",
+      "licence": "cc0",
+      "source": "Generated for Edulume"
+    }
+  ]
 }

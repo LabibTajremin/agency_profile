@@ -81,19 +81,37 @@ final class DemoLibrary
                 ['primary', 'footer'],
                 'Everything you need to study abroad',
             ),
+            /*
+             * The complete pack: every post type the content model registers, so no section of
+             * the site renders empty after an import.
+             *
+             * It also carries real copy rather than placeholders. The earlier payloads were rows
+             * titled "Course 1" whose body read "Replace this with your own copy before launch",
+             * which fails at both jobs a demo has: an evaluator cannot tell whether a section
+             * looks good when it is full of numbered stubs, and a site launched in a hurry ships
+             * the instruction-to-self as published copy.
+             */
             new DemoDefinition(
                 'boutique',
                 'Boutique practice',
-                'A small, deliberately quiet site: few pages, a lot of white space, one destination focus.',
+                'A complete consultancy site: every section populated, with copy written to be read rather than replaced.',
                 [
-                    'edulume_destination' => 4,
-                    'edulume_institution' => 12,
-                    'edulume_course' => 30,
-                    'edulume_service' => 5,
-                    'edulume_team-member' => 4,
-                    'edulume_testimonial' => 8,
-                    'edulume_story' => 6,
-                    'edulume_faq' => 10,
+                    'edulume_destination' => 8,
+                    'edulume_institution' => 24,
+                    'edulume_course' => 40,
+                    'edulume_service' => 6,
+                    'edulume_scholarship' => 10,
+                    'edulume_test-prep' => 5,
+                    'edulume_event' => 6,
+                    'edulume_team-member' => 6,
+                    'edulume_testimonial' => 10,
+                    'edulume_story' => 8,
+                    'edulume_gallery-item' => 12,
+                    'edulume_branch' => 3,
+                    'edulume_job-opening' => 4,
+                    'edulume_faq' => 14,
+                    'edulume_resource' => 10,
+                    'edulume_partner' => 8,
                 ],
                 ['accent' => 'warm-sand', 'layout' => ['density' => 'spacious'], 'motion' => ['preset' => 'subtle']],
                 ['primary', 'footer'],

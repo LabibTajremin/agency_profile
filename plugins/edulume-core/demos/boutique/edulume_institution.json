@@ -1,62 +1,314 @@
 [
   {
-    "title": "Institution 1",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "University of Glasgow",
+    "excerpt": "A Russell Group university with strong engineering and public health schools.",
+    "content": "University of Glasgow sits in Glasgow, United Kingdom. A Russell Group university with strong engineering and public health schools.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_city": "Glasgow"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    },
+    "image": "crest-university-of-glasgow.svg"
   },
   {
-    "title": "Institution 2",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "University of Leeds",
+    "excerpt": "Large, broad, and consistently generous with international scholarships.",
+    "content": "University of Leeds sits in Leeds, United Kingdom. Large, broad, and consistently generous with international scholarships.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_city": "Leeds"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    },
+    "image": "crest-university-of-leeds.svg"
   },
   {
-    "title": "Institution 3",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "Queen Mary University of London",
+    "excerpt": "London-based Russell Group, well regarded in law and computer science.",
+    "content": "Queen Mary University of London sits in London, United Kingdom. London-based Russell Group, well regarded in law and computer science.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_city": "London"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    },
+    "image": "crest-queen-mary-university-of-london.svg"
   },
   {
-    "title": "Institution 4",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "University of Birmingham",
+    "excerpt": "Strong business school and a large Bangladeshi student community.",
+    "content": "University of Birmingham sits in Birmingham, United Kingdom. Strong business school and a large Bangladeshi student community.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_city": "Birmingham"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    },
+    "image": "crest-university-of-birmingham.svg"
   },
   {
-    "title": "Institution 5",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "Coventry University",
+    "excerpt": "Practical, employment-focused, with generous entry requirements.",
+    "content": "Coventry University sits in Coventry, United Kingdom. Practical, employment-focused, with generous entry requirements.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_city": "Coventry"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    },
+    "image": "crest-coventry-university.svg"
   },
   {
-    "title": "Institution 6",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "University of Toronto",
+    "excerpt": "Canada's most research-intensive university, and its most competitive.",
+    "content": "University of Toronto sits in Toronto, Canada. Canada's most research-intensive university, and its most competitive.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Canada",
+      "_edulume_city": "Toronto"
+    },
+    "terms": {
+      "edulume_destination": ["Canada"]
+    },
+    "image": "crest-university-of-toronto.svg"
   },
   {
-    "title": "Institution 7",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "University of Waterloo",
+    "excerpt": "The co-op programme is the reason to apply: paid work terms built into the degree.",
+    "content": "University of Waterloo sits in Waterloo, Canada. The co-op programme is the reason to apply: paid work terms built into the degree.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Canada",
+      "_edulume_city": "Waterloo"
+    },
+    "terms": {
+      "edulume_destination": ["Canada"]
+    },
+    "image": "crest-university-of-waterloo.svg"
   },
   {
-    "title": "Institution 8",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "Dalhousie University",
+    "excerpt": "Atlantic Canada's largest university, with a fast provincial nomination stream.",
+    "content": "Dalhousie University sits in Halifax, Canada. Atlantic Canada's largest university, with a fast provincial nomination stream.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Canada",
+      "_edulume_city": "Halifax"
+    },
+    "terms": {
+      "edulume_destination": ["Canada"]
+    },
+    "image": "crest-dalhousie-university.svg"
   },
   {
-    "title": "Institution 9",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "University of Manitoba",
+    "excerpt": "Lower fees and living costs than Ontario, with a strong engineering faculty.",
+    "content": "University of Manitoba sits in Winnipeg, Canada. Lower fees and living costs than Ontario, with a strong engineering faculty.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Canada",
+      "_edulume_city": "Winnipeg"
+    },
+    "terms": {
+      "edulume_destination": ["Canada"]
+    },
+    "image": "crest-university-of-manitoba.svg"
   },
   {
-    "title": "Institution 10",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "University of Melbourne",
+    "excerpt": "Australia's highest-ranked university, with a graduate-entry structure.",
+    "content": "University of Melbourne sits in Melbourne, Australia. Australia's highest-ranked university, with a graduate-entry structure.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Australia",
+      "_edulume_city": "Melbourne"
+    },
+    "terms": {
+      "edulume_destination": ["Australia"]
+    },
+    "image": "crest-university-of-melbourne.svg"
   },
   {
-    "title": "Institution 11",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "Monash University",
+    "excerpt": "Strong pharmacy and engineering, and a large postgraduate intake.",
+    "content": "Monash University sits in Melbourne, Australia. Strong pharmacy and engineering, and a large postgraduate intake.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Australia",
+      "_edulume_city": "Melbourne"
+    },
+    "terms": {
+      "edulume_destination": ["Australia"]
+    },
+    "image": "crest-monash-university.svg"
   },
   {
-    "title": "Institution 12",
-    "excerpt": "An institution profile with entry requirements and intakes.",
-    "content": "An institution profile with entry requirements and intakes. Replace this with your own copy before launch."
+    "title": "Deakin University",
+    "excerpt": "Regional campuses carry an extra year of post-study work rights.",
+    "content": "Deakin University sits in Geelong, Australia. Regional campuses carry an extra year of post-study work rights.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Australia",
+      "_edulume_city": "Geelong"
+    },
+    "terms": {
+      "edulume_destination": ["Australia"]
+    },
+    "image": "crest-deakin-university.svg"
+  },
+  {
+    "title": "Technical University of Munich",
+    "excerpt": "No tuition fee, and one of Europe's strongest engineering faculties.",
+    "content": "Technical University of Munich sits in Munich, Germany. No tuition fee, and one of Europe's strongest engineering faculties.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Germany",
+      "_edulume_city": "Munich"
+    },
+    "terms": {
+      "edulume_destination": ["Germany"]
+    },
+    "image": "crest-technical-university-of-munich.svg"
+  },
+  {
+    "title": "RWTH Aachen University",
+    "excerpt": "Germany's largest technical university, with English-taught masters.",
+    "content": "RWTH Aachen University sits in Aachen, Germany. Germany's largest technical university, with English-taught masters.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Germany",
+      "_edulume_city": "Aachen"
+    },
+    "terms": {
+      "edulume_destination": ["Germany"]
+    },
+    "image": "crest-rwth-aachen-university.svg"
+  },
+  {
+    "title": "Arizona State University",
+    "excerpt": "Large STEM provision, and unusually accessible admissions for its scale.",
+    "content": "Arizona State University sits in Tempe, United States. Large STEM provision, and unusually accessible admissions for its scale.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United States",
+      "_edulume_city": "Tempe"
+    },
+    "terms": {
+      "edulume_destination": ["United States"]
+    },
+    "image": "crest-arizona-state-university.svg"
+  },
+  {
+    "title": "Northeastern University",
+    "excerpt": "Co-op placements are integral, which changes the OPT calculation.",
+    "content": "Northeastern University sits in Boston, United States. Co-op placements are integral, which changes the OPT calculation.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United States",
+      "_edulume_city": "Boston"
+    },
+    "terms": {
+      "edulume_destination": ["United States"]
+    },
+    "image": "crest-northeastern-university.svg"
+  },
+  {
+    "title": "University of Nottingham Malaysia",
+    "excerpt": "A British degree awarded at roughly a third of the UK cost.",
+    "content": "University of Nottingham Malaysia sits in Semenyih, Malaysia. A British degree awarded at roughly a third of the UK cost.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Malaysia",
+      "_edulume_city": "Semenyih"
+    },
+    "terms": {
+      "edulume_destination": ["Malaysia"]
+    },
+    "image": "crest-university-of-nottingham-malaysia.svg"
+  },
+  {
+    "title": "Monash University Malaysia",
+    "excerpt": "Identical award to the Australian campus, at Malaysian fees.",
+    "content": "Monash University Malaysia sits in Subang Jaya, Malaysia. Identical award to the Australian campus, at Malaysian fees.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Malaysia",
+      "_edulume_city": "Subang Jaya"
+    },
+    "terms": {
+      "edulume_destination": ["Malaysia"]
+    },
+    "image": "crest-monash-university-malaysia.svg"
+  },
+  {
+    "title": "University College Dublin",
+    "excerpt": "Ireland's largest university, with strong links to the technology sector.",
+    "content": "University College Dublin sits in Dublin, Republic of Ireland. Ireland's largest university, with strong links to the technology sector.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Republic of Ireland",
+      "_edulume_city": "Dublin"
+    },
+    "terms": {
+      "edulume_destination": ["Republic of Ireland"]
+    },
+    "image": "crest-university-college-dublin.svg"
+  },
+  {
+    "title": "Trinity College Dublin",
+    "excerpt": "Ireland's oldest university and its most selective.",
+    "content": "Trinity College Dublin sits in Dublin, Republic of Ireland. Ireland's oldest university and its most selective.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Republic of Ireland",
+      "_edulume_city": "Dublin"
+    },
+    "terms": {
+      "edulume_destination": ["Republic of Ireland"]
+    },
+    "image": "crest-trinity-college-dublin.svg"
+  },
+  {
+    "title": "University of Tokyo",
+    "excerpt": "Japan's leading research university, with MEXT-funded graduate places.",
+    "content": "University of Tokyo sits in Tokyo, Japan. Japan's leading research university, with MEXT-funded graduate places.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Japan",
+      "_edulume_city": "Tokyo"
+    },
+    "terms": {
+      "edulume_destination": ["Japan"]
+    },
+    "image": "crest-university-of-tokyo.svg"
+  },
+  {
+    "title": "Kyushu University",
+    "excerpt": "English-taught engineering masters and a lower cost of living than Tokyo.",
+    "content": "Kyushu University sits in Fukuoka, Japan. English-taught engineering masters and a lower cost of living than Tokyo.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Japan",
+      "_edulume_city": "Fukuoka"
+    },
+    "terms": {
+      "edulume_destination": ["Japan"]
+    },
+    "image": "crest-kyushu-university.svg"
+  },
+  {
+    "title": "University of Sheffield",
+    "excerpt": "Well regarded in engineering, with a low cost of living for a Russell Group city.",
+    "content": "University of Sheffield sits in Sheffield, United Kingdom. Well regarded in engineering, with a low cost of living for a Russell Group city.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "United Kingdom",
+      "_edulume_city": "Sheffield"
+    },
+    "terms": {
+      "edulume_destination": ["United Kingdom"]
+    },
+    "image": "crest-university-of-sheffield.svg"
+  },
+  {
+    "title": "Griffith University",
+    "excerpt": "Strong in nursing and public health, with accessible entry requirements.",
+    "content": "Griffith University sits in Brisbane, Australia. Strong in nursing and public health, with accessible entry requirements.\n\nWe hold current entry requirements, intake dates and scholarship deadlines for this institution and check them against your transcript before you pay an application fee. Where an offer is unlikely on your current profile we say so at the shortlist stage rather than after a rejection.",
+    "meta": {
+      "_edulume_country": "Australia",
+      "_edulume_city": "Brisbane"
+    },
+    "terms": {
+      "edulume_destination": ["Australia"]
+    },
+    "image": "crest-griffith-university.svg"
   }
 ]

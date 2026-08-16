@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Infrastructure\Admin;
 
+use Edulume\Core\Domain\Admin\ScreenHelp;
 use Edulume\Core\Infrastructure\Wp\Capabilities;
 
 /**
@@ -43,6 +44,7 @@ final class AdminMenu
     public function register(): void
     {
         add_action('admin_menu', [$this, 'addPages']);
+        add_action('current_screen', [$this, 'addContextualHelp']);
     }
 
     public function addPages(): void
@@ -81,10 +83,75 @@ final class AdminMenu
      */
     public function renderApp(): void
     {
-        printf(
-            '<div class="wrap"><div id="edulume-admin-root" data-edulume-route="%s"></div></div>',
-            esc_attr($this->currentRoute())
-        );
+        $route = $this->currentRoute();
+
+        echo '<div class="wrap">';
+        $this->renderHelp($route);
+        printf('<div id="edulume-admin-root" data-edulume-route="%s"></div>', esc_attr($route));
+        echo '</div>';
+    }
+
+    /**
+     * The plain-language explanation of the screen, on the screen.
+     *
+     * WordPress's own Help tab is collapsed by default and in the top-right corner, which is to
+     * say almost nobody opens it. Someone who has never built a website needs to know what a
+     * screen is for while they are looking at it, so this renders inline and the same text is
+     * also registered as a Help tab for people who already know to look there.
+     */
+    private function renderHelp(string $route): void
+    {
+        $help = ScreenHelp::find($route);
+
+        if ($help === null) {
+            return;
+        }
+
+        echo '<div class="edulume-help">';
+        printf('<h2>%s</h2>', esc_html($help->title));
+        printf('<p>%s</p>', esc_html($help->summary));
+
+        if ($help->steps !== []) {
+            echo '<ul>';
+
+            foreach ($help->steps as $step) {
+                printf('<li>%s</li>', esc_html($step));
+            }
+
+            echo '</ul>';
+        }
+
+        echo '</div>';
+    }
+
+    /**
+     * Mirrors the same text into WordPress's contextual Help tab.
+     */
+    public function addContextualHelp(): void
+    {
+        $screen = get_current_screen();
+
+        if ($screen === null) {
+            return;
+        }
+
+        $help = ScreenHelp::find($this->currentRoute());
+
+        if ($help === null) {
+            return;
+        }
+
+        $steps = '';
+
+        foreach ($help->steps as $step) {
+            $steps .= '<li>' . esc_html($step) . '</li>';
+        }
+
+        $screen->add_help_tab([
+            'id' => 'edulume-' . $help->slug,
+            'title' => $help->title,
+            'content' => '<p>' . esc_html($help->summary) . '</p><ul>' . $steps . '</ul>',
+        ]);
     }
 
     private function currentRoute(): string

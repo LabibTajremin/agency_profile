@@ -410,3 +410,790 @@
     animation: none !important;
   }
 }
+
+/* Colour mode switch ----------------------------------------------------- */
+
+/*
+ * Two radios drawn as a segmented control.
+ *
+ * The inputs stay in the accessibility tree and keep their focus behaviour — they are moved
+ * off-screen by `.screen-reader-text`, never `display: none`, which would take them out of the
+ * tab order and out of the arrow-key group along with it.
+ */
+.edulume-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--edulume-space-2, 0.5rem);
+  padding: var(--edulume-space-2, 0.5rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+}
+
+.edulume-mode-switch__option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--edulume-space-2, 0.5rem);
+  /* The touch-target floor on both axes, not a decorative size. */
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border-radius: var(--edulume-radius-full, 999px);
+  color: var(--edulume-ink-muted, #5b616e);
+  cursor: pointer;
+  transition: background-color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease);
+}
+
+.edulume-mode-switch__icon {
+  display: inline-flex;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+}
+
+.edulume-mode-switch__icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.edulume-mode-switch__label {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* The selected option carries the accent, so which mode is active is never a guess. */
+.edulume-mode-switch__option:has(input:checked) {
+  background-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-on-accent, #ffffff);
+}
+
+.edulume-mode-switch__option:hover {
+  background-color: var(--edulume-surface, #fbfbfc);
+}
+
+.edulume-mode-switch__option:has(input:checked):hover {
+  background-color: var(--edulume-accent, #365e92);
+}
+
+/* The ring goes on the label, because the input it belongs to is off-screen. */
+.edulume-mode-switch__option:has(input:focus-visible) {
+  outline: 3px solid var(--edulume-focus-ring, #365e92);
+  outline-offset: 2px;
+}
+
+/*
+ * `:has()` is unsupported on a small tail of browsers, where the checked state would otherwise
+ * be invisible. The label text alone still says which is which, and both remain operable.
+ */
+@supports not selector(:has(*)) {
+  .edulume-mode-switch__option {
+    color: var(--edulume-ink, #16181d);
+  }
+}
+
+/* Logo wall ---------------------------------------------------------------- */
+
+/*
+ * Partner and accreditation marks.
+ *
+ * The mark size is a token rather than a fixed value because it is the thing most likely to
+ * need adjusting per site: a wall of wordmarks wants more width than a wall of monograms.
+ */
+.edulume-logo-wall {
+  --edulume-logo-mark-size: 7.5rem;
+
+  display: grid;
+  gap: var(--edulume-space-4, 1rem);
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.edulume-logo-wall__item {
+  display: flex;
+  align-items: center;
+  gap: var(--edulume-space-4, 1rem);
+  padding: var(--edulume-space-4, 1rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+  /* `transform` and `opacity` only: both are composited, so a hover cannot cause a reflow. */
+  transition:
+    transform var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    box-shadow var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    border-color var(--edulume-duration-base, 240ms) var(--edulume-easing, ease);
+}
+
+.edulume-logo-wall__mark {
+  flex: 0 0 auto;
+  inline-size: var(--edulume-logo-mark-size);
+  block-size: auto;
+  /*
+   * Greyscale at rest, colour on hover. A wall of competing brand colours pulls the eye away
+   * from the page's own accent; desaturating settles it without hiding anything.
+   */
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition:
+    filter var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    opacity var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    transform var(--edulume-duration-base, 240ms) var(--edulume-easing, ease);
+}
+
+.edulume-logo-wall__name {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  color: var(--edulume-ink-muted, #5b616e);
+}
+
+/* Hover and keyboard focus behave identically — a keyboard user gets the same affordance. */
+.edulume-logo-wall__item:hover,
+.edulume-logo-wall__item:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--edulume-accent, #365e92);
+  box-shadow: var(--edulume-shadow-2, 0 2px 8px rgb(0 0 0 / 20%));
+}
+
+.edulume-logo-wall__item:hover .edulume-logo-wall__mark,
+.edulume-logo-wall__item:focus-within .edulume-logo-wall__mark {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.edulume-logo-wall__item:hover .edulume-logo-wall__name,
+.edulume-logo-wall__item:focus-within .edulume-logo-wall__name {
+  color: var(--edulume-ink, #16181d);
+}
+
+/*
+ * Names off: the mark carries the whole tile, so it gets the full width and the row gets
+ * tighter. Set from the admin, applied as an attribute rather than a second stylesheet.
+ */
+.edulume-logo-wall[data-show-names='false'] {
+  --edulume-logo-mark-size: 11rem;
+
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+}
+
+.edulume-logo-wall[data-show-names='false'] .edulume-logo-wall__item {
+  justify-content: center;
+}
+
+.edulume-logo-wall[data-show-names='false'] .edulume-logo-wall__name {
+  /*
+   * Hidden visually, kept for assistive technology. `display: none` would leave a screen-reader
+   * user with a wall of images whose only description is a filename.
+   */
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edulume-logo-wall__item,
+  .edulume-logo-wall__mark {
+    transition: none;
+  }
+
+  .edulume-logo-wall__item:hover,
+  .edulume-logo-wall__item:focus-within {
+    transform: none;
+  }
+
+  .edulume-logo-wall__item:hover .edulume-logo-wall__mark,
+  .edulume-logo-wall__item:focus-within .edulume-logo-wall__mark {
+    transform: none;
+  }
+}
+
+/* Card actions ------------------------------------------------------------ */
+
+.edulume-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin-block-start: var(--edulume-space-3, 0.75rem);
+}
+
+.edulume-card__action {
+  min-block-size: 44px;
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: transparent;
+  color: var(--edulume-ink-muted, #5b616e);
+  font: inherit;
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  cursor: pointer;
+  transition:
+    background-color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease),
+    color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease);
+}
+
+.edulume-card__action:hover {
+  border-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-ink, #16181d);
+}
+
+/* Pressed is the saved state, and it is announced as well as coloured. */
+.edulume-card__action[aria-pressed='true'] {
+  background-color: var(--edulume-accent, #365e92);
+  border-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-on-accent, #ffffff);
+}
+
+/*
+ * The comparison limit. The script disables the remaining buttons at four rather than letting
+ * a fifth click do nothing silently, and this is what makes that visible.
+ */
+.edulume-card__action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Home sections ----------------------------------------------------------- */
+
+.edulume-home-section__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin-block-end: var(--edulume-space-6, 2rem);
+}
+
+.edulume-home-section__more {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-hero__actions,
+.edulume-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-3, 0.75rem);
+}
+
+.edulume-cta {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.edulume-button--quiet {
+  background-color: transparent;
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  color: var(--edulume-ink, #16181d);
+}
+
+/* Quotes ------------------------------------------------------------------ */
+
+.edulume-quote {
+  margin: 0;
+  padding: var(--edulume-space-6, 2rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+}
+
+.edulume-quote__body {
+  margin: 0 0 var(--edulume-space-3, 0.75rem);
+  font-family: var(--edulume-font-quote, inherit);
+}
+
+.edulume-quote__name {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.edulume-quote__detail {
+  display: block;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* FAQ --------------------------------------------------------------------- */
+
+.edulume-faq-item {
+  border-block-end: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+}
+
+.edulume-faq-item__question {
+  /* A real target, and a pointer, because a summary is a control. */
+  min-block-size: 44px;
+  display: flex;
+  align-items: center;
+  padding-block: var(--edulume-space-3, 0.75rem);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.edulume-faq-item__answer {
+  padding-block-end: var(--edulume-space-4, 1rem);
+  color: var(--edulume-ink-muted, #5b616e);
+}
+
+/* Forms ------------------------------------------------------------------- */
+
+.edulume-form {
+  display: grid;
+  gap: var(--edulume-space-3, 0.75rem);
+  max-inline-size: 32rem;
+  padding: var(--edulume-space-6, 2rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+}
+
+.edulume-form__field {
+  display: grid;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin: 0;
+}
+
+.edulume-form__label {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  font-weight: 600;
+}
+
+.edulume-form__input {
+  min-block-size: 44px;
+  padding: var(--edulume-space-2, 0.5rem) var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-2, 0.5rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  font: inherit;
+}
+
+.edulume-form__input[aria-invalid='true'] {
+  border-color: var(--edulume-accent, #365e92);
+  border-width: 2px;
+}
+
+/*
+ * The error is styled as text, not as colour alone. Colour is the one channel a
+ * colour-blind visitor may not have, and an error message that only differs by hue is an
+ * error message they cannot find.
+ */
+.edulume-form__error:not(:empty) {
+  padding-block-start: var(--edulume-space-2, 0.5rem);
+  color: var(--edulume-accent-text, #365e92);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  font-weight: 600;
+}
+
+.edulume-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--edulume-space-2, 0.5rem);
+}
+
+/* Off-screen rather than `display: none`: a bot reading the markup still finds it. */
+.edulume-form__honeypot {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.edulume-form__status:not(:empty) {
+  margin: 0;
+  padding: var(--edulume-space-3, 0.75rem);
+  border-radius: var(--edulume-radius-2, 0.5rem);
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+}
+
+/* Eligibility and calculator ---------------------------------------------- */
+
+.edulume-eligibility-grid {
+  display: grid;
+  gap: var(--edulume-space-6, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+.edulume-eligibility,
+.edulume-calculator {
+  display: grid;
+  gap: var(--edulume-space-3, 0.75rem);
+  align-content: start;
+  padding: var(--edulume-space-6, 2rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+}
+
+.edulume-eligibility__verdict:not(:empty) {
+  padding: var(--edulume-space-3, 0.75rem);
+  border-inline-start: 4px solid var(--edulume-accent, #365e92);
+  border-radius: var(--edulume-radius-2, 0.5rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+  font-weight: 600;
+}
+
+.edulume-eligibility__advice {
+  margin: 0;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-calculator__total {
+  margin: 0;
+  font-size: var(--edulume-font-size-4, 2rem);
+  font-weight: 700;
+}
+
+.edulume-calculator__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--edulume-space-3, 0.75rem);
+  padding-block: var(--edulume-space-2, 0.5rem);
+  border-block-end: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-calculator__note {
+  margin: 0;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-chip {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+}
+
+/* Compare tray ------------------------------------------------------------ */
+
+.edulume-compare-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin-block-end: var(--edulume-space-4, 1rem);
+}
+
+.edulume-compare-bar__count {
+  margin: 0;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* Carousel ---------------------------------------------------------------- */
+
+.edulume-carousel__track {
+  display: flex;
+  gap: var(--edulume-space-4, 1rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* Momentum stays with the browser; the buttons only call scrollBy. */
+  scroll-behavior: smooth;
+}
+
+.edulume-carousel__track > * {
+  flex: 0 0 min(22rem, 80%);
+  scroll-snap-align: start;
+}
+
+.edulume-carousel__controls {
+  display: flex;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin-block-start: var(--edulume-space-3, 0.75rem);
+}
+
+.edulume-carousel__button {
+  inline-size: 44px;
+  block-size: 44px;
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-surface, #fbfbfc);
+  cursor: pointer;
+}
+
+.edulume-carousel__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.edulume-carousel__button::before {
+  content: '';
+  display: block;
+  inline-size: 0.6rem;
+  block-size: 0.6rem;
+  margin-inline: auto;
+  border-block-start: 2px solid currentColor;
+  border-inline-end: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.edulume-carousel__button--previous::before {
+  transform: rotate(-135deg);
+}
+
+/* Motion ------------------------------------------------------------------ */
+
+/*
+ * The reveal only hides anything once the script has said it is driving. Without that guard a
+ * blocked or failed module would leave the page permanently blank — which is the failure mode
+ * that makes scroll animation a liability rather than a flourish.
+ */
+[data-edulume-motion-active='true'] [data-edulume-motion] {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition:
+    opacity var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    transform var(--edulume-duration-base, 240ms) var(--edulume-easing, ease);
+}
+
+[data-edulume-motion-active='true'] [data-edulume-motion].is-in-view {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-edulume-motion-active='true'] [data-edulume-motion] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Tabs, counters and before/after ----------------------------------------- */
+
+.edulume-block--tabs [role='tablist'] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-2, 0.5rem);
+}
+
+.edulume-block--tabs [role='tab'] {
+  min-block-size: 44px;
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.edulume-block--tabs [role='tab'][aria-selected='true'] {
+  background-color: var(--edulume-accent, #365e92);
+  border-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-on-accent, #ffffff);
+}
+
+[data-edulume-before-after] {
+  /*
+   * Declared here, not only set from script, so the divider has a defined resting position
+   * before `interactions.js` runs — and so the token audit can see that something owns it.
+   */
+  --edulume-reveal: 50%;
+
+  position: relative;
+  overflow: hidden;
+}
+
+[data-edulume-before-after] > :nth-child(2) {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--edulume-reveal, 50%)) 0 0);
+}
+
+.edulume-video__frame {
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+/* ========================================================================
+ * Small screens
+ *
+ * The theme had exactly one breakpoint before this — the drawer at 60rem — and everything
+ * else was sized for a desktop and left to fend for itself on a phone. That shows up as three
+ * things on a 360px screen: sections with more air than content, headings that eat the fold,
+ * and grids whose minimum column is wider than the viewport.
+ *
+ * The rules below scale the configured values rather than replacing them. `calc()` against the
+ * same token means a site that has chosen generous spacing still reads as generous on a phone,
+ * proportionally — replacing the token with a fixed number would throw that choice away and
+ * make every site identical on mobile.
+ * ===================================================================== */
+
+@media (max-width: 48rem) {
+  /*
+   * Vertical rhythm at 55%. Six rem above and below every section is confident on a desktop and
+   * absurd on a phone, where it means a full thumb-swipe of nothing between one idea and the
+   * next.
+   */
+  .edulume-section {
+    padding-block: calc(var(--edulume-section-spacing, 6rem) * 0.55);
+  }
+
+  .edulume-container {
+    padding-inline: calc(var(--edulume-gutter, 1.5rem) * 0.8);
+  }
+
+  /*
+   * One column, deliberately. `auto-fill` with a 16rem minimum already collapses to one column
+   * here, but it leaves the track sized at 16rem — wider than a 360px viewport once padding is
+   * counted — and the row overflows horizontally. Stating one column removes the arithmetic.
+   */
+  .edulume-grid,
+  .edulume-logo-wall,
+  .edulume-footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--edulume-space-4, 1rem);
+  }
+
+  .edulume-card__body {
+    padding: var(--edulume-space-4, 1rem);
+  }
+
+  /* Header: the brand and the drawer toggle, nothing else competing for the row. */
+  .edulume-header__inner {
+    gap: var(--edulume-space-3, 0.75rem);
+    padding-block: var(--edulume-space-3, 0.75rem);
+  }
+
+  .edulume-header__actions {
+    gap: var(--edulume-space-2, 0.5rem);
+  }
+
+  /*
+   * The utility bar is the first thing to go. It carries secondary links that are all reachable
+   * from the drawer, and on a phone it costs a whole row above the content people came for.
+   */
+  .edulume-utility {
+    display: none;
+  }
+
+  /* The announcement stacks rather than truncating: a message worth showing is worth reading. */
+  .edulume-announcement {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--edulume-space-2, 0.5rem);
+    text-align: start;
+  }
+
+  .edulume-announcement__dismiss {
+    margin-inline-start: auto;
+  }
+
+  /*
+   * Mode switch: icons only. The words "Light" and "Dark" are the first thing that pushes the
+   * header onto a second row, and the icons carry the meaning on their own — the accessible
+   * name comes from the label text, which is still there for assistive technology.
+   */
+  .edulume-mode-switch__label {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .edulume-mode-switch__option {
+    justify-content: center;
+    padding-inline: var(--edulume-space-3, 0.75rem);
+  }
+
+  /*
+   * The floating cluster sits above the thumb, not under it. Bottom-right at the very edge is
+   * where a phone's own gesture bar lives, and a button there is one a person misses twice
+   * before hitting it.
+   */
+  .edulume-fab {
+    inset-block-end: calc(var(--edulume-space-4, 1rem) + env(safe-area-inset-bottom, 0px));
+    inset-inline-end: var(--edulume-space-3, 0.75rem);
+    flex-direction: row;
+  }
+
+  .edulume-footer__baseline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--edulume-space-3, 0.75rem);
+  }
+
+  /* `margin-inline-start: auto` on a column pushes it nowhere useful; it just reads as a gap. */
+  .edulume-footer__credit {
+    margin-inline-start: 0;
+  }
+
+  .edulume-footer__menu {
+    gap: var(--edulume-space-3, 0.75rem);
+  }
+
+  /*
+   * The drawer takes the full width on a phone. `min(22rem, 90vw)` leaves a 10% strip of the
+   * page behind it, which invites a tap that dismisses the menu by accident.
+   */
+  .edulume-drawer {
+    inline-size: 100vw;
+    padding: var(--edulume-space-6, 2rem) var(--edulume-space-4, 1rem);
+  }
+
+  .edulume-drawer__list a {
+    /* A comfortable target in a list people scroll with a thumb. */
+    padding-block: var(--edulume-space-4, 1rem);
+  }
+}
+
+/*
+ * Very small screens. Not a separate design — the same one, with the last of the horizontal
+ * padding taken out so content is not squeezed into a column narrower than it needs.
+ */
+@media (max-width: 26rem) {
+  .edulume-container {
+    padding-inline: calc(var(--edulume-gutter, 1.5rem) * 0.65);
+  }
+
+  .edulume-logo-wall__item {
+    gap: var(--edulume-space-3, 0.75rem);
+    padding: var(--edulume-space-3, 0.75rem);
+  }
+}
+
+/*
+ * Nothing may scroll the page sideways.
+ *
+ * A single wide element — a table, a long unbroken URL in a footer credit, a pre block — makes
+ * the whole document pannable, and every vertical scroll then drifts off-axis. This is the one
+ * rule that most reliably separates a site that feels built for a phone from one that does not.
+ */
+html,
+body {
+  overflow-x: clip;
+}
+
+:where(img, video, iframe, table, pre) {
+  max-inline-size: 100%;
+}
+
+/* Wide content scrolls inside itself rather than taking the page with it. */
+.edulume-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*
+ * Touch targets.
+ *
+ * Pointer-based media queries rather than width: a small laptop with a trackpad does not need
+ * 44px list rows, and a large tablet does. Asking about the input device answers the question
+ * that actually matters.
+ */
+@media (pointer: coarse) {
+  :where(
+    .edulume-nav__list a,
+    .edulume-footer__menu a,
+    .edulume-drawer__list a,
+    .edulume-card__title a
+  ) {
+    min-block-size: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

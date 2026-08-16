@@ -860,3 +860,100 @@ function add_submenu_page(
     ?int $position = null
 ) {
 }
+
+/**
+ * Media library functions, used by the demo importer to sideload bundled artwork.
+ *
+ * @param array<string, mixed>|null $deprecated
+ *
+ * @return array{file?: string, url?: string, type?: string, error?: string|false}
+ */
+function wp_upload_bits(string $name, $deprecated, string $bits, ?string $time = null): array
+{
+}
+
+/**
+ * @param array<string, mixed>|string $attachment
+ *
+ * @return int|\WP_Error
+ */
+function wp_insert_attachment(
+    $attachment,
+    string $file = '',
+    int $parentPostId = 0,
+    bool $wpError = false,
+    bool $fireAfterHooks = true
+) {
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function wp_generate_attachment_metadata(int $attachmentId, string $file): array
+{
+}
+
+/**
+ * @param array<string, mixed> $data
+ *
+ * @return int|false
+ */
+function wp_update_attachment_metadata(int $attachmentId, array $data)
+{
+}
+
+/**
+ * @return int|bool
+ */
+function set_post_thumbnail(int $postId, int $thumbnailId)
+{
+}
+
+/**
+ * @return \WP_Post|false|null
+ */
+function wp_delete_attachment(int $postId, bool $forceDelete = false)
+{
+}
+
+/**
+ * @param int|\WP_Post|null $post
+ *
+ * @return string|false
+ */
+function get_post_type($post = null)
+{
+}
+
+/**
+ * Admin styling and screen helpers, used to paint wp-admin in the site's accent and to
+ * register the contextual help each screen carries.
+ *
+ * @param string|false $src
+ * @param list<string> $deps
+ * @param string|bool|null $ver
+ */
+function wp_register_style(string $handle, $src, array $deps = [], $ver = false, string $media = 'all'): bool
+{
+}
+
+function wp_add_inline_style(string $handle, string $data): bool
+{
+}
+
+class WP_Screen
+{
+    /**
+     * @param array<string, mixed> $args
+     */
+    public function add_help_tab(array $args): void
+    {
+    }
+}
+
+/**
+ * @return \WP_Screen|null
+ */
+function get_current_screen()
+{
+}

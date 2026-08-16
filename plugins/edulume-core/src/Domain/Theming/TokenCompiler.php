@@ -46,7 +46,7 @@ final class TokenCompiler
     {
         $seed = $settings->accentSeed();
         $palette = $this->paletteGenerator->generate($seed);
-        $neutrals = NeutralScale::fromHue(ColorSpace::srgbToOklch($seed)->hue);
+        $neutrals = self::neutralsFor($seed, $mode);
 
         return array_merge(
             $this->accentTokens($palette, $mode),
@@ -75,6 +75,32 @@ final class TokenCompiler
         $tokens[self::PREFIX . 'accent-text'] = $palette->text($mode)->toHex();
 
         return $tokens;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    /**
+     * The neutral scale each mode is built from.
+     *
+     * Light mode tints its greys toward the accent, which is what stops a teal site and a
+     * crimson site sharing the same cold grey. Dark mode cannot do the same, because the two
+     * ends of one ramp are the two modes' surfaces: step 0 is the light-mode background *and*
+     * the dark-mode ink. Warming step 0 to cream for dark-mode text would turn every light-mode
+     * page cream along with it.
+     *
+     * So dark mode gets its own ramp — midnight blue at the dark end, cream at the light end —
+     * and the two modes stop fighting over the same rungs.
+     *
+     * Public and static because `PaletteGenerator` has to resolve accent-as-text against the
+     * exact surface that will be behind it. Two places deriving that surface independently is
+     * how a palette ends up proving contrast against a background nothing paints.
+     */
+    public static function neutralsFor(Srgb $seed, ThemeMode $mode): NeutralScale
+    {
+        return $mode === ThemeMode::Dark
+            ? NeutralScale::midnight()
+            : NeutralScale::fromHue(ColorSpace::srgbToOklch($seed)->hue);
     }
 
     /**

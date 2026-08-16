@@ -1,22 +1,122 @@
 [
   {
     "title": "United Kingdom",
-    "excerpt": "A long-standing choice for one-year masters degrees.",
-    "content": "A long-standing choice for one-year masters degrees. Replace this with your own copy before launch."
-  },
-  {
-    "title": "Ireland",
-    "excerpt": "English-taught degrees with a two-year post-study work visa.",
-    "content": "English-taught degrees with a two-year post-study work visa. Replace this with your own copy before launch."
-  },
-  {
-    "title": "Netherlands",
-    "excerpt": "Research universities with strong English-taught provision.",
-    "content": "Research universities with strong English-taught provision. Replace this with your own copy before launch."
+    "excerpt": "One-year masters, the Graduate Route, and the shortest path from offer to campus.",
+    "content": "The United Kingdom remains the most common first choice for Bangladeshi postgraduates, and the reason is arithmetic: a taught masters runs twelve months rather than two years, so the total cost of tuition and living is often lower than a cheaper per-year destination. The Graduate Route allows two years of work after study, three for doctoral graduates.\n\nIntakes run in September and January, with a smaller May intake at some universities. Applications open roughly a year ahead, and the January intake is materially less competitive for students who miss the September deadline.",
+    "meta": {
+      "_edulume_visa_route": "Student Route (Tier 4)",
+      "_edulume_post_study_work": "2 years",
+      "_edulume_intakes": "September, January",
+      "_edulume_currency": "GBP"
+    },
+    "terms": {
+      "edulume_region": ["Europe"]
+    },
+    "image": "destination-united-kingdom.svg"
   },
   {
     "title": "Canada",
-    "excerpt": "Post-graduation work permits of up to three years.",
-    "content": "Post-graduation work permits of up to three years. Replace this with your own copy before launch."
+    "excerpt": "Post-graduation work permits, a clear residency pathway, and provincial choice.",
+    "content": "Canada attracts students who are thinking past graduation. The Post-Graduation Work Permit runs up to three years depending on programme length, and time worked on it counts toward permanent residency under Express Entry.\n\nProvinces differ more than students expect. Ontario and British Columbia carry the highest living costs and the largest job markets; the Prairie provinces are cheaper and often have faster provincial nomination streams. We shortlist by province before we shortlist by institution.",
+    "meta": {
+      "_edulume_visa_route": "Study Permit",
+      "_edulume_post_study_work": "Up to 3 years",
+      "_edulume_intakes": "September, January, May",
+      "_edulume_currency": "CAD"
+    },
+    "terms": {
+      "edulume_region": ["North America"]
+    },
+    "image": "destination-canada.svg"
+  },
+  {
+    "title": "Australia",
+    "excerpt": "Strong engineering and nursing pathways, and a post-study work stream tied to your city.",
+    "content": "Australia's Temporary Graduate visa gives two to four years of post-study work, with longer entitlements for graduates of regional universities. That regional loading is the single most under-used lever in an Australian application.\n\nThe February intake is the main one; July is the second. Nursing and engineering accreditation matters more here than in most destinations, so we check professional recognition before we check ranking.",
+    "meta": {
+      "_edulume_visa_route": "Subclass 500",
+      "_edulume_post_study_work": "2-4 years",
+      "_edulume_intakes": "February, July",
+      "_edulume_currency": "AUD"
+    },
+    "terms": {
+      "edulume_region": ["Oceania"]
+    },
+    "image": "destination-australia.svg"
+  },
+  {
+    "title": "Germany",
+    "excerpt": "Public universities with no tuition fee, and an eighteen-month job-seeker visa.",
+    "content": "German public universities charge no tuition for most programmes, including for international students — a semester contribution of roughly €150 to €350 covers administration and a transport pass. The cost that matters is living, and the blocked account requirement proves you can meet it.\n\nEnglish-taught masters are widely available; English-taught bachelors are not, and a bachelor applicant will usually need a Studienkolleg year plus German to B2. We are direct about that early, because it changes the timeline by a year.",
+    "meta": {
+      "_edulume_visa_route": "National Visa (Type D)",
+      "_edulume_post_study_work": "18 months",
+      "_edulume_intakes": "October, April",
+      "_edulume_currency": "EUR"
+    },
+    "terms": {
+      "edulume_region": ["Europe"]
+    },
+    "image": "destination-germany.svg"
+  },
+  {
+    "title": "United States",
+    "excerpt": "The widest programme choice anywhere, and OPT with a STEM extension.",
+    "content": "The United States offers more programmes than any other destination and the most funding, though the funding sits mainly at doctoral level. Optional Practical Training gives twelve months of work; STEM-designated degrees extend that to thirty-six.\n\nApplications are earlier than students expect — many deadlines fall in December and January for the following autumn. Financial documentation is scrutinised closely at interview, and we prepare for that specifically.",
+    "meta": {
+      "_edulume_visa_route": "F-1",
+      "_edulume_post_study_work": "12 months, 36 for STEM",
+      "_edulume_intakes": "Fall, Spring",
+      "_edulume_currency": "USD"
+    },
+    "terms": {
+      "edulume_region": ["North America"]
+    },
+    "image": "destination-united-states.svg"
+  },
+  {
+    "title": "Malaysia",
+    "excerpt": "Regional cost, British and Australian branch campuses, and a short flight home.",
+    "content": "Malaysia carries branch campuses of several British and Australian universities, awarding the same degree at a fraction of the cost of studying at the home campus. For families weighing budget against brand, it is the most efficient compromise available.\n\nLiving costs in Kuala Lumpur run well below any Western destination, the flight home is under four hours, and the halal food and prayer facilities are a non-issue rather than a logistics problem.",
+    "meta": {
+      "_edulume_visa_route": "Student Pass",
+      "_edulume_post_study_work": "1 year",
+      "_edulume_intakes": "February, September",
+      "_edulume_currency": "MYR"
+    },
+    "terms": {
+      "edulume_region": ["Asia"]
+    },
+    "image": "destination-malaysia.svg"
+  },
+  {
+    "title": "Republic of Ireland",
+    "excerpt": "An English-speaking EU member with a two-year stay-back for masters graduates.",
+    "content": "Ireland is the English-speaking option inside the European Union, which matters for students who want EU access after graduation. The Third Level Graduate Programme allows two years of stay-back for masters graduates.\n\nDublin dominates the technology and pharmaceutical sectors, and both recruit international graduates directly. Accommodation in Dublin is genuinely difficult and should be arranged before travel, not after.",
+    "meta": {
+      "_edulume_visa_route": "Stamp 2",
+      "_edulume_post_study_work": "2 years",
+      "_edulume_intakes": "September, January",
+      "_edulume_currency": "EUR"
+    },
+    "terms": {
+      "edulume_region": ["Europe"]
+    },
+    "image": "destination-republic-of-ireland.svg"
+  },
+  {
+    "title": "Japan",
+    "excerpt": "Funded research places, and a shortage of graduates in exactly the fields we place into.",
+    "content": "Japan is under-considered by Bangladeshi students and shouldn't be. MEXT scholarships cover tuition and a monthly stipend, and university-specific waivers are common at the national universities.\n\nEnglish-taught graduate programmes exist in engineering and the sciences, though basic Japanese materially improves both daily life and hiring prospects. Employers actively recruit international graduates in engineering and IT.",
+    "meta": {
+      "_edulume_visa_route": "Student Visa",
+      "_edulume_post_study_work": "Designated Activities",
+      "_edulume_intakes": "April, October",
+      "_edulume_currency": "JPY"
+    },
+    "terms": {
+      "edulume_region": ["Asia"]
+    },
+    "image": "destination-japan.svg"
   }
 ]

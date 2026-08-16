@@ -34,6 +34,18 @@ final class Activation
         flush_rewrite_rules();
     }
 
+    /**
+     * Whether the database was last prepared by a different version of this code.
+     *
+     * An absent option counts as pending: that is a site whose plugin files were put in place
+     * without an activation ever running, which happens whenever a deployment copies a plugin
+     * directory into an install that already had it active.
+     */
+    public static function isUpgradePending(string $version): bool
+    {
+        return (string) get_option(self::VERSION_OPTION, '') !== $version;
+    }
+
     public static function hasStoredSettings(): bool
     {
         return get_option(OptionSettingsRepository::SETTINGS_OPTION, null) !== null;

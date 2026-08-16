@@ -1,22 +1,56 @@
 [
   {
-    "title": "Counsellor 1",
-    "excerpt": "A counsellor profile with specialisms and languages.",
-    "content": "A counsellor profile with specialisms and languages. Replace this with your own copy before launch."
+    "title": "Farhana Rahman",
+    "excerpt": "Sixteen years placing students in the UK and Canada. British Council certified.",
+    "content": "Farhana founded the practice in 2010 after eight years with a British Council partner agency. She handles UK and Canadian postgraduate applications personally and still takes every first consultation herself.",
+    "meta": {
+      "_edulume_role": "Founder and Principal Counsellor"
+    },
+    "image": "portrait-farhana-rahman.svg"
   },
   {
-    "title": "Counsellor 2",
-    "excerpt": "A counsellor profile with specialisms and languages.",
-    "content": "A counsellor profile with specialisms and languages. Replace this with your own copy before launch."
+    "title": "Imran Chowdhury",
+    "excerpt": "Eleven years in Australian admissions, with a focus on engineering and nursing.",
+    "content": "Imran spent four years working in Melbourne before returning to Dhaka, which shows in how practically he briefs students on cost of living and part-time work.",
+    "meta": {
+      "_edulume_role": "Senior Counsellor — Australia and New Zealand"
+    },
+    "image": "portrait-imran-chowdhury.svg"
   },
   {
-    "title": "Counsellor 3",
-    "excerpt": "A counsellor profile with specialisms and languages.",
-    "content": "A counsellor profile with specialisms and languages. Replace this with your own copy before launch."
+    "title": "Nusrat Jahan",
+    "excerpt": "Handles every visa file the practice submits. Refusal rate under two per cent.",
+    "content": "Nusrat built the documentation checklists the whole office now works from. She is the person who notices that a bank statement is three days short of the maintenance period.",
+    "meta": {
+      "_edulume_role": "Visa and Documentation Lead"
+    },
+    "image": "portrait-nusrat-jahan.svg"
   },
   {
-    "title": "Counsellor 4",
-    "excerpt": "A counsellor profile with specialisms and languages.",
-    "content": "A counsellor profile with specialisms and languages. Replace this with your own copy before launch."
+    "title": "Tanvir Ahmed",
+    "excerpt": "IELTS trainer, ten years. Former examiner.",
+    "content": "Tanvir teaches the writing and speaking modules and runs the diagnostic mocks. His students average a full band improvement over an eight-week course.",
+    "meta": {
+      "_edulume_role": "Test Preparation Lead"
+    },
+    "image": "portrait-tanvir-ahmed.svg"
+  },
+  {
+    "title": "Sadia Islam",
+    "excerpt": "Tracks every award our students are eligible for, and their deadlines.",
+    "content": "Sadia came from a university international office and knows how funding committees actually read an application, which is not how applicants assume they do.",
+    "meta": {
+      "_edulume_role": "Scholarship and Funding Adviser"
+    },
+    "image": "portrait-sadia-islam.svg"
+  },
+  {
+    "title": "Rezaul Karim",
+    "excerpt": "Accommodation, travel and the first fortnight after arrival.",
+    "content": "Rezaul is who students message at two in the morning from an airport, and he answers. He coordinates accommodation and arrival for every intake.",
+    "meta": {
+      "_edulume_role": "Student Services and Pre-Departure"
+    },
+    "image": "portrait-rezaul-karim.svg"
   }
 ]
