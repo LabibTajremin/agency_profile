@@ -114,7 +114,7 @@ final class DemoContentTest extends TestCase
     {
         $pages = DemoContent::pages();
 
-        foreach ([
+        $paths = [
             'founders.title',
             'founders.lead',
             'founders.visionTitle',
@@ -143,7 +143,9 @@ final class DemoContentTest extends TestCase
             'founders.goals.3.label',
             'founders.milestones.5.year',
             'founders.milestones.5.event',
-        ] as $path) {
+        ];
+
+        foreach ($paths as $path) {
             $value = NestedArray::get($pages, $path);
 
             self::assertNotNull($value, $path . ' is missing');
