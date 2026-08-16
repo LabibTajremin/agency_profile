@@ -650,6 +650,363 @@
   cursor: not-allowed;
 }
 
+/* Home sections ----------------------------------------------------------- */
+
+.edulume-home-section__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin-block-end: var(--edulume-space-6, 2rem);
+}
+
+.edulume-home-section__more {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-hero__actions,
+.edulume-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-3, 0.75rem);
+}
+
+.edulume-cta {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.edulume-button--quiet {
+  background-color: transparent;
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  color: var(--edulume-ink, #16181d);
+}
+
+/* Quotes ------------------------------------------------------------------ */
+
+.edulume-quote {
+  margin: 0;
+  padding: var(--edulume-space-6, 2rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+}
+
+.edulume-quote__body {
+  margin: 0 0 var(--edulume-space-3, 0.75rem);
+  font-family: var(--edulume-font-quote, inherit);
+}
+
+.edulume-quote__name {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.edulume-quote__detail {
+  display: block;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* FAQ --------------------------------------------------------------------- */
+
+.edulume-faq-item {
+  border-block-end: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+}
+
+.edulume-faq-item__question {
+  /* A real target, and a pointer, because a summary is a control. */
+  min-block-size: 44px;
+  display: flex;
+  align-items: center;
+  padding-block: var(--edulume-space-3, 0.75rem);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.edulume-faq-item__answer {
+  padding-block-end: var(--edulume-space-4, 1rem);
+  color: var(--edulume-ink-muted, #5b616e);
+}
+
+/* Forms ------------------------------------------------------------------- */
+
+.edulume-form {
+  display: grid;
+  gap: var(--edulume-space-3, 0.75rem);
+  max-inline-size: 32rem;
+  padding: var(--edulume-space-6, 2rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+}
+
+.edulume-form__field {
+  display: grid;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin: 0;
+}
+
+.edulume-form__label {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  font-weight: 600;
+}
+
+.edulume-form__input {
+  min-block-size: 44px;
+  padding: var(--edulume-space-2, 0.5rem) var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-2, 0.5rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  font: inherit;
+}
+
+.edulume-form__input[aria-invalid='true'] {
+  border-color: var(--edulume-accent, #365e92);
+  border-width: 2px;
+}
+
+/*
+ * The error is styled as text, not as colour alone. Colour is the one channel a
+ * colour-blind visitor may not have, and an error message that only differs by hue is an
+ * error message they cannot find.
+ */
+.edulume-form__error:not(:empty) {
+  padding-block-start: var(--edulume-space-2, 0.5rem);
+  color: var(--edulume-accent-text, #365e92);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  font-weight: 600;
+}
+
+.edulume-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--edulume-space-2, 0.5rem);
+}
+
+/* Off-screen rather than `display: none`: a bot reading the markup still finds it. */
+.edulume-form__honeypot {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.edulume-form__status:not(:empty) {
+  margin: 0;
+  padding: var(--edulume-space-3, 0.75rem);
+  border-radius: var(--edulume-radius-2, 0.5rem);
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+}
+
+/* Eligibility and calculator ---------------------------------------------- */
+
+.edulume-eligibility-grid {
+  display: grid;
+  gap: var(--edulume-space-6, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+.edulume-eligibility,
+.edulume-calculator {
+  display: grid;
+  gap: var(--edulume-space-3, 0.75rem);
+  align-content: start;
+  padding: var(--edulume-space-6, 2rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius, 0.75rem);
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+}
+
+.edulume-eligibility__verdict:not(:empty) {
+  padding: var(--edulume-space-3, 0.75rem);
+  border-inline-start: 4px solid var(--edulume-accent, #365e92);
+  border-radius: var(--edulume-radius-2, 0.5rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+  font-weight: 600;
+}
+
+.edulume-eligibility__advice {
+  margin: 0;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-calculator__total {
+  margin: 0;
+  font-size: var(--edulume-font-size-4, 2rem);
+  font-weight: 700;
+}
+
+.edulume-calculator__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--edulume-space-3, 0.75rem);
+  padding-block: var(--edulume-space-2, 0.5rem);
+  border-block-end: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-calculator__note {
+  margin: 0;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-chip {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+}
+
+/* Compare tray ------------------------------------------------------------ */
+
+.edulume-compare-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin-block-end: var(--edulume-space-4, 1rem);
+}
+
+.edulume-compare-bar__count {
+  margin: 0;
+  color: var(--edulume-ink-muted, #5b616e);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* Carousel ---------------------------------------------------------------- */
+
+.edulume-carousel__track {
+  display: flex;
+  gap: var(--edulume-space-4, 1rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* Momentum stays with the browser; the buttons only call scrollBy. */
+  scroll-behavior: smooth;
+}
+
+.edulume-carousel__track > * {
+  flex: 0 0 min(22rem, 80%);
+  scroll-snap-align: start;
+}
+
+.edulume-carousel__controls {
+  display: flex;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin-block-start: var(--edulume-space-3, 0.75rem);
+}
+
+.edulume-carousel__button {
+  inline-size: 44px;
+  block-size: 44px;
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-surface, #fbfbfc);
+  cursor: pointer;
+}
+
+.edulume-carousel__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.edulume-carousel__button::before {
+  content: '';
+  display: block;
+  inline-size: 0.6rem;
+  block-size: 0.6rem;
+  margin-inline: auto;
+  border-block-start: 2px solid currentColor;
+  border-inline-end: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.edulume-carousel__button--previous::before {
+  transform: rotate(-135deg);
+}
+
+/* Motion ------------------------------------------------------------------ */
+
+/*
+ * The reveal only hides anything once the script has said it is driving. Without that guard a
+ * blocked or failed module would leave the page permanently blank — which is the failure mode
+ * that makes scroll animation a liability rather than a flourish.
+ */
+[data-edulume-motion-active='true'] [data-edulume-motion] {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition:
+    opacity var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    transform var(--edulume-duration-base, 240ms) var(--edulume-easing, ease);
+}
+
+[data-edulume-motion-active='true'] [data-edulume-motion].is-in-view {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-edulume-motion-active='true'] [data-edulume-motion] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Tabs, counters and before/after ----------------------------------------- */
+
+.edulume-block--tabs [role='tablist'] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-2, 0.5rem);
+}
+
+.edulume-block--tabs [role='tab'] {
+  min-block-size: 44px;
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.edulume-block--tabs [role='tab'][aria-selected='true'] {
+  background-color: var(--edulume-accent, #365e92);
+  border-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-on-accent, #ffffff);
+}
+
+[data-edulume-before-after] {
+  /*
+   * Declared here, not only set from script, so the divider has a defined resting position
+   * before `interactions.js` runs — and so the token audit can see that something owns it.
+   */
+  --edulume-reveal: 50%;
+
+  position: relative;
+  overflow: hidden;
+}
+
+[data-edulume-before-after] > :nth-child(2) {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--edulume-reveal, 50%)) 0 0);
+}
+
+.edulume-video__frame {
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 /* ========================================================================
  * Small screens
  *

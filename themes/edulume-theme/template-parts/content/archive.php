@@ -33,6 +33,29 @@ if ($edulume_has_finder) {
             <?php get_template_part('template-parts/content/finder', null, ['post_type' => $edulume_type]); ?>
         <?php endif; ?>
 
+        <?php
+        /*
+         * The compare tray. Hidden until two things are selected, because a control that says
+         * "compare 1 item" is a control that has nothing to do.
+         */
+        edulume_require_feature('compare');
+        $edulume_compare_url = (string) home_url('/compare/');
+        ?>
+        <div class="edulume-compare-bar">
+            <p class="edulume-compare-bar__count">
+                <span data-edulume-compare-count>0</span>
+                <?php esc_html_e('selected to compare', 'edulume'); ?>
+            </p>
+            <a
+                class="edulume-button edulume-compare-bar__link"
+                href="<?php echo esc_url($edulume_compare_url); ?>"
+                data-edulume-compare-link="<?php echo esc_url($edulume_compare_url); ?>"
+                hidden
+            >
+                <?php esc_html_e('Compare selected', 'edulume'); ?>
+            </a>
+        </div>
+
         <?php if (have_posts()) : ?>
             <div class="edulume-grid" id="edulume-results">
                 <?php

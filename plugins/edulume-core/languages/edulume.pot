@@ -9,11 +9,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edulume\n"
 
-#: themes/edulume-theme/inc/assets.php:182
+#: themes/edulume-theme/inc/assets.php:216
+msgid " and "
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:225
 msgid "%s results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:183
+#: themes/edulume-theme/inc/assets.php:226
 msgid "1 result"
 msgstr ""
 
@@ -29,12 +33,24 @@ msgstr ""
 msgid "Accept selected"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/cta.php:31
-msgid "Book a free consultation"
+#: themes/edulume-theme/template-parts/home/eligibility.php:185
+msgid "An estimate to plan with, not a quotation."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:29
+msgid "Ask us a question"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:210
+msgid "Borderline — worth a conversation."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/breadcrumbs.php:23
 msgid "Breadcrumb"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:215
+msgid "Bring your transcript and test report to your first session."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/hero.php:41
@@ -45,7 +61,11 @@ msgstr ""
 msgid "Browse destinations"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/eligibility.php:17
+#: themes/edulume-theme/inc/assets.php:191
+msgid "Carousel"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/eligibility.php:21
 msgid "Check your eligibility"
 msgstr ""
 
@@ -65,6 +85,10 @@ msgstr ""
 msgid "Compare"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/content/archive.php:55
+msgid "Compare selected"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:182
 msgid "Contact details"
 msgstr ""
@@ -73,8 +97,17 @@ msgstr ""
 msgid "Cookie choices"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/eligibility.php:167
+msgid "Course length, in years"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:309
 msgid "Dark"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/eligibility.php:65
+#: themes/edulume-theme/template-parts/home/eligibility.php:136
+msgid "Destination"
 msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:160
@@ -84,6 +117,14 @@ msgstr ""
 #: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:56
 #: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:57
 msgid "Edulume"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:50
+msgid "Email"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:197
+msgid "Enter a valid email address."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/courses.php:15
@@ -98,12 +139,16 @@ msgstr ""
 msgid "Filter results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:180
+#: themes/edulume-theme/inc/assets.php:223
 msgid "Filtering…"
 msgstr ""
 
 #: themes/edulume-theme/404.php:33
 msgid "Find a course"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:206
+msgid "Flights"
 msgstr ""
 
 #: themes/edulume-theme/footer.php:23
@@ -118,8 +163,16 @@ msgstr ""
 msgid "Footer menu"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/eligibility.php:60
+msgid "Four questions. An honest answer, not a sales pitch."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/faq.php:18
 msgid "Frequently asked questions"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:44
+msgid "Full name"
 msgstr ""
 
 #: themes/edulume-theme/404.php:30
@@ -128,6 +181,14 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/home/services.php:15
 msgid "How we help"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:105
+msgid "I agree to be contacted about my enquiry."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/eligibility.php:106
+msgid "IELTS overall, if you have sat it"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/hero.php:17
@@ -140,6 +201,14 @@ msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:300
 msgid "Light"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:209
+msgid "Likely — your profile meets the published minimums."
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:204
+msgid "Living costs"
 msgstr ""
 
 #: themes/edulume-theme/inc/consent.php:92
@@ -157,7 +226,11 @@ msgstr ""
 msgid "Newsletter"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:184
+#: themes/edulume-theme/inc/assets.php:193
+msgid "Next"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:227
 msgid "No results"
 msgstr ""
 
@@ -173,7 +246,11 @@ msgstr ""
 msgid "No such lead."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/content/archive.php:54
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:66
+msgid "Not sure yet"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/archive.php:77
 msgid "Nothing here yet. Adjust your filters or check back soon."
 msgstr ""
 
@@ -189,16 +266,28 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/eligibility.php:43
-msgid "Pick where you want to study. We will tell you what you need and what it costs."
+#: themes/edulume-theme/template-parts/home/cta.php:43
+msgid "Or book a consultation"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:56
+msgid "Phone"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:83
 msgid "Please check the highlighted fields."
 msgstr ""
 
+#: themes/edulume-theme/inc/assets.php:198
+msgid "Please tick this to continue."
+msgstr ""
+
 #: themes/edulume-theme/index.php:41
 msgid "Posts navigation"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:192
+msgid "Previous"
 msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:231
@@ -222,8 +311,12 @@ msgid "Results for %s"
 msgstr ""
 
 #: themes/edulume-theme/search.php:43
-#: themes/edulume-theme/template-parts/content/archive.php:49
+#: themes/edulume-theme/template-parts/content/archive.php:72
 msgid "Results navigation"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:219
+msgid "Reveal the after image"
 msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:460
@@ -242,12 +335,28 @@ msgstr ""
 msgid "See all"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:111
+msgid "Send enquiry"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/cta.php:36
+msgid "Send us your question"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:199
+msgid "Sending…"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:264
 msgid "Site menu"
 msgstr ""
 
 #: themes/edulume-theme/header.php:29
 msgid "Skip to content"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:72
+msgid "Somewhere else"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:73
@@ -278,6 +387,10 @@ msgstr ""
 msgid "Tell us where you want to study and we will tell you, honestly, what is realistic."
 msgstr ""
 
+#: themes/edulume-theme/inc/assets.php:200
+msgid "Thank you. We will be in touch shortly."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:69
 msgid "That is not a pipeline status."
 msgstr ""
@@ -287,8 +400,24 @@ msgstr ""
 msgid "That section does not exist."
 msgstr ""
 
+#: themes/edulume-theme/inc/assets.php:196
+msgid "This field is required."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/trust-bar.php:16
 msgid "Trusted by"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:203
+msgid "Tuition"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/eligibility.php:131
+msgid "Tuition, living, visa and flights for the whole course."
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:211
+msgid "Unlikely as things stand."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/events.php:15
@@ -303,6 +432,14 @@ msgstr ""
 msgid "Utility bar"
 msgstr ""
 
+#: themes/edulume-theme/inc/assets.php:220
+msgid "Video"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:205
+msgid "Visa and health surcharge"
+msgstr ""
+
 #: themes/edulume-theme/maintenance.php:28
 msgid "We are making a few changes and will be back shortly."
 msgstr ""
@@ -315,8 +452,48 @@ msgstr ""
 msgid "We have your enquiry (%s)"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:98
+msgid "Website"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/eligibility.php:129
+msgid "What it will cost"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/testimonials.php:17
 msgid "What students say"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:214
+msgid "What would change this: "
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:63
+msgid "Where do you want to study?"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:79
+msgid "Which country?"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/eligibility.php:90
+msgid "Your CGPA, out of 4"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/enquiry-form.php:85
+msgid "Your question"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:213
+msgid "a higher English score"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:212
+msgid "a higher grade average"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/archive.php:47
+msgid "selected to compare"
 msgstr ""
 
 #: themes/edulume-theme/footer.php:42

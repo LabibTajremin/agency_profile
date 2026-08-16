@@ -52,6 +52,10 @@ function steps(): array
                 . ' fwrite(STDERR, "The shipped .pot was stale and has been regenerated."'
                 . ' . " Commit it.\n"); exit(1);\'',
             'job' => 'php-quality', 'needsDocker' => false, 'slow' => false],
+        // Catches a feature that is declared and unreachable — a script bound to markup nobody
+        // emits, or a module declared with no file behind it. Both shipped, both silent.
+        ['name' => 'Wiring audit', 'command' => 'composer audit:wiring', 'job' => 'php-quality',
+            'needsDocker' => false, 'slow' => false],
         ['name' => 'Unbounded-query audit', 'command' => 'composer audit:queries', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Logical-CSS and text-domain audit', 'command' => 'composer audit:i18n', 'job' => 'php-quality',

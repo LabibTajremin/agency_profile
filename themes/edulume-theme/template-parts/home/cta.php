@@ -26,10 +26,23 @@ $edulume_contact = get_page_by_path('contact');
                     <?php esc_html_e('Tell us where you want to study and we will tell you, honestly, what is realistic.', 'edulume'); ?>
                 </p>
 
+                <?php
+                /*
+                 * The form itself, not a link to a page with a form on it. Every navigation
+                 * between somebody deciding to ask and being able to type is a place they stop.
+                 */
+                get_template_part('template-parts/content/enquiry-form', null, [
+                    'form_id' => 'enquiry',
+                    'title' => __('Send us your question', 'edulume'),
+                ]);
+                ?>
+
                 <?php if ($edulume_contact instanceof WP_Post) : ?>
-                    <a class="edulume-button" href="<?php echo esc_url((string) get_permalink($edulume_contact)); ?>">
-                        <?php esc_html_e('Book a free consultation', 'edulume'); ?>
-                    </a>
+                    <p class="edulume-cta__alternative">
+                        <a href="<?php echo esc_url((string) get_permalink($edulume_contact)); ?>">
+                            <?php esc_html_e('Or book a consultation', 'edulume'); ?>
+                        </a>
+                    </p>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

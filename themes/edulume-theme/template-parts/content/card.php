@@ -13,8 +13,20 @@ declare(strict_types=1);
 
 defined('ABSPATH') || exit;
 
+/*
+ * The reveal hook is only emitted when motion is actually on. Emitting it unconditionally
+ * would put a hidden-until-observed element on pages where nothing is ever going to observe it.
+ */
+$edulume_motion = edulume_motion_is_active();
+
+if ($edulume_motion) {
+    edulume_require_feature('motion');
+}
 ?>
-<article <?php post_class('edulume-card'); ?>>
+<article
+    <?php post_class('edulume-card'); ?>
+    <?php echo $edulume_motion ? 'data-edulume-motion="fade-in-up"' : ''; ?>
+>
     <?php if (has_post_thumbnail()) : ?>
         <a class="edulume-card__media" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
             <?php
