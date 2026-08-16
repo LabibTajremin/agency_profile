@@ -211,8 +211,87 @@
     });
   }
 
+  /*
+   * The video repeater.
+   *
+   * Rows are cloned from the last one and renumbered, rather than built from a template string:
+   * the markup is rendered by PHP with the translations and the source list already in it, and a
+   * second copy of that markup in JavaScript is a second copy to keep in step.
+   *
+   * Without this script the page still saves whatever rows the server rendered, which is why
+   * there is always at least one — an owner with no JavaScript can still add their first video.
+   */
+  function setUpVideoRows(list) {
+    function renumber() {
+      Array.prototype.forEach.call(
+        list.querySelectorAll('[data-edulume-video-row]'),
+        function (row, index) {
+          Array.prototype.forEach.call(row.querySelectorAll('[name]'), function (field) {
+            field.setAttribute(
+              'name',
+              field.getAttribute('name').replace(/items\[\d+\]/, 'items[' + index + ']')
+            );
+          });
+        }
+      );
+    }
+
+    function bindRemove(row) {
+      var remove = row.querySelector('[data-edulume-video-remove]');
+
+      if (!remove) {
+        return;
+      }
+
+      remove.addEventListener('click', function () {
+        // Never below one row: an empty list has nothing to clone the next row from.
+        if (list.querySelectorAll('[data-edulume-video-row]').length < 2) {
+          Array.prototype.forEach.call(row.querySelectorAll('input'), function (field) {
+            field.value = '';
+          });
+
+          return;
+        }
+
+        row.parentNode.removeChild(row);
+        renumber();
+      });
+    }
+
+    Array.prototype.forEach.call(list.querySelectorAll('[data-edulume-video-row]'), bindRemove);
+
+    var add = document.querySelector('[data-edulume-video-add]');
+
+    if (!add) {
+      return;
+    }
+
+    add.addEventListener('click', function () {
+      var rows = list.querySelectorAll('[data-edulume-video-row]');
+      var clone = rows[rows.length - 1].cloneNode(true);
+
+      Array.prototype.forEach.call(clone.querySelectorAll('input'), function (field) {
+        field.value = field.getAttribute('type') === 'number' ? '0' : '';
+      });
+
+      list.appendChild(clone);
+      bindRemove(clone);
+      renumber();
+
+      var first = clone.querySelector('input');
+
+      if (first) {
+        first.focus();
+      }
+    });
+  }
+
   function start() {
     Array.prototype.forEach.call(document.querySelectorAll('[data-edulume-import]'), setUpImport);
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-edulume-video-rows]'),
+      setUpVideoRows
+    );
     Array.prototype.forEach.call(
       document.querySelectorAll('[data-edulume-sortable]'),
       setUpSortable

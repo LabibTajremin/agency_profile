@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edulume\n"
 
-#: themes/edulume-theme/inc/assets.php:216
+#: themes/edulume-theme/inc/assets.php:241
 msgid " and "
 msgstr ""
 
@@ -25,11 +25,11 @@ msgstr ""
 msgid "%1$s, %2$s"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:225
+#: themes/edulume-theme/inc/assets.php:250
 msgid "%s results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:226
+#: themes/edulume-theme/inc/assets.php:251
 msgid "1 result"
 msgstr ""
 
@@ -45,6 +45,10 @@ msgstr ""
 msgid "Accept selected"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:117
+msgid "Add another video"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:211
 msgid "Addresses never locked out, one per line"
 msgstr ""
@@ -53,11 +57,15 @@ msgstr ""
 msgid "An estimate to plan with, not a quotation."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:198
+msgid "Ask before loading videos from Facebook or YouTube"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:29
 msgid "Ask us a question"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:210
+#: themes/edulume-theme/inc/assets.php:235
 msgid "Borderline — worth a conversation."
 msgstr ""
 
@@ -65,7 +73,7 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:215
+#: themes/edulume-theme/inc/assets.php:240
 msgid "Bring your transcript and test report to your first session."
 msgstr ""
 
@@ -81,7 +89,7 @@ msgstr ""
 msgid "By the numbers"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:191
+#: themes/edulume-theme/inc/assets.php:216
 msgid "Carousel"
 msgstr ""
 
@@ -134,8 +142,8 @@ msgstr ""
 msgid "Double the lockout each time the same visitor comes back"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:63
 #: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:64
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:65
 msgid "Edulume"
 msgstr ""
 
@@ -147,7 +155,7 @@ msgstr ""
 msgid "Email me when someone is locked out"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:197
+#: themes/edulume-theme/inc/assets.php:222
 msgid "Enter a valid email address."
 msgstr ""
 
@@ -167,7 +175,7 @@ msgstr ""
 msgid "Filter results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:223
+#: themes/edulume-theme/inc/assets.php:248
 msgid "Filtering…"
 msgstr ""
 
@@ -175,7 +183,7 @@ msgstr ""
 msgid "Find a course"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:206
+#: themes/edulume-theme/inc/assets.php:231
 msgid "Flights"
 msgstr ""
 
@@ -210,6 +218,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:127
 msgid "Give the same message for every failed sign-in"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:165
+msgid "Heading"
 msgstr ""
 
 #: themes/edulume-theme/404.php:30
@@ -268,12 +280,32 @@ msgstr ""
 msgid "Leave this field empty"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:209
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:255
+msgid "Length"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:234
 msgid "Likely — your profile meets the published minimums."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:204
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:167
+msgid "Line under the heading"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:229
 msgid "Living costs"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:89
+msgid "Load this video from %s? It will set third-party cookies."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:95
+msgid "Load video"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:99
+msgid "Load videos like this from now on"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:115
@@ -307,11 +339,11 @@ msgstr ""
 msgid "Newsletter"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:193
+#: themes/edulume-theme/inc/assets.php:218
 msgid "Next"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:227
+#: themes/edulume-theme/inc/assets.php:252
 msgid "No results"
 msgstr ""
 
@@ -367,6 +399,14 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/video/card.php:41
+msgid "Play video"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:38
+msgid "Play “%s”"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:83
 msgid "Please check the highlighted fields."
 msgstr ""
@@ -375,7 +415,7 @@ msgstr ""
 msgid "Please confirm you have saved your sign-in address."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:198
+#: themes/edulume-theme/inc/assets.php:223
 msgid "Please tick this to continue."
 msgstr ""
 
@@ -383,11 +423,15 @@ msgstr ""
 msgid "Position of %s"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:257
+msgid "Poster image ID"
+msgstr ""
+
 #: themes/edulume-theme/index.php:41
 msgid "Posts navigation"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:192
+#: themes/edulume-theme/inc/assets.php:217
 msgid "Previous"
 msgstr ""
 
@@ -405,6 +449,10 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/content/related.php:26
 msgid "Related"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:259
+msgid "Remove"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:185
@@ -428,7 +476,7 @@ msgstr ""
 msgid "Results navigation"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:219
+#: themes/edulume-theme/inc/assets.php:244
 msgid "Reveal the after image"
 msgstr ""
 
@@ -442,6 +490,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:142
 msgid "Save login settings"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:118
+msgid "Save videos"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/scholarships.php:15
@@ -474,8 +526,12 @@ msgstr ""
 msgid "Send us your question"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:199
+#: themes/edulume-theme/inc/assets.php:224
 msgid "Sending…"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:164
+msgid "Show the video row on the front page"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:176
@@ -500,6 +556,10 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:73
 msgid "Sort by"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:190
+msgid "Start playing when the row scrolls into view"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/footer/centred.php:19
@@ -538,7 +598,7 @@ msgstr ""
 msgid "Tell us where you want to study and we will tell you, honestly, what is realistic."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:200
+#: themes/edulume-theme/inc/assets.php:225
 msgid "Thank you. We will be in touch shortly."
 msgstr ""
 
@@ -580,7 +640,7 @@ msgstr ""
 msgid "The sign-in address is too short — use at least three characters."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:196
+#: themes/edulume-theme/inc/assets.php:221
 msgid "This field is required."
 msgstr ""
 
@@ -590,6 +650,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:133
 msgid "This site sits behind Cloudflare or another proxy"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:253
+msgid "Title"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:158
@@ -604,7 +668,7 @@ msgstr ""
 msgid "Trusted by"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:203
+#: themes/edulume-theme/inc/assets.php:228
 msgid "Tuition"
 msgstr ""
 
@@ -612,7 +676,7 @@ msgstr ""
 msgid "Tuition, living, visa and flights for the whole course."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:211
+#: themes/edulume-theme/inc/assets.php:236
 msgid "Unlikely as things stand."
 msgstr ""
 
@@ -628,11 +692,33 @@ msgstr ""
 msgid "Utility bar"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:220
+#: themes/edulume-theme/inc/assets.php:213
+#: themes/edulume-theme/inc/assets.php:245
 msgid "Video"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:205
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:250
+msgid "Video address"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:172
+msgid "Video shape"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/video-rail.php:19
+#: themes/edulume-theme/template-parts/video/rail.php:42
+msgid "Videos"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:88
+msgid "Videos saved, but rows %s were not recognised and have been left out."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:85
+msgid "Videos saved."
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:230
 msgid "Visa and health surcharge"
 msgstr ""
 
@@ -661,12 +747,16 @@ msgstr ""
 msgid "What students say"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:214
+#: themes/edulume-theme/inc/assets.php:239
 msgid "What would change this: "
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:63
 msgid "Where do you want to study?"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:226
+msgid "Where the video is hosted"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:79
@@ -683,6 +773,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:42
 msgid "You are not allowed to change the home page."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:43
+msgid "You are not allowed to change the videos."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportAjax.php:51
@@ -710,11 +804,11 @@ msgstr ""
 msgid "Your sign-in page will be:"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:213
+#: themes/edulume-theme/inc/assets.php:238
 msgid "a higher English score"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:212
+#: themes/edulume-theme/inc/assets.php:237
 msgid "a higher grade average"
 msgstr ""
 

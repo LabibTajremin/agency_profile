@@ -45,6 +45,7 @@ function edulume_conditional_modules(): array
          * file rather than four: they are twenty lines apiece, and four requests on a page
          * using all four is worse than one.
          */
+        'video-rail' => static fn (): bool => edulume_page_has('video-rail'),
         'interactions' => static fn (): bool => edulume_page_has('tabs')
             || edulume_page_has('counters')
             || edulume_page_has('before-after')
@@ -142,6 +143,27 @@ add_action('wp_enqueue_scripts', static function (): void {
     );
 });
 
+/*
+ * The video rail's stylesheet, on the pages that have a rail and nowhere else.
+ *
+ * On `wp_footer` for the same reason the scripts are: a section declares the feature as it
+ * renders, and nothing knows whether the page has a rail until it has. A late stylesheet is a
+ * trade — it can repaint — which is why the card reserves its own height from an inline custom
+ * property in the markup rather than waiting for this file to say so.
+ */
+add_action('wp_footer', static function (): void {
+    if (!edulume_page_has('video-rail')) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'edulume-video',
+        get_template_directory_uri() . '/assets/css/video.css',
+        ['edulume-chrome'],
+        EDULUME_THEME_VERSION
+    );
+}, 1);
+
 /**
  * Enqueues the modules the page actually asked for.
  *
@@ -187,6 +209,9 @@ add_action('wp_footer', static function (): void {
 function edulume_module_strings(): array
 {
     return [
+        'video-rail' => [
+            'video' => __('Video', 'edulume'),
+        ],
         'carousel' => [
             'track' => __('Carousel', 'edulume'),
             'previous' => __('Previous', 'edulume'),

@@ -38,6 +38,7 @@ final class AdminMenu
             'edulume' => ['title' => 'Dashboard', 'capability' => Capabilities::MANAGE_THEME],
             'edulume-design' => ['title' => 'Design', 'capability' => Capabilities::MANAGE_THEME],
             'edulume-sections' => ['title' => 'Home sections', 'capability' => Capabilities::MANAGE_THEME],
+            'edulume-videos' => ['title' => 'Videos', 'capability' => Capabilities::MANAGE_THEME],
             'edulume-leads' => ['title' => 'Leads', 'capability' => Capabilities::MANAGE_LEADS],
             'edulume-forms' => ['title' => 'Forms', 'capability' => Capabilities::MANAGE_LEADS],
             'edulume-content' => ['title' => 'Content tools', 'capability' => Capabilities::MANAGE_CONTENT],
@@ -110,6 +111,10 @@ final class AdminMenu
 
         if ($route === 'edulume-sections' && $this->container instanceof Container) {
             (new SectionsScreen($this->container))->render();
+        }
+
+        if ($route === 'edulume-videos') {
+            (new VideoScreen())->render();
         }
 
         if ($route === 'edulume-safety') {

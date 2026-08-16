@@ -84,6 +84,18 @@ function esc_textarea(string $text): string
 {
 }
 
+function esc_url_raw(string $url): string
+{
+}
+
+/**
+ * @param string|array{0: int, 1: int} $size
+ * @return string|false
+ */
+function wp_get_attachment_image_url(int $attachmentId, $size = 'thumbnail', bool $icon = false)
+{
+}
+
 function sanitize_textarea_field(string $value): string
 {
 }

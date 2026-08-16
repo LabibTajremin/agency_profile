@@ -71,7 +71,7 @@ final class AdminAssets
         $screen = get_current_screen();
         $id = $screen === null ? '' : (string) $screen->id;
 
-        $screens = ['edulume-demos', 'edulume-sections', 'edulume-safety'];
+        $screens = ['edulume-demos', 'edulume-sections', 'edulume-safety', 'edulume-videos'];
         $wanted = array_filter($screens, static fn (string $slug): bool => str_contains($id, $slug));
 
         if ($wanted === []) {
