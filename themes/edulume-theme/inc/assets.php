@@ -149,15 +149,61 @@ add_action('wp_footer', static function (): void {
             continue;
         }
 
+        $handle = 'edulume-' . $module;
+
         wp_enqueue_script(
-            'edulume-' . $module,
+            $handle,
             get_template_directory_uri() . $relative,
             [],
             EDULUME_THEME_VERSION,
             ['strategy' => 'defer', 'in_footer' => true]
         );
+
+        edulume_localise_module($handle, $module);
     }
 }, 1);
+
+/**
+ * The translatable strings a module announces to the visitor.
+ *
+ * These lived in the JavaScript as English literals — "Filtering…", "1 result", "3 results" —
+ * which meant a Bengali or Arabic site announced its filter results in English. The i18n audit
+ * never saw them because it reads PHP, and a string in a `.js` file is invisible to both it and
+ * to `make:pot`. Declaring them here puts them back inside the translation pipeline.
+ *
+ * @return array<string, array<string, string>>
+ */
+function edulume_module_strings(): array
+{
+    return [
+        'finder' => [
+            'filtering' => __('Filtering…', 'edulume'),
+            /* translators: %s is the number of results found. */
+            'results' => __('%s results', 'edulume'),
+            'oneResult' => __('1 result', 'edulume'),
+            'noResults' => __('No results', 'edulume'),
+        ],
+    ];
+}
+
+function edulume_localise_module(string $handle, string $module): void
+{
+    $strings = edulume_module_strings()[$module] ?? [];
+
+    if ($strings === []) {
+        return;
+    }
+
+    wp_add_inline_script(
+        $handle,
+        sprintf(
+            'window.edulumeStrings = Object.assign(window.edulumeStrings || {}, {%s: %s});',
+            wp_json_encode($module),
+            wp_json_encode($strings)
+        ),
+        'before'
+    );
+}
 
 /**
  * Marks the first in-content image as the likely LCP element.

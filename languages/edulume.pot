@@ -9,6 +9,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edulume\n"
 
+#: themes/edulume-theme/inc/assets.php:182
+msgid "%s results"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:183
+msgid "1 result"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:85
 msgid "A lead cannot move to that status from where it is."
 msgstr ""
@@ -90,6 +98,10 @@ msgstr ""
 msgid "Filter results"
 msgstr ""
 
+#: themes/edulume-theme/inc/assets.php:180
+msgid "Filtering…"
+msgstr ""
+
 #: themes/edulume-theme/404.php:33
 msgid "Find a course"
 msgstr ""
@@ -143,6 +155,10 @@ msgstr ""
 #: themes/edulume-theme/template-parts/footer/compact.php:18
 #: themes/edulume-theme/template-parts/footer/contact-first.php:18
 msgid "Newsletter"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:184
+msgid "No results"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:35
