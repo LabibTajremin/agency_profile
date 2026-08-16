@@ -282,59 +282,54 @@ function edulume_the_drawer(): void
 }
 
 /**
- * The visitor's light/dark control, as a pair of radios.
+ * The visitor's light/dark control: one square button, icon only.
  *
- * A radio group rather than a button because the two modes are a choice between two named
- * options, and that is what a radio group means. A lone toggle button has to encode the current
- * state and the action it will perform in the same control, which is why they so often show the
- * icon of the mode you are *not* in and leave everyone guessing.
+ * It was a segmented pair of radios with the words "Light" and "Dark" beside their icons, which
+ * is defensible markup and about three times wider than it needs to be. In a header that also
+ * has to hold a logo, a menu and a call to action, that width is the thing that pushes the row
+ * onto a second line on a laptop.
  *
- * `role="radiogroup"` with real inputs, so arrow keys move between them, the browser handles
- * focus, and a screen reader announces "Light, radio button, 1 of 2, selected". The visible
- * labels are the icons; the accessible names come from the text beside them.
+ * A single button has one well-known failure mode — it must encode both the current state and
+ * the action, and the ones that get it wrong show the icon of the mode you are already in. This
+ * shows the mode you will switch *to*, and says so out loud: the accessible name is "Switch to
+ * dark mode", not "Dark". Both icons ship in the markup and CSS cross-fades between them, so
+ * the change costs no request and no reflow.
+ *
+ * The server cannot know the visitor's stored preference, so the button is rendered assuming
+ * light and the script corrects it before paint. That is why the label lives in a data
+ * attribute pair rather than only in the markup.
  */
 function edulume_the_mode_toggle(): void
 {
-    $modes = [
-        'light' => [
-            'label' => __('Light', 'edulume'),
-            /* A sun: a filled centre and eight rays. */
-            'icon' => '<circle cx="12" cy="12" r="4.2"/>'
-                . '<g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
-                . '<path d="M12 2.4v2.6M12 19v2.6M4.6 12H2M22 12h-2.6"/>'
-                . '<path d="M5.8 5.8l1.9 1.9M16.3 16.3l1.9 1.9M18.2 5.8l-1.9 1.9M7.7 16.3l-1.9 1.9"/>'
-                . '</g>',
-        ],
-        'dark' => [
-            'label' => __('Dark', 'edulume'),
-            /* A crescent, cut from one circle by another rather than drawn by hand. */
-            'icon' => '<path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8z"/>',
-        ],
-    ];
+    /* A sun: a filled centre and eight rays. */
+    $sun = '<circle cx="12" cy="12" r="4.2"/>'
+        . '<g stroke="currentColor" stroke-width="1.75" stroke-linecap="round">'
+        . '<path d="M12 2.4v2.6M12 19v2.6M4.6 12H2M22 12h-2.6"/>'
+        . '<path d="M5.8 5.8l1.9 1.9M16.3 16.3l1.9 1.9M18.2 5.8l-1.9 1.9M7.7 16.3l-1.9 1.9"/>'
+        . '</g>';
 
-    echo '<div class="edulume-mode-switch" role="radiogroup" aria-label="'
-        . esc_attr__('Colour mode', 'edulume') . '" data-edulume-mode-switch>';
+    /* A crescent, cut from one circle by another rather than drawn by hand. */
+    $moon = '<path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8z"/>';
 
-    foreach ($modes as $value => $mode) {
-        printf(
-            '<label class="edulume-mode-switch__option" data-mode="%1$s">'
-            . '<input type="radio" name="edulume-mode" value="%1$s" class="screen-reader-text" '
-            . 'data-edulume-mode-input>'
-            . '<span class="edulume-mode-switch__icon" aria-hidden="true">'
-            . '<svg viewBox="0 0 24 24" fill="currentColor" focusable="false">%2$s</svg>'
-            . '</span>'
-            . '<span class="edulume-mode-switch__label">%3$s</span>'
-            . '</label>',
-            esc_attr($value),
-            // Escaped rather than trusted, even though the markup two dozen lines above is a
-            // constant in this file. "It is hardcoded" is how every escaping gap starts, and it
-            // stops being true the first time somebody makes the icon set filterable.
-            wp_kses($mode['icon'], edulume_allowed_icon_markup()),
-            esc_html($mode['label'])
-        );
-    }
+    $toDark = __('Switch to dark mode', 'edulume');
+    $toLight = __('Switch to light mode', 'edulume');
 
-    echo '</div>';
+    printf(
+        '<button type="button" class="edulume-mode-toggle" data-edulume-mode-toggle '
+        . 'data-label-to-dark="%1$s" data-label-to-light="%2$s" aria-label="%1$s" title="%1$s">'
+        . '<span class="edulume-mode-toggle__icon edulume-mode-toggle__icon--moon" aria-hidden="true">'
+        . '<svg viewBox="0 0 24 24" fill="currentColor" focusable="false">%3$s</svg></span>'
+        . '<span class="edulume-mode-toggle__icon edulume-mode-toggle__icon--sun" aria-hidden="true">'
+        . '<svg viewBox="0 0 24 24" fill="currentColor" focusable="false">%4$s</svg></span>'
+        . '</button>',
+        esc_attr($toDark),
+        esc_attr($toLight),
+        // Escaped rather than trusted, even though the markup a dozen lines above is a constant
+        // in this file. "It is hardcoded" is how every escaping gap starts, and it stops being
+        // true the first time somebody makes the icon set filterable.
+        wp_kses($moon, edulume_allowed_icon_markup()),
+        wp_kses($sun, edulume_allowed_icon_markup())
+    );
 }
 
 /**

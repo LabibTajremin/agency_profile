@@ -89,11 +89,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:316
-msgid "Colour mode"
-msgstr ""
-
-#: themes/edulume-theme/inc/chrome.php:469
+#: themes/edulume-theme/inc/chrome.php:464
 msgid "Compare"
 msgstr ""
 
@@ -111,10 +107,6 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:167
 msgid "Course length, in years"
-msgstr ""
-
-#: themes/edulume-theme/inc/chrome.php:309
-msgid "Dark"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:65
@@ -238,10 +230,6 @@ msgstr ""
 
 #: themes/edulume-theme/404.php:23
 msgid "It may have moved. Try a search, or pick up from one of these."
-msgstr ""
-
-#: themes/edulume-theme/inc/chrome.php:300
-msgid "Light"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:209
@@ -384,7 +372,7 @@ msgstr ""
 msgid "Reveal the after image"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:460
+#: themes/edulume-theme/inc/chrome.php:455
 msgid "Save"
 msgstr ""
 
@@ -455,6 +443,14 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/home/success-stories.php:15
 msgid "Success stories"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:314
+msgid "Switch to dark mode"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:315
+msgid "Switch to light mode"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/cta.php:13

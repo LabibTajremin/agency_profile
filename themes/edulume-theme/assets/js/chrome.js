@@ -110,9 +110,9 @@
   }
 
   function setUpModeToggle() {
-    var inputs = document.querySelectorAll('[data-edulume-mode-input]');
+    var buttons = document.querySelectorAll('[data-edulume-mode-toggle]');
 
-    if (inputs.length === 0) {
+    if (buttons.length === 0) {
       return;
     }
 
@@ -121,17 +121,30 @@
     }
 
     /*
-     * The radios are driven from the document attribute rather than the other way round.
+     * The button is driven from the document attribute rather than the other way round.
      *
      * The no-flash script in the head has already set `data-theme` before first paint, so on
-     * load the attribute is the truth and the inputs have to catch up to it. Checking a radio
-     * in markup instead would mean the server guessing a mode it cannot know.
+     * load the attribute is the truth and the control has to catch up to it. Rendering the
+     * state into the markup instead would mean the server guessing a mode it cannot know.
+     *
+     * Both the accessible name and the tooltip name the *destination*, because that is what
+     * pressing the button does. A control labelled with the state you are already in is the
+     * single most common defect in these toggles.
      */
     function reflect() {
-      var mode = current();
+      var goingDark = current() === 'light';
 
-      Array.prototype.forEach.call(inputs, function (input) {
-        input.checked = input.value === mode;
+      Array.prototype.forEach.call(buttons, function (button) {
+        var label = goingDark
+          ? button.getAttribute('data-label-to-dark')
+          : button.getAttribute('data-label-to-light');
+
+        button.setAttribute('aria-pressed', goingDark ? 'false' : 'true');
+
+        if (label) {
+          button.setAttribute('aria-label', label);
+          button.setAttribute('title', label);
+        }
       });
     }
 
@@ -150,13 +163,9 @@
       reflect();
     }
 
-    Array.prototype.forEach.call(inputs, function (input) {
-      // `change` rather than `click`: a radio group is also driven by arrow keys, and a click
-      // listener would leave keyboard users selecting a mode that never applied.
-      input.addEventListener('change', function () {
-        if (input.checked) {
-          apply(input.value === 'dark' ? 'dark' : 'light');
-        }
+    Array.prototype.forEach.call(buttons, function (button) {
+      button.addEventListener('click', function () {
+        apply(current() === 'dark' ? 'light' : 'dark');
       });
     });
 

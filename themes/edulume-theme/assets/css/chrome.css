@@ -414,78 +414,94 @@
 /* Colour mode switch ----------------------------------------------------- */
 
 /*
- * Two radios drawn as a segmented control.
+ * The light/dark toggle: one 36px circle showing the mode you will switch to.
  *
- * The inputs stay in the accessibility tree and keep their focus behaviour — they are moved
- * off-screen by `.screen-reader-text`, never `display: none`, which would take them out of the
- * tab order and out of the arrow-key group along with it.
+ * Both icons are in the markup and only one is visible; swapping `src` or re-rendering an icon
+ * on click costs a frame and, on a slow connection, shows nothing at all in the gap. The
+ * padding is what carries the hit area past the 44px touch floor without making the visible
+ * control any bigger.
  */
-.edulume-mode-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--edulume-space-2, 0.5rem);
-  padding: var(--edulume-space-2, 0.5rem);
+.edulume-mode-toggle {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  inline-size: 36px;
+  block-size: 36px;
+  padding: 4px;
   border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
   border-radius: var(--edulume-radius-full, 999px);
-  background-color: var(--edulume-surface-subtle, #f4f5f7);
-}
-
-.edulume-mode-switch__option {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--edulume-space-2, 0.5rem);
-  /* The touch-target floor on both axes, not a decorative size. */
-  min-block-size: 44px;
-  min-inline-size: 44px;
-  padding-inline: var(--edulume-space-3, 0.75rem);
-  border-radius: var(--edulume-radius-full, 999px);
+  background-color: transparent;
   color: var(--edulume-ink-muted, #5b616e);
   cursor: pointer;
-  transition: background-color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease);
+  transition:
+    background-color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease),
+    color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease);
 }
 
-.edulume-mode-switch__icon {
-  display: inline-flex;
-  inline-size: 1.25rem;
-  block-size: 1.25rem;
+.edulume-mode-toggle:hover {
+  background-color: var(--edulume-surface-subtle, #f4f5f7);
+  color: var(--edulume-accent-text, #365e92);
 }
 
-.edulume-mode-switch__icon svg {
-  inline-size: 100%;
-  block-size: 100%;
-}
-
-.edulume-mode-switch__label {
-  font-size: var(--edulume-font-size-n1, 0.875rem);
-}
-
-/* The selected option carries the accent, so which mode is active is never a guess. */
-.edulume-mode-switch__option:has(input:checked) {
-  background-color: var(--edulume-accent, #365e92);
-  color: var(--edulume-on-accent, #ffffff);
-}
-
-.edulume-mode-switch__option:hover {
-  background-color: var(--edulume-surface, #fbfbfc);
-}
-
-.edulume-mode-switch__option:has(input:checked):hover {
-  background-color: var(--edulume-accent, #365e92);
-}
-
-/* The ring goes on the label, because the input it belongs to is off-screen. */
-.edulume-mode-switch__option:has(input:focus-visible) {
+.edulume-mode-toggle:focus-visible {
   outline: 3px solid var(--edulume-focus-ring, #365e92);
   outline-offset: 2px;
 }
 
 /*
- * `:has()` is unsupported on a small tail of browsers, where the checked state would otherwise
- * be invisible. The label text alone still says which is which, and both remain operable.
+ * The hit area, extended past the visible circle rather than by growing it.
+ *
+ * A pseudo-element rather than a `min-block-size`, because the button is a grid container
+ * centring its icons and a minimum size would move them off centre.
  */
-@supports not selector(:has(*)) {
-  .edulume-mode-switch__option {
-    color: var(--edulume-ink, #16181d);
+@media (pointer: coarse) {
+  .edulume-mode-toggle::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+  }
+}
+
+.edulume-mode-toggle__icon {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  inline-size: 18px;
+  block-size: 18px;
+  transition:
+    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.edulume-mode-toggle__icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/*
+ * Light mode is showing, so the button offers dark: the moon is visible and the sun is
+ * rotated out. Keyed off `[data-theme]` on the root, which the no-flash script sets before
+ * first paint, so the correct icon is the one that renders — there is no swap to watch.
+ */
+.edulume-mode-toggle__icon--sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+[data-theme='dark'] .edulume-mode-toggle__icon--sun {
+  opacity: 1;
+  transform: none;
+}
+
+[data-theme='dark'] .edulume-mode-toggle__icon--moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edulume-mode-toggle,
+  .edulume-mode-toggle__icon {
+    transition: none;
   }
 }
 
@@ -1079,25 +1095,6 @@
 
   .edulume-announcement__dismiss {
     margin-inline-start: auto;
-  }
-
-  /*
-   * Mode switch: icons only. The words "Light" and "Dark" are the first thing that pushes the
-   * header onto a second row, and the icons carry the meaning on their own — the accessible
-   * name comes from the label text, which is still there for assistive technology.
-   */
-  .edulume-mode-switch__label {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  .edulume-mode-switch__option {
-    justify-content: center;
-    padding-inline: var(--edulume-space-3, 0.75rem);
   }
 
   /*
