@@ -45,6 +45,10 @@ msgstr ""
 msgid "Colour mode"
 msgstr ""
 
+#: themes/edulume-theme/inc/chrome.php:465
+msgid "Compare"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:182
 msgid "Contact details"
 msgstr ""
@@ -200,6 +204,10 @@ msgstr ""
 #: themes/edulume-theme/search.php:43
 #: themes/edulume-theme/template-parts/content/archive.php:49
 msgid "Results navigation"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:456
+msgid "Save"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:36

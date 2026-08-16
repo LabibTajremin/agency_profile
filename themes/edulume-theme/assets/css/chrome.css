@@ -604,3 +604,239 @@
     transform: none;
   }
 }
+
+/* Card actions ------------------------------------------------------------ */
+
+.edulume-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin-block-start: var(--edulume-space-3, 0.75rem);
+}
+
+.edulume-card__action {
+  min-block-size: 44px;
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d7dae0);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: transparent;
+  color: var(--edulume-ink-muted, #5b616e);
+  font: inherit;
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  cursor: pointer;
+  transition:
+    background-color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease),
+    color var(--edulume-duration-fast, 160ms) var(--edulume-easing, ease);
+}
+
+.edulume-card__action:hover {
+  border-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-ink, #16181d);
+}
+
+/* Pressed is the saved state, and it is announced as well as coloured. */
+.edulume-card__action[aria-pressed='true'] {
+  background-color: var(--edulume-accent, #365e92);
+  border-color: var(--edulume-accent, #365e92);
+  color: var(--edulume-on-accent, #ffffff);
+}
+
+/*
+ * The comparison limit. The script disables the remaining buttons at four rather than letting
+ * a fifth click do nothing silently, and this is what makes that visible.
+ */
+.edulume-card__action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ========================================================================
+ * Small screens
+ *
+ * The theme had exactly one breakpoint before this — the drawer at 60rem — and everything
+ * else was sized for a desktop and left to fend for itself on a phone. That shows up as three
+ * things on a 360px screen: sections with more air than content, headings that eat the fold,
+ * and grids whose minimum column is wider than the viewport.
+ *
+ * The rules below scale the configured values rather than replacing them. `calc()` against the
+ * same token means a site that has chosen generous spacing still reads as generous on a phone,
+ * proportionally — replacing the token with a fixed number would throw that choice away and
+ * make every site identical on mobile.
+ * ===================================================================== */
+
+@media (max-width: 48rem) {
+  /*
+   * Vertical rhythm at 55%. Six rem above and below every section is confident on a desktop and
+   * absurd on a phone, where it means a full thumb-swipe of nothing between one idea and the
+   * next.
+   */
+  .edulume-section {
+    padding-block: calc(var(--edulume-section-spacing, 6rem) * 0.55);
+  }
+
+  .edulume-container {
+    padding-inline: calc(var(--edulume-gutter, 1.5rem) * 0.8);
+  }
+
+  /*
+   * One column, deliberately. `auto-fill` with a 16rem minimum already collapses to one column
+   * here, but it leaves the track sized at 16rem — wider than a 360px viewport once padding is
+   * counted — and the row overflows horizontally. Stating one column removes the arithmetic.
+   */
+  .edulume-grid,
+  .edulume-logo-wall,
+  .edulume-footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--edulume-space-4, 1rem);
+  }
+
+  .edulume-card__body {
+    padding: var(--edulume-space-4, 1rem);
+  }
+
+  /* Header: the brand and the drawer toggle, nothing else competing for the row. */
+  .edulume-header__inner {
+    gap: var(--edulume-space-3, 0.75rem);
+    padding-block: var(--edulume-space-3, 0.75rem);
+  }
+
+  .edulume-header__actions {
+    gap: var(--edulume-space-2, 0.5rem);
+  }
+
+  /*
+   * The utility bar is the first thing to go. It carries secondary links that are all reachable
+   * from the drawer, and on a phone it costs a whole row above the content people came for.
+   */
+  .edulume-utility {
+    display: none;
+  }
+
+  /* The announcement stacks rather than truncating: a message worth showing is worth reading. */
+  .edulume-announcement {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--edulume-space-2, 0.5rem);
+    text-align: start;
+  }
+
+  .edulume-announcement__dismiss {
+    margin-inline-start: auto;
+  }
+
+  /*
+   * Mode switch: icons only. The words "Light" and "Dark" are the first thing that pushes the
+   * header onto a second row, and the icons carry the meaning on their own — the accessible
+   * name comes from the label text, which is still there for assistive technology.
+   */
+  .edulume-mode-switch__label {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .edulume-mode-switch__option {
+    justify-content: center;
+    padding-inline: var(--edulume-space-3, 0.75rem);
+  }
+
+  /*
+   * The floating cluster sits above the thumb, not under it. Bottom-right at the very edge is
+   * where a phone's own gesture bar lives, and a button there is one a person misses twice
+   * before hitting it.
+   */
+  .edulume-fab {
+    inset-block-end: calc(var(--edulume-space-4, 1rem) + env(safe-area-inset-bottom, 0px));
+    inset-inline-end: var(--edulume-space-3, 0.75rem);
+    flex-direction: row;
+  }
+
+  .edulume-footer__baseline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--edulume-space-3, 0.75rem);
+  }
+
+  /* `margin-inline-start: auto` on a column pushes it nowhere useful; it just reads as a gap. */
+  .edulume-footer__credit {
+    margin-inline-start: 0;
+  }
+
+  .edulume-footer__menu {
+    gap: var(--edulume-space-3, 0.75rem);
+  }
+
+  /*
+   * The drawer takes the full width on a phone. `min(22rem, 90vw)` leaves a 10% strip of the
+   * page behind it, which invites a tap that dismisses the menu by accident.
+   */
+  .edulume-drawer {
+    inline-size: 100vw;
+    padding: var(--edulume-space-6, 2rem) var(--edulume-space-4, 1rem);
+  }
+
+  .edulume-drawer__list a {
+    /* A comfortable target in a list people scroll with a thumb. */
+    padding-block: var(--edulume-space-4, 1rem);
+  }
+}
+
+/*
+ * Very small screens. Not a separate design — the same one, with the last of the horizontal
+ * padding taken out so content is not squeezed into a column narrower than it needs.
+ */
+@media (max-width: 26rem) {
+  .edulume-container {
+    padding-inline: calc(var(--edulume-gutter, 1.5rem) * 0.65);
+  }
+
+  .edulume-logo-wall__item {
+    gap: var(--edulume-space-3, 0.75rem);
+    padding: var(--edulume-space-3, 0.75rem);
+  }
+}
+
+/*
+ * Nothing may scroll the page sideways.
+ *
+ * A single wide element — a table, a long unbroken URL in a footer credit, a pre block — makes
+ * the whole document pannable, and every vertical scroll then drifts off-axis. This is the one
+ * rule that most reliably separates a site that feels built for a phone from one that does not.
+ */
+html,
+body {
+  overflow-x: clip;
+}
+
+:where(img, video, iframe, table, pre) {
+  max-inline-size: 100%;
+}
+
+/* Wide content scrolls inside itself rather than taking the page with it. */
+.edulume-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*
+ * Touch targets.
+ *
+ * Pointer-based media queries rather than width: a small laptop with a trackpad does not need
+ * 44px list rows, and a large tablet does. Asking about the input device answers the question
+ * that actually matters.
+ */
+@media (pointer: coarse) {
+  :where(
+    .edulume-nav__list a,
+    .edulume-footer__menu a,
+    .edulume-drawer__list a,
+    .edulume-card__title a
+  ) {
+    min-block-size: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

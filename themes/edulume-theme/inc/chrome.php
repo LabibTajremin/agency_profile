@@ -396,3 +396,75 @@ function edulume_section_is_enabled(string $slug): bool
 
     return (bool) apply_filters('edulume_section_is_enabled', true, $slug);
 }
+
+/**
+ * The post types a visitor can shortlist or compare.
+ *
+ * Comparison only makes sense between things with the same shape of attributes, which is why
+ * this is a list rather than "anything with a post type".
+ *
+ * @return array<string, list<string>>
+ */
+function edulume_card_action_types(): array
+{
+    return [
+        'compare' => ['edulume_course', 'edulume_institution', 'edulume_test-prep'],
+        'shortlist' => [
+            'edulume_course',
+            'edulume_institution',
+            'edulume_scholarship',
+            'edulume_destination',
+        ],
+    ];
+}
+
+/**
+ * Shortlist and compare controls for one card.
+ *
+ * These buttons are why `compare.js` exists, and until now nothing rendered them: the script
+ * bound to `[data-edulume-compare]` and `[data-edulume-shortlist]`, and no template in the
+ * theme emitted either attribute. A hundred and twenty lines of working code with no way to
+ * reach it, and no error anywhere to say so — the feature simply was not on the site.
+ *
+ * Rendered as real `<button>` elements with `aria-pressed`, so the state is announced rather
+ * than merely coloured, and so the disabled state the script sets at the comparison limit is
+ * one the browser enforces.
+ */
+function edulume_the_card_actions(mixed $postId, string $postType): void
+{
+    $id = is_int($postId) ? $postId : (int) $postId;
+
+    if ($id <= 0) {
+        return;
+    }
+
+    $types = edulume_card_action_types();
+    $canCompare = in_array($postType, $types['compare'], true);
+    $canShortlist = in_array($postType, $types['shortlist'], true);
+
+    if (!$canCompare && !$canShortlist) {
+        return;
+    }
+
+    echo '<div class="edulume-card__actions">';
+
+    if ($canShortlist) {
+        printf(
+            '<button type="button" class="edulume-card__action" data-edulume-shortlist="%d" '
+            . 'aria-pressed="false">%s</button>',
+            $id,
+            esc_html__('Save', 'edulume')
+        );
+    }
+
+    if ($canCompare) {
+        printf(
+            '<button type="button" class="edulume-card__action" data-edulume-compare="%d" '
+            . 'aria-pressed="false">%s</button>',
+            $id,
+            esc_html__('Compare', 'edulume')
+        );
+    }
+
+    echo '</div>';
+}

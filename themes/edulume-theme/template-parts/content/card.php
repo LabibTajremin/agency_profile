@@ -32,5 +32,7 @@ defined('ABSPATH') || exit;
             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </h2>
         <p class="edulume-card__excerpt"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 24)); ?></p>
+
+        <?php edulume_the_card_actions(get_the_ID(), get_post_type()); ?>
     </div>
 </article>

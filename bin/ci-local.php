@@ -34,11 +34,23 @@ function steps(): array
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Design-token audit', 'command' => 'composer audit:tokens', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
-        // Regenerates the template and fails if it moved. This runs in CI and did not run here,
-        // which is exactly how a pull request went red on a stale `.pot` after a translatable
-        // string was added — a check the local gate could have caught in two seconds.
+        /*
+         * Regenerates the template and fails if regenerating changed it. This runs in CI and did
+         * not run here, which is exactly how a pull request went red on a stale `.pot` after a
+         * translatable string was added.
+         *
+         * Compared against the file on disk rather than against HEAD, which is what CI does. CI
+         * checks out clean, so `git diff` there means "regenerating changed something"; run
+         * locally it also means "you have uncommitted work", and a gate that fails whenever you
+         * have unfinished edits is a gate you learn to ignore.
+         */
         ['name' => 'Translation template is current',
-            'command' => 'composer make:pot && git diff --exit-code languages/edulume.pot',
+            'command' => 'php -r \'$f = "languages/edulume.pot"; $before = md5_file($f);'
+                . ' exec("composer make:pot 2>&1", $o, $c);'
+                . ' if ($c !== 0) { fwrite(STDERR, implode("\n", $o) . "\n"); exit(1); }'
+                . ' if ($before === md5_file($f)) { exit(0); }'
+                . ' fwrite(STDERR, "The shipped .pot was stale and has been regenerated."'
+                . ' . " Commit it.\n"); exit(1);\'',
             'job' => 'php-quality', 'needsDocker' => false, 'slow' => false],
         ['name' => 'Unbounded-query audit', 'command' => 'composer audit:queries', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
