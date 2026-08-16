@@ -130,24 +130,14 @@ Relationships are registered post meta `_edulume_rel_<target>` (`RelationshipDef
 
 ## What this feature round added
 
-- `Domain/Support/NestedArray` — recursive merge (maps merge, lists replace) + dot-path read.
-- `Domain/Content/DemoContent` — the copy a fresh install renders; `all()` keyed by `SectionId`,
-  `pages()` for the founders page. Served to the theme through `edulume_content_value`.
-- Theme `inc/content.php` — `edulume_opt`, `edulume_opt_list`, `edulume_row`,
-  `edulume_demo_img`, `edulume_the_demo_image`, `edulume_initials`.
-- `SectionId` gained `universities`, `process`, `intakes`, `video-rail`; `homePageOrder()` is
-  now 20 and `SectionOrder` reconciles a stored order against it.
-- New home partials: statistics, universities, highlights, process, intakes, scholarships,
-  team, blog, video-rail, plus demo fallbacks for testimonials and FAQ.
-- Admin: `SectionsScreen` (toggle + drag order), `VideoScreen` (repeater), `ShieldScreen`,
-  `DemoImportAjax` (batches of 10). All server-rendered, posting to `admin-post.php`.
-- `Domain/Security/*` + `Infrastructure/Security/LoginShield` — custom slug, lockout,
-  honeypot, `EDULUME_SHIELD_DISABLE` escape hatch, multisite bail.
-- `Domain/Video/*` + `Infrastructure/Content/VideoRailProvider` — facade rail, ≤2 live
-  iframes, three-tier intake-video fallback.
-- `Infrastructure/Content/DestinationPage`, `FoundersProvider`; theme
-  `single-edulume_destination.php`, `page-templates/founders.php`.
-- `tests/e2e/` now has four Playwright specs, run inside the `site-audits` CI job.
+- `Domain/Support/NestedArray` (recursive merge + dot path), `Domain/Content/DemoContent`
+  (the copy a fresh install renders), theme `inc/content.php` (`edulume_opt` and friends).
+- Nine new home partials, four new `SectionId` cases, `SectionOrder`.
+- Four server-rendered admin screens and the AJAX batch importer.
+- `Domain/Security/*` + `Infrastructure/Security/LoginShield`.
+- `Domain/Video/*`, `VideoRailProvider`, `DestinationPage`, `FoundersProvider`; theme
+  `single-edulume_destination.php`, `page-templates/founders.php`, `template-parts/video/*`.
+- `tests/e2e/` — four Playwright specs, run inside the `site-audits` CI job.
 
 ## Gaps / risks found
 
