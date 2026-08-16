@@ -48,6 +48,126 @@ final class DemoContent
     }
 
     /**
+     * Copy for pages rather than home-page sections.
+     *
+     * Kept out of `all()` because everything in there is keyed by a `SectionId` and a test holds
+     * it to that. A page is not a section: it has no toggle, no position in the home-page order,
+     * and no entry in the sections list.
+     *
+     * @return array<string, mixed>
+     */
+    public static function pages(): array
+    {
+        return ['founders' => self::founders()];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private static function founders(): array
+    {
+        return [
+            'title' => 'The two people who started this',
+            'lead' => 'Between them, nineteen years of getting Bangladeshi students into '
+                . 'universities that were not expecting them.',
+            'visionTitle' => 'What we are trying to build',
+            'vision' => 'Most students who leave this country for a degree do it on borrowed '
+                . 'confidence — a cousin who went somewhere, an agent who promised something. We '
+                . 'started this because the advice available here was either free and worthless '
+                . 'or expensive and no better.'
+                . "\n\n"
+                . 'The plan is unglamorous: know the requirements properly, say no when the '
+                . 'answer is no, and be reachable after the student has landed and stopped '
+                . 'paying us. That is the whole strategy, and it is harder to copy than it '
+                . 'sounds.',
+            'goalsTitle' => 'Where we intend to be',
+            'goalsYear' => 'by 2030',
+            'goals' => [
+                ['value' => 10000, 'label' => 'students placed'],
+                ['value' => 600, 'label' => 'partner universities'],
+                ['value' => 25, 'label' => 'countries'],
+                ['value' => 6, 'label' => 'offices'],
+            ],
+            'milestonesTitle' => 'How we got here',
+            'milestones' => [
+                ['year' => '2014', 'event' => 'Two desks in Dhanmondi and eleven students'],
+                ['year' => '2017', 'event' => 'First agreements with UK and Australian partners'],
+                ['year' => '2019', 'event' => 'IELTS centre opens; 400 students that year'],
+                ['year' => '2021', 'event' => 'Chattogram branch'],
+                ['year' => '2023', 'event' => 'Two thousandth placement'],
+                ['year' => '2026', 'event' => 'Fourteen destination countries'],
+            ],
+            'ctaTitle' => 'Come and talk to one of us',
+            'ctaBlurb' => 'The first meeting is with a counsellor, not a salesperson, and it '
+                . 'costs nothing.',
+            'people' => [
+                [
+                    'name' => 'Nusrat Jahan',
+                    'designation' => 'Co-founder and Head of Admissions',
+                    'tagline' => 'Reads a transcript the way an admissions officer does.',
+                    'photo' => 'portrait-nusrat-jahan.svg',
+                    'bio' => 'Spent four years assessing applications inside a UK partner office '
+                        . 'before starting this, which is where the habit of telling students '
+                        . 'the truth about their chances came from. Handles the UK and Ireland, '
+                        . 'and every statement of purpose that leaves this office.',
+                    'languages' => 'Bangla, English',
+                    'expertise' => 'UK admissions, statements of purpose, scholarship applications',
+                    'education' => [
+                        [
+                            'degree' => 'MSc International Education Policy',
+                            'institution' => 'University of Glasgow',
+                            'year' => '2013',
+                            'country' => 'United Kingdom',
+                        ],
+                        [
+                            'degree' => 'BA English',
+                            'institution' => 'University of Dhaka',
+                            'year' => '2010',
+                            'country' => 'Bangladesh',
+                        ],
+                    ],
+                    'experience' => [
+                        ['role' => 'Co-founder', 'org' => 'This consultancy', 'years' => '2014 to now'],
+                        ['role' => 'Admissions assessor', 'org' => 'UK partner office, Dhaka', 'years' => '2010–2014'],
+                    ],
+                    'socials' => ['linkedin' => '#', 'email' => 'mailto:hello@example.com'],
+                ],
+                [
+                    'name' => 'Tanvir Ahmed',
+                    'designation' => 'Co-founder and Head of Compliance',
+                    'tagline' => 'Has never had a visa file returned for documentation.',
+                    'photo' => 'portrait-tanvir-ahmed.svg',
+                    'bio' => 'Came to this from immigration paperwork rather than education, '
+                        . 'which is why the visa files leaving here are assembled in the order '
+                        . 'the officer reads them. Runs Canada and Australia, and rehearses '
+                        . 'every interview personally.',
+                    'languages' => 'Bangla, English, Hindi',
+                    'expertise' => 'Study permits, financial documentation, interview preparation',
+                    'education' => [
+                        [
+                            'degree' => 'LLM Immigration Law',
+                            'institution' => 'University of Toronto',
+                            'year' => '2012',
+                            'country' => 'Canada',
+                        ],
+                        [
+                            'degree' => 'LLB',
+                            'institution' => 'University of Chittagong',
+                            'year' => '2008',
+                            'country' => 'Bangladesh',
+                        ],
+                    ],
+                    'experience' => [
+                        ['role' => 'Co-founder', 'org' => 'This consultancy', 'years' => '2014 to now'],
+                        ['role' => 'Caseworker', 'org' => 'Immigration practice, Toronto', 'years' => '2012–2014'],
+                    ],
+                    'socials' => ['linkedin' => '#', 'email' => 'mailto:hello@example.com'],
+                ],
+            ],
+        ];
+    }
+
+    /**
      * @return array<string, mixed>
      */
     private static function hero(): array

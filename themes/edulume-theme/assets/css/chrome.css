@@ -1784,3 +1784,246 @@ body {
 .edulume-university[hidden] {
   display: none;
 }
+
+/* The founders page --------------------------------------------------------- */
+
+.edulume-founders__lead {
+  max-inline-size: 52ch;
+  font-size: var(--edulume-font-size-2, 1.25rem);
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-founder {
+  display: grid;
+  gap: var(--edulume-space-6, 2rem);
+  grid-template-columns: 1fr;
+  margin-block-end: var(--edulume-space-8, 3rem);
+}
+
+@media (min-width: 60rem) {
+  .edulume-founder {
+    grid-template-columns: 360px 1fr;
+    align-items: start;
+  }
+
+  /*
+   * Alternating sides, from :nth-child rather than a hardcoded pair — the page has to survive
+   * one founder, three, or five without the layout breaking.
+   */
+  .edulume-founder:nth-child(even) .edulume-founder__portrait {
+    order: 2;
+  }
+}
+
+.edulume-founder__portrait {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--edulume-radius-2, 10px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+}
+
+.edulume-founder__portrait img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  /* Faces sit in the top third of a portrait; a centred crop cuts them at the chin. */
+  object-position: top;
+}
+
+.edulume-founder__initials {
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-5, 3rem);
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+.edulume-founder__name {
+  margin: 0;
+}
+
+.edulume-founder__designation {
+  margin-block: var(--edulume-space-2, 0.5rem) 0;
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+.edulume-founder__tagline {
+  margin-block: var(--edulume-space-2, 0.5rem) 0;
+  font-family: var(--edulume-font-quote, inherit);
+  font-size: var(--edulume-font-size-2, 1.25rem);
+}
+
+.edulume-founder__facts {
+  display: grid;
+  gap: var(--edulume-space-2, 0.5rem) var(--edulume-space-4, 1rem);
+  grid-template-columns: auto 1fr;
+  margin-block: var(--edulume-space-4, 1rem);
+}
+
+.edulume-founder__facts dt {
+  font-weight: 600;
+}
+
+.edulume-founder__facts dd {
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-founder__heading {
+  margin-block: var(--edulume-space-6, 2rem) var(--edulume-space-3, 0.75rem);
+  font-size: var(--edulume-font-size-2, 1.25rem);
+}
+
+/*
+ * The education and experience tracks.
+ *
+ * A plain list below 48rem and a spined timeline above it. A centre-spined timeline on a phone
+ * is two columns of four characters each — unreadable, and the reason so many "responsive"
+ * timelines are simply broken at 375px.
+ */
+.edulume-track {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-track__item {
+  padding-block-end: var(--edulume-space-4, 1rem);
+}
+
+.edulume-track__when {
+  margin: 0;
+  color: var(--edulume-accent-text, #123a6b);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-track__what {
+  margin: 0;
+  font-weight: 600;
+}
+
+.edulume-track__where {
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+@media (min-width: 48rem) {
+  .edulume-track {
+    padding-inline-start: var(--edulume-space-6, 2rem);
+    border-inline-start: 2px solid var(--edulume-border, #d8dade);
+  }
+
+  .edulume-track__item {
+    position: relative;
+  }
+
+  .edulume-track__item::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: calc(var(--edulume-space-6, 2rem) * -1 - 5px);
+    inset-block-start: 6px;
+    inline-size: 8px;
+    block-size: 8px;
+    border-radius: var(--edulume-radius-full, 999px);
+    background-color: var(--edulume-accent, #123a6b);
+  }
+}
+
+.edulume-founders__vision p {
+  max-inline-size: 62ch;
+}
+
+.edulume-founders__goals-year {
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+/* Milestones: the same scrolling track the video rail uses. */
+.edulume-timeline {
+  display: flex;
+  gap: var(--edulume-space-4, 1rem);
+  margin: 0;
+  padding: 0 0 var(--edulume-space-3, 0.75rem);
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+}
+
+.edulume-timeline:focus-visible {
+  outline: 3px solid var(--edulume-focus-ring, #365e92);
+  outline-offset: 4px;
+}
+
+.edulume-timeline__item {
+  flex: 0 0 clamp(200px, 60vw, 260px);
+  scroll-snap-align: start;
+  padding: var(--edulume-space-4, 1rem);
+  border-block-start: 3px solid var(--edulume-accent, #123a6b);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+  border-radius: 0 0 var(--edulume-radius-2, 10px) var(--edulume-radius-2, 10px);
+}
+
+.edulume-timeline__year {
+  margin: 0;
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-3, 1.5rem);
+}
+
+.edulume-timeline__event {
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-founder__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin-block: var(--edulume-space-4, 1rem) 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * Printing the founders page.
+ *
+ * This is the page that gets sent to a partner university as a credentials document, so it is
+ * worth the twenty lines: no navigation, no call to action, one column, black on white, and
+ * every timeline expanded rather than scrolled — a horizontal scroller prints as its first card
+ * and nothing else.
+ */
+@media print {
+  .edulume-header,
+  .edulume-footer,
+  .edulume-announcement,
+  .edulume-fab,
+  .edulume-mode-toggle,
+  .edulume-founders__cta {
+    display: none;
+  }
+
+  .edulume-founders {
+    color: #000000;
+    background: #ffffff;
+  }
+
+  .edulume-founder,
+  .edulume-founders__columns {
+    grid-template-columns: 1fr;
+    break-inside: avoid;
+  }
+
+  .edulume-timeline {
+    display: block;
+    overflow: visible;
+  }
+
+  .edulume-timeline__item {
+    inline-size: auto;
+    break-inside: avoid;
+  }
+
+  .edulume-track {
+    border: 0;
+    padding-inline-start: 0;
+  }
+}

@@ -110,6 +110,58 @@ final class DemoContentTest extends TestCase
         }
     }
 
+    public function testTheFoundersPageIsFullyWrittenToo(): void
+    {
+        $pages = DemoContent::pages();
+
+        foreach ([
+            'founders.title',
+            'founders.lead',
+            'founders.visionTitle',
+            'founders.vision',
+            'founders.goalsTitle',
+            'founders.goalsYear',
+            'founders.milestonesTitle',
+            'founders.ctaTitle',
+            'founders.ctaBlurb',
+            'founders.people.1.name',
+            'founders.people.1.designation',
+            'founders.people.1.tagline',
+            'founders.people.1.photo',
+            'founders.people.1.bio',
+            'founders.people.1.languages',
+            'founders.people.1.expertise',
+            'founders.people.1.education.1.degree',
+            'founders.people.1.education.1.institution',
+            'founders.people.1.education.1.year',
+            'founders.people.1.education.1.country',
+            'founders.people.1.experience.1.role',
+            'founders.people.1.experience.1.org',
+            'founders.people.1.experience.1.years',
+            'founders.people.1.socials.linkedin',
+            'founders.goals.3.value',
+            'founders.goals.3.label',
+            'founders.milestones.5.year',
+            'founders.milestones.5.event',
+        ] as $path) {
+            $value = NestedArray::get($pages, $path);
+
+            self::assertNotNull($value, $path . ' is missing');
+            self::assertNotSame('', $value, $path . ' is empty');
+        }
+
+        self::assertCount(2, NestedArray::get($pages, 'founders.people', []));
+        self::assertCount(4, NestedArray::get($pages, 'founders.goals', []));
+        self::assertCount(6, NestedArray::get($pages, 'founders.milestones', []));
+    }
+
+    public function testPageCopyIsKeptOutOfTheSectionList(): void
+    {
+        // A page has no toggle and no place in the home-page order, so it must not appear in the
+        // list the sections screen and the front page both walk.
+        self::assertSame([], array_intersect_key(DemoContent::all(), DemoContent::pages()));
+    }
+
     public function testEveryCopyKeyIsASectionTheProductKnowsAbout(): void
     {
         foreach (array_keys(DemoContent::all()) as $key) {

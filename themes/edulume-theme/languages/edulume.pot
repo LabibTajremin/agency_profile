@@ -17,6 +17,7 @@ msgstr ""
 msgid "%1$s has failed to sign in %2$d times and is now locked out."
 msgstr ""
 
+#: themes/edulume-theme/template-parts/content/founder.php:143
 #: themes/edulume-theme/template-parts/home/team.php:62
 msgid "%1$s — %2$s"
 msgstr ""
@@ -79,6 +80,10 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:29
 msgid "Ask us a question"
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:158
+msgid "Book a consultation"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:241
@@ -158,6 +163,10 @@ msgstr ""
 msgid "Double the lockout each time the same visitor comes back"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/content/founder.php:98
+msgid "Education"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:64
 #: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:65
 msgid "Edulume"
@@ -173,6 +182,10 @@ msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:228
 msgid "Enter a valid email address."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/founder.php:120
+msgid "Experience"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:116
@@ -349,6 +362,10 @@ msgstr ""
 msgid "Login settings saved."
 msgstr ""
 
+#: themes/edulume-theme/page-templates/founders.php:36
+msgid "Milestones"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:112
 msgid "Move my login page"
 msgstr ""
@@ -422,6 +439,14 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/home/team.php:16
 msgid "Our counsellors"
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:35
+msgid "Our goals"
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:34
+msgid "Our vision"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/universities.php:17
@@ -595,6 +620,14 @@ msgstr ""
 msgid "Sort by"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/content/founder.php:92
+msgid "Speaks"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/founder.php:86
+msgid "Specialises in"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:190
 msgid "Start playing when the row scrolls into view"
 msgstr ""
@@ -629,6 +662,10 @@ msgstr ""
 #: themes/edulume-theme/template-parts/home/cta.php:13
 #: themes/edulume-theme/template-parts/home/hero.php:99
 msgid "Talk to a counsellor"
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:37
+msgid "Talk to us"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/cta.php:26

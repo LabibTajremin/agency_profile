@@ -55,6 +55,25 @@ function edulume_row(array $row, string $key, string $fallback = ''): string
 }
 
 /**
+ * Somebody's initials, for the case where there is no photograph.
+ *
+ * `mb_substr`, not `substr`: a Bangla or Arabic name cut at one byte is a broken glyph, and this
+ * theme ships for sites whose staff list is not in Latin script.
+ */
+function edulume_initials(string $name): string
+{
+    $initials = '';
+
+    foreach (array_slice(preg_split('/\s+/', trim($name)) ?: [], 0, 2) as $part) {
+        if ($part !== '') {
+            $initials .= mb_strtoupper(mb_substr($part, 0, 1));
+        }
+    }
+
+    return $initials;
+}
+
+/**
  * The URL of a bundled demo artwork, or an empty string when there is none.
  */
 function edulume_demo_img(string $file): string

@@ -814,6 +814,10 @@ class WP_Post
     public string $post_title;
 
     public string $post_type;
+
+    public string $post_content;
+
+    public string $post_excerpt;
 }
 
 class WP_Query

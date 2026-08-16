@@ -69,7 +69,7 @@ final class SiteContent
     {
         if ($this->resolved === null) {
             $this->resolved = NestedArray::merge(
-                DemoContent::all(),
+                DemoContent::all() + DemoContent::pages(),
                 Guard::toArray(get_option(self::OPTION, []))
             );
         }
