@@ -53,6 +53,60 @@ function edulume_section_posts(string $postType, int $limit = 6): array
 }
 
 /**
+ * A meta value that holds a list, however it happens to be stored.
+ *
+ * WordPress meta round-trips arrays, but a value imported from a CSV or typed into a plain text
+ * field arrives as a comma-separated string. Accepting both here means the template does not
+ * have to know which import route a particular site used.
+ *
+ * @return list<string>
+ */
+function edulume_meta_list(int $postId, string $key): array
+{
+    $value = get_post_meta($postId, $key, true);
+
+    if (is_string($value)) {
+        $value = $value === '' ? [] : explode(',', $value);
+    }
+
+    if (!is_array($value)) {
+        return [];
+    }
+
+    return array_values(array_filter(array_map(
+        static fn ($item): string => is_scalar($item) ? trim((string) $item) : '',
+        $value
+    )));
+}
+
+/**
+ * Every intake month offered by any university in a list, deduplicated.
+ *
+ * Built from the posts already fetched rather than by asking the database for distinct meta
+ * values: the rows are in memory, and a second query to derive a filter's options from data the
+ * page is holding is a query nobody notices until the page has sixty of them.
+ *
+ * @param list<\WP_Post> $universities
+ *
+ * @return list<string>
+ */
+function edulume_destination_intakes(array $universities): array
+{
+    $intakes = [];
+
+    foreach ($universities as $university) {
+        foreach (edulume_meta_list($university->ID, '_edulume_intakes') as $intake) {
+            $intakes[$intake] = true;
+        }
+    }
+
+    $names = array_keys($intakes);
+    sort($names);
+
+    return array_map('strval', $names);
+}
+
+/**
  * The heading and optional "see everything" link a section shares.
  */
 function edulume_the_section_header(string $title, string $postType = ''): void

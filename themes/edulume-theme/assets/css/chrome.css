@@ -1610,3 +1610,177 @@ body {
   block-size: 100%;
   object-fit: cover;
 }
+
+/* The destination page ------------------------------------------------------ */
+
+.edulume-destination__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-6, 2rem);
+  margin-block: var(--edulume-space-4, 1rem) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-destination__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.edulume-destination__stat-value {
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-3, 1.5rem);
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+.edulume-destination__stat-label {
+  color: var(--edulume-ink-muted, #4a4f58);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-destination__intro {
+  max-inline-size: 60ch;
+  margin-block-end: var(--edulume-space-6, 2rem);
+}
+
+/*
+ * One column on a phone, two from 64rem up.
+ *
+ * The aside is first in source order so the intake video sits above the university list on a
+ * phone, where a video buried under sixty cards is a video nobody reaches. `order` moves it to
+ * the right on wide screens — one copy of the markup, not two with one hidden, because two
+ * copies means two players in the DOM and the iframe budget stops meaning anything.
+ */
+.edulume-destination__columns {
+  display: grid;
+  gap: var(--edulume-space-6, 2rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 64rem) {
+  .edulume-destination__columns {
+    grid-template-columns: 1fr 380px;
+    align-items: start;
+  }
+
+  .edulume-destination__aside {
+    order: 2;
+    position: sticky;
+    inset-block-start: calc(var(--edulume-space-8, 3rem) + var(--edulume-space-4, 1rem));
+  }
+
+  .edulume-destination__main {
+    order: 1;
+  }
+}
+
+.edulume-destination__video-title {
+  margin-block: 0 var(--edulume-space-3, 0.75rem);
+  font-size: var(--edulume-font-size-2, 1.25rem);
+}
+
+.edulume-university-filter {
+  display: grid;
+  gap: var(--edulume-space-3, 0.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  margin-block-end: var(--edulume-space-4, 1rem);
+}
+
+.edulume-university-grid__count {
+  margin-block: 0 var(--edulume-space-4, 1rem);
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-university-grid {
+  display: grid;
+  gap: var(--edulume-space-4, 1rem);
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  .edulume-university-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 80rem) {
+  .edulume-university-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.edulume-university {
+  display: flex;
+  flex-direction: column;
+  gap: var(--edulume-space-2, 0.5rem);
+  padding: var(--edulume-space-4, 1rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d8dade);
+  border-radius: var(--edulume-radius-2, 10px);
+  background-color: var(--edulume-surface, #fbfbfc);
+}
+
+/*
+ * A fixed logo box. Institutional marks are every shape there is — wide wordmarks, tall crests,
+ * square badges — and a grid that lets them size themselves has one row three times the height
+ * of its neighbours.
+ */
+.edulume-university__logo {
+  display: grid;
+  place-items: center;
+  inline-size: 96px;
+  block-size: 96px;
+  padding: var(--edulume-space-2, 0.5rem);
+  border-radius: var(--edulume-radius, 6px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+}
+
+.edulume-university__logo img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  object-fit: contain;
+}
+
+.edulume-university__monogram {
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-4, 2rem);
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+.edulume-university__name {
+  margin: 0;
+  font-size: var(--edulume-font-size-2, 1.25rem);
+}
+
+.edulume-university__city,
+.edulume-university__ranking,
+.edulume-university__tuition {
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-university__intakes,
+.edulume-university__courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-university__intakes li,
+.edulume-university__courses li {
+  padding-block: 2px;
+  padding-inline: var(--edulume-space-2, 0.5rem);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* A row hidden by the filter is hidden, not merely transparent. */
+.edulume-university[hidden] {
+  display: none;
+}

@@ -6,6 +6,7 @@ namespace Edulume\Core\Infrastructure\Wp;
 
 use Edulume\Core\Infrastructure\Blocks\BlockRegistrar;
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
+use Edulume\Core\Infrastructure\Content\DestinationPage;
 use Edulume\Core\Infrastructure\Content\SiteContent;
 use Edulume\Core\Infrastructure\Content\VideoRailProvider;
 use Edulume\Core\Infrastructure\Admin\AdminAssets;
@@ -91,6 +92,7 @@ final class Plugin
         (new ContentRegistrar())->register();
         (new SiteContent())->register();
         (new VideoRailProvider())->register();
+        (new DestinationPage())->register();
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
         (new AdminMenu($this->container))->register();

@@ -89,6 +89,13 @@ function esc_url_raw(string $url): string
 }
 
 /**
+ * @return mixed
+ */
+function get_post_meta(int $postId, string $key = '', bool $single = false)
+{
+}
+
+/**
  * @param string|array{0: int, 1: int} $size
  * @return string|false
  */

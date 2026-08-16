@@ -46,6 +46,7 @@ function edulume_conditional_modules(): array
          * using all four is worse than one.
          */
         'video-rail' => static fn (): bool => edulume_page_has('video-rail'),
+        'university-filter' => static fn (): bool => edulume_page_has('university-filter'),
         'interactions' => static fn (): bool => edulume_page_has('tabs')
             || edulume_page_has('counters')
             || edulume_page_has('before-after')
@@ -211,6 +212,11 @@ function edulume_module_strings(): array
     return [
         'video-rail' => [
             'video' => __('Video', 'edulume'),
+        ],
+        'university-filter' => [
+            'one' => __('1 university', 'edulume'),
+            /* translators: %s: how many universities match the filter. */
+            'many' => __('%s universities', 'edulume'),
         ],
         'carousel' => [
             'track' => __('Carousel', 'edulume'),
