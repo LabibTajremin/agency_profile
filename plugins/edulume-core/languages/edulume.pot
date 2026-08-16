@@ -13,6 +13,14 @@ msgstr ""
 msgid " and "
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/team.php:62
+msgid "%1$s — %2$s"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/testimonials-demo.php:48
+msgid "%1$s, %2$s"
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:225
 msgid "%s results"
 msgstr ""
@@ -53,12 +61,16 @@ msgstr ""
 msgid "Bring your transcript and test report to your first session."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/hero.php:41
+#: themes/edulume-theme/template-parts/home/hero.php:86
 msgid "Browse courses"
 msgstr ""
 
 #: themes/edulume-theme/404.php:38
 msgid "Browse destinations"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/statistics.php:18
+msgid "By the numbers"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:191
@@ -114,8 +126,12 @@ msgstr ""
 msgid "Dismiss this announcement"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:61
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:92
+msgid "Done. Reloading…"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:62
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:63
 msgid "Edulume"
 msgstr ""
 
@@ -155,11 +171,11 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:65
+#: themes/edulume-theme/functions.php:66
 msgid "Footer column %d"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:45
+#: themes/edulume-theme/functions.php:46
 msgid "Footer menu"
 msgstr ""
 
@@ -167,8 +183,13 @@ msgstr ""
 msgid "Four questions. An honest answer, not a sales pitch."
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/faq-demo.php:16
 #: themes/edulume-theme/template-parts/home/faq.php:18
 msgid "Frequently asked questions"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/blog.php:16
+msgid "From the blog"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:44
@@ -179,7 +200,15 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/services.php:15
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:53
+msgid "Home page updated."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/process.php:16
+msgid "How it works"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/services.php:13
 msgid "How we help"
 msgstr ""
 
@@ -191,7 +220,7 @@ msgstr ""
 msgid "IELTS overall, if you have sat it"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:145
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:155
 msgid "Import this pack"
 msgstr ""
 
@@ -199,7 +228,11 @@ msgstr ""
 msgid "Imported %1$s — %2$d items created."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/hero.php:17
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:91
+msgid "Importing…"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/hero.php:21
 msgid "Introduction"
 msgstr ""
 
@@ -270,12 +303,24 @@ msgstr ""
 msgid "Nothing published here yet."
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/intakes.php:16
+msgid "Open intakes"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:253
 msgid "Open menu"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/cta.php:43
 msgid "Or book a consultation"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/team.php:16
+msgid "Our counsellors"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/universities.php:17
+msgid "Partner universities"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:56
@@ -290,6 +335,10 @@ msgstr ""
 msgid "Please tick this to continue."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:127
+msgid "Position of %s"
+msgstr ""
+
 #: themes/edulume-theme/index.php:41
 msgid "Posts navigation"
 msgstr ""
@@ -302,7 +351,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:44
+#: themes/edulume-theme/functions.php:45
 msgid "Primary menu"
 msgstr ""
 
@@ -314,7 +363,7 @@ msgstr ""
 msgid "Related"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:175
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:185
 msgid "Remove imported content"
 msgstr ""
 
@@ -339,12 +388,26 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:96
+msgid "Save home page"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/scholarships.php:15
+msgid "Scholarships"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/finder.php:36
+#: themes/edulume-theme/template-parts/home/hero.php:60
+#: themes/edulume-theme/template-parts/home/hero.php:62
 msgid "Search"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:41
 msgid "Search by name or keyword"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/hero.php:53
+msgid "Search the site"
 msgstr ""
 
 #: themes/edulume-theme/inc/sections.php:69
@@ -386,7 +449,7 @@ msgstr ""
 msgid "Stay in touch"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/destinations.php:15
+#: themes/edulume-theme/template-parts/home/destinations.php:13
 msgid "Study destinations"
 msgstr ""
 
@@ -395,7 +458,7 @@ msgid "Success stories"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/cta.php:13
-#: themes/edulume-theme/template-parts/home/hero.php:51
+#: themes/edulume-theme/template-parts/home/hero.php:99
 msgid "Talk to a counsellor"
 msgstr ""
 
@@ -407,6 +470,10 @@ msgstr ""
 msgid "Thank you. We will be in touch shortly."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:93
+msgid "That did not finish. Try again."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:69
 msgid "That is not a pipeline status."
 msgstr ""
@@ -416,6 +483,7 @@ msgstr ""
 msgid "That section does not exist."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportAjax.php:62
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:51
 msgid "That starter pack does not exist."
 msgstr ""
@@ -444,7 +512,7 @@ msgstr ""
 msgid "Unlikely as things stand."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/events.php:15
+#: themes/edulume-theme/template-parts/home/events.php:13
 msgid "Upcoming events"
 msgstr ""
 
@@ -452,7 +520,7 @@ msgstr ""
 msgid "Useful links"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:46
+#: themes/edulume-theme/functions.php:47
 msgid "Utility bar"
 msgstr ""
 
@@ -484,6 +552,7 @@ msgstr ""
 msgid "What it will cost"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/testimonials-demo.php:17
 #: themes/edulume-theme/template-parts/home/testimonials.php:17
 msgid "What students say"
 msgstr ""
@@ -500,7 +569,16 @@ msgstr ""
 msgid "Which country?"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:200
+#: themes/edulume-theme/template-parts/home/highlights.php:17
+msgid "Why us"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:42
+msgid "You are not allowed to change the home page."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportAjax.php:51
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:210
 msgid "You are not allowed to import content."
 msgstr ""
 

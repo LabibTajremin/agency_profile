@@ -133,15 +133,25 @@ final class DemoImportScreen
                     esc_html__('This pack has no content yet.', 'edulume')
                 );
             } else {
+                /*
+                 * A plain form that works on its own, marked so the enhancement layer can take
+                 * it over. Without script it posts and the server drives the import to the end;
+                 * with script the same button runs it ten items at a time and draws a bar.
+                 */
                 printf(
-                    '<form method="post" action="%s">%s'
-                    . '<input type="hidden" name="action" value="%s" />'
-                    . '<input type="hidden" name="demo" value="%s" />'
-                    . '<button type="submit" class="button button-primary">%s</button></form>',
+                    '<form method="post" action="%1$s" data-edulume-import="%2$s">%3$s'
+                    . '<input type="hidden" name="action" value="%4$s" />'
+                    . '<input type="hidden" name="demo" value="%2$s" />'
+                    . '<button type="submit" class="button button-primary">%5$s</button>'
+                    . '<div class="edulume-progress" role="progressbar" aria-valuemin="0" '
+                    . 'aria-valuemax="100" aria-valuenow="0">'
+                    . '<span class="edulume-progress__bar" data-edulume-import-bar></span></div>'
+                    . '<p class="edulume-progress__status" data-edulume-import-status '
+                    . 'role="status" aria-live="polite"></p></form>',
                     esc_url(admin_url('admin-post.php')),
+                    esc_attr($demo->slug),
                     wp_nonce_field(self::ACTION, '_wpnonce', true, false),
                     esc_attr(self::ACTION),
-                    esc_attr($demo->slug),
                     esc_html__('Import this pack', 'edulume')
                 );
             }

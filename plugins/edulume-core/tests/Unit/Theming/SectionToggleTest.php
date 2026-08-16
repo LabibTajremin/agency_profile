@@ -173,6 +173,6 @@ final class SectionToggleTest extends TestCase
             self::assertTrue($section->canBeSwitchedOff(), $section->value);
         }
 
-        self::assertCount(11, SectionId::homePageOrder());
+        self::assertCount(20, SectionId::homePageOrder());
     }
 }

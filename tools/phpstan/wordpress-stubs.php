@@ -76,6 +76,10 @@ function plugin_basename(string $file): string
 {
 }
 
+function plugins_url(string $path = '', string $plugin = ''): string
+{
+}
+
 function flush_rewrite_rules(bool $hard = true): void
 {
 }
@@ -99,6 +103,14 @@ function wp_delete_file(string $file): void
  * @param list<string> $deps
  * @param string|bool|null $ver
  */
+/**
+ * @param list<string> $deps
+ * @param string|bool|null $ver
+ */
+function wp_enqueue_script(string $handle, string $src = '', array $deps = [], $ver = false, bool $inFooter = false): bool
+{
+}
+
 function wp_enqueue_style(string $handle, string $src = '', array $deps = [], $ver = false, string $media = 'all'): bool
 {
 }
@@ -537,6 +549,41 @@ function get_transient(string $transient)
 {
 }
 
+/**
+ * @param mixed $data
+ */
+function wp_send_json_error($data = null, int $statusCode = 0): void
+{
+}
+
+/**
+ * @param mixed $data
+ */
+function wp_send_json_success($data = null, int $statusCode = 0): void
+{
+}
+
+/**
+ * @param int|string $action
+ */
+function check_ajax_referer($action = -1, $queryArg = false, bool $stopOnFail = true): bool
+{
+}
+
+/**
+ * @param int|string $action
+ */
+function wp_create_nonce($action = -1): string
+{
+}
+
+/**
+ * @param array<string, mixed> $l10n
+ */
+function wp_localize_script(string $handle, string $objectName, array $l10n): bool
+{
+}
+
 function delete_transient(string $transient): bool
 {
 }
@@ -943,6 +990,8 @@ function wp_add_inline_style(string $handle, string $data): bool
 
 class WP_Screen
 {
+    public string $id = '';
+
     /**
      * @param array<string, mixed> $args
      */

@@ -6,9 +6,12 @@ namespace Edulume\Core\Infrastructure\Wp;
 
 use Edulume\Core\Infrastructure\Blocks\BlockRegistrar;
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
+use Edulume\Core\Infrastructure\Content\SiteContent;
 use Edulume\Core\Infrastructure\Admin\AdminAssets;
 use Edulume\Core\Infrastructure\Admin\AdminMenu;
+use Edulume\Core\Infrastructure\Admin\DemoImportAjax;
 use Edulume\Core\Infrastructure\Admin\DemoImportScreen;
+use Edulume\Core\Infrastructure\Admin\SectionsScreen;
 use Edulume\Core\Infrastructure\Demo\DemoCliCommand;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
 use Edulume\Core\Infrastructure\Rest\RestRegistrar;
@@ -82,10 +85,13 @@ final class Plugin
 
         $this->stylesheetEnqueuer()->register();
         (new ContentRegistrar())->register();
+        (new SiteContent())->register();
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
         (new AdminMenu($this->container))->register();
         (new DemoImportScreen($this->container))->register();
+        (new SectionsScreen($this->container))->register();
+        (new DemoImportAjax($this->container))->register();
         (new AdminAssets($this->container, $this->container->adminTheme(), $this->version))->register();
         (new SectionVisibility($this->container))->register();
         DemoCliCommand::register($this->container);

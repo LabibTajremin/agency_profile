@@ -23,6 +23,7 @@ final class OptionSettingsRepository implements SettingsRepository
 {
     public const SETTINGS_OPTION = 'edulume_theme_settings';
     public const SECTION_OVERRIDES_OPTION = 'edulume_section_overrides';
+    private const ORDER_KEY = '_order';
 
     public function __construct(private readonly SettingsMigrator $migrator)
     {
@@ -91,6 +92,34 @@ final class OptionSettingsRepository implements SettingsRepository
         }
 
         unset($stored[$sectionId]);
+
+        update_option(self::SECTION_OVERRIDES_OPTION, $stored, false);
+    }
+
+    /**
+     * The order lives in the overrides row under a reserved key.
+     *
+     * `loadSectionOverrides()` walks `SectionId::cases()` rather than the row's own keys, so a
+     * key that is not a section slug is invisible to it. That is what makes this safe, and it
+     * beats a third option row for one small list about the same subject.
+     *
+     * @return list<string>
+     */
+    public function loadSectionOrder(): array
+    {
+        $stored = Guard::toArray(get_option(self::SECTION_OVERRIDES_OPTION, []));
+        $order = Guard::toArray($stored[self::ORDER_KEY] ?? null);
+
+        return array_values(array_filter($order, 'is_string'));
+    }
+
+    /**
+     * @param list<string> $order
+     */
+    public function saveSectionOrder(array $order): void
+    {
+        $stored = Guard::toArray(get_option(self::SECTION_OVERRIDES_OPTION, []));
+        $stored[self::ORDER_KEY] = array_values($order);
 
         update_option(self::SECTION_OVERRIDES_OPTION, $stored, false);
     }

@@ -28,6 +28,8 @@ if (is_string($edulume_authored) && $edulume_authored !== '') {
 $edulume_testimonials = edulume_section_posts('edulume_testimonial', 6);
 
 if ($edulume_testimonials === []) {
+    get_template_part('template-parts/home/testimonials-demo');
+
     return;
 }
 

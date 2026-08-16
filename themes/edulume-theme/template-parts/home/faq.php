@@ -29,6 +29,8 @@ if (is_string($edulume_authored) && $edulume_authored !== '') {
 $edulume_faqs = edulume_section_posts('edulume_faq', 8);
 
 if ($edulume_faqs === []) {
+    get_template_part('template-parts/home/faq-demo');
+
     return;
 }
 

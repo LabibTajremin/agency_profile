@@ -1197,3 +1197,419 @@ body {
     align-items: center;
   }
 }
+
+/*
+ * The home page's sections.
+ *
+ * Everything here is one of two shapes — a responsive grid of cards, or a two-column split that
+ * becomes one column on a phone — so the file stays readable as sections are added. Widths come
+ * from `clamp()` against the container rather than from breakpoints wherever the content allows
+ * it: a card that sizes itself needs no media query, and a media query is a decision that has to
+ * be revisited every time the design changes.
+ */
+
+.edulume-home-section__intro {
+  max-inline-size: 48ch;
+  margin-block: 0 var(--edulume-space-6, 2rem);
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+/* The hero's backdrop sits behind its own content and nothing else. */
+.edulume-home-hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.edulume-hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.edulume-hero__backdrop img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  opacity: 0.16;
+}
+
+.edulume-hero__search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin-block: var(--edulume-space-6, 2rem) var(--edulume-space-4, 1rem);
+  max-inline-size: 36rem;
+}
+
+.edulume-hero__search-input {
+  flex: 1 1 14rem;
+  min-inline-size: 0;
+  padding: var(--edulume-space-3, 0.75rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d8dade);
+  border-radius: var(--edulume-radius, 6px);
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+}
+
+.edulume-hero__badges,
+.edulume-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin-block: var(--edulume-space-4, 1rem) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-hero__badges li {
+  padding-block: var(--edulume-space-2, 0.5rem);
+  padding-inline: var(--edulume-space-3, 0.75rem);
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+  color: var(--edulume-ink-muted, #4a4f58);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-hero__chip {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--edulume-space-2, 0.5rem);
+  padding-inline: var(--edulume-space-4, 1rem);
+  border-inline-start: 3px solid var(--edulume-accent, #123a6b);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+  border-radius: var(--edulume-radius, 6px);
+}
+
+.edulume-hero__chip-value {
+  font-size: var(--edulume-font-size-3, 1.5rem);
+  font-family: var(--edulume-font-heading, inherit);
+}
+
+.edulume-hero__chip-label {
+  color: var(--edulume-ink-muted, #4a4f58);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* The counters. */
+.edulume-stats {
+  display: grid;
+  gap: var(--edulume-space-6, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.edulume-stat__value {
+  margin-block: 0 var(--edulume-space-2, 0.5rem);
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-4, 2rem);
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+.edulume-stat__label {
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+/*
+ * One grid rule for every card section.
+ *
+ * `minmax(min(100%, …), 1fr)` rather than a bare `minmax()`: the bare form overflows its
+ * container the moment the viewport is narrower than the track minimum, which is exactly what
+ * produces sideways scrolling at 320px.
+ */
+.edulume-service-grid,
+.edulume-destination-grid,
+.edulume-crest-grid,
+.edulume-funding,
+.edulume-people,
+.edulume-events,
+.edulume-intakes,
+.edulume-posts {
+  display: grid;
+  gap: var(--edulume-space-4, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-service-grid,
+.edulume-funding,
+.edulume-posts,
+.edulume-events,
+.edulume-intakes {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.edulume-destination-grid,
+.edulume-people {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+}
+
+.edulume-crest-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+}
+
+.edulume-service-card,
+.edulume-destination-card,
+.edulume-crest-card,
+.edulume-funding-card,
+.edulume-person,
+.edulume-event-card,
+.edulume-intake,
+.edulume-post-card,
+.edulume-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--edulume-space-2, 0.5rem);
+  padding: var(--edulume-space-4, 1rem);
+  border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d8dade);
+  border-radius: var(--edulume-radius-2, 10px);
+  background-color: var(--edulume-surface, #fbfbfc);
+}
+
+.edulume-service-card h3,
+.edulume-destination-card__name,
+.edulume-funding-card__name,
+.edulume-person__name,
+.edulume-event-card__title,
+.edulume-post-card__title,
+.edulume-step__title {
+  margin: 0;
+  font-size: var(--edulume-font-size-2, 1.25rem);
+}
+
+.edulume-service-card__blurb,
+.edulume-destination-card__hook,
+.edulume-funding-card__eligibility,
+.edulume-post-card__excerpt,
+.edulume-step__blurb,
+.edulume-pillar__blurb {
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-destination-card__meta,
+.edulume-funding-card__meta,
+.edulume-post-card__meta,
+.edulume-crest-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/*
+ * Media boxes reserve their space with `aspect-ratio` before the image arrives, so nothing on
+ * the page moves as images decode.
+ */
+.edulume-destination-card__media,
+.edulume-post-card__media,
+.edulume-event-card__media,
+.edulume-person__portrait {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--edulume-radius, 6px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+}
+
+.edulume-destination-card__media,
+.edulume-post-card__media,
+.edulume-event-card__media {
+  aspect-ratio: 16 / 10;
+}
+
+.edulume-person__portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.edulume-destination-card__media img,
+.edulume-post-card__media img,
+.edulume-event-card__media img,
+.edulume-person__portrait img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  /* Faces sit in the top third of a portrait; centring the crop cuts them at the chin. */
+  object-position: top;
+}
+
+/* A crest tile is a fixed box so mismatched artwork shapes cannot break the grid. */
+.edulume-crest-card {
+  align-items: center;
+  text-align: center;
+}
+
+.edulume-crest-card__tile {
+  display: grid;
+  place-items: center;
+  inline-size: 96px;
+  block-size: 96px;
+  padding: var(--edulume-space-2, 0.5rem);
+  border-radius: var(--edulume-radius, 6px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+}
+
+.edulume-crest-card__tile img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  object-fit: contain;
+}
+
+.edulume-crest-card__name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.edulume-crest-card__rank {
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+/* Why us: pillars beside one supporting image. */
+.edulume-highlights {
+  display: grid;
+  gap: var(--edulume-space-6, 2rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 60rem) {
+  .edulume-highlights {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+}
+
+.edulume-highlights__list {
+  display: grid;
+  gap: var(--edulume-space-4, 1rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-pillar__title {
+  margin-block: 0 var(--edulume-space-2, 0.5rem);
+  font-size: var(--edulume-font-size-2, 1.25rem);
+}
+
+.edulume-highlights__aside img {
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--edulume-radius-2, 10px);
+}
+
+.edulume-highlights__callout {
+  display: flex;
+  flex-direction: column;
+  margin-block: var(--edulume-space-4, 1rem) 0;
+  padding: var(--edulume-space-4, 1rem);
+  border-radius: var(--edulume-radius-2, 10px);
+  background-color: var(--edulume-accent, #123a6b);
+  color: var(--edulume-on-accent, #ffffff);
+}
+
+.edulume-highlights__callout-value {
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-4, 2rem);
+}
+
+/* The numbered steps. */
+.edulume-steps {
+  display: grid;
+  gap: var(--edulume-space-4, 1rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: edulume-step;
+}
+
+.edulume-step__number {
+  display: grid;
+  place-items: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-accent, #123a6b);
+  color: var(--edulume-on-accent, #ffffff);
+  font-family: var(--edulume-font-heading, inherit);
+}
+
+/* Intakes and events lead with a date, so that is what gets the emphasis. */
+.edulume-intake__when,
+.edulume-event-card__date {
+  display: flex;
+  align-items: baseline;
+  gap: var(--edulume-space-2, 0.5rem);
+  margin: 0;
+}
+
+.edulume-intake__month,
+.edulume-event-card__day {
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-3, 1.5rem);
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+.edulume-intake__deadline {
+  margin: 0;
+  font-weight: 600;
+}
+
+.edulume-intake__countries,
+.edulume-event-card__venue,
+.edulume-person__role,
+.edulume-person__languages,
+.edulume-post-card__category {
+  margin: 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-funding-card__amount {
+  margin: 0;
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-2, 1.25rem);
+  color: var(--edulume-accent-text, #123a6b);
+}
+
+.edulume-person {
+  align-items: center;
+  text-align: center;
+}
+
+.edulume-person__portrait {
+  inline-size: 100%;
+  max-inline-size: 12rem;
+}
+
+.edulume-person__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--edulume-space-3, 0.75rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-quote__portrait {
+  display: block;
+  inline-size: 3rem;
+  block-size: 3rem;
+  overflow: hidden;
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+}
+
+.edulume-quote__portrait img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}

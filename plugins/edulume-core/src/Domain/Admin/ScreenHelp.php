@@ -67,6 +67,20 @@ final class ScreenHelp
                 ],
             ),
             self::of(
+                'edulume-sections',
+                'Home sections',
+                'The blocks that make up your front page, in the order visitors see them. Every '
+                . 'one is on to begin with and already filled in, so the page looks finished '
+                . 'from the first day. Turn off the ones you do not need and drag the others '
+                . 'into the order you want.',
+                [
+                    'Untick a section to remove it from the front page. Nothing is deleted — tick it again and it comes back.',
+                    'Drag a row by its handle to move it, or type a number in the box beside it if you prefer.',
+                    'A section with nothing of your own in it shows our sample content until you replace it.',
+                    'Press Save home page. Reload the front page to see the result.',
+                ],
+            ),
+            self::of(
                 'edulume-leads',
                 'Enquiries',
                 'Every enquiry submitted through the site, in one list. Filter it, assign it to '

@@ -24,6 +24,9 @@ final class InMemorySettingsRepository implements SettingsRepository
     /** @var array<string, array<string, mixed>> */
     private array $sectionOverrides = [];
 
+    /** @var list<string> */
+    private array $sectionOrder = [];
+
     public int $saveCount = 0;
 
     public function __construct(?ThemeSettings $initial = null)
@@ -67,5 +70,15 @@ final class InMemorySettingsRepository implements SettingsRepository
     public function deleteSectionOverride(string $sectionId): void
     {
         unset($this->sectionOverrides[$sectionId]);
+    }
+
+    public function loadSectionOrder(): array
+    {
+        return $this->sectionOrder;
+    }
+
+    public function saveSectionOrder(array $order): void
+    {
+        $this->sectionOrder = array_values($order);
     }
 }

@@ -36,6 +36,7 @@ final class AdminMenu
         return [
             'edulume' => ['title' => 'Dashboard', 'capability' => Capabilities::MANAGE_THEME],
             'edulume-design' => ['title' => 'Design', 'capability' => Capabilities::MANAGE_THEME],
+            'edulume-sections' => ['title' => 'Home sections', 'capability' => Capabilities::MANAGE_THEME],
             'edulume-leads' => ['title' => 'Leads', 'capability' => Capabilities::MANAGE_LEADS],
             'edulume-forms' => ['title' => 'Forms', 'capability' => Capabilities::MANAGE_LEADS],
             'edulume-content' => ['title' => 'Content tools', 'capability' => Capabilities::MANAGE_CONTENT],
@@ -104,6 +105,10 @@ final class AdminMenu
          */
         if ($route === 'edulume-demos' && $this->container instanceof Container) {
             (new DemoImportScreen($this->container))->render();
+        }
+
+        if ($route === 'edulume-sections' && $this->container instanceof Container) {
+            (new SectionsScreen($this->container))->render();
         }
 
         printf('<div id="edulume-admin-root" data-edulume-route="%s"></div>', esc_attr($route));

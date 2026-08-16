@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Admin;
 
 use Edulume\Core\Domain\Theming\AdminTheme;
+use Edulume\Core\Infrastructure\Admin\DemoImportAjax;
 use Edulume\Core\Domain\Theming\ThemeMode;
 use Edulume\Core\Infrastructure\Wp\Container;
 
@@ -24,6 +25,7 @@ use Edulume\Core\Infrastructure\Wp\Container;
 final class AdminAssets
 {
     public const HANDLE = 'edulume-admin';
+    public const SCREENS_HANDLE = 'edulume-admin-screens';
 
     public function __construct(
         private readonly Container $container,
@@ -54,6 +56,43 @@ final class AdminAssets
         wp_register_style(self::HANDLE, false, [], $this->version);
         wp_enqueue_style(self::HANDLE);
         wp_add_inline_style(self::HANDLE, $this->css());
+
+        $this->enqueueScreens();
+    }
+
+    /**
+     * The enhancement layer for the two server-rendered screens.
+     *
+     * Loaded only on those screens. A plugin that puts its script on every admin page is a
+     * plugin that shows up in every other developer's bug report.
+     */
+    private function enqueueScreens(): void
+    {
+        $screen = get_current_screen();
+        $id = $screen === null ? '' : (string) $screen->id;
+
+        if (!str_contains($id, 'edulume-demos') && !str_contains($id, 'edulume-sections')) {
+            return;
+        }
+
+        wp_enqueue_script(
+            self::SCREENS_HANDLE,
+            plugins_url('assets/js/screens.js', dirname(__DIR__, 2) . '/edulume-core.php'),
+            [],
+            $this->version,
+            true
+        );
+
+        wp_localize_script(self::SCREENS_HANDLE, 'edulumeScreens', [
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'importAction' => DemoImportAjax::ACTION,
+            'importNonce' => wp_create_nonce(DemoImportAjax::NONCE),
+            'strings' => [
+                'importing' => __('Importing…', 'edulume'),
+                'imported' => __('Done. Reloading…', 'edulume'),
+                'importFailed' => __('That did not finish. Try again.', 'edulume'),
+            ],
+        ]);
     }
 
     private function css(): string
@@ -178,6 +217,92 @@ a {
 
 .edulume-help li {
   margin-block-end: 0.3rem;
+}
+
+.edulume-demos {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  max-inline-size: 60rem;
+}
+
+.edulume-demo-card {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--edulume-admin-border);
+  border-radius: 6px;
+  background: var(--edulume-admin-surface-raised);
+}
+
+.edulume-demo-card h3 {
+  margin-block-start: 0;
+}
+
+.edulume-demo-card__count {
+  color: var(--edulume-admin-ink-muted);
+}
+
+.edulume-progress {
+  block-size: 6px;
+  margin-block-start: 0.75rem;
+  border-radius: 999px;
+  background: var(--edulume-admin-surface);
+  overflow: hidden;
+}
+
+.edulume-progress__bar {
+  display: block;
+  block-size: 100%;
+  inline-size: 0;
+  background: var(--edulume-admin-accent);
+  transition: inline-size 200ms linear;
+}
+
+.edulume-progress__status {
+  margin-block: 0.4rem 0;
+  color: var(--edulume-admin-ink-muted);
+  min-block-size: 1.2em;
+}
+
+.edulume-sections__list {
+  max-inline-size: 40rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-sections__row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.6rem 0.85rem;
+  margin-block-end: 0.4rem;
+  border: 1px solid var(--edulume-admin-border);
+  border-radius: 6px;
+  background: var(--edulume-admin-surface-raised);
+}
+
+.edulume-sections__handle {
+  inline-size: 1rem;
+  block-size: 1rem;
+  flex: 0 0 auto;
+  cursor: grab;
+  /* Three bars drawn in the border colour: no icon font, no image request. */
+  background-image: linear-gradient(
+    to bottom,
+    var(--edulume-admin-ink-muted) 0 2px,
+    transparent 2px 5px,
+    var(--edulume-admin-ink-muted) 5px 7px,
+    transparent 7px 10px,
+    var(--edulume-admin-ink-muted) 10px 12px
+  );
+}
+
+.edulume-sections__toggle {
+  flex: 1 1 auto;
+}
+
+.edulume-sections__position input {
+  inline-size: 4.5rem;
 }
 CSS;
 }
