@@ -31,6 +31,7 @@ final class DemoContent
             'hero' => self::hero(),
             'statistics' => self::stats(),
             'services' => self::services(),
+            'video-rail' => self::videoRail(),
             'destinations' => self::destinations(),
             'universities' => self::universities(),
             'highlights' => self::highlights(),
@@ -258,6 +259,67 @@ final class DemoContent
                     'blurb' => 'Accommodation, airport pickup, bank account and SIM — arranged '
                         . 'before you land, not after.',
                     'url' => '/services/pre-departure/',
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * The promo video row, seeded so the section is visible before anybody has pasted a URL.
+     *
+     * These are the Blender Foundation's open movies, which are **CC BY 3.0** — genuinely
+     * licensed for redistribution, credited in the titles below and in `demos/LICENSES.md`.
+     * That is the whole reason they are here rather than four links to somebody's real
+     * marketing videos: a demo that ships another company's content is a demo that cannot be
+     * sold, and there is no such thing as a Facebook, Instagram or TikTok URL that belongs to
+     * nobody.
+     *
+     * So the seed is one YouTube embed and three self-hosted files. The other three hosts are
+     * documented in the admin help with the URL shapes they accept, which is the useful half of
+     * a demo link anyway — an owner replaces every one of these on day one.
+     *
+     * @return array<string, mixed>
+     */
+    private static function videoRail(): array
+    {
+        $bucket = 'https://storage.googleapis.com/gtv-videos-bucket/sample/';
+
+        return [
+            'enabled' => true,
+            'title' => 'Watch our student stories',
+            'subtitle' => 'Two minutes each. Replace these with your own — Facebook, Instagram, '
+                . 'TikTok, YouTube or a file you upload.',
+            'aspect' => '16:9',
+            'autoplay' => true,
+            'consent' => false,
+            'items' => [
+                [
+                    'source' => 'youtube',
+                    'url' => 'https://www.youtube.com/watch?v=YE7VzlLtp-4',
+                    'title' => 'Sample: Big Buck Bunny (Blender Foundation, CC BY)',
+                    'poster_id' => 0,
+                    'duration' => '9:56',
+                ],
+                [
+                    'source' => 'mp4',
+                    'url' => $bucket . 'ForBiggerJoyrides.mp4',
+                    'title' => 'Sample clip — replace with your own',
+                    'poster_id' => 0,
+                    'duration' => '0:15',
+                ],
+                [
+                    'source' => 'mp4',
+                    'url' => $bucket . 'ForBiggerMeltdowns.mp4',
+                    'title' => 'Sample clip — replace with your own',
+                    'poster_id' => 0,
+                    'duration' => '0:15',
+                ],
+                [
+                    'source' => 'mp4',
+                    'url' => $bucket . 'ForBiggerEscapes.mp4',
+                    'title' => 'Sample clip — replace with your own',
+                    'poster_id' => 0,
+                    'duration' => '0:15',
                 ],
             ],
         ];

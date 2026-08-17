@@ -148,9 +148,7 @@ final class DestinationPage
     private function demoVideo(): array
     {
         $rail = VideoRail::fromArray(
-            Guard::toArray(
-                Guard::toArray(get_option(SiteContent::OPTION, []))[VideoRailProvider::OPTION_KEY] ?? null
-            )
+            Guard::toArray(apply_filters(SiteContent::VALUE_FILTER, [], VideoRailProvider::OPTION_KEY))
         );
 
         $items = $rail->playableItems();

@@ -19,6 +19,31 @@ theme may be somebody else's asset under a licence nobody re-checked.**
 The machine-readable version, one entry per file, is `boutique/media-credits.json`. That file is
 the authority; this table is the summary.
 
+## The seeded videos
+
+The front page's video row ships with four sample links so the section is visible before the
+owner has pasted anything. They are **not** bundled files — they are links, and every one of
+them points at something we are licensed to point at:
+
+| Item               | Source                                      | Licence   |
+| ------------------ | ------------------------------------------- | --------- |
+| Big Buck Bunny     | Blender Foundation, official YouTube upload | CC BY 3.0 |
+| Three sample clips | Google's public `gtv-videos-bucket`         | CC BY 3.0 |
+
+Big Buck Bunny is © Blender Foundation, `peach.blender.org`. The credit is carried in the item's
+own title, which is what the CC BY attribution requirement actually asks for — a licence noted
+only in a file nobody opens is not attribution.
+
+**No Facebook, Instagram or TikTok link is seeded, and that is deliberate.** There is no such
+video on any of those platforms that belongs to nobody: every one is a real account's real post.
+Shipping one in a theme that gets sold means redistributing another company's marketing, which
+is the same mistake as bundling unlicensed stock photography, in a form that is easier to
+notice. What ships instead is the _format_ of each — in the Videos screen's help, and beside the
+address field itself — which is the half an owner actually needs.
+
+Replace all four on day one. They are there so the section is not an empty frame, not because
+anybody should launch with them.
+
 ## Why generated vector artwork rather than photography
 
 Three reasons, in order of how much they cost when ignored.

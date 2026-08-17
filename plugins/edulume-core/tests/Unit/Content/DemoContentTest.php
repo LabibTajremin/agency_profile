@@ -7,6 +7,7 @@ namespace Edulume\Core\Tests\Unit\Content;
 use Edulume\Core\Domain\Content\DemoContent;
 use Edulume\Core\Domain\Support\NestedArray;
 use Edulume\Core\Domain\Theming\SectionId;
+use Edulume\Core\Domain\Video\VideoRail;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -107,6 +108,46 @@ final class DemoContentTest extends TestCase
 
         foreach ($counts as $path => $expected) {
             self::assertCount($expected, NestedArray::get($content, $path, []), $path);
+        }
+    }
+
+    public function testTheSeededVideoRailIsSwitchedOnAndEveryLinkInItActuallyParses(): void
+    {
+        $rail = VideoRail::fromArray(NestedArray::get(DemoContent::all(), 'video-rail', []));
+
+        self::assertTrue($rail->enabled);
+        self::assertTrue($rail->hasAnythingToShow(), 'the seeded rail renders nothing');
+
+        // Every seeded item, not most of them: an unplayable one is silently dropped on the way
+        // to the template, so a broken seed shows as a short rail rather than an error.
+        self::assertCount(count($rail->items), $rail->playableItems());
+        self::assertGreaterThanOrEqual(4, count($rail->items));
+
+        foreach ($rail->items as $item) {
+            self::assertNotSame('', $item->title, 'a seeded video has no title');
+            self::assertNotSame('', $item->embedUrl(), $item->url->value);
+        }
+    }
+
+    public function testTheSeededLinksAreOnlyOnesWeAreLicensedToShip(): void
+    {
+        /*
+         * The seed is Blender Foundation open movies under CC BY, credited in the titles and in
+         * demos/LICENSES.md. There is no such thing as a Facebook, Instagram or TikTok URL that
+         * belongs to nobody, so none is shipped — a demo carrying another company's marketing
+         * video is a demo that cannot be sold.
+         */
+        $allowed = ['storage.googleapis.com/gtv-videos-bucket/', 'youtube.com/watch?v=YE7VzlLtp-4'];
+
+        foreach (NestedArray::get(DemoContent::all(), 'video-rail.items', []) as $item) {
+            $url = is_array($item) && is_string($item['url'] ?? null) ? $item['url'] : '';
+            $known = false;
+
+            foreach ($allowed as $host) {
+                $known = $known || str_contains($url, $host);
+            }
+
+            self::assertTrue($known, $url . ' is not one of the sources we hold a licence for');
         }
     }
 

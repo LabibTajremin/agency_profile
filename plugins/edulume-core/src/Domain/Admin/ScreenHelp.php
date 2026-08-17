@@ -83,14 +83,18 @@ final class ScreenHelp
             self::of(
                 'edulume-videos',
                 'Videos',
-                'The row of videos on your front page. Paste the address of a Facebook post, a '
-                . 'YouTube link, or a video file you have uploaded here, and it appears as a card '
-                . 'people can scroll through. Add as many as you like.',
+                'The row of videos on your front page. Paste a link from Facebook, Instagram, '
+                . 'TikTok or YouTube, or a video file you have uploaded here, and it appears as '
+                . 'a card people can scroll through. Add as many as you like. The samples that '
+                . 'are there now are free-to-use clips — replace them with yours.',
                 [
                     'Paste the full address of the video, exactly as it appears in your browser.',
+                    'TikTok needs the long link with the number in it, not the short share '
+                    . 'link. Open the video on the website and copy from the address bar.',
+                    'Instagram works for posts and reels. Stories cannot be embedded by anyone.',
                     'Give each one a short title and a poster picture. Without a picture we draw a coloured panel instead.',
-                    'A video you upload here yourself starts playing on its own every time. A '
-                    . 'Facebook one sometimes will not — if that matters, upload the same clip as well.',
+                    'A video you upload here yourself starts playing on its own every time. The '
+                    . 'others may not — Instagram and TikTok never do. If it matters, upload the same clip as well.',
                     'Videos always start silent. Every browser insists on that until a visitor asks for sound.',
                     'Drag a row by its handle to change the order. Press Save videos when you are done.',
                 ],

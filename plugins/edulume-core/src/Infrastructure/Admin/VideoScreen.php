@@ -190,8 +190,9 @@ final class VideoScreen
             esc_html__('Start playing when the row scrolls into view', 'edulume'),
             esc_html__(
                 'Always without sound — every browser blocks sound until a visitor asks for it. '
-                . 'An uploaded video file starts reliably; a Facebook embed sometimes will not, '
-                . 'so upload the same clip here as well if it matters.',
+                . 'An uploaded video file starts reliably; Facebook and YouTube sometimes will '
+                . 'not, and Instagram and TikTok never do. If it matters for a particular clip, '
+                . 'upload the file here as well.',
                 'edulume'
             ),
             $rail->consent ? ' checked' : '',
@@ -246,7 +247,11 @@ final class VideoScreen
             . '<input type="text" name="items[%2$d][duration]" value="%7$s" placeholder="%6$s" size="6" /></label>'
             . '<label><span class="screen-reader-text">%8$s</span>'
             . '<input type="number" name="items[%2$d][poster_id]" value="%9$d" placeholder="%8$s" size="6" /></label>'
-            . '<button type="button" class="button-link" data-edulume-video-remove>%10$s</button></li>',
+            . '<button type="button" class="button-link" data-edulume-video-remove>%10$s</button>'
+            // What to paste, beside the field rather than only in the help panel at the top:
+            // the two that get pasted wrong are Instagram stories and TikTok share links, and
+            // both mistakes are made while looking at this input.
+            . '<span class="description edulume-videos__hint">%11$s</span></li>',
             esc_attr__('Video address', 'edulume'),
             $index,
             esc_attr($item->url->value),
@@ -256,15 +261,23 @@ final class VideoScreen
             esc_attr($item->duration),
             esc_attr__('Poster image ID', 'edulume'),
             $item->posterId,
-            esc_html__('Remove', 'edulume')
+            esc_html__('Remove', 'edulume'),
+            esc_html($item->source->urlHint())
         );
     }
 
+    /**
+     * The rail as the front page will see it: stored values over the seeded ones.
+     *
+     * Deliberately the merged view rather than the raw row, so the screen opens showing the
+     * sample videos that are actually on the site. An editor who sees an empty repeater while
+     * the front page plays four clips has been told something false about their own site.
+     */
     private function load(): VideoRail
     {
-        $content = Guard::toArray(get_option(SiteContent::OPTION, []));
-
-        return VideoRail::fromArray(Guard::toArray($content[VideoRailProvider::OPTION_KEY] ?? null));
+        return VideoRail::fromArray(
+            Guard::toArray(apply_filters(SiteContent::VALUE_FILTER, [], VideoRailProvider::OPTION_KEY))
+        );
     }
 
     /**

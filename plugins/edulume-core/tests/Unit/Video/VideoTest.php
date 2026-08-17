@@ -109,6 +109,153 @@ final class VideoTest extends TestCase
         ];
     }
 
+    #[DataProvider('instagramShapes')]
+    public function testAnInstagramUrlKeepsItsPathSegment(string $url, string $expected): void
+    {
+        $parsed = VideoUrl::parse(VideoSource::Instagram, $url);
+
+        self::assertTrue($parsed->isValid, $url);
+        // Instagram serves a different embed per segment; guessing wrong renders an empty frame.
+        self::assertSame($expected, $parsed->value, $url);
+    }
+
+    /**
+     * @return array<string, array{string, string}>
+     */
+    public static function instagramShapes(): array
+    {
+        return [
+            'post' => ['https://www.instagram.com/p/CyA1b2C3d4e/', 'p/CyA1b2C3d4e'],
+            'post without www' => ['https://instagram.com/p/CyA1b2C3d4e/', 'p/CyA1b2C3d4e'],
+            'reel' => ['https://www.instagram.com/reel/CyA1b2C3d4e/', 'reel/CyA1b2C3d4e'],
+            // The app links to the plural; only the singular answers on the embed endpoint.
+            'reels, as the app writes it' => [
+                'https://www.instagram.com/reels/CyA1b2C3d4e/',
+                'reel/CyA1b2C3d4e',
+            ],
+            'igtv' => ['https://www.instagram.com/tv/CyA1b2C3d4e/', 'tv/CyA1b2C3d4e'],
+            'with tracking parameters' => [
+                'https://www.instagram.com/reel/CyA1b2C3d4e/?igsh=abc123&utm_source=ig_web',
+                'reel/CyA1b2C3d4e',
+            ],
+        ];
+    }
+
+    #[DataProvider('badInstagramUrls')]
+    public function testARubbishInstagramUrlIsRefused(string $url): void
+    {
+        self::assertFalse(VideoUrl::parse(VideoSource::Instagram, $url)->isValid, $url);
+    }
+
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function badInstagramUrls(): array
+    {
+        return [
+            'a profile, not a post' => ['https://www.instagram.com/sparkpath/'],
+            'plain http' => ['http://www.instagram.com/p/CyA1b2C3d4e/'],
+            'stories, which have no embed' => ['https://www.instagram.com/stories/sparkpath/123/'],
+            'not instagram' => ['https://example.com/p/CyA1b2C3d4e/'],
+            'empty' => [''],
+        ];
+    }
+
+    #[DataProvider('tikTokShapes')]
+    public function testATikTokUrlReducesToItsVideoId(string $url): void
+    {
+        $parsed = VideoUrl::parse(VideoSource::TikTok, $url);
+
+        self::assertTrue($parsed->isValid, $url);
+        self::assertSame('7234567890123456789', $parsed->value, $url);
+    }
+
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function tikTokShapes(): array
+    {
+        return [
+            'full url' => ['https://www.tiktok.com/@sparkpath/video/7234567890123456789'],
+            'no www' => ['https://tiktok.com/@sparkpath/video/7234567890123456789'],
+            'with parameters' => [
+                'https://www.tiktok.com/@sparkpath/video/7234567890123456789?is_from_webapp=1',
+            ],
+            'an embed url pasted back in' => [
+                'https://www.tiktok.com/embed/v2/7234567890123456789',
+            ],
+            'a player url' => ['https://www.tiktok.com/player/v1/7234567890123456789'],
+            'a bare id' => ['7234567890123456789'],
+        ];
+    }
+
+    #[DataProvider('badTikTokUrls')]
+    public function testATikTokLinkWithNoIdInItIsRefused(string $url): void
+    {
+        self::assertFalse(VideoUrl::parse(VideoSource::TikTok, $url)->isValid, $url);
+    }
+
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function badTikTokUrls(): array
+    {
+        return [
+            // Resolving a share link means following a redirect, which is a network call this
+            // refuses to make while somebody is waiting for a save to complete.
+            'vm share link' => ['https://vm.tiktok.com/ZMabc123/'],
+            't share link' => ['https://www.tiktok.com/t/ZTabc123/'],
+            'a profile' => ['https://www.tiktok.com/@sparkpath'],
+            'plain http' => ['http://www.tiktok.com/@sparkpath/video/7234567890123456789'],
+            'empty' => [''],
+        ];
+    }
+
+    public function testTheNewHostsBuildTheEmbedUrlsTheirPlayersAnswerTo(): void
+    {
+        $instagram = VideoUrl::parse(VideoSource::Instagram, 'https://www.instagram.com/reel/CyA1b2C3d4e/');
+        $tiktok = VideoUrl::parse(VideoSource::TikTok, 'https://www.tiktok.com/@sparkpath/video/7234567890123456789');
+
+        self::assertSame('https://www.instagram.com/reel/CyA1b2C3d4e/embed/', $instagram->embedUrl());
+        self::assertSame('https://www.tiktok.com/embed/v2/7234567890123456789', $tiktok->embedUrl());
+    }
+
+    public function testNeitherNewHostHasAnAutoplayParameterToInvent(): void
+    {
+        $instagram = VideoUrl::parse(VideoSource::Instagram, 'https://www.instagram.com/p/CyA1b2C3d4e/');
+
+        // The flag is accepted and ignored rather than turned into a query parameter Instagram
+        // has never documented — a made-up parameter breaks the day they start validating.
+        self::assertSame($instagram->embedUrl(true), $instagram->embedUrl(false));
+        self::assertStringNotContainsString('autoplay', $instagram->embedUrl());
+
+        self::assertFalse(VideoSource::Instagram->acceptsAutoplayRequest());
+        self::assertFalse(VideoSource::TikTok->acceptsAutoplayRequest());
+        self::assertTrue(VideoSource::Facebook->acceptsAutoplayRequest());
+        self::assertTrue(VideoSource::Mp4->acceptsAutoplayRequest());
+    }
+
+    public function testTheVerticalHostsCarryTheirOwnShape(): void
+    {
+        // A landscape frame around a TikTok gives two black pillars and a third of the width.
+        self::assertSame('9:16', VideoSource::Instagram->nativeAspect());
+        self::assertSame('9:16', VideoSource::TikTok->nativeAspect());
+        self::assertSame('', VideoSource::YouTube->nativeAspect());
+        self::assertSame('', VideoSource::Mp4->nativeAspect());
+    }
+
+    public function testEverySourceNamesItselfAndSaysWhatToPaste(): void
+    {
+        foreach (VideoSource::cases() as $source) {
+            self::assertNotSame('', $source->label(), $source->value);
+            self::assertNotSame('', $source->urlHint(), $source->value);
+        }
+
+        // Spelled the way the companies spell them; `ucfirst()` gets both of these wrong.
+        self::assertSame('TikTok', VideoSource::TikTok->label());
+        self::assertSame('YouTube', VideoSource::YouTube->label());
+    }
+
     #[DataProvider('mp4Cases')]
     public function testAFileIsAcceptedOnlyWhenItLooksLikeOne(string $url, bool $expected): void
     {
@@ -179,19 +326,16 @@ final class VideoTest extends TestCase
     public function testOnlyTheUploadedFileIsPromisedReliableAutoplay(): void
     {
         self::assertTrue(VideoSource::Mp4->autoplayIsReliable());
-        self::assertFalse(VideoSource::Facebook->autoplayIsReliable());
-        self::assertFalse(VideoSource::YouTube->autoplayIsReliable());
     }
 
     public function testOnlyTheThirdPartySourcesNeedConsent(): void
     {
-        self::assertTrue(VideoSource::Facebook->isThirdParty());
-        self::assertTrue(VideoSource::YouTube->isThirdParty());
-        self::assertFalse(VideoSource::Mp4->isThirdParty());
-
-        foreach (VideoSource::cases() as $source) {
-            self::assertNotSame('', $source->label());
+        foreach ([VideoSource::Facebook, VideoSource::YouTube, VideoSource::Instagram, VideoSource::TikTok] as $source) {
+            self::assertTrue($source->isThirdParty(), $source->value);
+            self::assertFalse($source->autoplayIsReliable(), $source->value);
         }
+
+        self::assertFalse(VideoSource::Mp4->isThirdParty());
     }
 
     public function testAnItemRoundTripsThroughStorage(): void

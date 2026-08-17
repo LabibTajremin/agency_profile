@@ -74,7 +74,7 @@ msgstr ""
 msgid "Apply to %s"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:198
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:199
 msgid "Ask before loading videos from Facebook or YouTube"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "Leave this field empty"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:255
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:260
 msgid "Length"
 msgstr ""
 
@@ -338,15 +338,15 @@ msgstr ""
 msgid "Living costs"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/video/card.php:89
+#: themes/edulume-theme/template-parts/video/card.php:98
 msgid "Load this video from %s? It will set third-party cookies."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/video/card.php:95
+#: themes/edulume-theme/template-parts/video/card.php:104
 msgid "Load video"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/video/card.php:99
+#: themes/edulume-theme/template-parts/video/card.php:108
 msgid "Load videos like this from now on"
 msgstr ""
 
@@ -457,11 +457,11 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/video/card.php:41
+#: themes/edulume-theme/template-parts/video/card.php:47
 msgid "Play video"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/video/card.php:38
+#: themes/edulume-theme/template-parts/video/card.php:44
 msgid "Play “%s”"
 msgstr ""
 
@@ -481,7 +481,7 @@ msgstr ""
 msgid "Position of %s"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:257
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:262
 msgid "Poster image ID"
 msgstr ""
 
@@ -509,7 +509,7 @@ msgstr ""
 msgid "Related"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:259
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:264
 msgid "Remove"
 msgstr ""
 
@@ -730,7 +730,7 @@ msgstr ""
 msgid "This site sits behind Cloudflare or another proxy"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:253
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:258
 msgid "Title"
 msgstr ""
 
@@ -779,7 +779,7 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:250
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:255
 msgid "Video address"
 msgstr ""
 
@@ -837,7 +837,7 @@ msgstr ""
 msgid "Where do you want to study?"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:226
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:227
 msgid "Where the video is hosted"
 msgstr ""
 

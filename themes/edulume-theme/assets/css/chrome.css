@@ -2027,3 +2027,18 @@ body {
     padding-inline-start: 0;
   }
 }
+
+/*
+ * A note only a signed-in editor sees.
+ *
+ * Used where a section has nothing to render and the person who can fix that is the only one
+ * who needs telling. Styled as an obvious annotation rather than as content, so nobody mistakes
+ * it for something a visitor is meant to read.
+ */
+.edulume-editor-hint {
+  padding: var(--edulume-space-4, 1rem);
+  border: 1px dashed var(--edulume-border, #d8dade);
+  border-radius: var(--edulume-radius-2, 10px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+  color: var(--edulume-ink-muted, #4a4f58);
+}

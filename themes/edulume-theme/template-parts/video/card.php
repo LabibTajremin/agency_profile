@@ -31,6 +31,12 @@ $edulume_poster = is_string($edulume_card['poster'] ?? null) ? $edulume_card['po
 $edulume_duration = is_string($edulume_card['duration'] ?? null) ? $edulume_card['duration'] : '';
 $edulume_source = is_string($edulume_card['source'] ?? null) ? $edulume_card['source'] : 'mp4';
 $edulume_third_party = (bool) ($edulume_card['thirdParty'] ?? false);
+$edulume_aspect = is_string($edulume_card['aspect'] ?? null) ? $edulume_card['aspect'] : '';
+
+// "TikTok" and "YouTube" are spelled the way they are spelled; `ucfirst()` gets both wrong.
+$edulume_host = is_string($edulume_card['sourceLabel'] ?? null) && $edulume_card['sourceLabel'] !== ''
+    ? $edulume_card['sourceLabel']
+    : ucfirst($edulume_source);
 
 $edulume_label = $edulume_title !== ''
     ? sprintf(
@@ -48,6 +54,9 @@ $edulume_label = $edulume_title !== ''
     data-edulume-video-embed="<?php echo esc_url($edulume_card['embed']); ?>"
     data-edulume-video-title="<?php echo esc_attr($edulume_title); ?>"
     <?php echo $edulume_third_party && $edulume_consent ? 'data-edulume-video-consent="required"' : ''; ?>
+    <?php if ($edulume_aspect !== '') : ?>
+        style="--edulume-video-aspect: <?php echo esc_attr($edulume_aspect); ?>;"
+    <?php endif; ?>
 >
     <div class="edulume-video-card__frame" data-edulume-video-frame>
         <?php if ($edulume_poster !== '') : ?>
@@ -87,7 +96,7 @@ $edulume_label = $edulume_title !== ''
                     printf(
                         /* translators: %s: the name of the video host, e.g. Facebook. */
                         esc_html__('Load this video from %s? It will set third-party cookies.', 'edulume'),
-                        esc_html(ucfirst($edulume_source))
+                        esc_html($edulume_host)
                     );
                     ?>
                 </p>

@@ -21,6 +21,12 @@ final class VideoUrl
 {
     private const YOUTUBE_ID = '[A-Za-z0-9_-]{11}';
 
+    /** Instagram shortcodes are 11 characters today and have been longer before now. */
+    private const INSTAGRAM_CODE = '[A-Za-z0-9_-]{5,24}';
+
+    /** TikTok video ids are 19-digit snowflakes; the range is loose on purpose. */
+    private const TIKTOK_ID = '\d{15,25}';
+
     private function __construct(
         public readonly VideoSource $source,
         public readonly string $value,
@@ -35,6 +41,8 @@ final class VideoUrl
         return match ($source) {
             VideoSource::Facebook => new self($source, $trimmed, self::isFacebook($trimmed)),
             VideoSource::YouTube => self::youTube($trimmed),
+            VideoSource::Instagram => self::instagram($trimmed),
+            VideoSource::TikTok => self::tikTok($trimmed),
             VideoSource::Mp4 => new self($source, $trimmed, self::isMp4($trimmed)),
         };
     }
@@ -45,6 +53,10 @@ final class VideoUrl
      * Muted is not negotiable and not a parameter. Every browser blocks autoplay with sound, so
      * an unmuted autoplay request is a video that silently does not start — which looks exactly
      * like a broken player.
+     *
+     * Instagram and TikTok take no autoplay or mute parameter of any kind. The flag is accepted
+     * and ignored for them rather than invented, because a made-up query parameter on somebody
+     * else's endpoint is a thing that breaks silently the day they start validating.
      */
     public function embedUrl(bool $autoplay = true): string
     {
@@ -59,6 +71,10 @@ final class VideoUrl
             VideoSource::YouTube => 'https://www.youtube-nocookie.com/embed/' . $this->value
                 . '?autoplay=' . ($autoplay ? '1' : '0')
                 . '&mute=1&playsinline=1&rel=0&modestbranding=1',
+            // The stored value keeps its path segment — `p`, `reel` or `tv` — because Instagram
+            // serves a different frame for each and only the matching one renders a video.
+            VideoSource::Instagram => 'https://www.instagram.com/' . $this->value . '/embed/',
+            VideoSource::TikTok => 'https://www.tiktok.com/embed/v2/' . $this->value,
             VideoSource::Mp4 => $this->value,
         };
     }
@@ -109,6 +125,57 @@ final class VideoUrl
         }
 
         return new self(VideoSource::YouTube, $url, false);
+    }
+
+    /**
+     * Instagram posts, reels and IGTV.
+     *
+     * The path segment is kept alongside the shortcode rather than normalised away: Instagram
+     * serves a different embed for `/p/`, `/reel/` and `/tv/`, and guessing wrong renders a
+     * frame with no video in it.
+     */
+    private static function instagram(string $url): self
+    {
+        $pattern = '#^https://(?:www\.)?instagram\.com/(p|reel|reels|tv)/(' . self::INSTAGRAM_CODE . ')#i';
+
+        if (preg_match($pattern, $url, $matches) === 1) {
+            // `/reels/` is the plural Instagram's own app links to; the embed only answers to
+            // the singular.
+            $type = strtolower($matches[1]) === 'reels' ? 'reel' : strtolower($matches[1]);
+
+            return new self(VideoSource::Instagram, $type . '/' . $matches[2], true);
+        }
+
+        return new self(VideoSource::Instagram, $url, false);
+    }
+
+    /**
+     * TikTok, from the full URL only.
+     *
+     * `vm.tiktok.com/…` and `tiktok.com/t/…` are share links that carry no video id — resolving
+     * one means following a redirect, which is a network call this refuses to make at save
+     * time. Rejecting with a message naming the full form is better than accepting a URL that
+     * cannot be embedded and failing on the front page instead.
+     */
+    private static function tikTok(string $url): self
+    {
+        $patterns = [
+            '#^https://(?:www\.)?tiktok\.com/@[^/]+/video/(' . self::TIKTOK_ID . ')#i',
+            '#^https://(?:www\.)?tiktok\.com/embed/v2/(' . self::TIKTOK_ID . ')#i',
+            '#^https://(?:www\.)?tiktok\.com/player/v1/(' . self::TIKTOK_ID . ')#i',
+        ];
+
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $url, $matches) === 1) {
+                return new self(VideoSource::TikTok, $matches[1], true);
+            }
+        }
+
+        if (preg_match('#^' . self::TIKTOK_ID . '$#', $url) === 1) {
+            return new self(VideoSource::TikTok, $url, true);
+        }
+
+        return new self(VideoSource::TikTok, $url, false);
     }
 
     /**

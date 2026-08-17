@@ -341,5 +341,35 @@ a {
   margin-block-start: 0.25rem;
   word-break: break-all;
 }
+
+.edulume-videos__rows {
+  max-inline-size: 60rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-videos__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.6rem 0.85rem;
+  margin-block-end: 0.4rem;
+  border: 1px solid var(--edulume-admin-border);
+  border-radius: 6px;
+  background: var(--edulume-admin-surface-raised);
+}
+
+.edulume-videos__row input[type='url'] {
+  flex: 1 1 18rem;
+  min-inline-size: 0;
+}
+
+/* The hint takes the whole second line: it is a sentence, not a field label. */
+.edulume-videos__hint {
+  flex: 1 0 100%;
+  color: var(--edulume-admin-ink-muted);
+}
 CSS;
 }

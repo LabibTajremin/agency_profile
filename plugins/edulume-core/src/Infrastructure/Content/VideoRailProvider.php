@@ -76,21 +76,36 @@ final class VideoRailProvider
 
         return [
             'source' => $item->source->value,
+            // The host's own name, not a title-cased slug: "TikTok" and "YouTube" are spelled
+            // the way they are spelled, and `ucfirst()` gets both wrong.
+            'sourceLabel' => $item->source->label(),
             'title' => $item->title,
             'duration' => $item->duration,
             'poster' => $poster,
             'thirdParty' => $item->needsConsent(),
+            /*
+             * A per-card shape, where the host has one it insists on. A landscape frame around
+             * a TikTok or a reel gives two black pillars and a video a third of the width it
+             * should be, so those override the rail's setting instead of obeying it.
+             */
+            'aspect' => str_replace(':', ' / ', $item->source->nativeAspect()),
             // The autoplay flag is baked into the URL the card carries, so the script never has
-            // to know how each host spells it.
+            // to know how each host spells it — or, for two of them, that it cannot be spelled.
             'embed' => $item->embedUrl($rail->autoplay),
         ];
     }
 
+    /**
+     * The rail, with the owner's stored settings over the seeded ones.
+     *
+     * Read through the same filter the rest of the theme's copy uses rather than straight from
+     * the option row. Reading the row directly is how the rail ended up empty on a fresh
+     * install while every other section was populated: the defaults live one layer up.
+     */
     private function load(): VideoRail
     {
-        $stored = Guard::toArray(get_option(SiteContent::OPTION, []));
-        $rail = Guard::toArray($stored[self::OPTION_KEY] ?? null);
+        $stored = apply_filters(SiteContent::VALUE_FILTER, [], self::OPTION_KEY);
 
-        return VideoRail::fromArray($rail);
+        return VideoRail::fromArray(Guard::toArray($stored));
     }
 }
