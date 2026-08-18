@@ -87,8 +87,13 @@
 }
 
 /*
- * The no-poster case. A gradient in the site's own accent with the title across it, because a
- * grey rectangle is indistinguishable from a card that failed to load.
+ * The no-poster case: a solid accent panel with the title across it, because a grey rectangle
+ * is indistinguishable from a card that failed to load.
+ *
+ * Solid, not a gradient. It used to fade from the accent to `--edulume-surface-subtle`, and
+ * the title is bottom-aligned — so the text sat exactly where the gradient was palest, which
+ * on a light palette is white on near-white. Accent against on-accent is the one pair the
+ * palette generator proves for contrast in both modes, so that is the pair this uses.
  */
 .edulume-video-card__placeholder {
   position: absolute;
@@ -96,11 +101,7 @@
   display: grid;
   align-content: end;
   padding: var(--edulume-space-4, 1rem);
-  background-image: linear-gradient(
-    160deg,
-    var(--edulume-accent, #123a6b),
-    var(--edulume-surface-subtle, #f1f2f4)
-  );
+  background-color: var(--edulume-accent, #123a6b);
   color: var(--edulume-on-accent, #ffffff);
 }
 

@@ -393,12 +393,13 @@ final class LoginShield
 
     private function requestPath(): string
     {
-        $uri = $_SERVER['REQUEST_URI'] ?? '';
+        // Unslashed and sanitised in one expression. Assigning the superglobal first and
+        // cleaning it afterwards leaves a variable holding raw request data, which is the
+        // pattern the sniff exists to stop whether or not this particular use is safe.
+        $uri = isset($_SERVER['REQUEST_URI'])
+            ? sanitize_text_field(wp_unslash((string) $_SERVER['REQUEST_URI']))
+            : '';
 
-        if (!is_string($uri)) {
-            return '';
-        }
-
-        return (string) wp_parse_url(wp_unslash($uri), PHP_URL_PATH);
+        return $uri === '' ? '' : (string) wp_parse_url($uri, PHP_URL_PATH);
     }
 }

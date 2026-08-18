@@ -100,12 +100,15 @@ final class ShieldScreen
         $settings = $this->shield->settings();
 
         printf(
-            '<form method="post" action="%s" class="edulume-shield" data-edulume-shield>%s'
-            . '<input type="hidden" name="action" value="%s" />',
-            esc_url(admin_url('admin-post.php')),
-            wp_nonce_field(self::ACTION, '_wpnonce', true, false),
-            esc_attr(self::ACTION)
+            '<form method="post" action="%s" class="edulume-shield" data-edulume-shield>',
+            esc_url(admin_url('admin-post.php'))
         );
+
+        // Called as a statement: it prints the field itself, and a generated hidden input
+        // passed through printf reads as unescaped output to a reviewer and to WPCS alike.
+        wp_nonce_field(self::ACTION);
+
+        printf('<input type="hidden" name="action" value="%s" />', esc_attr(self::ACTION));
 
         $this->renderRescueNotice();
 
@@ -192,10 +195,10 @@ final class ShieldScreen
     {
         printf(
             '<p class="edulume-shield__field"><label for="edulume-shield-%1$s">%2$s</label>'
-            . '<input type="number" id="edulume-shield-%1$s" name="%1$s" value="%3$d" min="1" /></p>',
+            . '<input type="number" id="edulume-shield-%1$s" name="%1$s" value="%3$s" min="1" /></p>',
             esc_attr($field),
             esc_html($label),
-            $value
+            esc_attr((string) $value)
         );
     }
 

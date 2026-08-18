@@ -54,11 +54,11 @@ msgstr ""
 msgid "Accept selected"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:117
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:120
 msgid "Add another video"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:211
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:214
 msgid "Addresses never locked out, one per line"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Apply to %s"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:199
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:202
 msgid "Ask before loading videos from Facebook or YouTube"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Done. Reloading…"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:120
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:123
 msgid "Double the lockout each time the same visitor comes back"
 msgstr ""
 
@@ -176,7 +176,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:130
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:133
 msgid "Email me when someone is locked out"
 msgstr ""
 
@@ -188,7 +188,7 @@ msgstr ""
 msgid "Experience"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:116
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:119
 msgid "Failures allowed"
 msgstr ""
 
@@ -250,11 +250,11 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:127
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:130
 msgid "Give the same message for every failed sign-in"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:165
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:168
 msgid "Heading"
 msgstr ""
 
@@ -278,7 +278,7 @@ msgstr ""
 msgid "I agree to be contacted about my enquiry."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:166
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:169
 msgid "I have saved this address somewhere I can find it."
 msgstr ""
 
@@ -286,11 +286,11 @@ msgstr ""
 msgid "IELTS overall, if you have sat it"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:155
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:165
 msgid "Import this pack"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:79
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:80
 msgid "Imported %1$s — %2$d items created."
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "Leave this field empty"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:260
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:263
 msgid "Length"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Likely — your profile meets the published minimums."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:167
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:170
 msgid "Line under the heading"
 msgstr ""
 
@@ -350,11 +350,11 @@ msgstr ""
 msgid "Load videos like this from now on"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:115
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:118
 msgid "Lock out repeated failures"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:117
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:120
 msgid "Lockout, in minutes"
 msgstr ""
 
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Milestones"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:112
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:115
 msgid "Move my login page"
 msgstr ""
 
@@ -477,11 +477,11 @@ msgstr ""
 msgid "Please tick this to continue."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:127
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:130
 msgid "Position of %s"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:262
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:265
 msgid "Poster image ID"
 msgstr ""
 
@@ -509,15 +509,15 @@ msgstr ""
 msgid "Related"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:264
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:267
 msgid "Remove"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:185
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:199
 msgid "Remove imported content"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:96
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:98
 msgid "Removed %d imported item(s)."
 msgstr ""
 
@@ -542,15 +542,15 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:96
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:99
 msgid "Save home page"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:142
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:145
 msgid "Save login settings"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:118
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:121
 msgid "Save videos"
 msgstr ""
 
@@ -592,11 +592,11 @@ msgstr ""
 msgid "Sending…"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:164
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:167
 msgid "Show the video row on the front page"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:176
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:179
 msgid "Sign-in address"
 msgstr ""
 
@@ -608,7 +608,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:259
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:262
 msgid "Something on this site already uses that address. Pick another."
 msgstr ""
 
@@ -628,7 +628,7 @@ msgstr ""
 msgid "Specialises in"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:190
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:193
 msgid "Start playing when the row scrolls into view"
 msgstr ""
 
@@ -647,7 +647,7 @@ msgstr ""
 msgid "Success stories"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:124
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:127
 msgid "Switch off XML-RPC"
 msgstr ""
 
@@ -676,7 +676,7 @@ msgstr ""
 msgid "Thank you. We will be in touch shortly."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:258
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:261
 msgid "That address is one WordPress uses itself. Pick another."
 msgstr ""
 
@@ -694,7 +694,7 @@ msgid "That section does not exist."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportAjax.php:62
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:51
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:52
 msgid "That starter pack does not exist."
 msgstr ""
 
@@ -702,15 +702,15 @@ msgstr ""
 msgid "The Edulume login shield does not run on a multisite network, so it is switched off here."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:255
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:258
 msgid "The sign-in address cannot be empty."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:257
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:260
 msgid "The sign-in address is too long — use fifty characters or fewer."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:256
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:259
 msgid "The sign-in address is too short — use at least three characters."
 msgstr ""
 
@@ -722,15 +722,15 @@ msgstr ""
 msgid "This intake"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:133
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:135
 msgid "This pack has no content yet."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:133
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:136
 msgid "This site sits behind Cloudflare or another proxy"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:258
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:261
 msgid "Title"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr ""
 msgid "Too many attempts. Try again later."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:123
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:126
 msgid "Trap automated sign-in attempts"
 msgstr ""
 
@@ -779,11 +779,11 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:255
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:258
 msgid "Video address"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:172
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:175
 msgid "Video shape"
 msgstr ""
 
@@ -837,7 +837,7 @@ msgstr ""
 msgid "Where do you want to study?"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:227
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:230
 msgid "Where the video is hosted"
 msgstr ""
 
@@ -862,7 +862,7 @@ msgid "You are not allowed to change the videos."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportAjax.php:51
-#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:210
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:228
 msgid "You are not allowed to import content."
 msgstr ""
 
@@ -870,11 +870,11 @@ msgstr ""
 msgid "Your CGPA, out of 4"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:267
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:270
 msgid "Your new sign-in address"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:213
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:216
 msgid "Your own office address belongs here."
 msgstr ""
 
@@ -882,7 +882,7 @@ msgstr ""
 msgid "Your question"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:164
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:167
 msgid "Your sign-in page will be:"
 msgstr ""
 

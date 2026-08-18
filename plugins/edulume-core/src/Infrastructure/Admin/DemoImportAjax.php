@@ -64,7 +64,8 @@ final class DemoImportAjax
             return;
         }
 
-        $restart = isset($_POST['restart']) && (string) wp_unslash((string) $_POST['restart']) === '1';
+        $restart = isset($_POST['restart'])
+            && sanitize_key(wp_unslash((string) $_POST['restart'])) === '1';
         $cursor = $restart ? null : $this->readCursor($slug);
 
         $cursor = $this->container->importDemo()->run(

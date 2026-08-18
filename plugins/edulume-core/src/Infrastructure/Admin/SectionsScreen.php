@@ -70,12 +70,15 @@ final class SectionsScreen
         $overrides = $this->container->settingsRepository()->loadSectionOverrides();
 
         printf(
-            '<form method="post" action="%s" class="edulume-sections">%s'
-            . '<input type="hidden" name="action" value="%s" />',
-            esc_url(admin_url('admin-post.php')),
-            wp_nonce_field(self::ACTION, '_wpnonce', true, false),
-            esc_attr(self::ACTION)
+            '<form method="post" action="%s" class="edulume-sections">',
+            esc_url(admin_url('admin-post.php'))
         );
+
+        // Called as a statement: it prints the field itself, and a generated hidden input
+        // passed through printf reads as unescaped output to a reviewer and to WPCS alike.
+        wp_nonce_field(self::ACTION);
+
+        printf('<input type="hidden" name="action" value="%s" />', esc_attr(self::ACTION));
 
         echo '<ol class="edulume-sections__list" data-edulume-sortable>';
 
@@ -117,7 +120,7 @@ final class SectionsScreen
             . '<input type="checkbox" name="enabled[%1$s]" value="1"%2$s /> %3$s</label>'
             . '<label class="edulume-sections__position">'
             . '<span class="screen-reader-text">%4$s</span>'
-            . '<input type="number" name="position[%1$s]" value="%5$d" min="1" step="1" '
+            . '<input type="number" name="position[%1$s]" value="%5$s" min="1" step="1" '
             . 'data-edulume-position /></label></li>',
             esc_attr($section->value),
             $enabled ? ' checked' : '',
@@ -127,7 +130,7 @@ final class SectionsScreen
                 __('Position of %s', 'edulume'),
                 $section->label()
             )),
-            $position + 1
+            esc_attr((string) ($position + 1))
         );
     }
 
@@ -183,14 +186,19 @@ final class SectionsScreen
      */
     private function submitted(string $field): array
     {
-        // The nonce and the capability were both checked in `handleSave` before this runs.
-        // phpcs:ignore WordPress.Security.NonceVerification.Missing
-        $raw = isset($_POST[$field]) && is_array($_POST[$field]) ? wp_unslash($_POST[$field]) : [];
+        // Unslashed and sanitised in the same expression as the read. Assigning first and
+        // cleaning afterwards leaves a variable holding raw request data, which is the shape
+        // the sniff exists to stop regardless of what happens on the next line.
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing -- handleSave() checked both.
+        $raw = isset($_POST[$field]) && is_array($_POST[$field])
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing -- as above.
+            ? map_deep(wp_unslash($_POST[$field]), 'sanitize_text_field')
+            : [];
         $clean = [];
 
         foreach ($raw as $key => $value) {
             if (is_scalar($value)) {
-                $clean[sanitize_key((string) $key)] = sanitize_text_field((string) $value);
+                $clean[sanitize_key((string) $key)] = (string) $value;
             }
         }
 

@@ -101,12 +101,15 @@ final class VideoScreen
         $rail = $this->load();
 
         printf(
-            '<form method="post" action="%s" class="edulume-videos">%s'
-            . '<input type="hidden" name="action" value="%s" />',
-            esc_url(admin_url('admin-post.php')),
-            wp_nonce_field(self::ACTION, '_wpnonce', true, false),
-            esc_attr(self::ACTION)
+            '<form method="post" action="%s" class="edulume-videos">',
+            esc_url(admin_url('admin-post.php'))
         );
+
+        // Called as a statement: it prints the field itself, and a generated hidden input
+        // passed through printf reads as unescaped output to a reviewer and to WPCS alike.
+        wp_nonce_field(self::ACTION);
+
+        printf('<input type="hidden" name="action" value="%s" />', esc_attr(self::ACTION));
 
         $this->renderTopFields($rail);
         $this->renderRows($rail);
@@ -223,9 +226,9 @@ final class VideoScreen
 
         printf(
             '<span class="edulume-sections__handle" aria-hidden="true" data-edulume-drag-handle></span>'
-            . '<label><span class="screen-reader-text">%s</span><select name="items[%d][source]">',
+            . '<label><span class="screen-reader-text">%s</span><select name="items[%s][source]">',
             esc_html__('Where the video is hosted', 'edulume'),
-            $index
+            esc_attr((string) $index)
         );
 
         foreach (VideoSource::cases() as $source) {
@@ -240,27 +243,27 @@ final class VideoScreen
         printf(
             '</select></label>'
             . '<label><span class="screen-reader-text">%1$s</span>'
-            . '<input type="url" name="items[%2$d][url]" value="%3$s" placeholder="%1$s" /></label>'
+            . '<input type="url" name="items[%2$s][url]" value="%3$s" placeholder="%1$s" /></label>'
             . '<label><span class="screen-reader-text">%4$s</span>'
-            . '<input type="text" name="items[%2$d][title]" value="%5$s" placeholder="%4$s" /></label>'
+            . '<input type="text" name="items[%2$s][title]" value="%5$s" placeholder="%4$s" /></label>'
             . '<label><span class="screen-reader-text">%6$s</span>'
-            . '<input type="text" name="items[%2$d][duration]" value="%7$s" placeholder="%6$s" size="6" /></label>'
+            . '<input type="text" name="items[%2$s][duration]" value="%7$s" placeholder="%6$s" size="6" /></label>'
             . '<label><span class="screen-reader-text">%8$s</span>'
-            . '<input type="number" name="items[%2$d][poster_id]" value="%9$d" placeholder="%8$s" size="6" /></label>'
+            . '<input type="number" name="items[%2$s][poster_id]" value="%9$s" placeholder="%8$s" size="6" /></label>'
             . '<button type="button" class="button-link" data-edulume-video-remove>%10$s</button>'
             // What to paste, beside the field rather than only in the help panel at the top:
             // the two that get pasted wrong are Instagram stories and TikTok share links, and
             // both mistakes are made while looking at this input.
             . '<span class="description edulume-videos__hint">%11$s</span></li>',
             esc_attr__('Video address', 'edulume'),
-            $index,
+            esc_attr((string) $index),
             esc_attr($item->url->value),
             esc_attr__('Title', 'edulume'),
             esc_attr($item->title),
             esc_attr__('Length', 'edulume'),
             esc_attr($item->duration),
             esc_attr__('Poster image ID', 'edulume'),
-            $item->posterId,
+            esc_attr((string) $item->posterId),
             esc_html__('Remove', 'edulume'),
             esc_html($item->source->urlHint())
         );
@@ -285,9 +288,14 @@ final class VideoScreen
      */
     private function submittedRows(): array
     {
-        // Capability and nonce were both checked in `handleSave` before anything is read.
-        // phpcs:ignore WordPress.Security.NonceVerification.Missing
-        $raw = isset($_POST['items']) && is_array($_POST['items']) ? wp_unslash($_POST['items']) : [];
+        // Unslashed and sanitised in the same expression as the read, so no unsanitised value
+        // ever lands in a variable. The URL is re-sanitised as a URL below — the narrower rule,
+        // and the one that has to win for a Facebook watch query string to survive.
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing -- handleSave() checked both.
+        $raw = isset($_POST['items']) && is_array($_POST['items'])
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing -- as above.
+            ? map_deep(wp_unslash($_POST['items']), 'sanitize_text_field')
+            : [];
         $rows = [];
 
         foreach (array_slice($raw, 0, self::MAXIMUM_ROWS) as $row) {

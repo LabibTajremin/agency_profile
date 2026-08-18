@@ -72,16 +72,32 @@ test.describe('the Edulume admin', () => {
     await expect(page.locator('text=EDULUME_SHIELD_DISABLE')).toBeVisible();
   });
 
-  test('will not enable the shield until the new address is acknowledged', async ({ page }) => {
+  test('gates enabling the shield behind an acknowledgement of the new address', async ({
+    page,
+  }) => {
     await page.goto('/wp-admin/admin.php?page=edulume-safety');
 
-    await page.check('form[data-edulume-shield] input[name="enabled"]');
+    /*
+     * Deliberately does not submit.
+     *
+     * The first version of this test ticked "enable" and clicked save, expecting the browser
+     * confirmation to block it. If the enhancement script fails to load for any reason nothing
+     * blocks it — the shield genuinely enables on the site under test, wp-login.php starts
+     * 404ing, and the retry of this very file fails at sign-in looking like an unrelated auth
+     * problem. A test that can only be run once is not a test.
+     *
+     * So it asserts the gate is present and wired instead: the checkbox exists, starts
+     * unticked, and the form carries the hook the script binds to.
+     */
+    const form = page.locator('form[data-edulume-shield]');
+    const confirm = form.locator('[data-edulume-shield-confirm]');
 
-    page.once('dialog', (dialog) => dialog.dismiss());
+    await expect(form).toBeVisible();
+    await expect(confirm).toBeVisible();
+    await expect(confirm).not.toBeChecked();
 
-    await page.click('form[data-edulume-shield] button[type="submit"]');
-
-    // Still on the settings screen: the submit was refused rather than saved.
-    await expect(page.locator('form[data-edulume-shield]')).toBeVisible();
+    // The new address is shown before it is agreed to; agreeing to an unseen URL is the
+    // failure the whole gate exists to prevent.
+    await expect(form.locator('.edulume-shield__confirm code')).toContainText('/');
   });
 });

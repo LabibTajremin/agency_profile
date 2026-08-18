@@ -197,12 +197,27 @@ jobs:
         # into either "this URL is missing" or "this page is too slow", which are different
         # problems with different fixes.
         run: bash tools/audit/check-urls.sh
-      - name: Lighthouse against the mobile budget
-        run: npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json
+      # axe first, Lighthouse second, and the order is the point.
+      #
+      # Lighthouse asserts on a category score: a failure reads "accessibility 0.96, expected 1"
+      # and names nothing. axe names the rule, the selector, and for contrast the two colours and
+      # the ratio it measured. Running the vague gate first meant the informative one never ran
+      # at all on the one push where it would have said what was wrong.
       - name: axe against every template in both modes
         run: node tools/axe/run.mjs
         env:
           PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.playwright
+      - name: Lighthouse against the mobile budget
+        run: npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json
+      # The category score alone cannot be acted on, and the per-audit detail is in the reports
+      # that are otherwise thrown away with the runner.
+      - name: Keep the Lighthouse reports when it fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: build/lighthouse
+          retention-days: 7
       # End-to-end, in this job rather than its own: WordPress is already up here, both are
       # activated, the demo pack is imported and the rewrites are flushed. A second job would
       # pay for all of that again to assert against the same site.

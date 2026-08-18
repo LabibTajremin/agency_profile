@@ -1139,3 +1139,13 @@ function _n(string $single, string $plural, int $number, string $domain = 'defau
 function rawurlencode(string $str): string
 {
 }
+
+/**
+ * @param mixed $value
+ * @param callable $callback
+ *
+ * @return mixed
+ */
+function map_deep($value, $callback)
+{
+}

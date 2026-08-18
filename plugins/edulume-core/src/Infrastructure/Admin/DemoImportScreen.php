@@ -42,7 +42,8 @@ final class DemoImportScreen
 
     public function handleImport(): void
     {
-        $this->assertAllowed();
+        $this->assertCapability();
+        check_admin_referer(self::ACTION);
 
         $slug = isset($_POST['demo']) ? sanitize_key(wp_unslash((string) $_POST['demo'])) : '';
         $demo = DemoLibrary::find($slug);
@@ -84,7 +85,8 @@ final class DemoImportScreen
 
     public function handleRemoval(): void
     {
-        $this->assertAllowed();
+        $this->assertCapability();
+        check_admin_referer(self::REMOVE_ACTION);
 
         $store = $this->container->demoStore();
         $ids = $store->previouslyImportedIds();
@@ -139,19 +141,27 @@ final class DemoImportScreen
                  * with script the same button runs it ten items at a time and draws a bar.
                  */
                 printf(
-                    '<form method="post" action="%1$s" data-edulume-import="%2$s">%3$s'
-                    . '<input type="hidden" name="action" value="%4$s" />'
+                    '<form method="post" action="%1$s" data-edulume-import="%2$s">',
+                    esc_url(admin_url('admin-post.php')),
+                    esc_attr($demo->slug)
+                );
+
+                // Called as a statement rather than interpolated: it prints the field itself,
+                // and a generated hidden input passed through printf reads to a reviewer — and
+                // to WPCS — as unescaped output.
+                wp_nonce_field(self::ACTION);
+
+                printf(
+                    '<input type="hidden" name="action" value="%1$s" />'
                     . '<input type="hidden" name="demo" value="%2$s" />'
-                    . '<button type="submit" class="button button-primary">%5$s</button>'
+                    . '<button type="submit" class="button button-primary">%3$s</button>'
                     . '<div class="edulume-progress" role="progressbar" aria-valuemin="0" '
                     . 'aria-valuemax="100" aria-valuenow="0">'
                     . '<span class="edulume-progress__bar" data-edulume-import-bar></span></div>'
                     . '<p class="edulume-progress__status" data-edulume-import-status '
                     . 'role="status" aria-live="polite"></p></form>',
-                    esc_url(admin_url('admin-post.php')),
-                    esc_attr($demo->slug),
-                    wp_nonce_field(self::ACTION, '_wpnonce', true, false),
                     esc_attr(self::ACTION),
+                    esc_attr($demo->slug),
                     esc_html__('Import this pack', 'edulume')
                 );
             }
@@ -166,9 +176,7 @@ final class DemoImportScreen
         }
 
         printf(
-            '<hr /><p>%s</p><form method="post" action="%s">%s'
-            . '<input type="hidden" name="action" value="%s" />'
-            . '<button type="submit" class="button">%s</button></form>',
+            '<hr /><p>%s</p><form method="post" action="%s">',
             esc_html(sprintf(
                 /* translators: %d: how many imported items are on the site. */
                 _n(
@@ -179,8 +187,14 @@ final class DemoImportScreen
                 ),
                 $existing
             )),
-            esc_url(admin_url('admin-post.php')),
-            wp_nonce_field(self::REMOVE_ACTION, '_wpnonce', true, false),
+            esc_url(admin_url('admin-post.php'))
+        );
+
+        wp_nonce_field(self::REMOVE_ACTION);
+
+        printf(
+            '<input type="hidden" name="action" value="%s" />'
+            . '<button type="submit" class="button">%s</button></form>',
             esc_attr(self::REMOVE_ACTION),
             esc_html__('Remove imported content', 'edulume')
         );
@@ -202,17 +216,17 @@ final class DemoImportScreen
     }
 
     /**
-     * Capability and nonce, in that order, on every write.
+     * Capability first, then the nonce — the latter at each call site.
+     *
+     * It used to pick which nonce to verify by reading the submitted action, which is both a
+     * read of request data before any verification has happened and a check no static analysis
+     * can follow. Each handler knows its own action, so each one names it.
      */
-    private function assertAllowed(): void
+    private function assertCapability(): void
     {
         if (!current_user_can(Capabilities::IMPORT_DEMO_CONTENT)) {
             wp_die(esc_html__('You are not allowed to import content.', 'edulume'), '', ['response' => 403]);
         }
-
-        $action = isset($_POST['action']) ? sanitize_key(wp_unslash((string) $_POST['action'])) : '';
-
-        check_admin_referer($action === self::REMOVE_ACTION ? self::REMOVE_ACTION : self::ACTION);
     }
 
     private function redirect(string $notice): void
