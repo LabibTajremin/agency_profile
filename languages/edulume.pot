@@ -82,7 +82,7 @@ msgstr ""
 msgid "Ask us a question"
 msgstr ""
 
-#: themes/edulume-theme/page-templates/founders.php:158
+#: themes/edulume-theme/page-templates/founders.php:164
 msgid "Book a consultation"
 msgstr ""
 

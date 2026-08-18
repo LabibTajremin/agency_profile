@@ -37,15 +37,21 @@
  * keyboard, and it is the version most themes ship.
  */
 .edulume-video-rail__track {
-  display: flex;
-  gap: clamp(12px, 2vw, 24px);
-  margin: 0;
-  padding: 0 0 var(--edulume-space-2, 0.5rem);
-  list-style: none;
+  padding-block-end: var(--edulume-space-2, 0.5rem);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
+}
+
+/* The list inside the scroller. Two elements, because the scroller carries role="region" and
+   that would otherwise replace this element's implicit list role. */
+.edulume-video-rail__list {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .edulume-video-rail__track::-webkit-scrollbar {
@@ -247,6 +253,10 @@
 .edulume-video-rail--single .edulume-video-rail__track {
   overflow: visible;
   scroll-snap-type: none;
+}
+
+.edulume-video-rail--single .edulume-video-rail__list {
+  display: block;
 }
 
 .edulume-video-rail--single .edulume-video-card {

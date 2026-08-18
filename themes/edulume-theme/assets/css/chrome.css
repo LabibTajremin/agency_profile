@@ -1939,14 +1939,20 @@ body {
 
 /* Milestones: the same scrolling track the video rail uses. */
 .edulume-timeline {
-  display: flex;
-  gap: var(--edulume-space-4, 1rem);
-  margin: 0;
-  padding: 0 0 var(--edulume-space-3, 0.75rem);
-  list-style: none;
+  padding-block-end: var(--edulume-space-3, 0.75rem);
   overflow-x: auto;
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
+}
+
+/* The list inside the scroller — separate elements, so role="region" on the scroller does not
+   replace this element's implicit list role and orphan every item in it. */
+.edulume-timeline__list {
+  display: flex;
+  gap: var(--edulume-space-4, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .edulume-timeline:focus-visible {
@@ -2013,8 +2019,11 @@ body {
   }
 
   .edulume-timeline {
-    display: block;
     overflow: visible;
+  }
+
+  .edulume-timeline__list {
+    display: block;
   }
 
   .edulume-timeline__item {

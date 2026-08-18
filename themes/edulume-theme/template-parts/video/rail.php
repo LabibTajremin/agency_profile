@@ -77,22 +77,34 @@ $edulume_label = $edulume_title !== '' ? $edulume_title : __('Videos', 'edulume'
             ></button>
         <?php endif; ?>
 
-        <ul
+        <?php
+        /*
+         * The scrolling region and the list are two elements on purpose.
+         *
+         * `role="region"` on the `<ul>` replaces its implicit `list` role, which leaves every
+         * `<li>` inside it with no list parent in the accessibility tree — axe reports it as
+         * "listitem: <li> elements must be contained in a <ul> or <ol>", and it is right. The
+         * outer div is the focusable scroller; the list stays a list.
+         */
+        ?>
+        <div
             class="edulume-video-rail__track"
             data-edulume-video-track
             role="region"
             aria-label="<?php echo esc_attr($edulume_label); ?>"
             tabindex="0"
         >
-            <?php foreach ($edulume_items as $edulume_item) : ?>
-                <?php
-                get_template_part('template-parts/video/card', null, [
-                    'card' => $edulume_item,
-                    'consent' => $edulume_consent,
-                ]);
-                ?>
-            <?php endforeach; ?>
-        </ul>
+            <ul class="edulume-video-rail__list">
+                <?php foreach ($edulume_items as $edulume_item) : ?>
+                    <?php
+                    get_template_part('template-parts/video/card', null, [
+                        'card' => $edulume_item,
+                        'consent' => $edulume_consent,
+                    ]);
+                    ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
         <?php if (!$edulume_single) : ?>
             <button

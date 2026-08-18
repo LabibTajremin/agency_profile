@@ -122,24 +122,30 @@ $edulume_cta_title = edulume_opt('founders.ctaTitle', __('Talk to us', 'edulume'
 
                 <?php
                 /*
-                 * The same scroll pattern as the video rail: a real overflow track with snap
-                 * points, focusable and arrow-key operable, rather than a carousel that hides
-                 * its overflow and can only be moved by two buttons.
+                 * The same scroll pattern as the video rail, including the same split: the
+                 * focusable region is a div and the list stays an <ol>. `role="region"` on the
+                 * list would replace its implicit role and orphan every <li> in it.
                  */
                 ?>
-                <ol
+                <div
                     class="edulume-timeline"
                     role="region"
                     aria-label="<?php echo esc_attr($edulume_milestones_title); ?>"
                     tabindex="0"
                 >
-                    <?php foreach ($edulume_milestones as $edulume_milestone) : ?>
-                        <li class="edulume-timeline__item">
-                            <p class="edulume-timeline__year"><?php echo esc_html(edulume_row($edulume_milestone, 'year')); ?></p>
-                            <p class="edulume-timeline__event"><?php echo esc_html(edulume_row($edulume_milestone, 'event')); ?></p>
-                        </li>
-                    <?php endforeach; ?>
-                </ol>
+                    <ol class="edulume-timeline__list">
+                        <?php foreach ($edulume_milestones as $edulume_milestone) : ?>
+                            <li class="edulume-timeline__item">
+                                <p class="edulume-timeline__year">
+                                    <?php echo esc_html(edulume_row($edulume_milestone, 'year')); ?>
+                                </p>
+                                <p class="edulume-timeline__event">
+                                    <?php echo esc_html(edulume_row($edulume_milestone, 'event')); ?>
+                                </p>
+                            </li>
+                        <?php endforeach; ?>
+                    </ol>
+                </div>
             </div>
         </section>
     <?php endif; ?>
