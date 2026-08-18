@@ -7,10 +7,6 @@
  * title and tagline rather than to nothing. A home page whose first screen is blank because
  * nobody hooked a filter is not a minimal hero; it is a broken one.
  *
- * The background is the one image on the page that is neither lazy nor deferred: it is the
- * largest contentful paint, and telling the browser so is worth more than every other
- * optimisation in the theme put together.
- *
  * @package Edulume\Theme
  */
 
@@ -35,24 +31,28 @@ $edulume_secondary_url = edulume_opt('hero.secondaryCta.url');
 <section class="edulume-section edulume-home-hero" aria-label="<?php echo esc_attr($edulume_label); ?>">
     <?php
     /*
-     * The backdrop is a background, not an <img>, and it is inlined.
+     * No image behind the hero by default, and that is a measured decision.
      *
-     * As an element it was the front page's largest contentful paint — Lighthouse named it —
-     * and it cost 504ms of load delay plus a round trip for three and a half kilobytes of
-     * decoration at 16% opacity. Every other template on the site measures 1440-1610ms; this
-     * one page measured 2038ms, and the whole difference was this image.
+     * Every other template on the site measures 1440-1610ms for largest contentful paint. The
+     * front page measured 2038ms, and the whole difference was a decorative wash at 16% opacity
+     * covering the hero. It stayed the LCP element as an <img>, with fetchpriority, preloaded,
+     * and finally inlined as a data URI — because the thing that made it the LCP was never how
+     * it loaded, it was that it is the largest paintable thing on the screen.
      *
-     * Inlined it needs no request at all, and a background on an aria-hidden div is not an
-     * element the page is waiting to paint. When the artwork is missing or too large to inline
-     * the attribute is simply absent and the hero renders on its own colours.
+     * The backdrop is a gradient now: painted from the accent tokens, no resource, and not a
+     * kind of thing LCP considers at all. The headline becomes the largest contentful paint,
+     * which is what it should have been.
+     *
+     * An owner who sets `hero.image` to a real photograph still gets one. A photograph of a
+     * campus is content and can earn its cost; a tinted wash cannot.
      */
-    $edulume_backdrop = edulume_demo_img_data(edulume_opt('hero.image'));
+    $edulume_backdrop = edulume_demo_img(edulume_opt('hero.image'));
     ?>
     <?php if ($edulume_backdrop !== '') : ?>
         <div
             class="edulume-hero__backdrop"
             aria-hidden="true"
-            style="background-image:url('<?php echo esc_attr($edulume_backdrop); ?>')"
+            style="background-image:url('<?php echo esc_url($edulume_backdrop); ?>')"
         ></div>
     <?php endif; ?>
 

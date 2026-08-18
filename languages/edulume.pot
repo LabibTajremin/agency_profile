@@ -306,7 +306,7 @@ msgstr ""
 msgid "Intake video"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/hero.php:21
+#: themes/edulume-theme/template-parts/home/hero.php:17
 msgid "Introduction"
 msgstr ""
 

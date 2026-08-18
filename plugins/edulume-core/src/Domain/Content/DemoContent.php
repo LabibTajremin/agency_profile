@@ -180,7 +180,13 @@ final class DemoContent
             'searchPlaceholder' => 'Search a course, a university or a country',
             'primaryCta' => ['label' => 'Check your eligibility', 'url' => '#eligibility'],
             'secondaryCta' => ['label' => 'Talk to a counsellor', 'url' => '/contact/'],
-            'image' => 'hero-campus.svg',
+            /*
+             * Deliberately empty. A decorative backdrop was this page's largest contentful
+             * paint and cost it 600ms against every other template on the site; the hero is
+             * tinted with a gradient instead. An owner who has a real photograph can set this
+             * and it will render — a photograph is content, a wash is not.
+             */
+            'image' => '',
             'badges' => [
                 ['label' => 'British Council certified counsellors'],
                 ['label' => 'ICEF trained team'],

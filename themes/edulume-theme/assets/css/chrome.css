@@ -1211,10 +1211,22 @@ body {
   color: var(--edulume-ink-muted, #4a4f58);
 }
 
-/* The hero's backdrop sits behind its own content and nothing else. */
+/*
+ * The hero's tint, painted rather than fetched.
+ *
+ * A gradient is composited from values already in the stylesheet: no request, nothing to wait
+ * for, and — the reason it is a gradient at all — not a kind of thing largest-contentful-paint
+ * considers. A decorative image here stayed the LCP element however it was loaded, and cost the
+ * front page 600ms more than every other template on the site.
+ */
 .edulume-home-hero {
   position: relative;
   isolation: isolate;
+  background-image: linear-gradient(
+    160deg,
+    var(--edulume-surface-subtle, #f1f2f4),
+    var(--edulume-surface, #fbfbfc) 60%
+  );
 }
 
 .edulume-hero__backdrop {
@@ -1222,7 +1234,7 @@ body {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  /* The image itself is an inline data URI on the element; only its framing lives here. */
+  /* The owner's image is set on the element; only its framing lives here. */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

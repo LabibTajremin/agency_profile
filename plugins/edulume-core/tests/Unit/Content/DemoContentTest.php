@@ -42,7 +42,7 @@ final class DemoContentTest extends TestCase
     {
         return [
             'hero' => ['hero', [
-                'headline', 'subheadline', 'searchPlaceholder', 'image',
+                'headline', 'subheadline', 'searchPlaceholder',
                 'primaryCta.label', 'primaryCta.url', 'secondaryCta.label', 'secondaryCta.url',
                 'badges.2.label', 'chips.1.value', 'chips.1.label',
             ]],
@@ -109,6 +109,23 @@ final class DemoContentTest extends TestCase
         foreach ($counts as $path => $expected) {
             self::assertCount($expected, NestedArray::get($content, $path, []), $path);
         }
+    }
+
+    public function testTheHeroShipsWithNoBackdropImageOnPurpose(): void
+    {
+        /*
+         * Not an oversight, and the test exists so nobody helpfully fills it in.
+         *
+         * A decorative backdrop was the front page's largest contentful paint. It stayed the
+         * LCP element as an <img>, with fetchpriority, preloaded, and inlined as a data URI —
+         * because what made it the LCP was never how it loaded, it was that it is the largest
+         * paintable thing on the screen. It cost this one page 600ms against every other
+         * template on the site. The hero is tinted with a CSS gradient instead.
+         *
+         * The key stays, so an owner with a real photograph can set one. A photograph is
+         * content and can earn its cost; a wash at 16% opacity cannot.
+         */
+        self::assertSame('', NestedArray::get(DemoContent::all(), 'hero.image'));
     }
 
     public function testTheSeededVideoRailIsSwitchedOnAndEveryLinkInItActuallyParses(): void
