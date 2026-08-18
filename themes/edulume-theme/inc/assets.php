@@ -118,37 +118,6 @@ function edulume_escape_css(string $css): string
     return (string) preg_replace('#</\s*(style|script)#i', '', wp_strip_all_tags($css));
 }
 
-/*
- * Tells the browser about the hero image before it has parsed a line of the body.
- *
- * Measured, not guessed. The Lighthouse report for the front page names the hero backdrop as
- * the largest contentful paint, and breaks its 2.1s down as: 455ms waiting for the document,
- * **520ms of load delay**, 136ms of transfer, 842ms of render delay. That load delay is the
- * gap between the document arriving and the image being asked for at all — the preload scanner
- * finds it only after it has worked past two render-blocking stylesheets.
- *
- * A preload in the head collapses that gap: the request goes out with the stylesheets rather
- * than behind them. Front page only, because that is the only template that renders the
- * backdrop, and preloading an image a page never uses is a wasted download plus a console
- * warning telling you so.
- */
-add_action('wp_head', static function (): void {
-    if (!is_front_page() || !function_exists('edulume_demo_img')) {
-        return;
-    }
-
-    $backdrop = edulume_demo_img(edulume_opt('hero.image'));
-
-    if ($backdrop === '') {
-        return;
-    }
-
-    printf(
-        '<link rel="preload" as="image" href="%s" fetchpriority="high" />',
-        esc_url($backdrop)
-    );
-}, 1);
-
 add_action('wp_head', static function (): void {
     $critical = edulume_critical_css();
 

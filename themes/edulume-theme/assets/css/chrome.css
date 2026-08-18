@@ -1222,12 +1222,10 @@ body {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-}
-
-.edulume-hero__backdrop img {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
+  /* The image itself is an inline data URI on the element; only its framing lives here. */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 0.16;
 }
 

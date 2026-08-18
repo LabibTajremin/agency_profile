@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edulume\n"
 
-#: themes/edulume-theme/inc/assets.php:278
+#: themes/edulume-theme/inc/assets.php:247
 msgid " and "
 msgstr ""
 
@@ -26,19 +26,19 @@ msgstr ""
 msgid "%1$s, %2$s"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:287
+#: themes/edulume-theme/inc/assets.php:256
 msgid "%s results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:250
+#: themes/edulume-theme/inc/assets.php:219
 msgid "%s universities"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:288
+#: themes/edulume-theme/inc/assets.php:257
 msgid "1 result"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:248
+#: themes/edulume-theme/inc/assets.php:217
 msgid "1 university"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Book a consultation"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:272
+#: themes/edulume-theme/inc/assets.php:241
 msgid "Borderline — worth a conversation."
 msgstr ""
 
@@ -94,11 +94,11 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:277
+#: themes/edulume-theme/inc/assets.php:246
 msgid "Bring your transcript and test report to your first session."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/hero.php:86
+#: themes/edulume-theme/template-parts/home/hero.php:105
 msgid "Browse courses"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "By the numbers"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:253
+#: themes/edulume-theme/inc/assets.php:222
 msgid "Carousel"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 msgid "Email me when someone is locked out"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:259
+#: themes/edulume-theme/inc/assets.php:228
 msgid "Enter a valid email address."
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Filter results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:285
+#: themes/edulume-theme/inc/assets.php:254
 msgid "Filtering…"
 msgstr ""
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Find a course"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:268
+#: themes/edulume-theme/inc/assets.php:237
 msgid "Flights"
 msgstr ""
 
@@ -326,7 +326,7 @@ msgstr ""
 msgid "Length"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:271
+#: themes/edulume-theme/inc/assets.php:240
 msgid "Likely — your profile meets the published minimums."
 msgstr ""
 
@@ -334,7 +334,7 @@ msgstr ""
 msgid "Line under the heading"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:266
+#: themes/edulume-theme/inc/assets.php:235
 msgid "Living costs"
 msgstr ""
 
@@ -385,11 +385,11 @@ msgstr ""
 msgid "Newsletter"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:255
+#: themes/edulume-theme/inc/assets.php:224
 msgid "Next"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:289
+#: themes/edulume-theme/inc/assets.php:258
 msgid "No results"
 msgstr ""
 
@@ -473,7 +473,7 @@ msgstr ""
 msgid "Please confirm you have saved your sign-in address."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:260
+#: themes/edulume-theme/inc/assets.php:229
 msgid "Please tick this to continue."
 msgstr ""
 
@@ -489,7 +489,7 @@ msgstr ""
 msgid "Posts navigation"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:254
+#: themes/edulume-theme/inc/assets.php:223
 msgid "Previous"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgstr ""
 msgid "Results navigation"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:281
+#: themes/edulume-theme/inc/assets.php:250
 msgid "Reveal the after image"
 msgstr ""
 
@@ -559,8 +559,8 @@ msgid "Scholarships"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:36
-#: themes/edulume-theme/template-parts/home/hero.php:60
-#: themes/edulume-theme/template-parts/home/hero.php:62
+#: themes/edulume-theme/template-parts/home/hero.php:79
+#: themes/edulume-theme/template-parts/home/hero.php:81
 msgid "Search"
 msgstr ""
 
@@ -568,7 +568,7 @@ msgstr ""
 msgid "Search by name or keyword"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/hero.php:53
+#: themes/edulume-theme/template-parts/home/hero.php:72
 msgid "Search the site"
 msgstr ""
 
@@ -588,7 +588,7 @@ msgstr ""
 msgid "Send us your question"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:261
+#: themes/edulume-theme/inc/assets.php:230
 msgid "Sending…"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgid "Switch to light mode"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/cta.php:13
-#: themes/edulume-theme/template-parts/home/hero.php:99
+#: themes/edulume-theme/template-parts/home/hero.php:118
 msgid "Talk to a counsellor"
 msgstr ""
 
@@ -672,7 +672,7 @@ msgstr ""
 msgid "Tell us where you want to study and we will tell you, honestly, what is realistic."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:262
+#: themes/edulume-theme/inc/assets.php:231
 msgid "Thank you. We will be in touch shortly."
 msgstr ""
 
@@ -714,7 +714,7 @@ msgstr ""
 msgid "The sign-in address is too short — use at least three characters."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:258
+#: themes/edulume-theme/inc/assets.php:227
 msgid "This field is required."
 msgstr ""
 
@@ -746,7 +746,7 @@ msgstr ""
 msgid "Trusted by"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:265
+#: themes/edulume-theme/inc/assets.php:234
 msgid "Tuition"
 msgstr ""
 
@@ -758,7 +758,7 @@ msgstr ""
 msgid "University listings for this country are on their way."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:273
+#: themes/edulume-theme/inc/assets.php:242
 msgid "Unlikely as things stand."
 msgstr ""
 
@@ -774,8 +774,8 @@ msgstr ""
 msgid "Utility bar"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:245
-#: themes/edulume-theme/inc/assets.php:282
+#: themes/edulume-theme/inc/assets.php:214
+#: themes/edulume-theme/inc/assets.php:251
 msgid "Video"
 msgstr ""
 
@@ -800,7 +800,7 @@ msgstr ""
 msgid "Videos saved."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:267
+#: themes/edulume-theme/inc/assets.php:236
 msgid "Visa and health surcharge"
 msgstr ""
 
@@ -829,7 +829,7 @@ msgstr ""
 msgid "What students say"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:276
+#: themes/edulume-theme/inc/assets.php:245
 msgid "What would change this: "
 msgstr ""
 
@@ -886,11 +886,11 @@ msgstr ""
 msgid "Your sign-in page will be:"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:275
+#: themes/edulume-theme/inc/assets.php:244
 msgid "a higher English score"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:274
+#: themes/edulume-theme/inc/assets.php:243
 msgid "a higher grade average"
 msgstr ""
 

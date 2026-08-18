@@ -55,6 +55,19 @@ function edulume_row(array $row, string $key, string $fallback = ''): string
 }
 
 /**
+ * A bundled artwork as a `data:` URI, or an empty string when it is not worth inlining.
+ *
+ * Only ever used for the hero backdrop. Everything else is fetched normally — inlining is a
+ * trade, not an improvement, and it only pays when the round trip is on the critical path.
+ */
+function edulume_demo_img_data(string $file): string
+{
+    $data = apply_filters('edulume_demo_media_data', '', $file);
+
+    return is_string($data) ? $data : '';
+}
+
+/**
  * Somebody's initials, for the case where there is no photograph.
  *
  * `mb_substr`, not `substr`: a Bangla or Arabic name cut at one byte is a broken glyph, and this
