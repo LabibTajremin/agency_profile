@@ -128,6 +128,20 @@ add_action('wp_head', static function (): void {
     printf('<style id="edulume-critical">%s</style>', edulume_escape_css($critical));
 }, 2);
 
+/*
+ * Core block styles, per block, rather than one file for every block WordPress ships.
+ *
+ * `wp-block-library` is 124KB of CSS that renders before anything on the page can, and the front
+ * page uses none of it — its sections are theme templates, not blocks. Lighthouse costed it at
+ * 456ms of render-blocking time on a throttled phone, which is most of the gap between this
+ * template and every other one on the site.
+ *
+ * The filter is WordPress's own answer: each core block's stylesheet is enqueued as that block
+ * renders, so a page built from blocks still gets exactly the styles it uses and a page built
+ * from templates pays nothing.
+ */
+add_filter('should_load_separate_core_block_assets', '__return_true');
+
 add_action('wp_enqueue_scripts', static function (): void {
     wp_enqueue_style(
         'edulume-base',
