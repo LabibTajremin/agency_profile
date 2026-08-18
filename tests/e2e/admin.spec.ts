@@ -28,7 +28,16 @@ test.describe('the Edulume admin', () => {
   test('shows one menu with the site under it, not four top-level items', async ({ page }) => {
     await page.goto('/wp-admin/admin.php?page=edulume');
 
-    await expect(page.locator('#adminmenu >> text=Edulume')).toBeVisible();
+    const menu = page
+      .locator('#adminmenu > li.menu-top')
+      .filter({ has: page.locator('.wp-menu-name', { hasText: 'Edulume' }) });
+
+    await expect(menu).toHaveCount(1);
+
+    // The screens live under that one menu rather than beside it, which is the whole claim.
+    const screens = menu.locator('.wp-submenu li:not(.wp-submenu-head) a');
+
+    expect(await screens.count()).toBeGreaterThan(3);
   });
 
   test('explains every screen in plain language, on the screen', async ({ page }) => {
