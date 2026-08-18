@@ -86,20 +86,52 @@ function edulume_demo_img(string $file): string
 /**
  * A demo image, printed only when one resolves.
  *
- * Dimensions are always written out and the loading strategy is always stated: an image without
- * them is a layout shift, and the hero is the one image on the page that must not be deferred.
+ * Dimensions are always written out, and the loading strategy is always stated rather than
+ * defaulted: an image without dimensions is a layout shift, and an image without a stated
+ * priority gets whatever the browser guesses.
+ *
+ * Three strategies, not two. `high` is for the one image that is the largest contentful paint;
+ * `eager` is for an above-the-fold image that must not be deferred but must not compete with
+ * the stylesheet either — a decorative wash behind the headline is exactly that, and marking it
+ * `high` spends the page's most contested bandwidth on something nobody reads. `lazy` is
+ * everything below the fold.
+ *
+ * @param 'high'|'eager'|'lazy' $loading
  */
-function edulume_the_demo_image(string $file, string $alt, int $width, int $height, bool $isAboveFold = false): void
-{
+function edulume_the_demo_image(
+    string $file,
+    string $alt,
+    int $width,
+    int $height,
+    string $loading = 'lazy'
+): void {
     $url = edulume_demo_img($file);
 
     if ($url === '') {
         return;
     }
 
-    if ($isAboveFold) {
+    /*
+     * A branch per strategy with the attributes written out as literals, rather than one printf
+     * with the attribute string interpolated. The escaping audit reads an interpolated attribute
+     * as unescaped output and cannot tell that the value is one of three constants — and being
+     * right for a reason the reader has to reconstruct is not being clear.
+     */
+    if ($loading === 'high') {
         printf(
             '<img src="%1$s" alt="%2$s" width="%3$d" height="%4$d" decoding="async" fetchpriority="high" />',
+            esc_url($url),
+            esc_attr($alt),
+            (int) $width,
+            (int) $height
+        );
+
+        return;
+    }
+
+    if ($loading === 'eager') {
+        printf(
+            '<img src="%1$s" alt="%2$s" width="%3$d" height="%4$d" decoding="async" loading="eager" />',
             esc_url($url),
             esc_attr($alt),
             (int) $width,

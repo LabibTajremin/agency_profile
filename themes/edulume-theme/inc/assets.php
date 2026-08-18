@@ -145,6 +145,27 @@ add_action('wp_enqueue_scripts', static function (): void {
 });
 
 /*
+ * Everything below the first screen, loaded after it.
+ *
+ * `chrome.css` is a render-blocking <link> in the head, and it had grown to 54KB — 20KB of
+ * which styled home-page sections, destination pages and the founders page, none of which is on
+ * screen before a scroll. The headline is the front page's largest contentful paint and it
+ * cannot paint until that stylesheet has parsed, so the 20KB pushed LCP from inside a 2000ms
+ * budget to 2058ms.
+ *
+ * Printed in the footer instead. The rule at the top of this file has always said the
+ * non-critical stylesheet loads without blocking; this is where that starts being true.
+ */
+add_action('wp_footer', static function (): void {
+    wp_enqueue_style(
+        'edulume-sections',
+        get_template_directory_uri() . '/assets/css/sections.css',
+        ['edulume-chrome'],
+        EDULUME_THEME_VERSION
+    );
+}, 1);
+
+/*
  * The video rail's stylesheet, on the pages that have a rail and nowhere else.
  *
  * On `wp_footer` for the same reason the scripts are: a section declares the feature as it
@@ -160,7 +181,7 @@ add_action('wp_footer', static function (): void {
     wp_enqueue_style(
         'edulume-video',
         get_template_directory_uri() . '/assets/css/video.css',
-        ['edulume-chrome'],
+        ['edulume-sections'],
         EDULUME_THEME_VERSION
     );
 }, 1);
