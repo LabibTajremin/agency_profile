@@ -34,7 +34,7 @@ $edulume_secondary_url = edulume_opt('hero.secondaryCta.url');
 ?>
 <section class="edulume-section edulume-home-hero" aria-label="<?php echo esc_attr($edulume_label); ?>">
     <div class="edulume-hero__backdrop" aria-hidden="true">
-        <?php edulume_the_demo_image(edulume_opt('hero.image'), '', 1920, 1080, 'eager'); ?>
+        <?php edulume_the_demo_image(edulume_opt('hero.image'), '', 1920, 1080, 'high'); ?>
     </div>
 
     <div class="edulume-container">
