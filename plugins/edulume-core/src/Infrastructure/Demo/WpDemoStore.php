@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Demo;
 
 use Edulume\Core\Application\Port\DemoStore;
+use Edulume\Core\Domain\Content\ContentModel;
 use Edulume\Core\Domain\Demo\DemoDefinition;
 use Edulume\Core\Domain\Security\SvgSanitiser;
 
@@ -37,6 +38,7 @@ final class WpDemoStore implements DemoStore
 
         $this->applyMeta($id, $item);
         $this->applyTerms($id, $item);
+        $this->applyRelationships($id, $postType, $item);
 
         if (is_string($item['image'] ?? null) && $item['image'] !== '') {
             $this->attachFeaturedImage($id, $demoSlug, $item['image'], (string) ($item['title'] ?? ''));
@@ -67,6 +69,69 @@ final class WpDemoStore implements DemoStore
                 wp_set_object_terms($id, array_values(array_filter($terms, 'is_string')), $taxonomy, false);
             }
         }
+    }
+
+    /**
+     * Wires the post-to-post relationships the item declares.
+     *
+     * Declared by title and stored as an id, because that is what the content model registers and
+     * what the country page queries. A destination whose institutions are attached by a taxonomy
+     * term nobody reads renders the empty state on a site with two dozen universities in it.
+     *
+     * The demo's post types are imported in alphabetical order, so a relationship resolves only
+     * when its target sorts earlier. That holds for every relationship the packs declare; one
+     * that does not resolve is skipped rather than stored as a dangling id.
+     *
+     * @param array<string, mixed> $item
+     */
+    private function applyRelationships(int $id, string $postType, array $item): void
+    {
+        $declared = is_array($item['relationships'] ?? null) ? $item['relationships'] : [];
+
+        foreach (ContentModel::relationships() as $relationship) {
+            if ($relationship->fromPostTypeKey !== $postType) {
+                continue;
+            }
+
+            $value = $declared[$relationship->key] ?? null;
+            $titles = is_array($value) ? $value : [$value];
+
+            foreach ($titles as $title) {
+                if (!is_string($title) || $title === '') {
+                    continue;
+                }
+
+                $relatedId = $this->idOfTitled($relationship->toPostTypeKey, $title);
+
+                if ($relatedId === 0) {
+                    continue;
+                }
+
+                if ($relationship->allowsMany) {
+                    add_post_meta($id, $relationship->metaKey(), (string) $relatedId);
+
+                    continue;
+                }
+
+                update_post_meta($id, $relationship->metaKey(), (string) $relatedId);
+
+                break;
+            }
+        }
+    }
+
+    private function idOfTitled(string $postType, string $title): int
+    {
+        $ids = get_posts([
+            'post_type' => $postType,
+            'post_status' => 'publish',
+            'title' => $title,
+            'posts_per_page' => 1,
+            'no_found_rows' => true,
+            'fields' => 'ids',
+        ]);
+
+        return is_array($ids) && isset($ids[0]) && is_int($ids[0]) ? $ids[0] : 0;
     }
 
     /**

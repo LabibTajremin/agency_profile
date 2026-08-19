@@ -519,6 +519,15 @@ function update_post_meta(int $postId, string $key, $value)
 }
 
 /**
+ * @param mixed $value
+ *
+ * @return int|false
+ */
+function add_post_meta(int $postId, string $key, $value, bool $unique = false)
+{
+}
+
+/**
  * @param list<string>|string $terms
  *
  * @return array<int, int>|WP_Error
