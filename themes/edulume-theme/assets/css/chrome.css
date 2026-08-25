@@ -2061,3 +2061,266 @@ body {
   background-color: var(--edulume-surface-subtle, #f1f2f4);
   color: var(--edulume-ink-muted, #4a4f58);
 }
+
+/* Editorial pass ---------------------------------------------------------- */
+
+/*
+ * The difference between a template and a product, and it is almost entirely typographic.
+ *
+ * The theme's headings were running at the compiler's step sizes with the browser's default
+ * tracking: a 2.5rem h1 at 1.2 line-height, the same weight and colour as everything under it.
+ * That reads as a page somebody has not finished designing, whatever the palette is.
+ *
+ * Three things fix it, and none of them costs a request. Display sizes that scale with the
+ * viewport rather than stepping at a breakpoint; negative tracking and tight leading at those
+ * sizes, because letter spacing that is right at 1rem is loose at 4rem; and a measure on every
+ * run of text, so a headline breaks where it means to and a paragraph never runs to 120
+ * characters on a desktop.
+ *
+ * Last in the file on purpose. These are refinements of rules declared above, and a refinement
+ * that has to out-specify what it refines is one `:where()` away from silently losing.
+ */
+
+.edulume-hero__title,
+.edulume-home-section__title,
+.edulume-archive__title,
+.edulume-single__title,
+.edulume-destination__title {
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+
+.edulume-hero__title {
+  /* Fluid rather than stepped: a headline that jumps a size at 48rem announces the breakpoint. */
+  font-size: clamp(2.35rem, 1.15rem + 4vw, 4.25rem);
+  line-height: 1.03;
+  max-inline-size: 20ch;
+  margin-block-end: var(--edulume-space-4, 1rem);
+}
+
+.edulume-hero__lead {
+  font-size: clamp(1.05rem, 0.99rem + 0.3vw, 1.3rem);
+  line-height: 1.55;
+  max-inline-size: 46ch;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-home-hero {
+  padding-block: clamp(
+    var(--edulume-space-8, 3rem),
+    10vh,
+    calc(var(--edulume-section-spacing, 6rem) * 1.5)
+  );
+}
+
+.edulume-home-section__title {
+  font-size: clamp(1.65rem, 1.25rem + 1.4vw, 2.4rem);
+  line-height: 1.12;
+  max-inline-size: 24ch;
+  margin: 0;
+}
+
+.edulume-archive__title,
+.edulume-single__title,
+.edulume-destination__title {
+  font-size: clamp(2rem, 1.35rem + 2.4vw, 3.25rem);
+  line-height: 1.08;
+  max-inline-size: 22ch;
+}
+
+.edulume-home-section__intro {
+  font-size: clamp(1rem, 0.97rem + 0.15vw, 1.125rem);
+  max-inline-size: 52ch;
+}
+
+/*
+ * A hairline above each section instead of a filled band.
+ *
+ * Alternating background colours is the usual way to separate sections and it is what makes a
+ * page look like a stack of boxes. A rule at the top of the container reads as structure while
+ * leaving the page one continuous surface.
+ */
+.edulume-section-scope + .edulume-section-scope .edulume-section > .edulume-container::before {
+  content: '';
+  display: block;
+  block-size: var(--edulume-border-width, 1px);
+  margin-block-end: var(--edulume-space-8, 3rem);
+  background-color: var(--edulume-border, #d8dade);
+}
+
+/* The hero has no rule above it, and neither does anything that paints its own background. */
+.edulume-home-hero > .edulume-container::before,
+.edulume-home-cta > .edulume-container::before {
+  content: none;
+}
+
+.edulume-home-section__more {
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+/* Cards ------------------------------------------------------------------- */
+
+/*
+ * More air inside, less decoration around.
+ *
+ * The cards were a 1rem pad on a hairline box. Padding is what makes a card look considered —
+ * an expensive layout is mostly the space nobody put anything in — and the hover is a border
+ * and a shadow rather than a transform, because a card that moves under the pointer shifts
+ * everything the reader was looking at.
+ */
+.edulume-service-card,
+.edulume-destination-card,
+.edulume-crest-card,
+.edulume-funding-card,
+.edulume-person,
+.edulume-event-card,
+.edulume-intake,
+.edulume-post-card,
+.edulume-step {
+  padding: var(--edulume-space-6, 2rem);
+  gap: var(--edulume-space-3, 0.75rem);
+  transition:
+    border-color var(--edulume-duration-fast, 150ms) var(--edulume-easing, ease),
+    box-shadow var(--edulume-duration-fast, 150ms) var(--edulume-easing, ease);
+}
+
+.edulume-service-card:hover,
+.edulume-destination-card:hover,
+.edulume-funding-card:hover,
+.edulume-event-card:hover,
+.edulume-post-card:hover {
+  border-color: var(--edulume-accent, #123a6b);
+  box-shadow: var(--edulume-shadow-2, 0 6px 24px rgb(0 0 0 / 8%));
+}
+
+.edulume-service-card h3,
+.edulume-destination-card__name,
+.edulume-funding-card__name,
+.edulume-person__name,
+.edulume-event-card__title,
+.edulume-post-card__title,
+.edulume-step__title {
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+/* A card's title link should look like the title, not like a link in a paragraph. */
+.edulume-service-card h3 a,
+.edulume-destination-card__name a,
+.edulume-post-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.edulume-service-card h3 a:hover,
+.edulume-destination-card__name a:hover,
+.edulume-post-card__title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Buttons ----------------------------------------------------------------- */
+
+.edulume-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--edulume-space-2, 0.5rem);
+  padding-block: 0.85em;
+  padding-inline: 1.6em;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color var(--edulume-duration-fast, 150ms) var(--edulume-easing, ease),
+    border-color var(--edulume-duration-fast, 150ms) var(--edulume-easing, ease);
+}
+
+/*
+ * The quiet button carries the ink colour and a hairline. Making the secondary action a paler
+ * version of the primary is how a page ends up with two things competing to be pressed.
+ */
+.edulume-button--quiet:hover {
+  border-color: var(--edulume-ink, #16181d);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edulume-button,
+  .edulume-service-card,
+  .edulume-destination-card,
+  .edulume-crest-card,
+  .edulume-funding-card,
+  .edulume-person,
+  .edulume-event-card,
+  .edulume-intake,
+  .edulume-post-card,
+  .edulume-step {
+    transition: none;
+  }
+}
+
+/* Figures and logos ------------------------------------------------------- */
+
+/*
+ * A statistic is the one number on the page somebody repeats to a colleague, so it gets to be
+ * the largest thing in its section. Tabular figures because a row of counters whose digits are
+ * different widths visibly jitters when they animate up.
+ */
+.edulume-stat__value {
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.edulume-stat__label {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/*
+ * Partner logos, quiet by default.
+ *
+ * Twelve logos at full strength compete with the headline above them and with each other, and
+ * they arrive in a dozen different colours nobody chose. Desaturated and slightly held back,
+ * they read as a row of credentials; on hover the one being looked at comes forward.
+ */
+.edulume-logo-wall__mark {
+  filter: grayscale(1);
+  opacity: 0.62;
+  transition:
+    filter var(--edulume-duration-base, 240ms) var(--edulume-easing, ease),
+    opacity var(--edulume-duration-base, 240ms) var(--edulume-easing, ease);
+}
+
+.edulume-logo-wall__item:hover .edulume-logo-wall__mark {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.edulume-home-trust-bar__title,
+.edulume-video-rail__subtitle {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+/* The hero's search field is the first thing anybody uses; it should not be a default input. */
+.edulume-hero__search-input {
+  padding-block: 0.9em;
+  padding-inline: 1.1em;
+  border-radius: var(--edulume-radius-full, 999px);
+}
+
+.edulume-hero__search .edulume-button {
+  border-radius: var(--edulume-radius-full, 999px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edulume-logo-wall__mark {
+    transition: none;
+  }
+}
