@@ -286,7 +286,74 @@
     });
   }
 
+  /*
+   * A range with no read-out is a slider whose value you can only discover by saving. The
+   * number is rendered server-side too, so this only keeps it in step while dragging.
+   */
+  function setUpRange(input) {
+    var output = document.querySelector('output[for="' + input.id + '"]');
+
+    if (!output) {
+      return;
+    }
+
+    input.addEventListener('input', function () {
+      output.textContent = input.value;
+    });
+  }
+
+  /*
+   * The picker writes into the text box rather than submitting on its own. The text box is what
+   * posts, so a typed hex still works with this file blocked and there is one source of truth.
+   */
+  function setUpColour(picker) {
+    var target = document.getElementById(picker.getAttribute('data-edulume-color-for') || '');
+
+    if (!target) {
+      return;
+    }
+
+    picker.addEventListener('input', function () {
+      target.value = picker.value;
+    });
+
+    target.addEventListener('change', function () {
+      if (/^#?[0-9a-f]{6}$/i.test(target.value)) {
+        picker.value = target.value.charAt(0) === '#' ? target.value : '#' + target.value;
+      }
+    });
+  }
+
+  function setUpCopyReport(button) {
+    var report = document.querySelector('[data-edulume-report]');
+
+    if (!report) {
+      return;
+    }
+
+    button.addEventListener('click', function () {
+      report.select();
+
+      // `execCommand` as the fallback: the clipboard API needs a secure context, and plenty of
+      // these sites are still served over plain HTTP when somebody first opens this screen.
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(report.value);
+      } else {
+        document.execCommand('copy');
+      }
+    });
+  }
+
   function start() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-edulume-range]'), setUpRange);
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-edulume-color-for]'),
+      setUpColour
+    );
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-edulume-copy-report]'),
+      setUpCopyReport
+    );
     Array.prototype.forEach.call(document.querySelectorAll('[data-edulume-import]'), setUpImport);
     Array.prototype.forEach.call(
       document.querySelectorAll('[data-edulume-video-rows]'),

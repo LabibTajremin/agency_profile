@@ -827,6 +827,8 @@ class WP_Post
     public string $post_content;
 
     public string $post_excerpt;
+
+    public string $post_status;
 }
 
 class WP_Query
@@ -1156,5 +1158,80 @@ function rawurlencode(string $str): string
  * @return mixed
  */
 function map_deep($value, $callback)
+{
+}
+
+function absint(mixed $value): int
+{
+}
+
+/**
+ * @return string
+ */
+function selected(mixed $selected, mixed $current = true, bool $display = true)
+{
+}
+
+/**
+ * @return string
+ */
+function checked(mixed $checked, mixed $current = true, bool $display = true)
+{
+}
+
+/**
+ * @return object|array<string, int>
+ */
+function wp_count_posts(string $type = 'post', string $perm = '')
+{
+}
+
+/**
+ * @param array<string, mixed> $file
+ * @param array<string, mixed>|false $overrides
+ *
+ * @return array<string, mixed>
+ */
+function wp_handle_upload(array $file, $overrides = false, ?string $time = null)
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ *
+ * @return list<mixed>|WP_Error
+ */
+function wp_get_object_terms(int|array $objectIds, string|array $taxonomies, array $args = [])
+{
+}
+
+function date_i18n(string $format, int|false $timestamp = false, bool $gmt = false): string
+{
+}
+
+function size_format(int|string $bytes, int $decimals = 0): string|false
+{
+}
+
+function wp_max_upload_size(): int
+{
+}
+
+function get_bloginfo(string $show = '', string $filter = 'raw'): string
+{
+}
+
+function wp_get_theme(string $stylesheet = '', string $themeRoot = ''): \WP_Theme
+{
+}
+
+class WP_Theme
+{
+    public function get(string $header): string|false
+    {
+    }
+}
+
+class WP_Error
 {
 }

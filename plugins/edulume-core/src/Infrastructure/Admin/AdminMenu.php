@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Admin;
 
 use Edulume\Core\Domain\Admin\ScreenHelp;
-use Edulume\Core\Infrastructure\Security\LoginShield;
-use Edulume\Core\Infrastructure\Wp\Container;
 use Edulume\Core\Infrastructure\Wp\Capabilities;
 
 /**
@@ -23,7 +21,7 @@ final class AdminMenu
 {
     public const SLUG = 'edulume';
 
-    public function __construct(private readonly ?Container $container = null)
+    public function __construct(private readonly ?ScreenRegistry $screens = null)
     {
     }
 
@@ -83,45 +81,28 @@ final class AdminMenu
     }
 
     /**
-     * Every page renders the same mount point.
+     * Every page draws its own screen.
      *
-     * The admin is one application with a route per page, not nine screens: that is what lets
-     * the live preview stay mounted while you move between panels, and what makes the settings
-     * search able to jump to a control in a panel you have not opened.
+     * Server-rendered, all of them. The pages used to print a mount point for a configurator
+     * application that was never enqueued and whose entry file exported a library without ever
+     * looking for a root element — so six of the eleven pages rendered their help panel and
+     * nothing else. A settings screen that needs a bundle to draw is a settings screen that is
+     * blank when the bundle fails, and on this product's hosting it fails often enough to
+     * matter.
      */
     public function renderApp(): void
     {
         $route = $this->currentRoute();
 
-        echo '<div class="wrap">';
+        echo '<div class="wrap edulume-screen">';
         $this->renderHelp($route);
 
-        /*
-         * The starter-content screen renders server-side.
-         *
-         * Every other page mounts the admin application and lets it draw. This one cannot: it
-         * is the screen somebody opens on a brand-new site, so it has to work before the bundle
-         * has loaded and it has to work if the bundle never loads at all. It also had no REST
-         * route behind it, which is why the import button did not exist for anyone without a
-         * command line.
-         */
-        if ($route === 'edulume-demos' && $this->container instanceof Container) {
-            (new DemoImportScreen($this->container))->render();
+        $screen = $this->screens?->find($route);
+
+        if ($screen !== null && method_exists($screen, 'render')) {
+            $screen->render();
         }
 
-        if ($route === 'edulume-sections' && $this->container instanceof Container) {
-            (new SectionsScreen($this->container))->render();
-        }
-
-        if ($route === 'edulume-videos') {
-            (new VideoScreen())->render();
-        }
-
-        if ($route === 'edulume-safety') {
-            (new ShieldScreen(new LoginShield()))->render();
-        }
-
-        printf('<div id="edulume-admin-root" data-edulume-route="%s"></div>', esc_attr($route));
         echo '</div>';
     }
 
