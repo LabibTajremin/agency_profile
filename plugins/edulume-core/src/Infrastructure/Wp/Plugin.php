@@ -13,10 +13,7 @@ use Edulume\Core\Infrastructure\Content\VideoRailProvider;
 use Edulume\Core\Infrastructure\Admin\AdminAssets;
 use Edulume\Core\Infrastructure\Admin\AdminMenu;
 use Edulume\Core\Infrastructure\Admin\DemoImportAjax;
-use Edulume\Core\Infrastructure\Admin\DemoImportScreen;
-use Edulume\Core\Infrastructure\Admin\SectionsScreen;
-use Edulume\Core\Infrastructure\Admin\ShieldScreen;
-use Edulume\Core\Infrastructure\Admin\VideoScreen;
+use Edulume\Core\Infrastructure\Admin\ScreenRegistry;
 use Edulume\Core\Infrastructure\Demo\DemoCliCommand;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
 use Edulume\Core\Infrastructure\Security\LoginShield;
@@ -97,15 +94,17 @@ final class Plugin
         (new FoundersProvider())->register();
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
-        (new AdminMenu($this->container))->register();
-        (new DemoImportScreen($this->container))->register();
-        (new SectionsScreen($this->container))->register();
-        (new DemoImportAjax($this->container))->register();
-        (new VideoScreen())->register();
-
         $shield = new LoginShield();
         $shield->register();
-        (new ShieldScreen($shield))->register();
+
+        // One registry, used twice: the menu asks it which class draws a page, and this asks it
+        // to hook every screen's form handlers. Registering handlers on every admin request
+        // rather than on the screen itself is deliberate — `admin-post.php` has no screen.
+        $screens = new ScreenRegistry($this->container, $shield, $this->version);
+        $screens->register();
+
+        (new AdminMenu($screens))->register();
+        (new DemoImportAjax($this->container))->register();
         (new AdminAssets($this->container, $this->container->adminTheme(), $this->version))->register();
         (new SectionVisibility($this->container))->register();
         DemoCliCommand::register($this->container);

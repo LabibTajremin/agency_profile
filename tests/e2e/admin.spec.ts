@@ -40,12 +40,83 @@ test.describe('the Edulume admin', () => {
     expect(await screens.count()).toBeGreaterThan(3);
   });
 
+  const ROUTES = [
+    'edulume',
+    'edulume-design',
+    'edulume-sections',
+    'edulume-videos',
+    'edulume-leads',
+    'edulume-forms',
+    'edulume-content',
+    'edulume-demos',
+    'edulume-safety',
+    'edulume-licence',
+    'edulume-system',
+  ];
+
   test('explains every screen in plain language, on the screen', async ({ page }) => {
-    for (const route of ['edulume-sections', 'edulume-videos', 'edulume-demos', 'edulume-safety']) {
+    for (const route of ROUTES) {
       await page.goto(`/wp-admin/admin.php?page=${route}`);
 
       await expect(page.locator('.edulume-help'), `${route} has no help panel`).toBeVisible();
     }
+  });
+
+  /*
+   * The test that was missing.
+   *
+   * Seven of these eleven pages used to render their help panel and an empty div: the menu
+   * registered the page, the screen behind it was never written, and the configurator bundle
+   * meant to draw it was never enqueued. Asserting the help panel is present passed the whole
+   * time, because the help panel was the only thing there.
+   *
+   * So this asserts the opposite: something you can operate, below the help panel.
+   */
+  test('gives every screen something to actually operate, not just a help panel', async ({
+    page,
+  }) => {
+    for (const route of ROUTES) {
+      await page.goto(`/wp-admin/admin.php?page=${route}`);
+
+      const controls = page.locator(
+        '.edulume-screen :is(input, select, textarea, button, a.edulume-tile)'
+      );
+
+      expect(await controls.count(), `${route} renders no controls at all`).toBeGreaterThan(0);
+    }
+  });
+
+  test('saves a design change and shows it back', async ({ page }) => {
+    await page.goto('/wp-admin/admin.php?page=edulume-design');
+
+    const density = page.locator('select[name="settings[layout][density]"]');
+
+    await expect(density).toBeVisible();
+    await density.selectOption('spacious');
+    await page.locator('button[type="submit"]:has-text("Save design")').click();
+
+    await expect(page.locator('.notice-success')).toBeVisible();
+    await expect(page.locator('select[name="settings[layout][density]"]')).toHaveValue('spacious');
+  });
+
+  test('offers the forms the theme asks for when the site has none', async ({ page }) => {
+    await page.goto('/wp-admin/admin.php?page=edulume-forms');
+
+    // Either the forms exist and are listed, or the screen offers to create them. A screen that
+    // does neither is the state that made every enquiry on the live site fail.
+    const listed = await page.locator('.edulume-group__title').count();
+    const offered = await page
+      .locator('form[action*="admin-post"] button:has-text("Create them")')
+      .count();
+
+    expect(listed + offered).toBeGreaterThan(0);
+  });
+
+  test('reports what the install is on the system screen', async ({ page }) => {
+    await page.goto('/wp-admin/admin.php?page=edulume-system');
+
+    await expect(page.locator('.edulume-report')).toBeVisible();
+    await expect(page.locator('[data-edulume-report]')).toContainText('PHP');
   });
 
   test('offers a real import button on the starter-content screen', async ({ page }) => {

@@ -61,20 +61,21 @@ final class AdminAssets
     }
 
     /**
-     * The enhancement layer for the two server-rendered screens.
+     * The enhancement layer for the Edulume screens.
      *
-     * Loaded only on those screens. A plugin that puts its script on every admin page is a
-     * plugin that shows up in every other developer's bug report.
+     * Loaded on those screens and nowhere else. A plugin that puts its script on every admin
+     * page is a plugin that shows up in every other developer's bug report.
+     *
+     * Every screen is server-rendered and works with this file blocked: the ranges have a
+     * visible number beside them, the colour box takes a typed hex, the import posts a form.
+     * This adds the live read-out, the picker and the copy button on top.
      */
     private function enqueueScreens(): void
     {
         $screen = get_current_screen();
         $id = $screen === null ? '' : (string) $screen->id;
 
-        $screens = ['edulume-demos', 'edulume-sections', 'edulume-safety', 'edulume-videos'];
-        $wanted = array_filter($screens, static fn (string $slug): bool => str_contains($id, $slug));
-
-        if ($wanted === []) {
+        if (!str_contains($id, 'edulume')) {
             return;
         }
 
@@ -193,6 +194,239 @@ a {
 }
 
 /* The Edulume screens themselves, which are ours to style completely. */
+.edulume-screen {
+  max-inline-size: 68rem;
+}
+
+.edulume-group {
+  margin-block-end: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--edulume-admin-border);
+  border-radius: 8px;
+  background: var(--edulume-admin-surface-raised);
+}
+
+.edulume-group__title {
+  margin-block: 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.edulume-group__summary,
+.edulume-muted {
+  margin-block: 0 1rem;
+  color: var(--edulume-admin-ink-muted);
+}
+
+/*
+ * Two columns where there is room. Settings read as a list of decisions, and a single column of
+ * sixty of them is a screen nobody scrolls to the bottom of.
+ */
+.edulume-group__fields {
+  display: grid;
+  gap: 1rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.edulume-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-inline-size: 0;
+}
+
+.edulume-field--toggle {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: start;
+}
+
+.edulume-field--toggle .edulume-field__help {
+  grid-column: 2;
+}
+
+.edulume-field__label {
+  font-weight: 600;
+}
+
+.edulume-field__help {
+  margin: 0;
+  color: var(--edulume-admin-ink-muted);
+  font-size: 0.85rem;
+}
+
+.edulume-field__input {
+  inline-size: 100%;
+  max-inline-size: 24rem;
+}
+
+.edulume-field__input--short {
+  inline-size: 7rem;
+}
+
+.edulume-field__range {
+  inline-size: 100%;
+  max-inline-size: 18rem;
+}
+
+.edulume-field__output,
+.edulume-field__suffix {
+  color: var(--edulume-admin-ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.edulume-field__color {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.edulume-field__swatch {
+  inline-size: 2.5rem;
+  block-size: 2.2rem;
+  padding: 2px;
+  border: 1px solid var(--edulume-admin-border);
+  border-radius: 4px;
+  background: none;
+}
+
+.edulume-field__input--hex {
+  max-inline-size: 10rem;
+  font-family: monospace;
+}
+
+.edulume-settings__actions {
+  margin-block: 1.5rem;
+}
+
+.edulume-presets__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  margin-block-end: 1rem;
+}
+
+.edulume-preset-card {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--edulume-admin-border);
+  border-radius: 8px;
+  background: var(--edulume-admin-surface-raised);
+}
+
+.edulume-preset-card__name {
+  margin-block: 0 0.25rem;
+}
+
+.edulume-preset-card__blurb {
+  margin-block: 0 0.75rem;
+  color: var(--edulume-admin-ink-muted);
+}
+
+.edulume-tiles {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+}
+
+.edulume-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--edulume-admin-border);
+  border-radius: 8px;
+  background: var(--edulume-admin-surface);
+  text-decoration: none;
+}
+
+.edulume-tile__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--edulume-admin-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.edulume-tile__label {
+  color: var(--edulume-admin-ink-muted);
+}
+
+.edulume-checklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-checklist__item {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  padding-block: 0.45rem;
+  border-block-end: 1px solid var(--edulume-admin-border);
+}
+
+.edulume-checklist__item:last-child {
+  border-block-end: 0;
+}
+
+/* A ring that fills in when the step is done: no icon font, no image request. */
+.edulume-checklist__mark {
+  flex: 0 0 auto;
+  inline-size: 1rem;
+  block-size: 1rem;
+  border: 2px solid var(--edulume-admin-border);
+  border-radius: 50%;
+}
+
+.edulume-checklist__item.is-done .edulume-checklist__mark {
+  border-color: var(--edulume-admin-accent);
+  background: var(--edulume-admin-accent);
+}
+
+.edulume-checklist__item.is-done .edulume-checklist__label {
+  color: var(--edulume-admin-ink-muted);
+}
+
+.edulume-checklist__label {
+  flex: 1 1 auto;
+}
+
+.edulume-leads__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin-block-end: 0.5rem;
+}
+
+.edulume-leads__row-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.edulume-report__text {
+  inline-size: 100%;
+  max-inline-size: 46rem;
+  font-family: monospace;
+}
+
+.edulume-empty {
+  padding: 1.25rem;
+  border: 1px dashed var(--edulume-admin-border);
+  border-radius: 8px;
+  color: var(--edulume-admin-ink-muted);
+}
+
+.edulume-subheading {
+  margin-block: 1.25rem 0.5rem;
+}
+
+.edulume-pagination {
+  margin-block-start: 1rem;
+}
+
 .edulume-help {
   max-inline-size: 46rem;
   margin-block: 1rem 1.5rem;

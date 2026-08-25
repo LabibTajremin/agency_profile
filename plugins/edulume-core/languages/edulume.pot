@@ -34,12 +34,24 @@ msgstr ""
 msgid "%s universities"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:144
+msgid "(no name given)"
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:271
 msgid "1 result"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:231
 msgid "1 university"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:279
+msgid "A faint texture behind sections. Drawn in CSS, so it costs no image request."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:96
+msgid "A key is stored: %s. Enter a new one to replace it."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:85
@@ -50,8 +62,29 @@ msgstr ""
 msgid "A new enquiry arrived through %s."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:169
+msgid "A row whose title already exists is updated rather than duplicated."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:140
+msgid "A style sets colour, type, pattern and motion together. Change anything you like afterwards."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:192
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:127
+msgid "Accent"
+msgstr ""
+
 #: themes/edulume-theme/inc/consent.php:88
 msgid "Accept selected"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:107
+msgid "Activate"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:116
+msgid "Active theme"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:120
@@ -62,12 +95,32 @@ msgstr ""
 msgid "Addresses never locked out, one per line"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:208
+msgid "Always dark"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:207
+msgid "Always light"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:185
 msgid "An estimate to plan with, not a quotation."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:378
+msgid "Animate things as they come into view"
+msgstr ""
+
 #: themes/edulume-theme/single-edulume_destination.php:129
 msgid "Any"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:195
+msgid "Anything older is erased automatically, uploads included."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:94
+msgid "Applied the %s style."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/university.php:105
@@ -78,12 +131,29 @@ msgstr ""
 msgid "Ask before loading videos from Facebook or YouTube"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:276
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:29
 msgid "Ask us a question"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:247
+msgid "Base text size"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:356
+msgid "Behaviour on scroll"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:343
+msgid "Blend"
+msgstr ""
+
 #: themes/edulume-theme/page-templates/founders.php:164
 msgid "Book a consultation"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:468
+msgid "Border width"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:255
@@ -110,12 +180,28 @@ msgstr ""
 msgid "By the numbers"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:186
+msgid "CSV file"
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:236
 msgid "Carousel"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:21
 msgid "Check your eligibility"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:90
+msgid "Choose a .csv file to import."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:101
+msgid "Choose the colour and type the site runs on"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:391
+msgid "Cinematic"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:89
@@ -126,6 +212,22 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:182
+msgid "Colour"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:200
+msgid "Columns"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:411
+msgid "Comfortable"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:410
+msgid "Compact"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:464
 msgid "Compare"
 msgstr ""
@@ -134,16 +236,90 @@ msgstr ""
 msgid "Compare selected"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:201
+msgid "Consent wording"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:117
+msgid "Contact"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:182
 msgid "Contact details"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:185
+msgid "Content tools"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:152
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:179
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:202
+msgid "Content type"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:418
+msgid "Content width"
 msgstr ""
 
 #: themes/edulume-theme/inc/consent.php:61
 msgid "Cookie choices"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:63
+msgid "Copy report"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:458
+msgid "Corner radius"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:167
 msgid "Course length, in years"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:96
+msgid "Create the forms the theme asks for, so enquiries are accepted"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:150
+msgid "Create them"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:173
+msgid "Current accent: %s"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:337
+msgid "Custom"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:196
+msgid "Custom accent"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:134
+msgid "Debug mode"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:106
+msgid "Decide which sections the home page shows"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:203
+msgid "Default mode"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:407
+msgid "Density"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:180
+msgid "Design"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:72
+msgid "Design saved."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:65
@@ -155,7 +331,11 @@ msgstr ""
 msgid "Dismiss this announcement"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:95
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:72
+msgid "Do this"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:96
 msgid "Done. Reloading…"
 msgstr ""
 
@@ -163,15 +343,25 @@ msgstr ""
 msgid "Double the lockout each time the same visitor comes back"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:156
+msgid "Download CSV"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:390
+msgid "Dynamic"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/founder.php:98
 msgid "Education"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:64
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:65
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:62
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:63
 msgid "Edulume"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:279
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:293
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:50
 msgid "Email"
 msgstr ""
@@ -180,12 +370,65 @@ msgstr ""
 msgid "Email me when someone is locked out"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:140
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:183
+msgid "Enquiries"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:129
+msgid "Enquiries stored"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:57
+msgid "Enquiry erased, along with anything it uploaded."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:66
+msgid "Enquiry updated."
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:242
 msgid "Enter a valid email address."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:62
+msgid "Enter the key you were sent."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:178
+msgid "Erase"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:371
+msgid "Every preset is switched off automatically for visitors who ask for reduced motion."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:188
+msgid "Every stage"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:55
+msgid "Everything here is done."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:145
+msgid "Everything of one type as a spreadsheet, drafts included."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/founder.php:120
 msgid "Experience"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:144
+msgid "Export"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:187
+msgid "Export first to get a file with the right columns in it."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:224
+msgid "Export these as CSV"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:119
@@ -196,6 +439,11 @@ msgstr ""
 msgid "Featured courses"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:221
+msgid "Fields"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:199
 #: themes/edulume-theme/single-edulume_destination.php:140
 #: themes/edulume-theme/template-parts/content/finder.php:42
 msgid "Filter"
@@ -217,6 +465,15 @@ msgstr ""
 msgid "Flights"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:206
+msgid "Follow the visitor’s device"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:238
+msgid "Font pairing"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:185
 #: themes/edulume-theme/footer.php:23
 msgid "Footer"
 msgstr ""
@@ -229,10 +486,27 @@ msgstr ""
 msgid "Footer menu"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:118
+msgid "Form"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:69
+msgid "Form saved."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:184
+msgid "Forms"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:305
+msgid "Foundation or pathway"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:60
 msgid "Four questions. An honest answer, not a sales pitch."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:290
 #: themes/edulume-theme/single-edulume_destination.php:87
 msgid "Free assessment"
 msgstr ""
@@ -250,12 +524,28 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:52
+msgid "Getting this site live"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:130
 msgid "Give the same message for every failed sign-in"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:448
+msgid "Gutter"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:203
+msgid "Headers"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:168
 msgid "Heading"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:257
+msgid "Heading scale"
 msgstr ""
 
 #: themes/edulume-theme/404.php:30
@@ -266,14 +556,31 @@ msgstr ""
 msgid "Home page updated."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:181
+msgid "Home sections"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/process.php:16
 msgid "How it works"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:384
+msgid "How much"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:262
+msgid "How much bigger each heading level is than the one below it."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/services.php:13
 msgid "How we help"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:402
+msgid "How wide the page runs, how much air it has, and how round its corners are."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:271
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:105
 msgid "I agree to be contacted about my enquiry."
 msgstr ""
@@ -286,16 +593,37 @@ msgstr ""
 msgid "IELTS overall, if you have sat it"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:162
+msgid "Identifier: %s"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:168
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:188
+msgid "Import"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:165
 msgid "Import this pack"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:104
+msgid "Imported %1$d row(s). %2$d could not be read."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:80
 msgid "Imported %1$s — %2$d items created."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:94
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:95
 msgid "Importing…"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:252
+msgid "In rem. 1 is sixteen pixels on a default browser."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:180
+msgid "In the page"
 msgstr ""
 
 #: themes/edulume-theme/single-edulume_destination.php:121
@@ -318,12 +646,44 @@ msgstr ""
 msgid "It may have moved. Try a search, or pick up from one of these."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:191
+msgid "Keep submissions for"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:91
+msgid "Key"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:233
+msgid "Label"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:401
+msgid "Layout"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:198
+msgid "Leave empty to use the accent above. A custom colour is checked for contrast before it is used."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:131
 msgid "Leave this field empty"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:263
 msgid "Length"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:85
+msgid "Licence key"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:51
+msgid "Licence released from this site."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:61
+msgid "Licence saved."
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:254
@@ -336,6 +696,10 @@ msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:249
 msgid "Living costs"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:267
+msgid "Load fonts from Google rather than from this server"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/video/card.php:98
@@ -362,16 +726,68 @@ msgstr ""
 msgid "Login settings saved."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:130
+msgid "Login shield"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:303
+msgid "Masters"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:121
+msgid "Max execution time"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:120
+msgid "Memory limit"
+msgstr ""
+
 #: themes/edulume-theme/page-templates/founders.php:36
 msgid "Milestones"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:370
+msgid "Motion"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:177
+msgid "Move"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:115
 msgid "Move my login page"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:121
+msgid "Moving to a new domain? Release this site first, then activate on the new one."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:347
+msgid "Multiply"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:133
+msgid "Multisite"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:234
+msgid "Name"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:195
+msgid "Name, email or phone"
+msgstr ""
+
 #: themes/edulume-theme/inc/consent.php:92
 msgid "Necessary only"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:335
+msgid "Neutral"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:144
+msgid "New enquiries"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Lead/WpMailLeadNotifier.php:40
@@ -387,6 +803,23 @@ msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:238
 msgid "Next"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:255
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:133
+msgid "No"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:100
+msgid "No Edulume content is published yet. Starter demos fills the site in one go."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:106
+msgid "No enquiries yet. Every form on the site lands here."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:96
+msgid "No forms are defined, so every enquiry the site takes is refused."
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:272
@@ -405,8 +838,13 @@ msgstr ""
 msgid "No such lead."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:387
 #: plugins/edulume-core/src/Infrastructure/Content/DestinationPage.php:134
 msgid "None"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:346
+msgid "Normal"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:66
@@ -423,6 +861,24 @@ msgstr ""
 
 #: themes/edulume-theme/index.php:45
 msgid "Nothing published here yet."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:153
+msgid "Nothing published yet."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:132
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:136
+msgid "Off"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:269
+msgid "Off is faster and keeps visitor addresses off a third party."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:131
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:135
+msgid "On"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/intakes.php:16
@@ -449,12 +905,63 @@ msgstr ""
 msgid "Our vision"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:349
+msgid "Overlay"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:118
+msgid "PHP"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:225
+msgid "Pairings are chosen to work together. Set the base size and the rest of the scale follows."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/universities.php:17
 msgid "Partner universities"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:99
+msgid "Paste the key from your purchase email."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:278
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:298
+msgid "Pattern"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:332
+msgid "Pattern colour"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:323
+msgid "Pattern size"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:123
+msgid "Permalinks"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:85
+msgid "Permalinks are set to plain, so every archive answers 404. Settings → Permalinks → Post name."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:304
+msgid "PhD"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:280
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:294
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:56
 msgid "Phone"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:183
+msgid "Pick one colour. Buttons, links, headings and the admin bar all follow it."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:124
+msgid "Plain — archives will 404"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/video/card.php:47
@@ -469,12 +976,20 @@ msgstr ""
 msgid "Please check the highlighted fields."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:97
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:98
 msgid "Please confirm you have saved your sign-in address."
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:243
 msgid "Please tick this to continue."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:115
+msgid "Plugin version"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:181
+msgid "Pop-up"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:130
@@ -501,12 +1016,32 @@ msgstr ""
 msgid "Primary menu"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:86
+msgid "Publish some content — the starter demo fills the whole site in one go"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:128
+msgid "Published Edulume items"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:109
 msgid "Quick contact"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:119
+msgid "Received"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:389
+msgid "Refined"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/related.php:26
 msgid "Related"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:113
+msgid "Release this site"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:267
@@ -525,6 +1060,10 @@ msgstr ""
 msgid "Repeated failed logins on your site"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:236
+msgid "Required"
+msgstr ""
+
 #: themes/edulume-theme/search.php:22
 msgid "Results for %s"
 msgstr ""
@@ -538,8 +1077,28 @@ msgstr ""
 msgid "Reveal the after image"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:72
+msgid "Review"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:156
+msgid "Runs until %s."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:187
+msgid "Safety"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:455
 msgid "Save"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:129
+msgid "Save design"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:211
+msgid "Save form"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:99
@@ -558,6 +1117,15 @@ msgstr ""
 msgid "Scholarships"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:348
+msgid "Screen"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:359
+msgid "Scrolls with the page"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:195
 #: themes/edulume-theme/template-parts/content/finder.php:36
 #: themes/edulume-theme/template-parts/home/hero.php:79
 #: themes/edulume-theme/template-parts/home/hero.php:81
@@ -592,20 +1160,60 @@ msgstr ""
 msgid "Sending…"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:119
+msgid "Server"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:91
+msgid "Set permalinks to Post name, or every archive answers 404"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:201
+msgid "Several values in one cell are separated with a vertical bar."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:214
+msgid "Show the light/dark switch in the header"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:167
 msgid "Show the video row on the front page"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:203
+msgid "Shown beside the tick box. Leave empty for no consent box."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:184
+msgid "Sidebar"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:179
 msgid "Sign-in address"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:126
+msgid "Site address"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:264
 msgid "Site menu"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:145
+msgid "Sites using this key: %1$d of %2$d."
+msgstr ""
+
 #: themes/edulume-theme/header.php:29
 msgid "Skip to content"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:182
+msgid "Slide-in"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:350
+msgid "Soft light"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:262
@@ -620,6 +1228,14 @@ msgstr ""
 msgid "Sort by"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:438
+msgid "Space between sections"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:412
+msgid "Spacious"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/founder.php:92
 msgid "Speaks"
 msgstr ""
@@ -628,8 +1244,22 @@ msgstr ""
 msgid "Specialises in"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:120
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:161
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:194
+msgid "Stage"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:138
+msgid "Start from a style"
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:193
 msgid "Start playing when the row scrolls into view"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:186
+msgid "Starter demos"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/footer/centred.php:19
@@ -639,8 +1269,32 @@ msgstr ""
 msgid "Stay in touch"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:360
+msgid "Stays put"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:237
+msgid "Step"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:183
+msgid "Sticky bar"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:314
+msgid "Strength in dark mode"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:305
+msgid "Strength in light mode"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/destinations.php:13
 msgid "Study destinations"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:388
+msgid "Subtle"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/success-stories.php:15
@@ -657,6 +1311,10 @@ msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:315
 msgid "Switch to light mode"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:188
+msgid "System"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/cta.php:13
@@ -680,8 +1338,21 @@ msgstr ""
 msgid "That address is one WordPress uses itself. Pick another."
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:96
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:97
 msgid "That did not finish. Try again."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:51
+msgid "That enquiry no longer exists."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:57
+msgid "That form no longer exists."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:55
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:84
+msgid "That is not a content type this plugin knows about."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:69
@@ -698,8 +1369,28 @@ msgstr ""
 msgid "That starter pack does not exist."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:83
+msgid "That style is not one we ship."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:236
 msgid "The Edulume login shield does not run on a multisite network, so it is switched off here."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:92
+msgid "The Edulume theme is not the active theme, so none of its templates render."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:336
+msgid "The accent"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:113
+msgid "The file was too big to finish in one go — upload it again to continue."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:61
+msgid "The report as plain text"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:258
@@ -714,12 +1405,24 @@ msgstr ""
 msgid "The sign-in address is too short — use at least three characters."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:138
+msgid "The theme asks for these forms and this site has none of them: %s."
+msgstr ""
+
 #: themes/edulume-theme/inc/assets.php:241
 msgid "This field is required."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:224
+msgid "This form has no fields."
+msgstr ""
+
 #: themes/edulume-theme/single-edulume_destination.php:73
 msgid "This intake"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:86
+msgid "This is what keeps updates and support coming. One key, one site."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:135
@@ -754,6 +1457,19 @@ msgstr ""
 msgid "Tuition, living, visa and flights for the whole course."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:111
+msgid "Turn the login shield on before the site goes public"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:224
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:235
+msgid "Type"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:302
+msgid "Undergraduate"
+msgstr ""
+
 #: themes/edulume-theme/single-edulume_destination.php:95
 msgid "University listings for this country are on their way."
 msgstr ""
@@ -764,6 +1480,18 @@ msgstr ""
 
 #: themes/edulume-theme/template-parts/home/events.php:13
 msgid "Upcoming events"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:122
+msgid "Upload limit"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:286
+msgid "Use a background pattern"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:162
+msgid "Use this style"
 msgstr ""
 
 #: themes/edulume-theme/404.php:28
@@ -787,6 +1515,7 @@ msgstr ""
 msgid "Video shape"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:182
 #: themes/edulume-theme/template-parts/home/video-rail.php:19
 #: themes/edulume-theme/template-parts/video/rail.php:42
 msgid "Videos"
@@ -798,6 +1527,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:85
 msgid "Videos saved."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:131
+msgid "View the site"
 msgstr ""
 
 #: themes/edulume-theme/inc/assets.php:250
@@ -820,6 +1553,14 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:297
+msgid "What are you applying for?"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:122
+msgid "What is on the site"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:129
 msgid "What it will cost"
 msgstr ""
@@ -833,28 +1574,70 @@ msgstr ""
 msgid "What would change this: "
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:281
+msgid "What would you like to know?"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:308
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:63
 msgid "Where do you want to study?"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:177
+msgid "Where it appears"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:230
 msgid "Where the video is hosted"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DashboardScreen.php:176
+msgid "Where things are"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:79
 msgid "Which country?"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:116
+msgid "Who"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/highlights.php:17
 msgid "Why us"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:428
+msgid "Wide width"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:117
+msgid "WordPress"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:255
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:133
+msgid "Yes"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:326
+msgid "You are not allowed to change forms."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:46
 msgid "You are not allowed to change security settings."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/DesignScreen.php:616
+msgid "You are not allowed to change the design."
+msgstr ""
+
 #: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:42
 msgid "You are not allowed to change the home page."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LicenceScreen.php:174
+msgid "You are not allowed to change the licence."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:43
@@ -866,8 +1649,21 @@ msgstr ""
 msgid "You are not allowed to import content."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ContentScreen.php:297
+msgid "You are not allowed to import or export content."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/LeadScreen.php:286
+msgid "You are not allowed to manage enquiries."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:90
 msgid "Your CGPA, out of 4"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:278
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:292
+msgid "Your name"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:270
@@ -894,8 +1690,16 @@ msgstr ""
 msgid "a higher grade average"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/FormScreen.php:196
+msgid "days"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/archive.php:47
 msgid "selected to compare"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SystemScreen.php:170
+msgid "unknown"
 msgstr ""
 
 #: themes/edulume-theme/footer.php:42
