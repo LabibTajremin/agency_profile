@@ -6,10 +6,20 @@ namespace Edulume\Core\Infrastructure\Wp;
 
 use Edulume\Core\Infrastructure\Blocks\BlockRegistrar;
 use Edulume\Core\Infrastructure\Content\ContentRegistrar;
+use Edulume\Core\Infrastructure\Content\DestinationPage;
+use Edulume\Core\Infrastructure\Content\FoundersProvider;
+use Edulume\Core\Infrastructure\Content\SiteContent;
+use Edulume\Core\Infrastructure\Content\VideoRailProvider;
 use Edulume\Core\Infrastructure\Admin\AdminAssets;
 use Edulume\Core\Infrastructure\Admin\AdminMenu;
+use Edulume\Core\Infrastructure\Admin\DemoImportAjax;
+use Edulume\Core\Infrastructure\Admin\DemoImportScreen;
+use Edulume\Core\Infrastructure\Admin\SectionsScreen;
+use Edulume\Core\Infrastructure\Admin\ShieldScreen;
+use Edulume\Core\Infrastructure\Admin\VideoScreen;
 use Edulume\Core\Infrastructure\Demo\DemoCliCommand;
 use Edulume\Core\Infrastructure\Rest\RestHandlers;
+use Edulume\Core\Infrastructure\Security\LoginShield;
 use Edulume\Core\Infrastructure\Rest\RestRegistrar;
 use Edulume\Core\Infrastructure\Theming\SectionVisibility;
 use Edulume\Core\Infrastructure\Theming\StylesheetEnqueuer;
@@ -81,9 +91,21 @@ final class Plugin
 
         $this->stylesheetEnqueuer()->register();
         (new ContentRegistrar())->register();
+        (new SiteContent())->register();
+        (new VideoRailProvider())->register();
+        (new DestinationPage())->register();
+        (new FoundersProvider())->register();
         (new BlockRegistrar())->register();
         (new RestRegistrar(new RestHandlers($this->container)))->register();
-        (new AdminMenu())->register();
+        (new AdminMenu($this->container))->register();
+        (new DemoImportScreen($this->container))->register();
+        (new SectionsScreen($this->container))->register();
+        (new DemoImportAjax($this->container))->register();
+        (new VideoScreen())->register();
+
+        $shield = new LoginShield();
+        $shield->register();
+        (new ShieldScreen($shield))->register();
         (new AdminAssets($this->container, $this->container->adminTheme(), $this->version))->register();
         (new SectionVisibility($this->container))->register();
         DemoCliCommand::register($this->container);

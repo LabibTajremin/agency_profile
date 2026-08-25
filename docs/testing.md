@@ -27,6 +27,41 @@ run must never mean "did not run".
 | Public site      | Playwright                 | `tests/e2e/`                              | Templates render, forms submit, filters filter.      |
 | Visual           | Playwright snapshots       | `tests/visual/`                           | The accent × mode × template matrix holds.           |
 
+### Running the end-to-end suite
+
+`tests/e2e/` was a declared row in the table above with nothing in the directory. It now holds
+four specs, and they need a running site:
+
+```bash
+npm run env:start
+npx wp-env run cli wp plugin activate edulume-core
+npx wp-env run cli wp theme activate edulume-theme
+npx wp-env run cli wp edulume demo import boutique --mode=full
+npx wp-env run cli wp rewrite structure '/%postname%/' && npx wp-env run cli wp rewrite flush --hard
+npm run test:e2e
+```
+
+Point it somewhere else with `EDULUME_BASE_URL`. The admin specs sign in with `admin` /
+`password`, which is what `wp-env` creates; override with `WP_ADMIN_USER` and
+`WP_ADMIN_PASSWORD`.
+
+In CI these run inside the `site-audits` job rather than their own, because that job has already
+booted WordPress, activated both, imported the pack and flushed the rewrites. A second job would
+pay for all of that again to assert against the same site.
+
+What they cover, and why each one exists:
+
+| Spec                   | Proves                                                                         |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| `front-page.spec.ts`   | Sections render content, not empty scopes. The toggle switches and persists.   |
+| `destinations.spec.ts` | A country page uses its own template and is complete in the server's response. |
+| `video-rail.spec.ts`   | No iframe before activation; never more than two players alive.                |
+| `admin.spec.ts`        | Every screen explains itself; the import button exists; the shield is off.     |
+
+Every one of those is a wiring bug that shipped: a section that rendered nothing, a screen with
+no route behind it, a module bound to markup nobody emitted. None was catchable by a unit test
+of either side, because both sides were correct on their own.
+
 ## Rules
 
 - The test tree mirrors the source tree one to one.

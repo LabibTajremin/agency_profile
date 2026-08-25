@@ -28,4 +28,17 @@ interface SettingsRepository
     public function saveSectionOverride(string $sectionId, SectionOverride $override): void;
 
     public function deleteSectionOverride(string $sectionId): void;
+
+    /**
+     * The home page's section order as the owner arranged it, or an empty list when they
+     * never have.
+     *
+     * @return list<string>
+     */
+    public function loadSectionOrder(): array;
+
+    /**
+     * @param list<string> $order
+     */
+    public function saveSectionOrder(array $order): void;
 }

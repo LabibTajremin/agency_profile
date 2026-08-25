@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Edulume\Core\Infrastructure\Admin;
 
 use Edulume\Core\Domain\Admin\ScreenHelp;
+use Edulume\Core\Infrastructure\Security\LoginShield;
+use Edulume\Core\Infrastructure\Wp\Container;
 use Edulume\Core\Infrastructure\Wp\Capabilities;
 
 /**
@@ -21,6 +23,10 @@ final class AdminMenu
 {
     public const SLUG = 'edulume';
 
+    public function __construct(private readonly ?Container $container = null)
+    {
+    }
+
     /**
      * The pages, in sidebar order, each with the capability that opens it.
      *
@@ -31,6 +37,8 @@ final class AdminMenu
         return [
             'edulume' => ['title' => 'Dashboard', 'capability' => Capabilities::MANAGE_THEME],
             'edulume-design' => ['title' => 'Design', 'capability' => Capabilities::MANAGE_THEME],
+            'edulume-sections' => ['title' => 'Home sections', 'capability' => Capabilities::MANAGE_THEME],
+            'edulume-videos' => ['title' => 'Videos', 'capability' => Capabilities::MANAGE_THEME],
             'edulume-leads' => ['title' => 'Leads', 'capability' => Capabilities::MANAGE_LEADS],
             'edulume-forms' => ['title' => 'Forms', 'capability' => Capabilities::MANAGE_LEADS],
             'edulume-content' => ['title' => 'Content tools', 'capability' => Capabilities::MANAGE_CONTENT],
@@ -87,6 +95,32 @@ final class AdminMenu
 
         echo '<div class="wrap">';
         $this->renderHelp($route);
+
+        /*
+         * The starter-content screen renders server-side.
+         *
+         * Every other page mounts the admin application and lets it draw. This one cannot: it
+         * is the screen somebody opens on a brand-new site, so it has to work before the bundle
+         * has loaded and it has to work if the bundle never loads at all. It also had no REST
+         * route behind it, which is why the import button did not exist for anyone without a
+         * command line.
+         */
+        if ($route === 'edulume-demos' && $this->container instanceof Container) {
+            (new DemoImportScreen($this->container))->render();
+        }
+
+        if ($route === 'edulume-sections' && $this->container instanceof Container) {
+            (new SectionsScreen($this->container))->render();
+        }
+
+        if ($route === 'edulume-videos') {
+            (new VideoScreen())->render();
+        }
+
+        if ($route === 'edulume-safety') {
+            (new ShieldScreen(new LoginShield()))->render();
+        }
+
         printf('<div id="edulume-admin-root" data-edulume-route="%s"></div>', esc_attr($route));
         echo '</div>';
     }

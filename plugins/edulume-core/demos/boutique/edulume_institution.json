@@ -10,6 +10,9 @@
     "terms": {
       "edulume_destination": ["United Kingdom"]
     },
+    "relationships": {
+      "institution_destination": "United Kingdom"
+    },
     "image": "crest-university-of-glasgow.svg"
   },
   {
@@ -22,6 +25,9 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
+    },
+    "relationships": {
+      "institution_destination": "United Kingdom"
     },
     "image": "crest-university-of-leeds.svg"
   },
@@ -36,6 +42,9 @@
     "terms": {
       "edulume_destination": ["United Kingdom"]
     },
+    "relationships": {
+      "institution_destination": "United Kingdom"
+    },
     "image": "crest-queen-mary-university-of-london.svg"
   },
   {
@@ -48,6 +57,9 @@
     },
     "terms": {
       "edulume_destination": ["United Kingdom"]
+    },
+    "relationships": {
+      "institution_destination": "United Kingdom"
     },
     "image": "crest-university-of-birmingham.svg"
   },
@@ -62,6 +74,9 @@
     "terms": {
       "edulume_destination": ["United Kingdom"]
     },
+    "relationships": {
+      "institution_destination": "United Kingdom"
+    },
     "image": "crest-coventry-university.svg"
   },
   {
@@ -74,6 +89,9 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
+    },
+    "relationships": {
+      "institution_destination": "Canada"
     },
     "image": "crest-university-of-toronto.svg"
   },
@@ -88,6 +106,9 @@
     "terms": {
       "edulume_destination": ["Canada"]
     },
+    "relationships": {
+      "institution_destination": "Canada"
+    },
     "image": "crest-university-of-waterloo.svg"
   },
   {
@@ -100,6 +121,9 @@
     },
     "terms": {
       "edulume_destination": ["Canada"]
+    },
+    "relationships": {
+      "institution_destination": "Canada"
     },
     "image": "crest-dalhousie-university.svg"
   },
@@ -114,6 +138,9 @@
     "terms": {
       "edulume_destination": ["Canada"]
     },
+    "relationships": {
+      "institution_destination": "Canada"
+    },
     "image": "crest-university-of-manitoba.svg"
   },
   {
@@ -126,6 +153,9 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
+    },
+    "relationships": {
+      "institution_destination": "Australia"
     },
     "image": "crest-university-of-melbourne.svg"
   },
@@ -140,6 +170,9 @@
     "terms": {
       "edulume_destination": ["Australia"]
     },
+    "relationships": {
+      "institution_destination": "Australia"
+    },
     "image": "crest-monash-university.svg"
   },
   {
@@ -152,6 +185,9 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
+    },
+    "relationships": {
+      "institution_destination": "Australia"
     },
     "image": "crest-deakin-university.svg"
   },
@@ -166,6 +202,9 @@
     "terms": {
       "edulume_destination": ["Germany"]
     },
+    "relationships": {
+      "institution_destination": "Germany"
+    },
     "image": "crest-technical-university-of-munich.svg"
   },
   {
@@ -178,6 +217,9 @@
     },
     "terms": {
       "edulume_destination": ["Germany"]
+    },
+    "relationships": {
+      "institution_destination": "Germany"
     },
     "image": "crest-rwth-aachen-university.svg"
   },
@@ -192,6 +234,9 @@
     "terms": {
       "edulume_destination": ["United States"]
     },
+    "relationships": {
+      "institution_destination": "United States"
+    },
     "image": "crest-arizona-state-university.svg"
   },
   {
@@ -204,6 +249,9 @@
     },
     "terms": {
       "edulume_destination": ["United States"]
+    },
+    "relationships": {
+      "institution_destination": "United States"
     },
     "image": "crest-northeastern-university.svg"
   },
@@ -218,6 +266,9 @@
     "terms": {
       "edulume_destination": ["Malaysia"]
     },
+    "relationships": {
+      "institution_destination": "Malaysia"
+    },
     "image": "crest-university-of-nottingham-malaysia.svg"
   },
   {
@@ -230,6 +281,9 @@
     },
     "terms": {
       "edulume_destination": ["Malaysia"]
+    },
+    "relationships": {
+      "institution_destination": "Malaysia"
     },
     "image": "crest-monash-university-malaysia.svg"
   },
@@ -244,6 +298,9 @@
     "terms": {
       "edulume_destination": ["Republic of Ireland"]
     },
+    "relationships": {
+      "institution_destination": "Republic of Ireland"
+    },
     "image": "crest-university-college-dublin.svg"
   },
   {
@@ -256,6 +313,9 @@
     },
     "terms": {
       "edulume_destination": ["Republic of Ireland"]
+    },
+    "relationships": {
+      "institution_destination": "Republic of Ireland"
     },
     "image": "crest-trinity-college-dublin.svg"
   },
@@ -270,6 +330,9 @@
     "terms": {
       "edulume_destination": ["Japan"]
     },
+    "relationships": {
+      "institution_destination": "Japan"
+    },
     "image": "crest-university-of-tokyo.svg"
   },
   {
@@ -282,6 +345,9 @@
     },
     "terms": {
       "edulume_destination": ["Japan"]
+    },
+    "relationships": {
+      "institution_destination": "Japan"
     },
     "image": "crest-kyushu-university.svg"
   },
@@ -296,6 +362,9 @@
     "terms": {
       "edulume_destination": ["United Kingdom"]
     },
+    "relationships": {
+      "institution_destination": "United Kingdom"
+    },
     "image": "crest-university-of-sheffield.svg"
   },
   {
@@ -308,6 +377,9 @@
     },
     "terms": {
       "edulume_destination": ["Australia"]
+    },
+    "relationships": {
+      "institution_destination": "Australia"
     },
     "image": "crest-griffith-university.svg"
   }

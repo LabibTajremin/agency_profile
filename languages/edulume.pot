@@ -9,16 +9,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: edulume\n"
 
-#: themes/edulume-theme/inc/assets.php:216
+#: themes/edulume-theme/inc/assets.php:261
 msgid " and "
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:225
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:368
+msgid "%1$s has failed to sign in %2$d times and is now locked out."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/founder.php:143
+#: themes/edulume-theme/template-parts/home/team.php:62
+msgid "%1$s — %2$s"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/testimonials-demo.php:48
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:270
 msgid "%s results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:226
+#: themes/edulume-theme/inc/assets.php:233
+msgid "%s universities"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:271
 msgid "1 result"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:231
+msgid "1 university"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:85
@@ -33,15 +54,39 @@ msgstr ""
 msgid "Accept selected"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:120
+msgid "Add another video"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:214
+msgid "Addresses never locked out, one per line"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:185
 msgid "An estimate to plan with, not a quotation."
+msgstr ""
+
+#: themes/edulume-theme/single-edulume_destination.php:129
+msgid "Any"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/university.php:105
+msgid "Apply to %s"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:202
+msgid "Ask before loading videos from Facebook or YouTube"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:29
 msgid "Ask us a question"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:210
+#: themes/edulume-theme/page-templates/founders.php:164
+msgid "Book a consultation"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:255
 msgid "Borderline — worth a conversation."
 msgstr ""
 
@@ -49,11 +94,11 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:215
+#: themes/edulume-theme/inc/assets.php:260
 msgid "Bring your transcript and test report to your first session."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/hero.php:41
+#: themes/edulume-theme/template-parts/home/hero.php:105
 msgid "Browse courses"
 msgstr ""
 
@@ -61,7 +106,11 @@ msgstr ""
 msgid "Browse destinations"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:191
+#: themes/edulume-theme/template-parts/home/statistics.php:18
+msgid "By the numbers"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:236
 msgid "Carousel"
 msgstr ""
 
@@ -77,11 +126,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:316
-msgid "Colour mode"
-msgstr ""
-
-#: themes/edulume-theme/inc/chrome.php:469
+#: themes/edulume-theme/inc/chrome.php:464
 msgid "Compare"
 msgstr ""
 
@@ -101,10 +146,6 @@ msgstr ""
 msgid "Course length, in years"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:309
-msgid "Dark"
-msgstr ""
-
 #: themes/edulume-theme/template-parts/home/eligibility.php:65
 #: themes/edulume-theme/template-parts/home/eligibility.php:136
 msgid "Destination"
@@ -114,8 +155,20 @@ msgstr ""
 msgid "Dismiss this announcement"
 msgstr ""
 
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:56
-#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:57
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:95
+msgid "Done. Reloading…"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:123
+msgid "Double the lockout each time the same visitor comes back"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/founder.php:98
+msgid "Education"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:64
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminMenu.php:65
 msgid "Edulume"
 msgstr ""
 
@@ -123,14 +176,27 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:197
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:133
+msgid "Email me when someone is locked out"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:242
 msgid "Enter a valid email address."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/founder.php:120
+msgid "Experience"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:119
+msgid "Failures allowed"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/courses.php:15
 msgid "Featured courses"
 msgstr ""
 
+#: themes/edulume-theme/single-edulume_destination.php:140
 #: themes/edulume-theme/template-parts/content/finder.php:42
 msgid "Filter"
 msgstr ""
@@ -139,7 +205,7 @@ msgstr ""
 msgid "Filter results"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:223
+#: themes/edulume-theme/inc/assets.php:268
 msgid "Filtering…"
 msgstr ""
 
@@ -147,7 +213,7 @@ msgstr ""
 msgid "Find a course"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:206
+#: themes/edulume-theme/inc/assets.php:251
 msgid "Flights"
 msgstr ""
 
@@ -155,11 +221,11 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:65
+#: themes/edulume-theme/functions.php:66
 msgid "Footer column %d"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:45
+#: themes/edulume-theme/functions.php:46
 msgid "Footer menu"
 msgstr ""
 
@@ -167,19 +233,44 @@ msgstr ""
 msgid "Four questions. An honest answer, not a sales pitch."
 msgstr ""
 
+#: themes/edulume-theme/single-edulume_destination.php:87
+msgid "Free assessment"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/faq-demo.php:16
 #: themes/edulume-theme/template-parts/home/faq.php:18
 msgid "Frequently asked questions"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/blog.php:16
+msgid "From the blog"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:44
 msgid "Full name"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:130
+msgid "Give the same message for every failed sign-in"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:168
+msgid "Heading"
+msgstr ""
+
 #: themes/edulume-theme/404.php:30
 msgid "Home"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/services.php:15
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:53
+msgid "Home page updated."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/process.php:16
+msgid "How it works"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/services.php:13
 msgid "How we help"
 msgstr ""
 
@@ -187,28 +278,96 @@ msgstr ""
 msgid "I agree to be contacted about my enquiry."
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:169
+msgid "I have saved this address somewhere I can find it."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/eligibility.php:106
 msgid "IELTS overall, if you have sat it"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:165
+msgid "Import this pack"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:80
+msgid "Imported %1$s — %2$d items created."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:94
+msgid "Importing…"
+msgstr ""
+
+#: themes/edulume-theme/single-edulume_destination.php:121
+msgid "Intake month"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Content/DestinationPage.php:118
+msgid "Intake video"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/hero.php:17
 msgid "Introduction"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:215
+msgid "Invalid credentials."
+msgstr ""
+
 #: themes/edulume-theme/404.php:23
 msgid "It may have moved. Try a search, or pick up from one of these."
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:300
-msgid "Light"
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:131
+msgid "Leave this field empty"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:209
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:263
+msgid "Length"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:254
 msgid "Likely — your profile meets the published minimums."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:204
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:170
+msgid "Line under the heading"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:249
 msgid "Living costs"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:98
+msgid "Load this video from %s? It will set third-party cookies."
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:104
+msgid "Load video"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:108
+msgid "Load videos like this from now on"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:118
+msgid "Lock out repeated failures"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:120
+msgid "Lockout, in minutes"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:89
+msgid "Login settings saved."
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:36
+msgid "Milestones"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:115
+msgid "Move my login page"
 msgstr ""
 
 #: themes/edulume-theme/inc/consent.php:92
@@ -226,11 +385,11 @@ msgstr ""
 msgid "Newsletter"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:193
+#: themes/edulume-theme/inc/assets.php:238
 msgid "Next"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:227
+#: themes/edulume-theme/inc/assets.php:272
 msgid "No results"
 msgstr ""
 
@@ -244,6 +403,10 @@ msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:169
 msgid "No such lead."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Content/DestinationPage.php:134
+msgid "None"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:66
@@ -262,6 +425,10 @@ msgstr ""
 msgid "Nothing published here yet."
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/intakes.php:16
+msgid "Open intakes"
+msgstr ""
+
 #: themes/edulume-theme/inc/chrome.php:253
 msgid "Open menu"
 msgstr ""
@@ -270,23 +437,59 @@ msgstr ""
 msgid "Or book a consultation"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/team.php:16
+msgid "Our counsellors"
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:35
+msgid "Our goals"
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:34
+msgid "Our vision"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/universities.php:17
+msgid "Partner universities"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:56
 msgid "Phone"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:47
+msgid "Play video"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/video/card.php:44
+msgid "Play “%s”"
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/ContentController.php:83
 msgid "Please check the highlighted fields."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:198
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:97
+msgid "Please confirm you have saved your sign-in address."
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:243
 msgid "Please tick this to continue."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:130
+msgid "Position of %s"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:265
+msgid "Poster image ID"
 msgstr ""
 
 #: themes/edulume-theme/index.php:41
 msgid "Posts navigation"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:192
+#: themes/edulume-theme/inc/assets.php:237
 msgid "Previous"
 msgstr ""
 
@@ -294,7 +497,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:44
+#: themes/edulume-theme/functions.php:45
 msgid "Primary menu"
 msgstr ""
 
@@ -306,6 +509,22 @@ msgstr ""
 msgid "Related"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:267
+msgid "Remove"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:199
+msgid "Remove imported content"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:98
+msgid "Removed %d imported item(s)."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:365
+msgid "Repeated failed logins on your site"
+msgstr ""
+
 #: themes/edulume-theme/search.php:22
 msgid "Results for %s"
 msgstr ""
@@ -315,15 +534,33 @@ msgstr ""
 msgid "Results navigation"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:219
+#: themes/edulume-theme/inc/assets.php:264
 msgid "Reveal the after image"
 msgstr ""
 
-#: themes/edulume-theme/inc/chrome.php:460
+#: themes/edulume-theme/inc/chrome.php:455
 msgid "Save"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:99
+msgid "Save home page"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:145
+msgid "Save login settings"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:121
+msgid "Save videos"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/scholarships.php:15
+msgid "Scholarships"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/finder.php:36
+#: themes/edulume-theme/template-parts/home/hero.php:79
+#: themes/edulume-theme/template-parts/home/hero.php:81
 msgid "Search"
 msgstr ""
 
@@ -331,7 +568,15 @@ msgstr ""
 msgid "Search by name or keyword"
 msgstr ""
 
-#: themes/edulume-theme/inc/sections.php:69
+#: themes/edulume-theme/template-parts/home/hero.php:72
+msgid "Search the site"
+msgstr ""
+
+#: themes/edulume-theme/single-edulume_destination.php:108
+msgid "Search universities"
+msgstr ""
+
+#: themes/edulume-theme/inc/sections.php:123
 msgid "See all"
 msgstr ""
 
@@ -343,8 +588,16 @@ msgstr ""
 msgid "Send us your question"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:199
+#: themes/edulume-theme/inc/assets.php:244
 msgid "Sending…"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:167
+msgid "Show the video row on the front page"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:179
+msgid "Sign-in address"
 msgstr ""
 
 #: themes/edulume-theme/inc/chrome.php:264
@@ -355,12 +608,28 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:262
+msgid "Something on this site already uses that address. Pick another."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:72
 msgid "Somewhere else"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/content/finder.php:73
 msgid "Sort by"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/founder.php:92
+msgid "Speaks"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/content/founder.php:86
+msgid "Specialises in"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:193
+msgid "Start playing when the row scrolls into view"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/footer/centred.php:19
@@ -370,7 +639,7 @@ msgstr ""
 msgid "Stay in touch"
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/destinations.php:15
+#: themes/edulume-theme/template-parts/home/destinations.php:13
 msgid "Study destinations"
 msgstr ""
 
@@ -378,17 +647,41 @@ msgstr ""
 msgid "Success stories"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:127
+msgid "Switch off XML-RPC"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:314
+msgid "Switch to dark mode"
+msgstr ""
+
+#: themes/edulume-theme/inc/chrome.php:315
+msgid "Switch to light mode"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/home/cta.php:13
-#: themes/edulume-theme/template-parts/home/hero.php:51
+#: themes/edulume-theme/template-parts/home/hero.php:118
 msgid "Talk to a counsellor"
+msgstr ""
+
+#: themes/edulume-theme/page-templates/founders.php:37
+msgid "Talk to us"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/cta.php:26
 msgid "Tell us where you want to study and we will tell you, honestly, what is realistic."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:200
+#: themes/edulume-theme/inc/assets.php:245
 msgid "Thank you. We will be in touch shortly."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:261
+msgid "That address is one WordPress uses itself. Pick another."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/AdminAssets.php:96
+msgid "That did not finish. Try again."
 msgstr ""
 
 #: plugins/edulume-core/src/Infrastructure/Rest/LeadController.php:69
@@ -400,15 +693,60 @@ msgstr ""
 msgid "That section does not exist."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:196
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportAjax.php:62
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:52
+msgid "That starter pack does not exist."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:236
+msgid "The Edulume login shield does not run on a multisite network, so it is switched off here."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:258
+msgid "The sign-in address cannot be empty."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:260
+msgid "The sign-in address is too long — use fifty characters or fewer."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:259
+msgid "The sign-in address is too short — use at least three characters."
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:241
 msgid "This field is required."
+msgstr ""
+
+#: themes/edulume-theme/single-edulume_destination.php:73
+msgid "This intake"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:135
+msgid "This pack has no content yet."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:136
+msgid "This site sits behind Cloudflare or another proxy"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:261
+msgid "Title"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Security/LoginShield.php:158
+msgid "Too many attempts. Try again later."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:126
+msgid "Trap automated sign-in attempts"
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/trust-bar.php:16
 msgid "Trusted by"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:203
+#: themes/edulume-theme/inc/assets.php:248
 msgid "Tuition"
 msgstr ""
 
@@ -416,11 +754,15 @@ msgstr ""
 msgid "Tuition, living, visa and flights for the whole course."
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:211
+#: themes/edulume-theme/single-edulume_destination.php:95
+msgid "University listings for this country are on their way."
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:256
 msgid "Unlikely as things stand."
 msgstr ""
 
-#: themes/edulume-theme/template-parts/home/events.php:15
+#: themes/edulume-theme/template-parts/home/events.php:13
 msgid "Upcoming events"
 msgstr ""
 
@@ -428,15 +770,37 @@ msgstr ""
 msgid "Useful links"
 msgstr ""
 
-#: themes/edulume-theme/functions.php:46
+#: themes/edulume-theme/functions.php:47
 msgid "Utility bar"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:220
+#: themes/edulume-theme/inc/assets.php:228
+#: themes/edulume-theme/inc/assets.php:265
 msgid "Video"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:205
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:258
+msgid "Video address"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:175
+msgid "Video shape"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/video-rail.php:19
+#: themes/edulume-theme/template-parts/video/rail.php:42
+msgid "Videos"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:88
+msgid "Videos saved, but rows %s were not recognised and have been left out."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:85
+msgid "Videos saved."
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:250
 msgid "Visa and health surcharge"
 msgstr ""
 
@@ -460,11 +824,12 @@ msgstr ""
 msgid "What it will cost"
 msgstr ""
 
+#: themes/edulume-theme/template-parts/home/testimonials-demo.php:17
 #: themes/edulume-theme/template-parts/home/testimonials.php:17
 msgid "What students say"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:214
+#: themes/edulume-theme/inc/assets.php:259
 msgid "What would change this: "
 msgstr ""
 
@@ -472,23 +837,60 @@ msgstr ""
 msgid "Where do you want to study?"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:230
+msgid "Where the video is hosted"
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:79
 msgid "Which country?"
+msgstr ""
+
+#: themes/edulume-theme/template-parts/home/highlights.php:17
+msgid "Why us"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:46
+msgid "You are not allowed to change security settings."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/SectionsScreen.php:42
+msgid "You are not allowed to change the home page."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/VideoScreen.php:43
+msgid "You are not allowed to change the videos."
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportAjax.php:51
+#: plugins/edulume-core/src/Infrastructure/Admin/DemoImportScreen.php:228
+msgid "You are not allowed to import content."
 msgstr ""
 
 #: themes/edulume-theme/template-parts/home/eligibility.php:90
 msgid "Your CGPA, out of 4"
 msgstr ""
 
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:270
+msgid "Your new sign-in address"
+msgstr ""
+
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:216
+msgid "Your own office address belongs here."
+msgstr ""
+
 #: themes/edulume-theme/template-parts/content/enquiry-form.php:85
 msgid "Your question"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:213
+#: plugins/edulume-core/src/Infrastructure/Admin/ShieldScreen.php:167
+msgid "Your sign-in page will be:"
+msgstr ""
+
+#: themes/edulume-theme/inc/assets.php:258
 msgid "a higher English score"
 msgstr ""
 
-#: themes/edulume-theme/inc/assets.php:212
+#: themes/edulume-theme/inc/assets.php:257
 msgid "a higher grade average"
 msgstr ""
 

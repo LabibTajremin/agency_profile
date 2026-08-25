@@ -35,6 +35,15 @@ enum SectionId: string
     case Faq = 'faq';
     case Cta = 'cta';
 
+    /*
+     * The sections the feature round adds. `universities`, `process` and `intakes` had no
+     * identity anywhere; `video-rail` is the promo row.
+     */
+    case Universities = 'universities';
+    case Process = 'process';
+    case Intakes = 'intakes';
+    case VideoRail = 'video-rail';
+
     /**
      * The header and the footer cannot be switched off.
      *
@@ -87,6 +96,10 @@ enum SectionId: string
         'success-stories' => 'Success stories',
         'faq' => 'FAQ',
         'cta' => 'Closing call to action',
+        'universities' => 'Partner universities',
+        'process' => 'How it works',
+        'intakes' => 'Open intakes',
+        'video-rail' => 'Video rail',
     ];
 
     /**
@@ -102,13 +115,22 @@ enum SectionId: string
         return [
             self::Hero,
             self::TrustBar,
+            self::Statistics,
             self::Services,
+            self::VideoRail,
             self::Destinations,
+            self::Universities,
+            self::Highlights,
+            self::Process,
             self::Courses,
+            self::Intakes,
             self::Eligibility,
+            self::Scholarships,
             self::SuccessStories,
+            self::Team,
             self::Events,
             self::Testimonials,
+            self::Blog,
             self::Faq,
             self::Cta,
         ];

@@ -1,0 +1,264 @@
+/*
+ * The video rail.
+ *
+ * Its own file rather than more of chrome.css: it is loaded only on pages that actually contain
+ * a rail, and a stylesheet that ships on every page for a component most pages do not have is
+ * the cost this theme's asset rules exist to avoid.
+ *
+ * Every card reserves its height from `--edulume-video-aspect` before anything loads, so the
+ * rail contributes nothing to cumulative layout shift whether or not the posters arrive.
+ */
+
+.edulume-video-rail {
+  --edulume-video-aspect: 9 / 16;
+  --edulume-video-card-width: clamp(240px, 78vw, 320px);
+}
+
+.edulume-video-rail__header {
+  margin-block-end: var(--edulume-space-4, 1rem);
+}
+
+.edulume-video-rail__title {
+  margin: 0;
+}
+
+.edulume-video-rail__subtitle {
+  margin-block: var(--edulume-space-2, 0.5rem) 0;
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+.edulume-video-rail__viewport {
+  position: relative;
+}
+
+/*
+ * The scrollbar is hidden and the element stays scrollable. `overflow: hidden` with arrow
+ * buttons is the version of this that cannot be operated by a trackpad, a touch gesture or a
+ * keyboard, and it is the version most themes ship.
+ */
+.edulume-video-rail__track {
+  padding-block-end: var(--edulume-space-2, 0.5rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+/* The list inside the scroller. Two elements, because the scroller carries role="region" and
+   that would otherwise replace this element's implicit list role. */
+.edulume-video-rail__list {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edulume-video-rail__track::-webkit-scrollbar {
+  display: none;
+}
+
+.edulume-video-rail__track:focus-visible {
+  outline: 3px solid var(--edulume-focus-ring, #365e92);
+  outline-offset: 4px;
+}
+
+.edulume-video-card {
+  flex: 0 0 var(--edulume-video-card-width);
+  scroll-snap-align: center;
+}
+
+/* A 16:9 rail wants wider cards; nothing else about the component changes. */
+.edulume-video-rail[style*='16 / 9'] {
+  --edulume-video-card-width: clamp(280px, 88vw, 480px);
+}
+
+.edulume-video-card__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: var(--edulume-video-aspect);
+  overflow: hidden;
+  border-radius: var(--edulume-radius-2, 10px);
+  background-color: var(--edulume-surface-subtle, #f1f2f4);
+}
+
+.edulume-video-card__poster,
+.edulume-video-card__player {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+/*
+ * The no-poster case: a solid accent panel with the title across it, because a grey rectangle
+ * is indistinguishable from a card that failed to load.
+ *
+ * Solid, not a gradient. It used to fade from the accent to `--edulume-surface-subtle`, and
+ * the title is bottom-aligned — so the text sat exactly where the gradient was palest, which
+ * on a light palette is white on near-white. Accent against on-accent is the one pair the
+ * palette generator proves for contrast in both modes, so that is the pair this uses.
+ */
+.edulume-video-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  padding: var(--edulume-space-4, 1rem);
+  background-color: var(--edulume-accent, #123a6b);
+  color: var(--edulume-on-accent, #ffffff);
+}
+
+.edulume-video-card__placeholder-title {
+  font-family: var(--edulume-font-heading, inherit);
+  font-size: var(--edulume-font-size-2, 1.25rem);
+}
+
+.edulume-video-card__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.edulume-video-card__glyph {
+  inline-size: 56px;
+  block-size: 56px;
+  border-radius: var(--edulume-radius-full, 999px);
+  background-color: var(--edulume-on-accent, #ffffff);
+  /* A triangle, drawn with a clip path so there is no icon file and no font to wait for. */
+  box-shadow: var(--edulume-shadow-2, 0 6px 24px rgb(0 0 0 / 25%));
+  clip-path: circle(50%);
+  position: relative;
+}
+
+.edulume-video-card__glyph::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 54%;
+  inline-size: 0;
+  block-size: 0;
+  transform: translate(-50%, -50%);
+  border-block-start: 12px solid transparent;
+  border-block-end: 12px solid transparent;
+  border-inline-start: 18px solid var(--edulume-accent, #123a6b);
+}
+
+.edulume-video-card__play:focus-visible {
+  outline: 3px solid var(--edulume-focus-ring, #365e92);
+  outline-offset: -3px;
+}
+
+/* Once a player is live the facade button steps out of the way. */
+[data-edulume-video-live] .edulume-video-card__play,
+[data-edulume-video-live] .edulume-video-card__poster,
+[data-edulume-video-live] .edulume-video-card__placeholder {
+  display: none;
+}
+
+.edulume-video-card__duration {
+  position: absolute;
+  inset-block-end: var(--edulume-space-2, 0.5rem);
+  inset-inline-end: var(--edulume-space-2, 0.5rem);
+  padding-block: 2px;
+  padding-inline: var(--edulume-space-2, 0.5rem);
+  border-radius: var(--edulume-radius, 6px);
+  background-color: var(--edulume-ink, #16181d);
+  color: var(--edulume-surface, #fbfbfc);
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+.edulume-video-card__title {
+  margin-block: var(--edulume-space-2, 0.5rem) 0;
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+}
+
+/* The consent gate is only drawn once the visitor has asked for the video. */
+.edulume-video-card__consent {
+  position: absolute;
+  inset: 0;
+  display: none;
+  place-content: center;
+  gap: var(--edulume-space-3, 0.75rem);
+  padding: var(--edulume-space-4, 1rem);
+  background-color: var(--edulume-surface, #fbfbfc);
+  color: var(--edulume-ink, #16181d);
+  text-align: center;
+}
+
+[data-edulume-video-asking] .edulume-video-card__consent {
+  display: grid;
+}
+
+.edulume-video-card__consent-all {
+  font-size: var(--edulume-font-size-n1, 0.875rem);
+  color: var(--edulume-ink-muted, #4a4f58);
+}
+
+/* Arrows: wide screens only, and never the only way to move the rail. */
+.edulume-video-rail__arrow {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .edulume-video-rail__arrow {
+    position: absolute;
+    inset-block-start: 50%;
+    display: grid;
+    place-items: center;
+    inline-size: 40px;
+    block-size: 40px;
+    transform: translateY(-50%);
+    border: var(--edulume-border-width, 1px) solid var(--edulume-border, #d8dade);
+    border-radius: var(--edulume-radius-full, 999px);
+    background-color: var(--edulume-surface, #fbfbfc);
+    color: var(--edulume-ink, #16181d);
+    cursor: pointer;
+  }
+
+  .edulume-video-rail__arrow--previous {
+    inset-inline-start: calc(var(--edulume-space-4, 1rem) * -1);
+  }
+
+  .edulume-video-rail__arrow--next {
+    inset-inline-end: calc(var(--edulume-space-4, 1rem) * -1);
+  }
+
+  /* A chevron, rotated per side. Two borders and a transform, no image. */
+  .edulume-video-rail__arrow::before {
+    content: '';
+    inline-size: 9px;
+    block-size: 9px;
+    border-block-start: 2px solid currentColor;
+    border-inline-end: 2px solid currentColor;
+    transform: rotate(45deg);
+    margin-inline-end: 3px;
+  }
+
+  .edulume-video-rail__arrow--previous::before {
+    transform: rotate(225deg);
+    margin-inline: 3px 0;
+  }
+}
+
+/* The single intake video: one card, full width of its column, no snapping. */
+.edulume-video-rail--single .edulume-video-rail__track {
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+.edulume-video-rail--single .edulume-video-rail__list {
+  display: block;
+}
+
+.edulume-video-rail--single .edulume-video-card {
+  flex: 1 1 100%;
+}

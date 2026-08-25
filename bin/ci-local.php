@@ -62,17 +62,31 @@ function steps(): array
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Security audit', 'command' => 'composer audit:security', 'job' => 'php-quality',
             'needsDocker' => false, 'slow' => false],
+        /*
+         * Not a Docker step, whatever this list used to claim.
+         *
+         * It was marked `needsDocker` and so was skipped in every local run, which is how
+         * seventeen WPCS errors reached CI in one push. WPCS is a Composer package: it needs
+         * installing, not a daemon. `needsStandard` skips it only when the standard is genuinely
+         * absent, and says which command installs it — a skip that tells you how to stop
+         * skipping is worth having; one that lies about why is not.
+         */
         ['name' => 'WPCS security ruleset', 'command' => 'vendor/bin/phpcs --standard=phpcs-security.xml.dist',
-            'job' => 'wordpress-standards', 'needsDocker' => true, 'slow' => true],
+            'job' => 'wordpress-standards', 'needsDocker' => false, 'slow' => false,
+            'needsStandard' => 'WordPress'],
         ['name' => 'Plugin Check', 'command' => 'npx wp-env run cli wp plugin check edulume-core --severity=5',
             'job' => 'wordpress-standards', 'needsDocker' => true, 'slow' => true],
         ['name' => 'PHP unit tests', 'command' => 'composer test:unit', 'job' => 'php-unit',
             'needsDocker' => false, 'slow' => false],
         ['name' => 'Coverage + gate', 'command' => 'composer test:coverage && composer coverage:gate',
             'job' => 'php-coverage', 'needsDocker' => false, 'slow' => true],
+        // axe before Lighthouse, matching the workflow: axe names the rule and the measured
+        // contrast ratio, Lighthouse only reports a category score that named nothing.
+        ['name' => 'axe sweep (every template, both modes)', 'command' => 'node tools/axe/run.mjs',
+            'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
         ['name' => 'Lighthouse budget', 'command' => 'npx --yes @lhci/cli@0.13.x autorun --config=lighthouserc.json',
             'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
-        ['name' => 'axe sweep (every template, both modes)', 'command' => 'node tools/axe/run.mjs',
+        ['name' => 'End-to-end journeys', 'command' => 'npm run test:e2e',
             'job' => 'site-audits', 'needsDocker' => true, 'slow' => true],
         ['name' => 'JS lint and format', 'command' => 'npm run lint', 'job' => 'js-quality',
             'needsDocker' => false, 'slow' => false],
@@ -83,6 +97,20 @@ function steps(): array
         ['name' => 'WordPress integration tests', 'command' => 'npx wp-env start && composer test:integration',
             'job' => 'php-integration', 'needsDocker' => true, 'slow' => true],
     ];
+}
+
+/**
+ * Whether PHPCS can see a given coding standard.
+ *
+ * Asked of PHPCS itself rather than by looking for a directory: the standard can be installed
+ * anywhere on `installed_paths`, and a vendor folder can exist while being empty, which is
+ * exactly the state this repository was in.
+ */
+function phpcsStandardIsInstalled(string $standard): bool
+{
+    exec('vendor/bin/phpcs -i 2>/dev/null', $output, $status);
+
+    return $status === 0 && str_contains(implode(' ', $output), $standard);
 }
 
 function dockerIsRunning(): bool
@@ -119,6 +147,17 @@ $failed = [];
 $skipped = [];
 
 foreach (steps() as $step) {
+    if (isset($step['needsStandard']) && !phpcsStandardIsInstalled((string) $step['needsStandard'])) {
+        $skipped[] = sprintf(
+            '%s — the %s standard is not installed here; run: composer require --dev '
+            . 'wp-coding-standards/wpcs dealerdirect/phpcodesniffer-composer-installer',
+            $step['name'],
+            $step['needsStandard']
+        );
+
+        continue;
+    }
+
     if ($step['needsDocker'] && !$hasDocker) {
         $skipped[] = sprintf(
             '%s — no Docker daemon; this runs in the %s CI job',

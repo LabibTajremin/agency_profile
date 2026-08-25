@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Edulume\Core\Tests\Unit\Demo;
 
+use Edulume\Core\Domain\Content\ContentModel;
 use Edulume\Core\Domain\Demo\DemoLibrary;
 use Edulume\Core\Domain\Security\SvgSanitiser;
 use Edulume\Core\Infrastructure\Demo\WpDemoStore;
@@ -235,6 +236,93 @@ final class DemoPayloadTest extends TestCase
         sort($onDisk);
 
         self::assertSame($onDisk, $recorded, 'every bundled image must have a licence recorded');
+    }
+
+    /**
+     * A relationship declared in a pack has to name a real relationship, in the right direction,
+     * pointing at an item the same pack ships.
+     *
+     * The institutions used to attach themselves to a country through `terms.edulume_destination`
+     * — a taxonomy the content model never registers. `wp_set_object_terms` returns an error for
+     * an unknown taxonomy and the importer moves on, so the import reported success and every
+     * country page on the demo site read "University listings for this country are on their way"
+     * with twenty-four universities sitting in the database.
+     */
+    #[Test]
+    public function every_declared_relationship_points_at_something_the_pack_ships(): void
+    {
+        $demo = DemoLibrary::find('boutique');
+        self::assertNotNull($demo);
+
+        $store = new WpDemoStore();
+        $definitions = [];
+
+        foreach (ContentModel::relationships() as $relationship) {
+            $definitions[$relationship->key] = $relationship;
+        }
+
+        $titles = [];
+
+        foreach (array_keys($demo->itemCounts) as $postType) {
+            $titles[$postType] = array_map(
+                static fn (array $row): string => (string) ($row['title'] ?? ''),
+                $store->itemsFor($demo, $postType),
+            );
+        }
+
+        $declared = 0;
+
+        foreach (array_keys($demo->itemCounts) as $postType) {
+            foreach ($store->itemsFor($demo, $postType) as $index => $row) {
+                foreach (is_array($row['relationships'] ?? null) ? $row['relationships'] : [] as $key => $value) {
+                    $where = sprintf('%s[%d].%s', $postType, $index, (string) $key);
+
+                    self::assertArrayHasKey((string) $key, $definitions, $where . ' is not a relationship');
+
+                    $definition = $definitions[(string) $key];
+
+                    self::assertSame($postType, $definition->fromPostTypeKey, $where . ' runs the other way');
+
+                    foreach (is_array($value) ? $value : [$value] as $title) {
+                        $declared++;
+
+                        self::assertContains(
+                            $title,
+                            $titles[$definition->toPostTypeKey] ?? [],
+                            $where . ' names "' . (string) $title . '", which the pack does not ship',
+                        );
+                    }
+                }
+            }
+        }
+
+        self::assertGreaterThan(0, $declared, 'the pack wires nothing together');
+    }
+
+    /**
+     * The country page needs a list before it can offer to filter one.
+     */
+    #[Test]
+    public function at_least_one_country_has_several_institutions_attached_to_it(): void
+    {
+        $demo = DemoLibrary::find('boutique');
+        self::assertNotNull($demo);
+
+        $store = new WpDemoStore();
+        $perCountry = [];
+
+        foreach ($store->itemsFor($demo, ContentModel::postTypeKey('institution')) as $row) {
+            $country = is_array($row['relationships'] ?? null)
+                ? (string) ($row['relationships']['institution_destination'] ?? '')
+                : '';
+
+            if ($country !== '') {
+                $perCountry[$country] = ($perCountry[$country] ?? 0) + 1;
+            }
+        }
+
+        self::assertNotSame([], $perCountry, 'no institution is attached to a country');
+        self::assertGreaterThan(1, max($perCountry), 'no country lists more than one institution');
     }
 
     #[Test]

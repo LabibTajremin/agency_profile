@@ -76,6 +76,80 @@ function plugin_basename(string $file): string
 {
 }
 
+function plugins_url(string $path = '', string $plugin = ''): string
+{
+}
+
+function esc_textarea(string $text): string
+{
+}
+
+function esc_url_raw(string $url): string
+{
+}
+
+/**
+ * @return mixed
+ */
+function get_post_meta(int $postId, string $key = '', bool $single = false)
+{
+}
+
+/**
+ * @param string|array{0: int, 1: int} $size
+ * @return string|false
+ */
+function wp_get_attachment_image_url(int $attachmentId, $size = 'thumbnail', bool $icon = false)
+{
+}
+
+function sanitize_textarea_field(string $value): string
+{
+}
+
+function is_multisite(): bool
+{
+}
+
+function is_user_logged_in(): bool
+{
+}
+
+function status_header(int $code, string $description = ''): void
+{
+}
+
+function nocache_headers(): void
+{
+}
+
+function get_404_template(): string
+{
+}
+
+/**
+ * @return string|array<string, mixed>|int|null
+ */
+function wp_parse_url(string $url, int $component = -1)
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ * @return array<string, object>
+ */
+function get_post_types(array $args = [], string $output = 'names', string $operator = 'and'): array
+{
+}
+
+/**
+ * @param array<string, mixed> $args
+ * @return array<string, object>
+ */
+function get_taxonomies(array $args = [], string $output = 'names', string $operator = 'and'): array
+{
+}
+
 function flush_rewrite_rules(bool $hard = true): void
 {
 }
@@ -99,6 +173,10 @@ function wp_delete_file(string $file): void
  * @param list<string> $deps
  * @param string|bool|null $ver
  */
+function wp_enqueue_script(string $handle, string $src = '', array $deps = [], $ver = false, bool $inFooter = false): bool
+{
+}
+
 function wp_enqueue_style(string $handle, string $src = '', array $deps = [], $ver = false, string $media = 'all'): bool
 {
 }
@@ -441,6 +519,15 @@ function update_post_meta(int $postId, string $key, $value)
 }
 
 /**
+ * @param mixed $value
+ *
+ * @return int|false
+ */
+function add_post_meta(int $postId, string $key, $value, bool $unique = false)
+{
+}
+
+/**
  * @param list<string>|string $terms
  *
  * @return array<int, int>|WP_Error
@@ -534,6 +621,41 @@ function set_transient(string $transient, $value, int $expiration = 0): bool
  * @return mixed
  */
 function get_transient(string $transient)
+{
+}
+
+/**
+ * @param mixed $data
+ */
+function wp_send_json_error($data = null, int $statusCode = 0): void
+{
+}
+
+/**
+ * @param mixed $data
+ */
+function wp_send_json_success($data = null, int $statusCode = 0): void
+{
+}
+
+/**
+ * @param int|string $action
+ */
+function check_ajax_referer($action = -1, $queryArg = false, bool $stopOnFail = true): bool
+{
+}
+
+/**
+ * @param int|string $action
+ */
+function wp_create_nonce($action = -1): string
+{
+}
+
+/**
+ * @param array<string, mixed> $l10n
+ */
+function wp_localize_script(string $handle, string $objectName, array $l10n): bool
 {
 }
 
@@ -701,10 +823,18 @@ class WP_Post
     public string $post_title;
 
     public string $post_type;
+
+    public string $post_content;
+
+    public string $post_excerpt;
 }
 
 class WP_Query
 {
+    public function set_404(): void
+    {
+    }
+
     /** @var array<int, mixed> */
     public array $posts;
 
@@ -943,6 +1073,8 @@ function wp_add_inline_style(string $handle, string $data): bool
 
 class WP_Screen
 {
+    public string $id = '';
+
     /**
      * @param array<string, mixed> $args
      */
@@ -955,5 +1087,74 @@ class WP_Screen
  * @return \WP_Screen|null
  */
 function get_current_screen()
+{
+}
+
+/**
+ * Admin-post and redirect helpers, used by the starter-content screen.
+ */
+function admin_url(string $path = '', string $scheme = 'admin'): string
+{
+}
+
+/**
+ * @param array<string, mixed>|string $args
+ */
+function add_query_arg($args, string $url = ''): string
+{
+}
+
+function wp_safe_redirect(string $location, int $status = 302, string $xRedirectBy = 'WordPress'): bool
+{
+}
+
+/**
+ * @param int|string $action
+ *
+ * @return int|false
+ */
+function check_admin_referer($action = -1, string $queryArg = '_wpnonce')
+{
+}
+
+/**
+ * @return string|void
+ */
+function wp_nonce_field(
+    string $action = '-1',
+    string $name = '_wpnonce',
+    bool $referer = true,
+    bool $display = true
+) {
+}
+
+/**
+ * @param string|\WP_Error $message
+ * @param string|int $title
+ * @param array<string, mixed>|int|string $args
+ */
+function wp_die($message = '', $title = '', $args = []): void
+{
+}
+
+function sanitize_text_field(string $str): string
+{
+}
+
+function _n(string $single, string $plural, int $number, string $domain = 'default'): string
+{
+}
+
+function rawurlencode(string $str): string
+{
+}
+
+/**
+ * @param mixed $value
+ * @param callable $callback
+ *
+ * @return mixed
+ */
+function map_deep($value, $callback)
 {
 }
